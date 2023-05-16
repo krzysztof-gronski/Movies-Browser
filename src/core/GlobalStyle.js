@@ -10,9 +10,8 @@ export const GlobalStyle = createGlobalStyle`
   }
 
   body {
-    font-family: "Inter", sans-serif;
+    font-family: "Poppins", sans-serif;
     font-size: 18px;
     margin: 0 auto;
-    padding-bottom: 108px;
   }
 `;

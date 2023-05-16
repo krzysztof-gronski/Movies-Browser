@@ -1,6 +1,8 @@
+import { MainContainer } from "../../common/MainContainer";
+import { Tile } from "../../common/Tile";
 
 export const MoviesList = () => {
   return (
-    <p>Tile</p>
-  )
-}
+    <MainContainer content={<><Tile /><Tile/><Tile /><Tile /><Tile/><Tile /><Tile /><Tile/></>}/>
+  );
+};
