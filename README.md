@@ -1,5 +1,5 @@
 ## MOVIES BROWSER - UNDER CONSTRUCTION
-### Demo2
+### Demo
 https://krzysztof-gronski.github.io/Movies-Browser/
 ## Available Scripts
 
