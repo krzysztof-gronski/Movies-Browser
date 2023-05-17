@@ -1,23 +1,26 @@
+import { nanoid } from "@reduxjs/toolkit";
+
 import {
   Poster,
   TileContainer,
   TileTitle,
   TileContent,
-  TileYear,
+  TileSubtitle,
   TileGenres,
-  TileGenre
+  TileGenre,
 } from "./styled";
 
-export const Tile = ({ poster }) => {
+export const Tile = ({ poster, tileTitle, tileSubtitle, genres }) => {
   return (
     <TileContainer>
       <Poster src={poster} alt="poster" />
       <TileContent>
-        <TileTitle>Mulan</TileTitle>
-        <TileYear>2020</TileYear>
+        <TileTitle>{tileTitle}</TileTitle>
+        <TileSubtitle>{tileSubtitle}</TileSubtitle>
         <TileGenres>
-          <TileGenre>Action</TileGenre>
-          <TileGenre>Adventure</TileGenre>
+          {genres.map((genre) => (
+            <TileGenre key={nanoid()}>{genre}</TileGenre>
+          ))}
         </TileGenres>
       </TileContent>
     </TileContainer>

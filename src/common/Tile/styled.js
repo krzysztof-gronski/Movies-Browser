@@ -14,11 +14,18 @@ export const TileContainer = styled.div`
   box-shadow: 0px 4px 12px rgba(186, 199, 213, 0.5);
   border-radius: 5px;
   //margin: 2px 2px;
+  transition: transform 0.3s linear;
+
+  &:hover {
+    cursor: pointer;
+    transform: scale(1.02);
+  }
 `;
 
 export const Poster = styled.img`
   width: 292px;
   height: 434px;
+  margin-left: -1px;
 `;
 
 export const TileContent = styled.div`
@@ -34,7 +41,7 @@ export const TileTitle = styled.header`
   line-height: 1.3;
 `;
 
-export const TileYear = styled.div`
+export const TileSubtitle = styled.div`
   font-weight: 400;
   font-size: 16px;
   color: ${({ theme }) => theme.colors.waterloo};

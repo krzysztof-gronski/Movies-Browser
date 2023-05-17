@@ -1,9 +1,21 @@
-import { Container, TilesContainer } from "./styled"
+import { Container, TilesContainer, Header } from "./styled";
+import { Tile } from "../Tile";
+import { sampleTiles } from "./sampleTiles";
 
-export const MainContainer = ({content}) => {
+export const MainContainer = () => {
   return (
-<Container>
-    <TilesContainer>{content}</TilesContainer>
-</Container>
-  )
-}
+    <Container>
+      <Header>Popular movies</Header>
+      <TilesContainer>
+        {sampleTiles.map((tile) => (
+          <Tile
+            poster={tile.poster}
+            tileTitle={tile.tileTitle}
+            tileSubtitle={tile.tileSubtitle}
+            genres={tile.genres}
+          ></Tile>
+        ))}
+      </TilesContainer>
+    </Container>
+  );
+};
