@@ -13,6 +13,7 @@ export const TileContainer = styled.div`
   padding: 16px;
   box-shadow: 0px 4px 12px rgba(186, 199, 213, 0.5);
   border-radius: 5px;
+  //margin: 2px 2px;
 `;
 
 export const Poster = styled.img`
