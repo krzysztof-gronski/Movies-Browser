@@ -15,6 +15,7 @@ export const MainContainer = () => {
             genres={tile.genres}
             rate={tile.rate}
             votesNr={tile.votesNr}
+            key={tile.id}
           ></Tile>
         ))}
       </TilesContainer>

@@ -4,8 +4,8 @@ export const TileContainer = styled.div`
   display: grid;
   grid-template-rows: auto 1fr;
   justify-items: center;
-  align-items: center;
-  grid-gap: 16px;
+  //align-items: center;
+  //grid-gap: 16px;
   width: 324px;
   height: 650px;
   border: 1px solid orange;
@@ -29,9 +29,13 @@ export const Poster = styled.img`
 `;
 
 export const TileContent = styled.div`
+  display: flex;
+  flex-direction: column;
   border: 1px solid blue;
   justify-self: start;
-  margin: -20px 0px;
+  margin: 16px 0px 16px -1px;
+  height: 168px;
+  width: 292px;
 `;
 
 export const TileTitle = styled.header`
@@ -50,16 +54,20 @@ export const TileSubtitle = styled.div`
 export const TileGenres = styled.ul`
   display: flex;
   flex-wrap: wrap;
-  margin: 0px -8px;
+  flex-grow: 1;
+  margin: 8px 0px 0px;
   padding-left: 0;
   list-style: none;
+  //overflow: scroll;
 `;
 
 export const TileGenre = styled.li`
   padding: 8px 16px;
-  margin: 8px;
+  margin: 0px 8px 4px 0px;
+  height: 34px;
   background-color: ${({ theme }) => theme.colors.mystic};
   font-size: 14px;
+  line-height: 1.4;
   border-radius: 5px;
 `;
 
@@ -73,6 +81,7 @@ export const TileDescription = styled.p`
 
 export const RateContainer = styled.div`
   display: flex;
+  justify-self: flex-end;
 `;
 
 export const StarIcon = styled.img``;

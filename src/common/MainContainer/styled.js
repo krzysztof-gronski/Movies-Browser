@@ -18,6 +18,19 @@ export const TilesContainer = styled.div`
   grid-gap: 24px;
   justify-items: center;
   width: 1372px;
+
+  @media (max-width: ${({ theme }) => theme.breakpoints.smallScreen}px) {
+    grid-template-columns: repeat(3, 1fr);
+    width: 1026px;
+  }
+  @media (max-width: ${({ theme }) => theme.breakpoints.tablet}px) {
+    grid-template-columns: repeat(2, 1fr);
+    width: 678px;
+  }
+  @media (max-width: ${({ theme }) => theme.breakpoints.mobile}px) {
+    grid-template-columns: 1fr;
+    width: 326px;
+  }
 `;
 
 export const Header = styled.h1`
