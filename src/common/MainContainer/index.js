@@ -3,6 +3,7 @@ import { Tile } from "../Tile";
 import { sampleTiles } from "./sampleTiles";
 
 export const MainContainer = () => {
+  console.log("dsfdf");
   return (
     <Container>
       <Header>Popular movies</Header>

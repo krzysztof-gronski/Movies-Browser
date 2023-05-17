@@ -38,4 +38,14 @@ export const Header = styled.h1`
   font-size: 36px;
   line-height: 1.2;
   margin: 0px 0px 24px -1086px;
+
+  @media (max-width: ${({ theme }) => theme.breakpoints.smallScreen}px) {
+    margin: 0px 0px 24px -740px;
+  }
+  @media (max-width: ${({ theme }) => theme.breakpoints.tablet}px) {
+    margin: 0px 0px 24px -390px;
+  }
+  @media (max-width: ${({ theme }) => theme.breakpoints.mobile}px) {
+    margin: 0px 0px 24px -40px;
+  }
 `;
