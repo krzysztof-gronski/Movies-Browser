@@ -70,3 +70,36 @@ export const TileDescription = styled.p`
   font-size: 14px;
   border-radius: 5px;
 `;
+
+export const RateContainer = styled.div`
+  display: flex;
+`;
+
+export const StarIcon = styled.img``;
+
+export const Rate = styled.span`
+  margin-left: 12px;
+  margin-top: 2px;  
+  color: ${({ theme }) => theme.colors.woodsmoke};
+  font-weight: 600;
+  font-size: 16px;
+  line-height: 1.5;
+`;
+
+export const VotesNr = styled.span`
+  margin-left: 12px;
+  margin-top: 2px;  
+  color: ${({ theme }) => theme.colors.waterloo};
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 1.5;
+`;
+
+export const VotesLabel = styled.span`
+  margin-left: 5px;
+  margin-top: 2px;  
+  color: ${({ theme }) => theme.colors.waterloo};
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 1.5;
+`;

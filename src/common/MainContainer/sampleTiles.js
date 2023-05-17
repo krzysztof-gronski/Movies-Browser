@@ -6,12 +6,16 @@ export const sampleTiles = [
     tileTitle: "Mulan",
     tileSubtitle: "2020",
     genres: ["Action", "Adventure"],
+    rate: "7.1",
+    votesNr: "316",
   },
   {
     poster,
     tileTitle: "Mulan",
     tileSubtitle: "2020",
     genres: ["Action", "Adventure"],
+    rate: "7.1",
+    votesNr: "316",
   },
   {
     poster,

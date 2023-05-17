@@ -13,6 +13,8 @@ export const MainContainer = () => {
             tileTitle={tile.tileTitle}
             tileSubtitle={tile.tileSubtitle}
             genres={tile.genres}
+            rate={tile.rate}
+            votesNr={tile.votesNr}
           ></Tile>
         ))}
       </TilesContainer>
