@@ -4,16 +4,12 @@ export const TileContainer = styled.div`
   display: grid;
   grid-template-rows: auto 1fr;
   justify-items: center;
-  //align-items: center;
-  //grid-gap: 16px;
   width: 324px;
   height: 650px;
-  border: 1px solid orange;
   background-color: ${({ theme }) => theme.colors.white};
   padding: 16px;
   box-shadow: 0px 4px 12px rgba(186, 199, 213, 0.5);
   border-radius: 5px;
-  //margin: 2px 2px;
   transition: transform 0.3s linear;
 
   &:hover {
@@ -31,7 +27,6 @@ export const Poster = styled.img`
 export const TileContent = styled.div`
   display: flex;
   flex-direction: column;
-  border: 1px solid blue;
   justify-self: start;
   margin: 16px 0px 16px -1px;
   height: 168px;
@@ -58,7 +53,6 @@ export const TileGenres = styled.ul`
   margin: 8px 0px 0px;
   padding-left: 0;
   list-style: none;
-  //overflow: scroll;
 `;
 
 export const TileGenre = styled.li`
