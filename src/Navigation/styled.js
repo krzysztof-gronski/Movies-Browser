@@ -8,9 +8,13 @@ export const Wrapper = styled.div`
   align-items: center;
   height: 94px;
 
-  @media (max-width: 767px) {
+  @media (max-width: 320px) {
     width: 100%;
     justify-content: flex-end;
+    flex-wrap: wrap;
+    height: 142px;
+  }
+  @media (max-width: 767px) {
     flex-wrap: wrap;
     height: 142px;
   }
@@ -19,7 +23,7 @@ export const Wrapper = styled.div`
 export const NavBar = styled.div`
   display: flex;
   align-items: center;
-  @media (max-width: 767px) {
+  @media (max-width: 320px) {
     padding-top: 5px;
   }
 `;
@@ -34,7 +38,7 @@ export const StyledIcon = styled(Icon)`
   width: 40px;
   height: 40px;
   margin-right: 10px;
-  @media (max-width: 767px) {
+  @media (max-width: 320px) {
     width: 17px;
     height: 17px;
   }
@@ -48,7 +52,7 @@ export const Header = styled.h1`
   font-size: 24px;
   line-height: 40px;
   white-space: nowrap;
-  @media (max-width: 767px) {
+  @media (max-width: 320px) {
     font-size: 13px;
     font-weight: 500;
     line-height: 17px;
@@ -58,7 +62,7 @@ export const Header = styled.h1`
 export const List = styled.ul`
   display: flex;
   margin-right: 5px;
-  @media (max-width: 767px) {
+  @media (max-width: 320px) {
     padding-left: 10px;
     padding-right: 15px;
   }
@@ -67,14 +71,18 @@ export const List = styled.ul`
 export const SearchWrapper = styled.div`
   flex-basis: 432px;
 
-  @media (max-width: 767px) {
+  @media (max-width: 320px) {
     flex-basis: 288px;
     margin: 16px;
+  }
+  @media (max-width: 767px) {
+    flex-grow: 1;
+    margin: 0 20px 10px 20px;
   }
 `;
 
 export const ListItem = styled.li`
-  @media (max-width: 767px) {
+  @media (max-width: 320px) {
   }
 `;
 
@@ -95,7 +103,7 @@ export const StyledNavLink = styled(NavLink).attrs(() => ({
   padding: 8px 24px;
   text-decoration: none;
 
-  @media (max-width: 767px) {
+  @media (max-width: 320px) {
     font-size: 12px;
     font-weight: 600;
     line-height: 17px;

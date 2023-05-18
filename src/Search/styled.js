@@ -16,7 +16,7 @@ export const Input = styled.input`
   background-repeat: no-repeat;
   background-position: 25px center;
 
-  @media (max-width: 767px) {
+  @media (max-width: 320px) {
     height: 44px;
     font-size: 13px;
     background-image: url("${smallIcon}");
