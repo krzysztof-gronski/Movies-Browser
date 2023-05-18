@@ -1,6 +1,6 @@
 import styled from "styled-components";
-import icon from "../images/search.svg";
-import smallIcon from "../images/smallSearch.svg";
+import icon from "../../images/search.svg";
+import smallIcon from "../../images/smallSearch.svg";
 
 export const Input = styled.input`
   padding: 12px 12px 12px 64px;

@@ -1,5 +1,5 @@
-import styled, { css } from "styled-components";
-import { ReactComponent as Icon } from "../images/camera.svg";
+import styled from "styled-components";
+import { ReactComponent as Icon } from "../../images/camera.svg";
 import { NavLink } from "react-router-dom";
 export const Wrapper = styled.div`
   display: flex;
