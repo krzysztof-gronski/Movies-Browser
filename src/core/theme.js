@@ -3,6 +3,7 @@ export const theme = {
     white: "#FFFFFF",
     mystic: "#E4E6F0",
     cornflowerBlue: "#7E839A",
+    black: "#000000",
   },
 
   breakpoints: {
