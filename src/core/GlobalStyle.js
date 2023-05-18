@@ -11,8 +11,13 @@ export const GlobalStyle = createGlobalStyle`
 
   body {
     font-family: "Poppins", sans-serif;
+<<<<<<< HEAD
     font-size: 18px;
+=======
+    font-size: 14px;
+>>>>>>> main
     margin: 0 auto;
-    padding-bottom: 108px;
+    color:  ${({theme})=>theme.colors.black};
+    background-color: ${({theme})=>theme.colors.whisper};
   }
 `;
