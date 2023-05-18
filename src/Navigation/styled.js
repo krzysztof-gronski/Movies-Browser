@@ -3,38 +3,41 @@ import { ReactComponent as Icon } from "../images/camera.svg";
 import { NavLink } from "react-router-dom";
 export const Wrapper = styled.div`
   display: flex;
-  justify-content: space-between;
-  align-items: center;
+  justify-content: space-around;
   background: black;
+  align-items: center;
   height: 94px;
-  padding: 0 16px;
+
+  @media (max-width: 767px) {
+    width: 100%;
+    justify-content: flex-end;
+    flex-wrap: wrap;
+    height: 142px;
+  }
 `;
 
 export const NavBar = styled.div`
   display: flex;
   align-items: center;
-  margin-left: 192px;
-  flex: 1 0 192px;
-  max-width: 492px;
-  width: 100%;
-
   @media (max-width: 767px) {
-    margin-left: 5px;
-    margin-bottom: 10px;
-    justify-content: center;
-    flex: 1 0 auto;
+    padding-top: 5px;
   }
 `;
 
 export const PageTitle = styled.div`
   display: flex;
   align-items: center;
-  gap: 10px;
+  margin-right: 15px;
 `;
 
 export const StyledIcon = styled(Icon)`
   width: 40px;
   height: 40px;
+  margin-right: 10px;
+  @media (max-width: 767px) {
+    width: 17px;
+    height: 17px;
+  }
 `;
 
 export const Header = styled.h1`
@@ -45,14 +48,35 @@ export const Header = styled.h1`
   font-size: 24px;
   line-height: 40px;
   white-space: nowrap;
+  @media (max-width: 767px) {
+    font-size: 13px;
+    font-weight: 500;
+    line-height: 17px;
+  }
 `;
 
 export const List = styled.ul`
   display: flex;
-  margin-left: 0;
+  margin-right: 5px;
+  @media (max-width: 767px) {
+    padding-left: 10px;
+    padding-right: 15px;
+  }
 `;
 
-export const ListItem = styled.li``;
+export const SearchWrapper = styled.div`
+  flex-basis: 432px;
+
+  @media (max-width: 767px) {
+    flex-basis: 288px;
+    margin: 16px;
+  }
+`;
+
+export const ListItem = styled.li`
+  @media (max-width: 767px) {
+  }
+`;
 
 const activeClassName = "active";
 
@@ -69,23 +93,17 @@ export const StyledNavLink = styled(NavLink).attrs(() => ({
   line-height: 21px;
   border: none;
   padding: 8px 24px;
-  margin-right: 5px;
   text-decoration: none;
+
+  @media (max-width: 767px) {
+    font-size: 12px;
+    font-weight: 600;
+    line-height: 17px;
+    padding: 8px 12px;
+  }
 
   &.${activeClassName} {
     border: 1px solid white;
     border-radius: 24px;
-  }
-`;
-
-export const SearchWrapper = styled.div`
-  display: flex;
-  align-items: flex-start;
-  margin-right: 140px;
-  width: 492px;
-
-  @media (max-width: 767px) {
-    margin-right: 0;
-    width: 100%;
   }
 `;

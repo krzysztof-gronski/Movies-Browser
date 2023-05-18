@@ -1,5 +1,6 @@
 import styled from "styled-components";
 import icon from "../images/search.svg";
+import smallIcon from "../images/smallSearch.svg";
 
 export const Input = styled.input`
   padding: 12px 12px 12px 64px;
@@ -14,5 +15,11 @@ export const Input = styled.input`
   background-image: url("${icon}");
   background-repeat: no-repeat;
   background-position: 25px center;
-`;
 
+  @media (max-width: 767px) {
+    height: 44px;
+    font-size: 13px;
+    background-image: url("${smallIcon}");
+    padding-left: 45px;
+  }
+`;

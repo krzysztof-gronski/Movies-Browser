@@ -7,7 +7,8 @@ export const theme = {
 
   breakpoints: {
     mobileMax: 767,
-    mobileMin:460,
+    mobileMin:320,
+    laptop:1024,
     full:1344,
   },
 };
