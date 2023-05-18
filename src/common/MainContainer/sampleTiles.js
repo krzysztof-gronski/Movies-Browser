@@ -6,8 +6,8 @@ export const sampleTiles = [
     poster,
     tileTitle: "Mulan",
     tileSubtitle: "2020",
-    genres: ["Drama", "Adventure"],
-    rate: "7.1",
+    genres: ["DramaC", "Adventure"],
+    rate: "7.5",
     votesNr: "316",
   },
   {

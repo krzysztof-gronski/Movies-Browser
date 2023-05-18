@@ -50,14 +50,14 @@ export const TileGenres = styled.ul`
   display: flex;
   flex-wrap: wrap;
   flex-grow: 1;
-  margin: 8px 0px 0px;
+  margin: 5px 0px 0px;
   padding-left: 0;
   list-style: none;
 `;
 
 export const TileGenre = styled.li`
   padding: 8px 16px;
-  margin: 0px 8px 4px 0px;
+  margin: 0px 8px 8px 0px;
   height: 34px;
   background-color: ${({ theme }) => theme.colors.mystic};
   font-size: 14px;
