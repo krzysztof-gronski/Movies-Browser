@@ -16,7 +16,14 @@ import {
   VotesLabel,
 } from "./styled";
 
-export const Tile = ({ poster, tileTitle, tileSubtitle, genres, rate, votesNr }) => {
+export const Tile = ({
+  poster,
+  tileTitle,
+  tileSubtitle,
+  genres,
+  rate,
+  votesNr,
+}) => {
   return (
     <TileContainer>
       <Poster src={poster} alt="poster" />

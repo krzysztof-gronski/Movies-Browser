@@ -1,7 +1,6 @@
-import "./App.css";
-import Navigation from "../../Navigation";
 import { HashRouter, Switch, Route } from "react-router-dom";
 import { MoviesList } from '../../features/MoviesList';
+import Navigation from "../../common/Navigation";
 
 function App() {
   return (
