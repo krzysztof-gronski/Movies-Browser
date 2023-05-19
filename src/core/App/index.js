@@ -1,9 +1,12 @@
-
-import { MoviesList } from '../../features/MoviesList';
+import Pagination from "../../common/Pagination";
+import { MoviesList } from "../../features/MoviesList";
 
 function App() {
   return (
-        <MoviesList/>
+    <>
+      <MoviesList />
+      <Pagination />
+    </>
   );
 }
 
