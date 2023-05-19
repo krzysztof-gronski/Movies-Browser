@@ -13,7 +13,7 @@ root.render(
       <GlobalStyle />
       <MovieData />
     </ThemeProvider>
-  </React.StrictMode>
+ </React.StrictMode>
 );
 
 reportWebVitals();
