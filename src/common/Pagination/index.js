@@ -1,11 +1,6 @@
 import { useState } from "react";
-import {
-  Button,
-  ButtonWrapper,
-  PageIndicator,
-  PageNumber,
-  Wrapper,
-} from "./styled";
+import { ButtonWrapper, PageIndicator, PageNumber, Wrapper } from "./styled";
+import Button from "./button";
 const Pagination = () => {
   const [currentPage, setCurrentPage] = useState(1);
   const totalPages = 500;
@@ -13,16 +8,16 @@ const Pagination = () => {
   return (
     <Wrapper>
       <ButtonWrapper>
-        <Button>First</Button>
-        <Button>Previous</Button>
+        <Button text={"First"} align="left" />
+        <Button text={"Previous"} align="left" />
       </ButtonWrapper>
       <PageIndicator>
         Page <PageNumber>{currentPage}</PageNumber> of{" "}
         <PageNumber>{totalPages}</PageNumber>
       </PageIndicator>
       <ButtonWrapper>
-        <Button blue>Next</Button>
-        <Button blue>Last</Button>
+        <Button blue text={"Next"} align="right" />
+        <Button blue text={"Last"} align="right" />
       </ButtonWrapper>
     </Wrapper>
   );
