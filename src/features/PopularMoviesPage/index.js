@@ -5,29 +5,27 @@ import {
   TilesContainer,
 } from "../../common/MainContainer/styled";
 import { Tile } from "../../common/Tile";
-import tmdbApi from "../api/apiData";
+import { tmdbApi, IMAGE_PATH } from "../api/apiData";
 
 export const PopularMoviesPage = () => {
   const [movies, setMovies] = useState([]);
   const [genres, setGenres] = useState({});
 
   const getPopularMovie = async () => {
-    const { data } = await tmdbApi.getPopularMoviesData()
+    const { data } = await tmdbApi.getPopularMoviesData();
     setMovies(data.results);
   };
 
   const getGenres = async () => {
-    const { data } = await tmdbApi.getGenresData()
+    const { data } = await tmdbApi.getGenresData();
     setGenres(data.genres);
-    console.log(data.genres)
+    console.log(data.genres);
   };
 
   useEffect(() => {
     getPopularMovie();
-    getGenres()
+    getGenres();
   }, []);
-
-  const IMAGE_PATH = "https://image.tmdb.org/t/p/w500";
 
   return (
     <div>
@@ -54,4 +52,3 @@ export const PopularMoviesPage = () => {
     </div>
   );
 };
-
