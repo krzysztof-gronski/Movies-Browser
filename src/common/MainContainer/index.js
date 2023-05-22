@@ -3,6 +3,7 @@ import { Tile } from "../Tile";
 import { IMAGE_PATH } from "../../features/api/apiData";
 
 export const MainContainer = ({ movies, genres }) => {
+  console.log(movies);
   return (
     <Container>
       <Header>Popular movies</Header>
@@ -16,7 +17,7 @@ export const MainContainer = ({ movies, genres }) => {
                 movie.poster_path ? `${IMAGE_PATH}${movie.poster_path}` : null
               }
               tileTitle={movie.original_title}
-              tileSubtitle={movie.title}
+              tileSubtitle={movie.release_date.slice(0,4)}
               genres={movie.genre_ids.map((genre_id) => {
                 return genres.find((genre) => genre.id === genre_id).name;
               })}
