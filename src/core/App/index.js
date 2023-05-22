@@ -6,8 +6,15 @@ function App() {
   return (
     <>
       <BrowserRouter>
-        <Navigation />
-        <PopularMoviesPage/>
+      <Navigation/>
+      <Switch>
+        <Route path="/people/:id">{"People Details"}</Route>
+          <Route path="/people/:id">{"Movie"}</Route>
+          <Route path="/people">{"People"}</Route>
+          <Route path="/">
+            <PopularMoviesPage />
+          </Route>
+        </Switch>
       </BrowserRouter>
     </>
   );
