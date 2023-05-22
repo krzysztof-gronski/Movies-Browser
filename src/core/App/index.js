@@ -1,15 +1,17 @@
-import { HashRouter, Switch, Route } from "react-router-dom";
-import { MoviesList } from "../../features/MoviesList";
+import { HashRouter, Switch, Route, Redirect } from "react-router-dom";
 import Navigation from "../../common/Navigation";
-
+import { MoviesList } from "../../features/MoviesList";
 function App() {
   return (
     <>
       <BrowserRouter basename="/Movies-Browser/">
         <Navigation />
         <Switch>
-          <Route path="/people/:id">{"People Details"}</Route>
-          <Route path="/people/:id">{"Movie"}</Route>
+          <Route path="/movie/:id">{"Movie Details"}</Route>
+          <Route path="/movies">
+            <MainContainer />
+          </Route>
+          <Route path="/people/:id">{"Person details"}</Route>
           <Route path="/people">{"People"}</Route>
           <Route path="/">
             <MoviesList />
