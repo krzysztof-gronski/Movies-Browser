@@ -14,7 +14,7 @@ export const MoviesList = () => {
   const getGenres = async () => {
     const { data } = await tmdbApi.getGenresData();
     setGenres(data.genres);
-    console.log(data.genres);
+    //console.log(data.genres);
   };
 
   useEffect(() => {
