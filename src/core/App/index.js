@@ -6,6 +6,7 @@ function App() {
   return (
     <>
       <BrowserRouter>
+      <Navigation/>
       <Switch>
         <Route path="/people/:id">{"People Details"}</Route>
           <Route path="/people/:id">{"Movie"}</Route>
