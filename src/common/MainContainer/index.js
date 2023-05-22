@@ -7,7 +7,8 @@ import { Tile } from "../Tile";
 import { IMAGE_PATH } from "../../features/api/apiData";
 
 
-export const MainContainer = ({movies}) => {
+export const MainContainer = ({movies,genres}) => {
+  console.log(genres);
   return (
     <Container>
     <Header>Popular movies</Header>

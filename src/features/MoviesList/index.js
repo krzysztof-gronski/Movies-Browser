@@ -23,6 +23,6 @@ export const MoviesList = () => {
   }, []);
 
   return (
-    <MainContainer movies={movies}/>
+    <MainContainer movies={movies} genres={genres}/>
   );
 };
