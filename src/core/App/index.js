@@ -1,11 +1,11 @@
-import { BrowserRouter, Switch, Route } from "react-router-dom";
+import { HashRouter, Switch, Route } from "react-router-dom";
 import Navigation from "../../common/Navigation";
 import { PopularMoviesPage } from "../../features/PopularMoviesPage";
 
 function App() {
   return (
     <>
-      <BrowserRouter>
+      <HashRouter>
       <Navigation/>
       <Switch>
         <Route path="/people/:id">{"People Details"}</Route>
@@ -15,7 +15,7 @@ function App() {
             <PopularMoviesPage />
           </Route>
         </Switch>
-      </BrowserRouter>
+      </HashRouter>
     </>
   );
 }

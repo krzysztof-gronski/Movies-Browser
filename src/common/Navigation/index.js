@@ -29,6 +29,8 @@ const Navigation = () => (
         </ListItem>
       </List>
     </NavBar>
+    <SearchWrapper>
+    </SearchWrapper>
   </Wrapper>
 );
 
