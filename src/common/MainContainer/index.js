@@ -3,7 +3,6 @@ import { Tile } from "../Tile";
 import { IMAGE_PATH } from "../../features/api/apiData";
 
 export const MainContainer = ({ movies, genres }) => {
-  console.log(movies);
   return (
     <Container>
       <Header>Popular movies</Header>
