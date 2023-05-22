@@ -1,6 +1,6 @@
 import { HashRouter, Switch, Route } from "react-router-dom";
 import Navigation from "../../common/Navigation";
-import { MainContainer } from "../../common/MainContainer/index";
+import { MoviesList } from "../../features/MoviesList";
 function App() {
   return (
     <>
@@ -11,7 +11,7 @@ function App() {
           <Route path="/people/:id">{"Movie"}</Route>
           <Route path="/people">{"People"}</Route>
           <Route path="/">
-            <MainContainer />
+            <MoviesList />
           </Route>
         </Switch>
       </HashRouter>
