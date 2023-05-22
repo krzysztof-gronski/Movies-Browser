@@ -5,7 +5,7 @@ import Navigation from "../../common/Navigation";
 function App() {
   return (
     <>
-      <HashRouter basename="/movie-browser">
+      <BrowserRouter basename="/Movies-Browser">
         <Navigation />
         <Switch>
           <Route path="/people/:id">{"People Details"}</Route>
@@ -15,7 +15,7 @@ function App() {
             <MoviesList />
           </Route>
         </Switch>
-      </HashRouter>
+      </BrowserRouter>
     </>
   );
 }
