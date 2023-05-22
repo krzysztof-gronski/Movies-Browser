@@ -5,7 +5,7 @@ import Navigation from "../../common/Navigation";
 function App() {
   return (
     <>
-      <BrowserRouter basename="/Movies-Browser">
+      <BrowserRouter basename="/Movies-Browser/">
         <Navigation />
         <Switch>
           <Route path="/people/:id">{"People Details"}</Route>
