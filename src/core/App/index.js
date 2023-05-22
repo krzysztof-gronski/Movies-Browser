@@ -7,11 +7,7 @@ function App() {
     <>
       <BrowserRouter>
         <Navigation />
-        <Switch>
-          <Route path="/">
-            <PopularMoviesPage />
-          </Route>
-        </Switch>
+        <PopularMoviesPage/>
       </BrowserRouter>
     </>
   );
