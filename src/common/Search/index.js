@@ -26,7 +26,7 @@ const Search = () => {
       <Input
         onChange={onInputChange}
         placeholder={` Search for ${
-          location.pathname === "/" ? "movies" : "people"
+          location.pathname === "/movies" ? "movies" : "people"
         }...`}
         value={query || ""}
       />
