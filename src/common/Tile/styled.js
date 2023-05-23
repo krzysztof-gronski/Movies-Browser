@@ -29,10 +29,10 @@ export const TileContainer = styled.div`
     //width: 100%;
     //height: auto;
     aspect-ratio: 1.432;
-    min-width: 288px;
-    min-height: 201px;
-    grid-gap: 16px;
-    padding-bottom: 0px;
+    min-width: 318px;
+    min-height: 211px;
+    grid-gap: 14px;
+    padding: 14px 14px 0px 14px;
   }
 `;
 
@@ -86,6 +86,7 @@ export const TileTitle = styled.header`
   @media (max-width: ${({ theme }) => theme.breakpoints.tablet}px) {
     margin-bottom: 4px;
     font-size: 16px;
+    line-height: 1.2;
   }
 `;
 
@@ -115,7 +116,7 @@ export const TileGenres = styled.ul`
 `;
 
 export const TileGenre = styled.li`
-  padding: 8px 16px;
+  padding: 8px 16px 8px;
   margin: 0px 8px 8px 0px;
   height: 34px;
   background-color: ${({ theme }) => theme.colors.mystic};
@@ -125,7 +126,7 @@ export const TileGenre = styled.li`
 
   @media (max-width: ${({ theme }) => theme.breakpoints.tablet}px) {
     //margin: 0px 0px 0px 0px;
-    padding: 4px 8px;
+    padding: 4px 6px 4px 5px;
     height: 19px;
     font-size: 10px;
     line-height: 1.1;
