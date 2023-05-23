@@ -1,7 +1,6 @@
-import { HashRouter, Switch, Route } from "react-router-dom";
+import { HashRouter, Switch, Route, Redirect } from "react-router-dom";
 import Navigation from "../../common/Navigation";
 import { MainContainer } from "../../common/MainContainer";
-import { Redirect } from "react-router-dom/cjs/react-router-dom.min";
 
 function App() {
   return (
@@ -16,7 +15,7 @@ function App() {
             <MainContainer />
           </Route>
           <Route path="/">
-            <Redirect to="/movies" />
+            <Redirect to="/movies"></Redirect>
           </Route>
         </Switch>
       </HashRouter>

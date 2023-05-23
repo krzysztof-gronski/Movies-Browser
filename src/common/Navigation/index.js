@@ -20,7 +20,7 @@ const Navigation = () => (
       </PageTitle>
       <List>
         <ListItem>
-          <StyledNavLink exact to="/movies">
+          <StyledNavLink to="/movies">
             Movies
           </StyledNavLink>
         </ListItem>
