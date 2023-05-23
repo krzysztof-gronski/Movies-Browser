@@ -12,17 +12,24 @@ import {
   StarIcon,
   RateContainer,
   Rate,
-  VotesNr,
-  VotesLabel,
+  InfoField,
+  Label,
+  TextValue,
+  TileDescription,
+  Votes,
+  MaxRate,
 } from "./styled";
 
 export const Tile = ({
   poster,
   tileTitle,
   tileSubtitle,
+  production,
+  releaseDate,
   genres,
   rate,
   votesNr,
+  description,
   moviesListFlag,
   movieDetailsFlag,
 }) => {
@@ -30,18 +37,19 @@ export const Tile = ({
     <TileContainer moviesListFlag>
       <Poster src={poster} alt="poster" />
       <TileContent moviesListFlag>
-        <TileTitle>{tileTitle}</TileTitle>
-        <TileSubtitle>{tileSubtitle}</TileSubtitle>
+        <TileTitle moviesListFlag>{tileTitle}</TileTitle>
+        <TileSubtitle moviesListFlag>{tileSubtitle}</TileSubtitle>
         <TileGenres moviesListFlag>
           {genres.map((genre) => (
-            <TileGenre key={nanoid()}>{genre}</TileGenre>
+            <TileGenre moviesListFlag key={nanoid()}>
+              {genre}
+            </TileGenre>
           ))}
         </TileGenres>
-        <RateContainer>
+        <RateContainer moviesListFlag>
           <StarIcon src={starIcon} />
-          <Rate>{rate}</Rate>
-          <VotesNr>{votesNr}</VotesNr>
-          <VotesLabel>votes</VotesLabel>
+          <Rate moviesListFlag>{rate}</Rate>
+          <Votes moviesListFlag>{votesNr + " votes"}</Votes>
         </RateContainer>
       </TileContent>
     </TileContainer>
@@ -49,19 +57,30 @@ export const Tile = ({
     <TileContainer movieDetailsFlag>
       <Poster src={poster} alt="poster" />
       <TileContent movieDetailsFlag>
-        <TileTitle>{tileTitle}</TileTitle>
-        <TileSubtitle>{tileSubtitle}</TileSubtitle>
+        <TileTitle movieDetailsFlag>{tileTitle}</TileTitle>
+        <TileSubtitle movieDetailsFlag>{tileSubtitle}</TileSubtitle>
+        <InfoField>
+          <Label>{"Production:"}</Label>
+          <TextValue>{production}</TextValue>
+        </InfoField>
+        <InfoField>
+          <Label>{"Release date:"}</Label>
+          <TextValue>{releaseDate}</TextValue>
+        </InfoField>
         <TileGenres movieDetailsFlag>
           {genres.map((genre) => (
-            <TileGenre key={nanoid()}>{genre}</TileGenre>
+            <TileGenre movieDetailsFlag key={nanoid()}>
+              {genre}
+            </TileGenre>
           ))}
         </TileGenres>
-        <RateContainer>
+        <RateContainer movieDetailsFlag>
           <StarIcon src={starIcon} />
-          <Rate>{rate}</Rate>
-          <VotesNr>{votesNr}</VotesNr>
-          <VotesLabel>votes</VotesLabel>
+          <Rate movieDetailsFlag>{rate}</Rate>
+          <MaxRate>{"/ 10"}</MaxRate>
+          <Votes movieDetailsFlag>{votesNr + "       votes"}</Votes>
         </RateContainer>
+        <TileDescription>{description}</TileDescription>
       </TileContent>
     </TileContainer>
   ) : (
