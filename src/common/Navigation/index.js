@@ -30,6 +30,7 @@ const Navigation = () => (
       </List>
     </NavBar>
     <SearchWrapper>
+      <Search />
     </SearchWrapper>
   </Wrapper>
 );
