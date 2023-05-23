@@ -1,4 +1,4 @@
-import { useLocation } from "react-router-dom/cjs/react-router-dom";
+import { useLocation, useHistory } from "react-router-dom";
 import { Input } from "./styled";
 
 const Search = () => {
