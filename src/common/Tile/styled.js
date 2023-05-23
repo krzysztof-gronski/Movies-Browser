@@ -16,12 +16,23 @@ export const TileContainer = styled.div`
     cursor: pointer;
     transform: scale(1.02);
   }
+
+  @media (max-width: ${({ theme }) => theme.breakpoints.smallScreen}px) {
+    width: 100%;
+    min-width: 324px;
+    height: auto;
+  }
 `;
 
 export const Poster = styled.img`
   width: 292px;
   height: 434px;
   margin-left: -1px;
+
+  @media (max-width: ${({ theme }) => theme.breakpoints.smallScreen}px) {
+    width: 100%;
+    height: auto;
+  }
 `;
 
 export const TileContent = styled.div`

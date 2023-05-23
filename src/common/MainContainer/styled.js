@@ -16,19 +16,13 @@ export const TilesContainer = styled.div`
   grid-gap: 24px;
   justify-items: center;
   width: 1372px;
+  border: 1px solid orange;
 
   @media (max-width: ${({ theme }) => theme.breakpoints.smallScreen}px) {
-    grid-template-columns: repeat(3, 1fr);
-    width: 1026px;
+    grid-template-columns: repeat(auto-fill, minmax(324px, 1fr));
+    width: 100%;
   }
-  @media (max-width: ${({ theme }) => theme.breakpoints.tablet}px) {
-    grid-template-columns: repeat(2, 1fr);
-    width: 678px;
-  }
-  @media (max-width: ${({ theme }) => theme.breakpoints.mobile}px) {
-    grid-template-columns: 1fr;
-    width: 326px;
-  }
+
 `;
 
 export const Header = styled.h1`
