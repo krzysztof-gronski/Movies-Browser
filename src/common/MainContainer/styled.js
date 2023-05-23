@@ -1,11 +1,10 @@
-import styled from "styled-components";
+import styled, { css } from "styled-components";
 
 export const Container = styled.div`
   display: flex;
   flex-direction: column;
   max-width: 1920px;
   margin: 0 auto;
-  padding: 56px 40px;
   align-items: center;
   justify-content: center;
   border: 1px solid red;
@@ -19,6 +18,18 @@ export const Container = styled.div`
     align-items: flex-start;
     padding: 24px 16px;
   }
+
+  ${({ moviesListFlag }) =>
+    moviesListFlag &&
+    css`
+      padding: 56px 40px;
+    `}
+
+  ${({ movieDetailsFlag }) =>
+    movieDetailsFlag &&
+    css`
+      padding: 0px 40px 50px;
+    `}
 `;
 
 export const TilesContainer = styled.div`

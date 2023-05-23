@@ -23,14 +23,16 @@ export const Tile = ({
   genres,
   rate,
   votesNr,
+  moviesListFlag,
+  movieDetailsFlag,
 }) => {
-  return (
-    <TileContainer>
+  return moviesListFlag ? (
+    <TileContainer moviesListFlag>
       <Poster src={poster} alt="poster" />
-      <TileContent>
+      <TileContent moviesListFlag>
         <TileTitle>{tileTitle}</TileTitle>
         <TileSubtitle>{tileSubtitle}</TileSubtitle>
-        <TileGenres>
+        <TileGenres moviesListFlag>
           {genres.map((genre) => (
             <TileGenre key={nanoid()}>{genre}</TileGenre>
           ))}
@@ -43,5 +45,26 @@ export const Tile = ({
         </RateContainer>
       </TileContent>
     </TileContainer>
+  ) : movieDetailsFlag ? (
+    <TileContainer movieDetailsFlag>
+      <Poster src={poster} alt="poster" />
+      <TileContent movieDetailsFlag>
+        <TileTitle>{tileTitle}</TileTitle>
+        <TileSubtitle>{tileSubtitle}</TileSubtitle>
+        <TileGenres movieDetailsFlag>
+          {genres.map((genre) => (
+            <TileGenre key={nanoid()}>{genre}</TileGenre>
+          ))}
+        </TileGenres>
+        <RateContainer>
+          <StarIcon src={starIcon} />
+          <Rate>{rate}</Rate>
+          <VotesNr>{votesNr}</VotesNr>
+          <VotesLabel>votes</VotesLabel>
+        </RateContainer>
+      </TileContent>
+    </TileContainer>
+  ) : (
+    <></>
   );
 };

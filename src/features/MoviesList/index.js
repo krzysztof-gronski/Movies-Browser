@@ -21,5 +21,8 @@ export const MoviesList = () => {
     getGenres();
   }, []);
 
+  console.log(movies);
+  console.log(genres);
+
   return <MainContainer movies={movies} genres={genres} />;
 };

@@ -1,4 +1,4 @@
-import styled from "styled-components";
+import styled, { css } from "styled-components";
 
 export const TileContainer = styled.div`
   display: grid;
@@ -7,16 +7,9 @@ export const TileContainer = styled.div`
   width: 324px;
   height: 100%; //650px;
   background-color: ${({ theme }) => theme.colors.white};
-  padding: 16px;
   box-shadow: 0px 4px 12px rgba(186, 199, 213, 0.5);
   border-radius: 5px;
-  transition: transform 0.3s linear;
   border: 1px solid gray;
-
-  &:hover {
-    cursor: pointer;
-    transform: scale(1.02);
-  }
 
   @media (max-width: ${({ theme }) => theme.breakpoints.smallScreen}px) {
     width: 100%;
@@ -34,6 +27,32 @@ export const TileContainer = styled.div`
     grid-gap: 14px;
     padding: 14px 14px 0px 14px;
   }
+
+  ${({ moviesListFlag }) =>
+    moviesListFlag &&
+    css`
+      padding: 16px;
+      transition: transform 0.3s linear;
+
+      &:hover {
+        cursor: pointer;
+        transform: scale(1.02);
+      }
+    `}
+
+  ${({ movieDetailsFlag }) =>
+    movieDetailsFlag &&
+    css`
+      grid-template-columns: auto 1fr;
+      margin-top: 64px;
+      width: 100%;
+      max-width: 1368px;
+      max-height: 544;
+      min-width: 318px;
+      min-height: 211px;
+      grid-gap: 40px;
+      padding: 40px 40px 0px 40px;
+    `}
 `;
 
 export const Poster = styled.img`
@@ -75,6 +94,15 @@ export const TileContent = styled.div`
     width: 100%;
     min-width: 126px;
   }
+
+  ${({ moviesListFlag }) => moviesListFlag && css``}
+
+  ${({ movieDetailsFlag }) =>
+    movieDetailsFlag &&
+    css`
+      margin: 0px;
+      width: 100%;
+    `}
 `;
 
 export const TileTitle = styled.header`
@@ -113,6 +141,14 @@ export const TileGenres = styled.ul`
     //margin: 0px 0px 0px 0px;
     flex-grow: 0;
   }
+
+  ${({ moviesListFlag }) => moviesListFlag && css``}
+
+  ${({ movieDetailsFlag }) =>
+    movieDetailsFlag &&
+    css`
+      flex-grow: 0;
+    `}
 `;
 
 export const TileGenre = styled.li`
