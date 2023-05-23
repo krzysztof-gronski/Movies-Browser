@@ -9,7 +9,7 @@ import {
   SearchWrapper,
   StyledNavLink,
 } from "./styled";
-import Search from "../Search";
+import Search from "../Search/index"
 
 const Navigation = () => (
   <Wrapper>
