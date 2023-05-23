@@ -8,6 +8,17 @@ export const Container = styled.div`
   padding: 56px 40px;
   align-items: center;
   justify-content: center;
+  border: 1px solid red;
+
+  @media (max-width: ${({ theme }) => theme.breakpoints.smallScreen}px) {
+    align-items: flex-start;
+    padding: 56px 24px;
+  }
+
+  @media (max-width: ${({ theme }) => theme.breakpoints.tablet}px) {
+    align-items: flex-start;
+    padding: 24px 16px;
+  }
 `;
 
 export const TilesContainer = styled.div`
@@ -25,6 +36,7 @@ export const TilesContainer = styled.div`
 
   @media (max-width: ${({ theme }) => theme.breakpoints.tablet}px) {
     grid-template-columns: 1fr;
+    grid-gap: 16px;
     width: 100%;
   }
 `;
@@ -36,12 +48,10 @@ export const Header = styled.h1`
   margin: 0px 0px 24px -1086px;
 
   @media (max-width: ${({ theme }) => theme.breakpoints.smallScreen}px) {
-    margin: 0px 0px 24px -740px;
+    margin: 2px 0px 24px 0px;
   }
   @media (max-width: ${({ theme }) => theme.breakpoints.tablet}px) {
-    margin: 0px 0px 24px -390px;
-  }
-  @media (max-width: ${({ theme }) => theme.breakpoints.mobile}px) {
-    margin: 0px 0px 24px -40px;
+    font-size: 18px;
+    margin: 2px 0px 12px 0px;
   }
 `;

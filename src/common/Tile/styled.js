@@ -5,7 +5,7 @@ export const TileContainer = styled.div`
   grid-template-rows: auto 1fr;
   justify-items: center;
   width: 324px;
-  height: 650px;
+  height: 100%; //650px;
   background-color: ${({ theme }) => theme.colors.white};
   padding: 16px;
   box-shadow: 0px 4px 12px rgba(186, 199, 213, 0.5);
@@ -62,9 +62,13 @@ export const TileContent = styled.div`
   flex-direction: column;
   justify-self: start;
   margin: 16px 0px 5px -1px;
-  height: 168px;
+  //height: 168px;
   width: 292px;
   border: 1px solid green;
+
+  @media (max-width: ${({ theme }) => theme.breakpoints.smallScreen}px) {
+    width: 100%;
+  }
 
   @media (max-width: ${({ theme }) => theme.breakpoints.tablet}px) {
     margin: 0px;
