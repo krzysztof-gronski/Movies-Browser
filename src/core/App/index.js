@@ -1,4 +1,6 @@
+
 import { HashRouter, Switch, Route } from "react-router-dom";
+import Pagination from "../../common/Pagination";
 import Navigation from "../../common/Navigation";
 import { MainContainer } from "../../common/MainContainer/index";
 function App() {
@@ -14,6 +16,7 @@ function App() {
             <MainContainer />
           </Route>
         </Switch>
+      <Pagination />
       </HashRouter>
     </>
   );
