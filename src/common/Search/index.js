@@ -1,28 +1,33 @@
-import { useLocation, useHistory } from "react-router-dom";
+import { useLocation } from "react-router-dom";
 import { Input } from "./styled";
+import { useQueryParameter, useReplaceQueryParameter } from "./queryParameters";
+import searchQueryParamName from "./searchQueryParamName";
 
 const Search = () => {
   const location = useLocation();
-  const history = useHistory();
-  const query = new URLSearchParams(location.search).get("search");
+  const query = useQueryParameter(searchQueryParamName);
+  const replaceQueryParameter = useReplaceQueryParameter();
 
   const onInputChange = ({ target }) => {
-    const searchParams = new URLSearchParams(location.search);
     if (target.value === "") {
-      searchParams.delete("search");
-    } else {
-      searchParams.set("search", target.value);
+      replaceQueryParameter({
+        key: searchQueryParamName,
+        value: "",
+      });
     }
-    const newSearch = searchParams.toString();
-
-    return history.push(`${location.pathname}?${newSearch}`);
+    replaceQueryParameter({
+      key: searchQueryParamName,
+      value: target.value.trim() !== "" ? target.value : undefined,
+    });
   };
 
   return (
     <Input
       onChange={onInputChange}
       value={query || ""}
-      placeholder={`Search for movies...`}
+      placeholder={`Search for ${
+        location.pathname.includes("/movies") ? "movies" : "people"
+      }...`}
     />
   );
 };
