@@ -14,6 +14,5 @@ export const theme = {
     smallScreen: 1400,
     tablet: 772,
     mobile: 320,
-
   },
 };

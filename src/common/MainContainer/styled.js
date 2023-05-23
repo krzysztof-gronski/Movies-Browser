@@ -23,6 +23,10 @@ export const TilesContainer = styled.div`
     width: 100%;
   }
 
+  @media (max-width: ${({ theme }) => theme.breakpoints.tablet}px) {
+    grid-template-columns: 1fr;
+    width: 100%;
+  }
 `;
 
 export const Header = styled.h1`
