@@ -11,7 +11,6 @@ export const TileContainer = styled.div`
   box-shadow: 0px 4px 12px rgba(186, 199, 213, 0.5);
   border-radius: 5px;
   transition: transform 0.3s linear;
-  border: 1px solid gray;
 
   &:hover {
     cursor: pointer;
@@ -64,7 +63,6 @@ export const TileContent = styled.div`
   margin: 16px 0px 5px -1px;
   //height: 168px;
   width: 292px;
-  border: 1px solid green;
 
   @media (max-width: ${({ theme }) => theme.breakpoints.smallScreen}px) {
     width: 100%;
@@ -107,7 +105,6 @@ export const TileGenres = styled.ul`
   margin: 5px 0px 0px;
   padding-left: 0;
   list-style: none;
-  border: 1px solid blue;
 
   @media (max-width: ${({ theme }) => theme.breakpoints.tablet}px) {
     //margin: 0px 0px 0px 0px;
@@ -144,7 +141,6 @@ export const TileDescription = styled.p`
 export const RateContainer = styled.div`
   display: flex;
   justify-self: flex-end;
-  border: 1px solid red;
 
   @media (max-width: ${({ theme }) => theme.breakpoints.tablet}px) {
     margin-top: -5px;

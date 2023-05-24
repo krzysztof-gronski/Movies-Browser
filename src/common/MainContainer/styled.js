@@ -8,7 +8,6 @@ export const Container = styled.div`
   padding: 56px 40px;
   align-items: center;
   justify-content: center;
-  border: 1px solid red;
 
   @media (max-width: ${({ theme }) => theme.breakpoints.smallScreen}px) {
     align-items: flex-start;
@@ -27,7 +26,6 @@ export const TilesContainer = styled.div`
   grid-gap: 24px;
   justify-items: center;
   width: 1372px;
-  border: 1px solid orange;
 
   @media (max-width: ${({ theme }) => theme.breakpoints.smallScreen}px) {
     grid-template-columns: repeat(auto-fill, minmax(324px, 1fr));
