@@ -33,11 +33,15 @@ export const TileContent = styled.div`
     backdropFlag &&
     css`
       position: absolute;
-      left: 15%;
-      bottom: 20%;
+      left: 5%;
+      bottom: 10%;
       width: 70%;
       align-self: flex-start;
       margin-bottom: 3%;
+
+      @media (max-width: ${({ theme }) => theme.breakpoints.tablet}px) {
+        margin-bottom: 3%;
+      }
     `}
 `;
 
@@ -75,6 +79,7 @@ export const TileTitle = styled.header`
       color: ${({ theme }) => theme.colors.white};
 
       @media (max-width: ${({ theme }) => theme.breakpoints.tablet}px) {
+        margin-bottom: 8px;
         font-size: 24px;
       }
     `}
@@ -215,6 +220,10 @@ export const StarIcon = styled.img`
     backdropFlag &&
     css`
       width: 40px;
+
+      @media (max-width: ${({ theme }) => theme.breakpoints.tablet}px) {
+        width: 16px;
+      }
     `}
 `;
 
@@ -253,6 +262,13 @@ export const Rate = styled.span`
       font-size: 30px;
       line-height: 1.3;
       color: ${({ theme }) => theme.colors.white};
+
+      @media (max-width: ${({ theme }) => theme.breakpoints.tablet}px) {
+        margin: 5px 0px 0px 5px;
+        font-weight: 600;
+        font-size: 14px;
+        line-height: 1.1;
+      }
     `}
 `;
 
@@ -271,16 +287,24 @@ export const MaxRate = styled.span`
       font-size: 16px;
       line-height: 1.2;
       color: ${({ theme }) => theme.colors.white};
+
+      @media (max-width: ${({ theme }) => theme.breakpoints.tablet}px) {
+        margin: 10px 0px 0px 4px;
+        font-weight: 400;
+        font-size: 10px;
+        line-height: 0.8;
+      }
     `}
 `;
 
 export const Votes = styled.span`
+  font-weight: 400;
+
   ${({ moviesListFlag }) =>
     moviesListFlag &&
     css`
       margin-left: 12px;
       margin-top: 2px;
-      font-weight: 400;
       font-size: 16px;
       line-height: 1.5;
       color: ${({ theme }) => theme.colors.waterloo};
@@ -296,7 +320,6 @@ export const Votes = styled.span`
     css`
       margin-left: 0px;
       margin-top: 7px;
-      font-weight: 400;
       font-size: 14px;
       line-height: 1.2;
       color: ${({ theme }) => theme.colors.black};
@@ -307,6 +330,27 @@ export const Votes = styled.span`
     css`
       margin-top: 14px;
       color: ${({ theme }) => theme.colors.white};
+
+      @media (max-width: ${({ theme }) => theme.breakpoints.tablet}px) {
+        display: none;
+      }
+    `}
+`;
+
+export const MobileVotes = styled.span`
+  font-weight: 400;
+
+  ${({ backdropFlag }) =>
+    backdropFlag &&
+    css`
+      display: none;
+
+      @media (max-width: ${({ theme }) => theme.breakpoints.tablet}px) {
+        margin: 10px 0px 0px 9px; 
+        display: inline;
+        font-size: 10px;
+        line-height: 0.8;
+      }
     `}
 `;
 

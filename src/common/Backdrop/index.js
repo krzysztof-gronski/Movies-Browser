@@ -1,7 +1,9 @@
 import {
   MaxRate,
+  MobileVotes,
   Rate,
   RateContainer,
+  SeparateVotes,
   StarIcon,
   TileContent,
   TileTitle,
@@ -21,6 +23,7 @@ export const Backdrop = ({ backdropImage, movie }) => {
             <StarIcon src={starIcon} backdropFlag />
             <Rate backdropFlag>{movie.vote_average}</Rate>
             <MaxRate backdropFlag>{"/ 10"}</MaxRate>
+            <MobileVotes backdropFlag>{movie.vote_count + "       votes"}</MobileVotes>
           </RateContainer>
           <Votes backdropFlag>{movie.vote_count + "       votes"}</Votes>
         </TileContent>
