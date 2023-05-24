@@ -18,9 +18,12 @@ function App() {
             <Redirect to="/movies"></Redirect>
           </Route>
         </Switch>
+<Pagination />
       </HashRouter>
     </>
   );
 }
+
+
 
 export default App;
