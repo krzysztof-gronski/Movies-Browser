@@ -1,9 +1,8 @@
 import { nanoid } from "@reduxjs/toolkit";
-import starIcon from "./star.svg";
+import starIcon from "../TileContent/star.svg";
+import { Poster, TileContainer } from "./styled";
 
 import {
-  Poster,
-  TileContainer,
   TileTitle,
   TileContent,
   TileSubtitle,
@@ -18,7 +17,7 @@ import {
   TileDescription,
   Votes,
   MaxRate,
-} from "./styled";
+} from "../TileContent";
 
 export const Tile = ({
   poster,
