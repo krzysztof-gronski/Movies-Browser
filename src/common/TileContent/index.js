@@ -8,17 +8,19 @@ export const TileContent = styled.div`
   width: 292px;
   border: 1px solid green;
 
-  @media (max-width: ${({ theme }) => theme.breakpoints.smallScreen}px) {
-    width: 100%;
-  }
+  ${({ moviesListFlag }) =>
+    moviesListFlag &&
+    css`
+      @media (max-width: ${({ theme }) => theme.breakpoints.smallScreen}px) {
+        width: 100%;
+      }
 
-  @media (max-width: ${({ theme }) => theme.breakpoints.tablet}px) {
-    margin: 0px;
-    width: 100%;
-    min-width: 126px;
-  }
-
-  ${({ moviesListFlag }) => moviesListFlag && css``}
+      @media (max-width: ${({ theme }) => theme.breakpoints.tablet}px) {
+        margin: 0px;
+        width: 100%;
+        min-width: 126px;
+      }
+    `}
 
   ${({ movieDetailsFlag }) =>
     movieDetailsFlag &&
@@ -71,6 +73,10 @@ export const TileTitle = styled.header`
       font-size: 64px;
       line-height: 1.2;
       color: ${({ theme }) => theme.colors.white};
+
+      @media (max-width: ${({ theme }) => theme.breakpoints.tablet}px) {
+        font-size: 24px;
+      }
     `}
 `;
 
