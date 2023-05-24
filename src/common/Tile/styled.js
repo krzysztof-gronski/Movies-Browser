@@ -67,8 +67,11 @@ export const Poster = styled.img`
   }
 
   @media (max-width: ${({ theme }) => theme.breakpoints.tablet}px) {
+    //width: 40%;
+    //min-width: 114px;
     width: 100%;
     height: 100%;
     min-height: 169px;
+    //height: auto;
   }
 `;

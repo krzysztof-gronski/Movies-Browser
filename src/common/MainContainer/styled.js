@@ -7,7 +7,6 @@ export const Container = styled.div`
   margin: 0 auto;
   align-items: center;
   justify-content: center;
-  border: 1px solid red;
 
   @media (max-width: ${({ theme }) => theme.breakpoints.smallScreen}px) {
     align-items: flex-start;
