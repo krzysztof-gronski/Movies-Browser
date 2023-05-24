@@ -9,7 +9,7 @@ import {
   SearchWrapper,
   StyledNavLink,
 } from "./styled";
-import Search from "../Search";
+import Search from "../Search/index"
 
 const Navigation = () => (
   <Wrapper>
@@ -20,7 +20,7 @@ const Navigation = () => (
       </PageTitle>
       <List>
         <ListItem>
-          <StyledNavLink exact to="/">
+          <StyledNavLink to="/movies">
             Movies
           </StyledNavLink>
         </ListItem>
