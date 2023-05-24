@@ -9,7 +9,7 @@ export const Wrapper = styled.div`
   align-items: center;
   height: 94px;
 
-  @media (max-width: ${({ theme }) => theme.breakpoints.mobileMax}px) {
+  @media (max-width: ${({ theme }) => theme.breakpoints.tablet}px) {
     flex-wrap: wrap;
     width: 100%;
     height: 142px;
@@ -21,7 +21,7 @@ export const NavBar = styled.div`
   align-items: center;
   margin-left: 10px;
 
-  @media (max-width: ${({ theme }) => theme.breakpoints.mobileMax}px) {
+  @media (max-width: ${({ theme }) => theme.breakpoints.tablet}px) {
     justify-content: space-around;
     flex-grow: 1;
     padding-top: 5px;
@@ -40,7 +40,7 @@ export const StyledIcon = styled(Icon)`
   height: 40px;
   margin-right: 10px;
 
-  @media (max-width: ${({ theme }) => theme.breakpoints.mobileMax}px) {
+  @media (max-width: ${({ theme }) => theme.breakpoints.tablet}px) {
     width: 17px;
     height: 17px;
   }
@@ -55,7 +55,7 @@ export const Header = styled.h1`
   line-height: 40px;
   white-space: nowrap;
 
-  @media (max-width: ${({ theme }) => theme.breakpoints.mobileMax}px) {
+  @media (max-width: ${({ theme }) => theme.breakpoints.tablet}px) {
     font-size: 13px;
     font-weight: 500;
     line-height: 17px;
@@ -66,7 +66,7 @@ export const List = styled.ul`
   display: flex;
   margin-right: 10px;
 
-  @media (max-width: ${({ theme }) => theme.breakpoints.mobileMax}px) {
+  @media (max-width: ${({ theme }) => theme.breakpoints.tablet}px) {
     padding-left: 0;
   }
 `;
@@ -75,7 +75,7 @@ export const SearchWrapper = styled.div`
   flex-basis: 432px;
   margin-right: 10px;
 
-  @media (max-width: ${({ theme }) => theme.breakpoints.mobileMax}px) {
+  @media (max-width: ${({ theme }) => theme.breakpoints.tablet}px) {
     flex-grow: 1;
     margin: 0 20px 10px 20px;
   }
@@ -100,7 +100,7 @@ export const StyledNavLink = styled(NavLink).attrs(() => ({
   padding: 8px 24px;
   text-decoration: none;
 
-  @media (max-width: ${({ theme }) => theme.breakpoints.mobileMax}px) {
+  @media (max-width: ${({ theme }) => theme.breakpoints.tablet}px) {
     font-size: 12px;
     font-weight: 600;
     line-height: 17px;
