@@ -5,7 +5,6 @@ export const TileContent = styled.div`
   flex-direction: column;
   justify-self: start;
   margin: 16px 0px 5px -1px;
-  //height: 168px;
   width: 292px;
   border: 1px solid green;
 
@@ -32,6 +31,11 @@ export const TileContent = styled.div`
     backdropFlag &&
     css`
       position: absolute;
+      left: 15%;
+      bottom: 20%;
+      width: 70%;
+      align-self: flex-start;
+      margin-bottom: 3%;
     `}
 `;
 
@@ -58,6 +62,15 @@ export const TileTitle = styled.header`
       font-weight: 600;
       font-size: 36px;
       line-height: 1.2;
+    `}
+
+    ${({ backdropFlag }) =>
+    backdropFlag &&
+    css`
+      font-weight: 600;
+      font-size: 64px;
+      line-height: 1.2;
+      color: ${({ theme }) => theme.colors.white};
     `}
 `;
 
@@ -175,6 +188,13 @@ export const RateContainer = styled.div`
     css`
       margin-top: 8px;
     `}
+
+    ${({ backdropFlag }) =>
+    backdropFlag &&
+    css`
+      margin-top: 21px;
+      color: ${({ theme }) => theme.colors.white};
+    `}
 `;
 
 export const StarIcon = styled.img`
@@ -184,6 +204,12 @@ export const StarIcon = styled.img`
     margin-top: 1px;
     width: 16px;
   }
+
+  ${({ backdropFlag }) =>
+    backdropFlag &&
+    css`
+      width: 40px;
+    `}
 `;
 
 export const Rate = styled.span`
@@ -212,6 +238,16 @@ export const Rate = styled.span`
       font-size: 22px;
       line-height: 1.3;
     `}
+
+    ${({ backdropFlag }) =>
+    backdropFlag &&
+    css`
+      margin: 1px 0px 0px 8px;
+      font-weight: 500;
+      font-size: 30px;
+      line-height: 1.3;
+      color: ${({ theme }) => theme.colors.white};
+    `}
 `;
 
 export const MaxRate = styled.span`
@@ -220,6 +256,16 @@ export const MaxRate = styled.span`
   font-size: 14px;
   line-height: 1.2;
   color: ${({ theme }) => theme.colors.black};
+
+  ${({ backdropFlag }) =>
+    backdropFlag &&
+    css`
+      margin: 15px 0px 0px 7px;
+      font-weight: 400;
+      font-size: 16px;
+      line-height: 1.2;
+      color: ${({ theme }) => theme.colors.white};
+    `}
 `;
 
 export const Votes = styled.span`
@@ -248,6 +294,13 @@ export const Votes = styled.span`
       font-size: 14px;
       line-height: 1.2;
       color: ${({ theme }) => theme.colors.black};
+    `}
+
+    ${({ backdropFlag }) =>
+    backdropFlag &&
+    css`
+      margin-top: 14px;
+      color: ${({ theme }) => theme.colors.white};
     `}
 `;
 

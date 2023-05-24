@@ -5,6 +5,7 @@ export const BackdropContainer = styled.div`
   flex-direction: column;
   align-items: center;
   color: ${({ theme }) => theme.colors.black};
+
   background: linear-gradient(
       270deg,
       ${({ theme }) => theme.colors.black} 14.11%,
@@ -57,4 +58,10 @@ export const BackdropImage = styled.img`
 
   @media (max-width: ${({ theme }) => theme.breakpoints.tablet}px) {
   }
+`;
+
+export const ContentContainer = styled.div`
+  width: 100vw;
+  position: relative;
+  border: 1px solid yellow;
 `;
