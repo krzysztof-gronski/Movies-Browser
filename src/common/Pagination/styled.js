@@ -9,13 +9,8 @@ export const Wrapper = styled.div`
   margin-bottom: 104px;
 `;
 
-export const ButtonWrapper = styled.div`
-  margin-left: 24px;
-  margin-right: 24px;
-`;
-
 export const StyledButton = styled.button`
-  background: #e5e5e5;
+  background: #d6e4ff;
   min-width: 76px;
   max-width: 106px;
   height: 36px;
@@ -29,6 +24,9 @@ export const StyledButton = styled.button`
   color: ${({ theme }) => theme.colors.black};
   background-color: ${({ theme }) => theme.colors.mystic};
   border: none;
+  &:disabled {
+    background: #e5e5e5;
+  }
 `;
 
 export const StyledIcon = styled(Icon)`
@@ -49,6 +47,8 @@ export const PageIndicator = styled.div`
   padding-bottom: 8px;
   font-size: 16px;
   line-height: 24px;
+  margin-left: 24px;
+  margin-right: 24px;
 `;
 export const PageNumber = styled.span`
   font-weight: 600;
