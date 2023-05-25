@@ -27,6 +27,10 @@ export const TileContent = styled.div`
     css`
       margin: 0px;
       width: 100%;
+
+      @media (max-width: ${({ theme }) => theme.breakpoints.tablet}px) {
+        min-width: 126px;
+      }
     `}
 
     ${({ backdropFlag }) =>
@@ -68,6 +72,13 @@ export const TileTitle = styled.header`
       font-weight: 600;
       font-size: 36px;
       line-height: 1.2;
+
+      @media (max-width: ${({ theme }) => theme.breakpoints.tablet}px) {
+        margin: 1px 0px 0px 0px;
+        font-weight: 500;
+        font-size: 16px;
+        line-height: 1.3;
+      }
     `}
 
     ${({ backdropFlag }) =>
@@ -106,6 +117,12 @@ export const TileSubtitle = styled.div`
       font-size: 22px;
       line-height: 1.2;
       color: ${({ theme }) => theme.colors.black};
+
+      @media (max-width: ${({ theme }) => theme.breakpoints.tablet}px) {
+        margin: 4px 0px 6px 0px;
+        font-size: 13px;
+        color: ${({ theme }) => theme.colors.waterloo};
+      }
     `}
 `;
 
@@ -119,6 +136,11 @@ export const Label = styled.span`
   font-weight: 400;
   font-size: 18px;
   line-height: 1.2;
+
+  @media (max-width: ${({ theme }) => theme.breakpoints.tablet}px) {
+    display: none;
+    font-size: 13px;
+  }
 `;
 
 export const TextValue = styled.span`
@@ -127,6 +149,20 @@ export const TextValue = styled.span`
   font-weight: 400;
   font-size: 18px;
   line-height: 1.2;
+
+  @media (max-width: ${({ theme }) => theme.breakpoints.tablet}px) {
+    margin-left: 0px;
+  }
+
+  ${({ movieDetailsFlag }) =>
+    movieDetailsFlag &&
+    css`
+      @media (max-width: ${({ theme }) => theme.breakpoints.tablet}px) {
+        font-weight: 400;
+        font-size: 12px;
+        line-height: 1.3;
+      }
+    `}
 `;
 
 export const TileGenres = styled.ul`
@@ -139,7 +175,6 @@ export const TileGenres = styled.ul`
   border: 1px solid blue;
 
   @media (max-width: ${({ theme }) => theme.breakpoints.tablet}px) {
-    //margin: 0px 0px 0px 0px;
     flex-grow: 0;
   }
 
@@ -149,6 +184,11 @@ export const TileGenres = styled.ul`
     movieDetailsFlag &&
     css`
       flex-grow: 0;
+
+      @media (max-width: ${({ theme }) => theme.breakpoints.tablet}px) {
+        margin: -2px 0px 0px 0px;
+        flex-grow: 0;
+      }
     `}
 `;
 
@@ -180,6 +220,14 @@ export const TileGenre = styled.li`
       margin: 0px 16px 16px 0px;
       height: 30px;
       line-height: 1;
+
+      @media (max-width: ${({ theme }) => theme.breakpoints.tablet}px) {
+        margin: 0px 8px 8px 0px;
+        padding: 4px 6px 4px 5px;
+        height: 19px;
+        font-size: 10px;
+        line-height: 1.1;
+      }
     `}
 `;
 
@@ -198,6 +246,10 @@ export const RateContainer = styled.div`
     movieDetailsFlag &&
     css`
       margin-top: 8px;
+
+      @media (max-width: ${({ theme }) => theme.breakpoints.tablet}px) {
+        margin-top: 2px;
+      }
     `}
 
     ${({ backdropFlag }) =>
@@ -252,6 +304,14 @@ export const Rate = styled.span`
       font-weight: 500;
       font-size: 22px;
       line-height: 1.3;
+
+      @media (max-width: ${({ theme }) => theme.breakpoints.tablet}px) {
+        font-weight: 500;
+        margin: 5px 0px 0px 7px;
+        font-size: 13px;
+        line-height: 1;
+        color: ${({ theme }) => theme.colors.woodsmoke};
+      }
     `}
 
     ${({ backdropFlag }) =>
@@ -278,6 +338,10 @@ export const MaxRate = styled.span`
   font-size: 14px;
   line-height: 1.2;
   color: ${({ theme }) => theme.colors.black};
+
+  @media (max-width: ${({ theme }) => theme.breakpoints.tablet}px) {
+    display: none;
+  }
 
   ${({ backdropFlag }) =>
     backdropFlag &&
@@ -323,6 +387,14 @@ export const Votes = styled.span`
       font-size: 14px;
       line-height: 1.2;
       color: ${({ theme }) => theme.colors.black};
+
+      @media (max-width: ${({ theme }) => theme.breakpoints.tablet}px) {
+        margin: 5px 0px 0px 8px;
+        font-weight: 400;
+        font-size: 13px;
+        line-height: 1;
+        color: ${({ theme }) => theme.colors.waterloo};
+      }
     `}
 
     ${({ backdropFlag }) =>
@@ -346,7 +418,7 @@ export const MobileVotes = styled.span`
       display: none;
 
       @media (max-width: ${({ theme }) => theme.breakpoints.tablet}px) {
-        margin: 10px 0px 0px 9px; 
+        margin: 10px 0px 0px 9px;
         display: inline;
         font-size: 10px;
         line-height: 0.8;
@@ -360,4 +432,22 @@ export const TileDescription = styled.p`
   line-height: 1.6;
   margin-top: 24px;
   color: ${({ theme }) => theme.colors.black};
+
+  @media (max-width: ${({ theme }) => theme.breakpoints.tablet}px) {
+    display: none;
+  }
+`;
+
+export const MobileTileDescription = styled.p`
+  display: none;
+
+  @media (max-width: ${({ theme }) => theme.breakpoints.tablet}px) {
+    display: block;
+    grid-column-end: span 2;
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 1.6;
+    margin-top: 10px;
+    color: ${({ theme }) => theme.colors.black};
+  }
 `;

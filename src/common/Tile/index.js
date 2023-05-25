@@ -17,6 +17,7 @@ import {
   TileDescription,
   Votes,
   MaxRate,
+  MobileTileDescription,
 } from "../TileContent";
 
 export const Tile = ({
@@ -54,17 +55,17 @@ export const Tile = ({
     </TileContainer>
   ) : movieDetailsFlag ? (
     <TileContainer movieDetailsFlag>
-      <Poster src={poster} alt="poster" />
+      <Poster movieDetailsFlag src={poster} alt="poster" />
       <TileContent movieDetailsFlag>
         <TileTitle movieDetailsFlag>{tileTitle}</TileTitle>
         <TileSubtitle movieDetailsFlag>{tileSubtitle}</TileSubtitle>
         <InfoField>
           <Label>{"Production:"}</Label>
-          <TextValue>{production}</TextValue>
+          <TextValue movieDetailsFlag>{production}</TextValue>
         </InfoField>
         <InfoField>
           <Label>{"Release date:"}</Label>
-          <TextValue>{releaseDate}</TextValue>
+          <TextValue movieDetailsFlag>{releaseDate}</TextValue>
         </InfoField>
         <TileGenres movieDetailsFlag>
           {genres.map((genre) => (
@@ -81,6 +82,7 @@ export const Tile = ({
         </RateContainer>
         <TileDescription>{description}</TileDescription>
       </TileContent>
+      <MobileTileDescription>{description}</MobileTileDescription>
     </TileContainer>
   ) : (
     <></>

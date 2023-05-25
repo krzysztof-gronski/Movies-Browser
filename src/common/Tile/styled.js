@@ -30,8 +30,6 @@ export const TileContainer = styled.div`
 
       @media (max-width: ${({ theme }) => theme.breakpoints.tablet}px) {
         grid-template-columns: auto 1fr;
-        //width: 100%;
-        //height: auto;
         aspect-ratio: 1.432;
         min-width: 318px;
         min-height: 211px;
@@ -52,26 +50,50 @@ export const TileContainer = styled.div`
       min-height: 211px;
       grid-gap: 40px;
       padding: 40px 40px 0px 40px;
+
+      @media (max-width: ${({ theme }) => theme.breakpoints.tablet}px) {
+        grid-template-columns: 1fr 1.2fr;
+        margin-top: -12px;
+        min-width: 318px;
+        min-height: 211px;
+        grid-gap: 14px;
+        padding: 14px 14px 0px 14px;
+      }
     `}
 `;
 
 export const Poster = styled.img`
-  width: 292px;
-  height: 434px;
-  margin-left: -1px;
-  border-radius: 5px;
+  ${({ moviesListFlag }) =>
+    moviesListFlag &&
+    css`
+      width: 292px;
+      height: 434px;
+      margin-left: -1px;
+      border-radius: 5px;
 
-  @media (max-width: ${({ theme }) => theme.breakpoints.smallScreen}px) {
-    width: 100%;
-    height: auto;
-  }
+      @media (max-width: ${({ theme }) => theme.breakpoints.smallScreen}px) {
+        width: 100%;
+        height: auto;
+      }
 
-  @media (max-width: ${({ theme }) => theme.breakpoints.tablet}px) {
-    //width: 40%;
-    //min-width: 114px;
-    width: 100%;
-    height: 100%;
-    min-height: 169px;
-    //height: auto;
-  }
+      @media (max-width: ${({ theme }) => theme.breakpoints.tablet}px) {
+        width: 100%;
+        height: 100%;
+        min-height: 169px;
+      }
+    `}
+  ${({ movieDetailsFlag }) =>
+    movieDetailsFlag &&
+    css`
+      width: 292px;
+      height: 434px;
+      margin-left: -1px;
+      border-radius: 5px;
+
+      @media (max-width: ${({ theme }) => theme.breakpoints.tablet}px) {
+        width: 100%;
+        height: auto;
+        min-height: 169px;
+      }
+    `}
 `;
