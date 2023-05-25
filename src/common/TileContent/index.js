@@ -167,6 +167,7 @@ export const TextValue = styled.span`
 
 export const TileGenres = styled.ul`
   display: flex;
+  align-content: flex-start;
   flex-wrap: wrap;
   flex-grow: 1;
   margin: 8px 0px 0px;

@@ -35,7 +35,7 @@ export const Tile = ({
 }) => {
   return moviesListFlag ? (
     <TileContainer moviesListFlag>
-      <Poster src={poster} alt="poster" />
+      <Poster moviesListFlag src={poster} alt="poster" />
       <TileContent moviesListFlag>
         <TileTitle moviesListFlag>{tileTitle}</TileTitle>
         <TileSubtitle moviesListFlag>{tileSubtitle}</TileSubtitle>
