@@ -1,14 +1,23 @@
 import { useEffect, useState } from "react";
-import { PageIndicator, PageNumber, Wrapper } from "./styled";
-import Button from "./button";
+import {
+  PageIndicator,
+  PageNumber,
+  Wrapper,
+  Button,
+  ButtonText,
+} from "./styled";
 import {
   useQueryParameter,
   useReplaceQueryParameter,
 } from "../Search/queryParameters";
+import { BackwardVector, ForwardVector } from "./arrows";
 
 const Pagination = () => {
   const firstPage = 1;
   const totalPages = 500;
+
+  const [width, setWidth] = useState(window.innerWidth);
+  window.onresize = () => setWidth(window.innerWidth);
 
   const page = useQueryParameter("page");
 
@@ -17,44 +26,39 @@ const Pagination = () => {
   const replaceQueryParameter = useReplaceQueryParameter();
 
   useEffect(() => {
-    setCurrentPage(page || firstPage);
+    setCurrentPage(parseInt(page) || firstPage);
   }, [page]);
 
-  const goToPage = (pageNumber) => {
-    replaceQueryParameter({
-      key: "page",
-      value: pageNumber,
-    });
-  };
+  const isSmallScreen = width < 767;
 
   return (
     <Wrapper>
-      <Button
-        text={"First"}
-        align="left"
-        onClick={() => goToPage(firstPage)}
-        disabled={currentPage === 1 ? true : false}
-      />
-      <Button
-        text={"Previous"}
-        align="left"
-        onClick={() => goToPage(+currentPage - 1)}
-        disabled={currentPage === 1 ? true : false}
-      />
+      <Button disabled={currentPage === 1 ? true : false}>
+        <BackwardVector disabled={currentPage === 1 ? true : false} />
+        {isSmallScreen && (
+          <BackwardVector disabled={currentPage === 1 ? true : false} />
+        )}
+        <ButtonText>First</ButtonText>
+      </Button>
+      <Button disabled={currentPage === 1 ? true : false}>
+        <BackwardVector disabled={currentPage === 1 ? true : false} />
+        <ButtonText>Previous</ButtonText>
+      </Button>
       <PageIndicator>
-        Page <PageNumber>{+currentPage}</PageNumber> of{" "}
+        Page <PageNumber>{currentPage}</PageNumber> of{" "}
         <PageNumber>{totalPages}</PageNumber>
       </PageIndicator>
-      <Button
-        text={"Next"}
-        align="right"
-        onClick={() => goToPage(+currentPage + 1)}
-      />
-      <Button
-        text={"Last"}
-        align="right"
-        onClick={() => goToPage(totalPages)}
-      />
+      <Button disabled={currentPage === 500 ? true : false || currentPage === 500? true:false}>
+        <ButtonText>Next</ButtonText>
+        <ForwardVector  disabled={currentPage === 500 ? true : false || currentPage === 500? true:false} />
+      </Button>
+      <Button  disabled={currentPage === 500 ? true : false || currentPage === 500? true:false}>
+        <ButtonText>Last</ButtonText>
+        <ForwardVector  disabled={currentPage === 500 ? true : false || currentPage === 500? true:false} />
+        {isSmallScreen && (
+          <ForwardVector disabled={currentPage === 500 ? true : false || currentPage === 500? true:false} />
+        )}{" "}
+      </Button>
     </Wrapper>
   );
 };
