@@ -126,4 +126,40 @@ export const Header = styled.h1`
         margin: 0vh 5vw 2vw 5vw;
       }
     `}
+
+  ${({ error }) =>
+    error &&
+    css`
+      font-weight: 600;
+      font-size: 36px;
+      line-height: 1.15;
+      margin: 1.9vw 0vw 1.2vw;
+
+      @media (max-width: ${({ theme }) => theme.breakpoints.smallScreen}px) {
+        margin: 1.9vw 0vw 1.2vw;
+      }
+
+      @media (max-width: ${({ theme }) => theme.breakpoints.tablet}px) {
+        font-weight: 600;
+        font-size: 4.4vw;
+        margin: 1.9vw 0vw 0vw;
+      }
+    `}
+`;
+
+export const Message = styled.p`
+  margin: 0px;
+  font-weight: 500;
+  font-size: 22px;
+  line-height: 1.35;
+  text-align: center;
+
+  @media (max-width: ${({ theme }) => theme.breakpoints.smallScreen}px) {
+  }
+
+  @media (max-width: ${({ theme }) => theme.breakpoints.tablet}px) {
+    font-weight: 500;
+    font-size: 4.4vw;
+    margin: 2.2vw 0vw 0vw;
+  }
 `;

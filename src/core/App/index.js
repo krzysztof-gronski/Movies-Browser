@@ -5,6 +5,7 @@ import { MovieDetails } from "../../features/MovieDetails";
 import Pagination from "../../common/Pagination";
 import { Loader } from "../../common/Loader";
 import { NoResults } from "../../common/NoResults";
+import { ErrorPage } from "../../common/ErrorPage";
 
 function App() {
   return (
@@ -14,7 +15,7 @@ function App() {
         <Switch>
           <Route path="/people/:id">{"People Details"}</Route>
           <Route path="/people/:id">{"Movie"}</Route>
-          <Route path="/people"><NoResults></NoResults></Route>
+          <Route path="/people"><ErrorPage></ErrorPage></Route>
           <Route path="/movie/:id">{"Movie Details"}</Route>
           <Route path="/">
             <MoviesList />
