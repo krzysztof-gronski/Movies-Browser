@@ -8,11 +8,6 @@ export const Container = styled.div`
   align-items: center;
   justify-content: center;
 
-  @media (max-width: ${({ theme }) => theme.breakpoints.smallScreen}px) {
-    align-items: flex-start;
-    padding: 56px 24px;
-  }
-
   @media (max-width: ${({ theme }) => theme.breakpoints.tablet}px) {
     align-items: flex-start;
     padding: 24px 16px;
@@ -22,10 +17,26 @@ export const Container = styled.div`
     moviesListFlag &&
     css`
       padding: 56px 40px;
+
+      @media (max-width: ${({ theme }) => theme.breakpoints.smallScreen}px) {
+        align-items: flex-start;
+        padding: 56px 24px;
+      }
     `}
 
   ${({ movieDetailsFlag }) =>
     movieDetailsFlag &&
+    css`
+      padding: 0px 40px 50px;
+
+      @media (max-width: ${({ theme }) => theme.breakpoints.smallScreen}px) {
+        align-items: flex-start;
+        padding: 56px 24px;
+      }
+    `}
+
+    ${({ search }) =>
+    search &&
     css`
       padding: 0px 40px 50px;
     `}
@@ -64,4 +75,24 @@ export const Header = styled.h1`
     font-size: 18px;
     margin: 2px 0px 12px 0px;
   }
+
+  ${({ search }) =>
+    search &&
+    css`
+      align-self: flex-start;
+      font-weight: 600;
+      font-size: 36px; //1.9vw;
+      line-height: 1.15;
+      margin: 4vh 14.3vw 6vw 14.3vw;
+
+      @media (max-width: ${({ theme }) => theme.breakpoints.smallScreen}px) {
+        margin: 4vh 14.3vw 6vw 14.3vw;
+      }
+
+      @media (max-width: ${({ theme }) => theme.breakpoints.tablet}px) {
+        font-weight: 500;
+        font-size: 4.4vw;
+        margin: 0vh 5vw 7.5vw 5vw;
+      }
+    `}
 `;

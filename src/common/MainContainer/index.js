@@ -2,8 +2,9 @@ import { Container, Header, TilesContainer } from "./styled";
 import { Tile } from "../Tile";
 import { IMAGE_PATH } from "../../features/api/apiData";
 import { formatDate } from "../Utilities";
+import { Spinner } from "../Loader/styled";
 
-export const MainContainer = ({ movies, genres, movie }) => {
+export const MainContainer = ({ movies, genres, movie, search }) => {
   return movies ? (
     <Container moviesListFlag>
       <Header>Popular movies</Header>
@@ -51,6 +52,11 @@ export const MainContainer = ({ movies, genres, movie }) => {
         ></Tile>
       </Container>
     </>
+  ) : search ? (
+    <Container search>
+      <Header search>{`Search results for "${search}"`}</Header>
+      <Spinner></Spinner>
+    </Container>
   ) : (
     <>{"Error Page"}</>
   );
