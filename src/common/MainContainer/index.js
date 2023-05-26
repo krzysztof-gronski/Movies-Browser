@@ -3,8 +3,10 @@ import { Tile } from "../Tile";
 import { IMAGE_PATH } from "../../features/api/apiData";
 import { formatDate } from "../Utilities";
 import { Spinner } from "../Loader/styled";
+import { NoResultsImage } from "../NoResults/styled";
+import noReultsImage from "../NoResults/noresults.svg";
 
-export const MainContainer = ({ movies, genres, movie, search }) => {
+export const MainContainer = ({ movies, genres, movie, search, noResults }) => {
   return movies ? (
     <Container moviesListFlag>
       <Header>Popular movies</Header>
@@ -56,6 +58,11 @@ export const MainContainer = ({ movies, genres, movie, search }) => {
     <Container search>
       <Header search>{`Search results for "${search}"`}</Header>
       <Spinner></Spinner>
+    </Container>
+  ) : noResults ? (
+    <Container noResults>
+      <Header noResults>{`Sorry, there are no results for "${noResults}"`}</Header>
+      <NoResultsImage src={noReultsImage}/>
     </Container>
   ) : (
     <>{"Error Page"}</>
