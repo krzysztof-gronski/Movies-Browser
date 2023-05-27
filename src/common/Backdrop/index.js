@@ -3,7 +3,6 @@ import {
   MobileVotes,
   Rate,
   RateContainer,
-  SeparateVotes,
   StarIcon,
   TileContent,
   TileTitle,

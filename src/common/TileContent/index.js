@@ -49,6 +49,7 @@ export const TileContent = styled.div`
 `;
 
 export const TileTitle = styled.header`
+  color: ${({ theme }) => theme.colors.woodsmoke};
   ${({ moviesListFlag }) =>
     moviesListFlag &&
     css`
@@ -97,6 +98,7 @@ export const TileTitle = styled.header`
 
 export const TileSubtitle = styled.div`
   font-weight: 400;
+  color: ${({ theme }) => theme.colors.woodsmoke};
 
   ${({ moviesListFlag }) =>
     moviesListFlag &&
@@ -193,6 +195,7 @@ export const TileGenres = styled.ul`
 export const TileGenre = styled.li`
   padding: 8px 16px;
   background-color: ${({ theme }) => theme.colors.mystic};
+  color: ${({ theme }) => theme.colors.woodsmoke};
   font-size: 14px;
   font-weight: 400;
   border-radius: 5px;
@@ -437,6 +440,7 @@ export const TileDescription = styled.p`
 
 export const MobileTileDescription = styled.p`
   display: none;
+  color: ${({ theme }) => theme.colors.black};
 
   @media (max-width: ${({ theme }) => theme.breakpoints.tablet}px) {
     display: block;
@@ -445,6 +449,5 @@ export const MobileTileDescription = styled.p`
     font-size: 14px;
     line-height: 1.6;
     margin-top: 10px;
-    color: ${({ theme }) => theme.colors.black};
   }
 `;

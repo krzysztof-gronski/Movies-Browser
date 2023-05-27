@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import styled, { css } from "styled-components";
 
 export const TileContainer = styled.div`
@@ -95,4 +96,8 @@ export const Poster = styled.img`
         min-height: 169px;
       }
     `}
+`;
+
+export const TileLink = styled(Link)`
+    text-decoration: none;
 `;

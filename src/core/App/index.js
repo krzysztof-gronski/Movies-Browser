@@ -23,11 +23,14 @@ function App() {
             <Loader />
           </Route>
           <Route path="/people/:id">{"People Details"}</Route>
-          <Route path="/people/:id">{"Movie"}</Route>
-          <Route path="/people">
+          <Route path="/people/:id">{"Person Details Page"}</Route>
+          <Route path="/people">{"People List Page"}</Route>
+          <Route path="/movie/:id">
             <MovieDetails />
           </Route>
-          <Route path="/movie/:id">{"Movie Details"}</Route>
+          <Route path="/movies">
+            <MoviesList />
+          </Route>
           <Route path="/">
             <MoviesList />
           </Route>
