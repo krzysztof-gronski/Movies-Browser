@@ -3,10 +3,14 @@ import styled from "styled-components";
 export const Wrapper = styled.div`
   width: 100%;
   display: flex;
+  margin: 40px auto;
   justify-content: center;
-  align-items: flex-end;
-  margin-bottom: 104px;
-  margin-top: 40px;
+  align-items: center;
+  gap: 12px;
+  @media (max-width: 767px) {
+    gap: 8px;
+    margin-left:5px;
+  }
 `;
 
 export const Button = styled.button`
@@ -20,13 +24,11 @@ export const Button = styled.button`
   font-weight: 400;
   font-size: 14px;
   line-height: 140%;
-  margin: 0 12px;
   color: ${({ theme }) => theme.colors.black};
   background-color: ${({ theme }) => theme.colors.pattensBlue};
   display: flex;
   gap: 10px;
   align-items: center;
-  justify-content: center;
   border: none;
   &:disabled {
     background-color: ${({ theme }) => theme.colors.mystic};
@@ -50,14 +52,11 @@ export const PageIndicator = styled.div`
   padding-bottom: 8px;
   font-size: 16px;
   line-height: 24px;
-  margin-left: 24px;
+  margin-left: 12px;
+  margin-right: 12px;
   white-space: nowrap;
-  margin-right: 24px;
   @media (max-width: 767px) {
     font-size: 10px;
-    margin-left: 8px;
-    margin-right: 8px;
-    padding: 0;
   }
 `;
 export const PageNumber = styled.span`
