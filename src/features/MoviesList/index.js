@@ -5,10 +5,20 @@ import { MainContainer } from "../../common/MainContainer";
 export const MoviesList = () => {
   const [movies, setMovies] = useState([]);
   const [genres, setGenres] = useState({});
+  const [page, setPage] = useState();
+  const [totalPages, setTotalPages] = useState();
 
   const getPopularMovie = async () => {
     const { data } = await tmdbApi.getPopularMoviesData();
     setMovies(data.results);
+  };
+  const getPage = async () => {
+    const { data } = await tmdbApi.getPopularMoviesData();
+    setPage(data.page);
+  };
+  const getTotalPages = async () => {
+    const { data } = await tmdbApi.getPopularMoviesData();
+    setTotalPages(data.total_pages);
   };
 
   const getGenres = async () => {
@@ -19,7 +29,16 @@ export const MoviesList = () => {
   useEffect(() => {
     getPopularMovie();
     getGenres();
+    getPage();
+    getTotalPages();
   }, []);
 
-  return <MainContainer movies={movies} genres={genres} />;
+  return (
+    <MainContainer
+      totalPages={totalPages}
+      page={page}
+      movies={movies}
+      genres={genres}
+    />
+  );
 };

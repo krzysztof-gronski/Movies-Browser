@@ -1,8 +1,9 @@
 import { Container, Header, TilesContainer } from "./styled";
 import { Tile } from "../Tile";
 import { IMAGE_PATH } from "../../features/api/apiData";
+import Pagination from "../Pagination";
 
-export const MainContainer = ({ movies, genres }) => {
+export const MainContainer = ({ movies, genres, page, totalPages }) => {
   return (
     <Container>
       <Header>Popular movies</Header>
@@ -16,7 +17,7 @@ export const MainContainer = ({ movies, genres }) => {
                 movie.poster_path ? `${IMAGE_PATH}${movie.poster_path}` : null
               }
               tileTitle={movie.original_title}
-              tileSubtitle={movie.release_date.slice(0,4)}
+              tileSubtitle={movie.release_date.slice(0, 4)}
               genres={movie.genre_ids.map((genre_id) => {
                 return genres.find((genre) => genre.id === genre_id).name;
               })}
@@ -25,6 +26,7 @@ export const MainContainer = ({ movies, genres }) => {
             ></Tile>
           ))}
       </TilesContainer>
+      <Pagination page={page} totalPages={totalPages} />
     </Container>
   );
 };
