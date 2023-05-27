@@ -70,7 +70,6 @@ export const TilesContainer = styled.div`
   grid-gap: 24px;
   justify-items: center;
   width: 1372px;
-  border: 1px solid orange;
 
   @media (max-width: ${({ theme }) => theme.breakpoints.smallScreen}px) {
     grid-template-columns: repeat(auto-fill, minmax(324px, 1fr));

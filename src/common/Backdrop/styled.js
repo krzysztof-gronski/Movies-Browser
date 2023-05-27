@@ -57,5 +57,4 @@ export const BackdropImage = styled.img`
 export const ContentContainer = styled.div`
   width: 100vw;
   position: relative;
-  border: 1px solid yellow;
 `;
