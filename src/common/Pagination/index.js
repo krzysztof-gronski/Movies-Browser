@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import {
   PageIndicator,
   PageNumber,
@@ -6,57 +6,73 @@ import {
   Button,
   ButtonText,
 } from "./styled";
-import {
-  useQueryParameter,
-  useReplaceQueryParameter,
-} from "../Search/queryParameters";
+import { useReplaceQueryParameter } from "../Search/queryParameters";
 import { BackwardVector, ForwardVector } from "./arrows";
 
-const Pagination = () => {
-  const firstPage = 1;
-  const totalPages = 500;
-
+const Pagination = ({ page, totalPages }) => {
+  const replaceQueryParameter = useReplaceQueryParameter();
   const [width, setWidth] = useState(window.innerWidth);
   window.onresize = () => setWidth(window.innerWidth);
 
-  const page = useQueryParameter("page");
-
-  const [currentPage, setCurrentPage] = useState(1);
-
-  const replaceQueryParameter = useReplaceQueryParameter();
-
-  useEffect(() => {
-    setCurrentPage(parseInt(page) || firstPage);
-  }, [page]);
-
   const isSmallScreen = width < 767;
+  const firstPage = 1;
+  const previousPage = page - 1;
+  const nextPage = page + 1;
+  const lastPage = 500;
+  const pages = totalPages > 500 ? 500 : totalPages;
+
+  const goToPage = (targetPage) => {
+    replaceQueryParameter({
+      key: "page",
+      value: targetPage,
+    });
+  };
 
   return (
     <Wrapper>
-      <Button disabled={currentPage === 1 ? true : false}>
-        <BackwardVector disabled={currentPage === 1 ? true : false} />
+      <Button
+        onClick={() => goToPage(firstPage)}
+        disabled={page === 1 ? true : false}
+      >
+        <BackwardVector disabled={page === 1 ? true : false} />
         {isSmallScreen && (
-          <BackwardVector disabled={currentPage === 1 ? true : false} />
+          <BackwardVector disabled={page === 1 ? true : false} />
         )}
         <ButtonText>First</ButtonText>
       </Button>
-      <Button disabled={currentPage === 1 ? true : false}>
-        <BackwardVector disabled={currentPage === 1 ? true : false} />
+      <Button
+        onClick={() => goToPage(previousPage)}
+        disabled={page === 1 ? true : false}
+      >
+        <BackwardVector disabled={page === 1 ? true : false} />
         <ButtonText>Previous</ButtonText>
       </Button>
       <PageIndicator>
-        Page <PageNumber>{currentPage}</PageNumber> of{" "}
-        <PageNumber>{totalPages}</PageNumber>
+        Page <PageNumber>{page}</PageNumber> of <PageNumber>{pages}</PageNumber>
       </PageIndicator>
-      <Button disabled={currentPage === 500 ? true : false || currentPage === 500? true:false}>
+      <Button
+        onClick={() => goToPage(nextPage)}
+        disabled={page === 500 ? true : false || page === 500 ? true : false}
+      >
         <ButtonText>Next</ButtonText>
-        <ForwardVector  disabled={currentPage === 500 ? true : false || currentPage === 500? true:false} />
+        <ForwardVector
+          disabled={page === 500 ? true : false || page === 500 ? true : false}
+        />
       </Button>
-      <Button  disabled={currentPage === 500 ? true : false || currentPage === 500? true:false}>
+      <Button
+        onClick={() => goToPage(lastPage)}
+        disabled={page === 500 ? true : false || page === 500 ? true : false}
+      >
         <ButtonText>Last</ButtonText>
-        <ForwardVector  disabled={currentPage === 500 ? true : false || currentPage === 500? true:false} />
+        <ForwardVector
+          disabled={page === 500 ? true : false || page === 500 ? true : false}
+        />
         {isSmallScreen && (
-          <ForwardVector disabled={currentPage === 500 ? true : false || currentPage === 500? true:false} />
+          <ForwardVector
+            disabled={
+              page === 500 ? true : false || page === 500 ? true : false
+            }
+          />
         )}{" "}
       </Button>
     </Wrapper>
