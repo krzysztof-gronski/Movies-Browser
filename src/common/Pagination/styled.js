@@ -51,6 +51,7 @@ export const PageIndicator = styled.div`
   font-size: 16px;
   line-height: 24px;
   margin-left: 24px;
+  white-space: nowrap;
   margin-right: 24px;
   @media (max-width: 767px) {
     font-size: 10px;
@@ -69,7 +70,7 @@ export const PageNumber = styled.span`
 `;
 
 export const VectorSvg = styled.svg`
-  width: 8px;
-  height: 11px;
+  width: 7px;
+  height: 12px;
   fill: none;
 `;
