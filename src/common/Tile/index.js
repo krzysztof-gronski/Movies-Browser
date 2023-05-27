@@ -21,6 +21,7 @@ import {
 } from "../TileContent";
 
 export const Tile = ({
+  movie,
   poster,
   tileTitle,
   tileSubtitle,
@@ -34,7 +35,7 @@ export const Tile = ({
   movieDetailsFlag,
 }) => {
   return moviesListFlag ? (
-    <TileLink to={"/movie/:id"}>
+    <TileLink to={`/movie/:${movie.id}`}>
       <TileContainer moviesListFlag>
         <Poster moviesListFlag src={poster} alt="poster" />
         <TileContent moviesListFlag>
