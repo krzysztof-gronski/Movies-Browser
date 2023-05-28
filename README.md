@@ -1,4 +1,5 @@
-# MOVIES BROWSER - UNDER CONSTRUCTION
+🧱 # MOVIES BROWSER - UNDER CONSTRUCTION 🧱
+  🚧 🚧 🚧 🚧 🚧  🛠️  🚧 🚧 🚧 🚧 🚧
 ## Developers
 * [Krzysztof Groński](https://github.com/krzysztof-gronski)
 * [Ulyana Lakevich](https://github.com/ulyanalakevich)
