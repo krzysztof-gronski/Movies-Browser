@@ -1,6 +1,15 @@
 import { Container, Header, Message, TilesContainer } from "./styled";
 import { Tile } from "../Tile";
 import { IMAGE_PATH } from "../../features/api/apiData";
+import Pagination from "../Pagination";
+import { useDispatch, useSelector } from "react-redux";
+import {
+  fetchMovies,
+  selectMovies,
+  selectPage,
+} from "../../features/MoviesList/moviesListSlice";
+import { useEffect } from "react";
+import { useQueryParameter } from "../Search/queryParameters";
 import { formatDate } from "../Utilities";
 import { Spinner } from "../Loader/styled";
 import { NoResultsImage } from "../NoResults/styled";
@@ -9,15 +18,24 @@ import errorImage from "../ErrorPage/error.svg";
 import { ErrorImage, LinkButton } from "../ErrorPage/styled";
 
 export const MainContainer = ({
-  movies,
   genres,
   movie,
   search,
   noResults,
   error,
 }) => {
-  return movies ? (
+  
+  const movies = useSelector(selectMovies);
+  const dispatch = useDispatch();
+  const page = useQueryParameter("page");
+  const currentPage = useSelector(selectPage);
+  useEffect(() => {
+    dispatch(fetchMovies(page));
+  }, [page]);
+  
+  return movies.length>0 ? (
     <Container moviesListFlag>
+
       <Header>Popular movies</Header>
       <TilesContainer>
         {movies &&
@@ -39,6 +57,7 @@ export const MainContainer = ({
             ></Tile>
           ))}
       </TilesContainer>
+      <Pagination page={currentPage} totalPages={"500"} />
     </Container>
   ) : movie ? (
     <>
