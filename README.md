@@ -20,6 +20,7 @@ https://krzysztof-gronski.github.io/Movies-Browser/
 - Visual styling
 - CSS Grid/Flexbox layouts
 - Responsive web design
+- Error Handling
 
 ## Technologies
 - HTML (semantics, accesibility)
@@ -30,6 +31,9 @@ https://krzysztof-gronski.github.io/Movies-Browser/
 - Redux (Toolkit, Saga)
 - Axios
 - TMDB API fetch
+
+## API Provider
+The project is using [The Movie Database](https://www.themoviedb.org/).
 
 ## Preview
 
