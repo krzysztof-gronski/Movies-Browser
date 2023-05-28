@@ -12,20 +12,24 @@ Movie browser
 https://krzysztof-gronski.github.io/Movies-Browser/
 
 ## Developers
-* [Krzysztof Groński](https://github.com/krzysztof-gronski)
-* [Ulyana Lakevich](https://github.com/ulyanalakevich)
-* [Ula Malinowska](https://github.com/ursmal1948)
+- [Krzysztof Groński](https://github.com/krzysztof-gronski)
+- [Ulyana Lakevich](https://github.com/ulyanalakevich)
+- [Ula Malinowska](https://github.com/ursmal1948)
 
 ## Features
+- Visual styling
+- CSS Grid/Flexbox layouts
+- Responsive web design
 
 ## Technologies
-* HTML
-* CSS
-* JS ES6+
-* React (Hooks)
-* Router
-* Redux (Toolkit, Saga)
-* TMDB API fetch
+- HTML (semantics, accesibility)
+- CSS (Layouts - flexbox, grid)
+- JS ES6+
+- React (Hooks, Router)
+- Styled Components
+- Redux (Toolkit, Saga)
+- Axios
+- TMDB API fetch
 
 ## Preview
 
