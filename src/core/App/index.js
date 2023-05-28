@@ -10,12 +10,12 @@ function App() {
         <Switch>
           <Route path="/people/:id">{"People Details"}</Route>
           <Route path="/movie/:id">{"Movie Details"}</Route>
-          <Route path="/people">{"People"}</Route>
+          <Route path="/people"></Route>
           <Route path="/movies">
             <MoviesList />
           </Route>
           <Route path="/">
-            <Redirect to="/movies"></Redirect>
+            <Redirect to="/movies?page=1"></Redirect>
           </Route>
         </Switch>
       </HashRouter>
