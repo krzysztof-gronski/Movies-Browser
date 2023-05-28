@@ -8,7 +8,7 @@ import {
 } from "./queryParameters";
 import searchQueryParamName from "./searchQueryParamName";
 import { clearSearchResults, selectMovies } from "../../features/MoviesList/moviesListSlice";
-import { searchMoviesData } from "../../features/MoviesList/moviesListSaga";
+import { fetchGenres } from "../../features/MoviesList/moviesListSlice";
 
 const Search = () => {
   const dispatch = useDispatch();
@@ -36,7 +36,7 @@ const Search = () => {
   useEffect(() => {
     const searchMovies = async () => {
       if (queryParam) {
-        dispatch(searchMoviesData(queryParam));
+        dispatch(fetchGenres(queryParam));
       } else {
         dispatch(clearSearchResults());
       }
