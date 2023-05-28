@@ -1,5 +1,5 @@
 import { createSlice } from "@reduxjs/toolkit";
-import { tmdbApi } from "../api/apiData";
+
 
 const moviesListSlice = createSlice({
   name: "moviesList",
@@ -18,9 +18,9 @@ const moviesListSlice = createSlice({
       state.loading = false;
       state.error = null;
     },
-    fetchMoviesError: (state, { payload: movies }) => {
+    fetchMoviesError: (state) => {
       state.loading = false;
-      state.error = movies;
+      state.error = true;
     },
     clearSearchResults: (state) => {
       state.movies = [];
@@ -37,24 +37,6 @@ export const {
   clearSearchResults,
 } = moviesListSlice.actions;
 
-export const getPopularMoviesData = () => async (dispatch) => {
-  try {
-    dispatch(fetchMovies());
-    const movies = await tmdbApi.getPopularMoviesData();
-    dispatch(fetchMoviesSuccess(movies));
-  } catch (error) {
-    dispatch(fetchMoviesError(error.message));
-  }
-};
-export const searchMoviesData = (query) => async (dispatch) => {
-  try {
-    dispatch(fetchMovies());
-    const movies = await tmdbApi.searchMoviesData(query);
-    dispatch(fetchMoviesSuccess(movies));
-  } catch (error) {
-    dispatch(fetchMoviesError(error.message));
-  }
-};
 export const selectMovies = (state) => state.moviesList.movies;
 export const selectLoading = (state) => state.moviesList.loading;
 export const selectError = (state) => state.moviesList.error;

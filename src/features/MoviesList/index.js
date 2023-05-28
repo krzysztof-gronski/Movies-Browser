@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { getPopularMoviesData } from "./moviesListSlice"
+import { getPopularMoviesData } from "./moviesListSaga"
 import { MainContainer } from "../../common/MainContainer";
 import { tmdbApi } from "../api/apiData";
 import { selectMovies, selectLoading, selectError } from "./moviesListSlice";
