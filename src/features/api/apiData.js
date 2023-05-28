@@ -12,4 +12,9 @@ export const tmdbApi = {
     const url = "genre/movie/list?language=en";
     return tmdb.get(url);
   },
+  searchMoviesData: (query) => {
+    const apiKey = "f864c444928645f66814d9fbaba37ee6"
+    const url = `search/movie?api_key=${apiKey}&language=en-US&query=${query}&page=1&include_adult=false`;
+    return tmdb.get(url);
+  },
 };
