@@ -1,12 +1,21 @@
-import { Container, Header, TilesContainer } from "./styled";
+import { Container, Header, Message, TilesContainer } from "./styled";
 import { Tile } from "../Tile";
 import { IMAGE_PATH } from "../../features/api/apiData";
 import { formatDate } from "../Utilities";
 import { Spinner } from "../Loader/styled";
 import { NoResultsImage } from "../NoResults/styled";
 import noReultsImage from "../NoResults/noresults.svg";
+import errorImage from "../ErrorPage/error.svg";
+import { ErrorImage, LinkButton } from "../ErrorPage/styled";
 
-export const MainContainer = ({ movies, genres, movie, search, noResults }) => {
+export const MainContainer = ({
+  movies,
+  genres,
+  movie,
+  search,
+  noResults,
+  error,
+}) => {
   return movies ? (
     <Container moviesListFlag>
       <Header>Popular movies</Header>
@@ -61,10 +70,18 @@ export const MainContainer = ({ movies, genres, movie, search, noResults }) => {
     </Container>
   ) : noResults ? (
     <Container noResults>
-      <Header noResults>{`Sorry, there are no results for "${noResults}"`}</Header>
-      <NoResultsImage src={noReultsImage}/>
+      <Header
+        noResults
+      >{`Sorry, there are no results for "${noResults}"`}</Header>
+      <NoResultsImage src={noReultsImage} />
     </Container>
   ) : (
-    <>{"Error Page"}</>
+    <Container error>
+      <ErrorImage src={errorImage} />
+      <Header error>{"Ooops! Something went wrong..."}</Header>{" "}
+      <Message>Please check your network connection</Message>
+      <Message>and try again</Message>
+      <LinkButton to="/">Back to home page</LinkButton>
+    </Container>
   );
 };

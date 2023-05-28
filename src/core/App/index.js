@@ -5,6 +5,7 @@ import { MovieDetails } from "../../features/MovieDetails";
 import Pagination from "../../common/Pagination";
 import { Loader } from "../../common/Loader";
 import { NoResults } from "../../common/NoResults";
+import { ErrorPage } from "../../common/ErrorPage";
 
 function App() {
   return (
@@ -12,9 +13,20 @@ function App() {
       <HashRouter>
         <Navigation />
         <Switch>
+          <Route path="/error">
+            <ErrorPage />
+          </Route>
+          <Route path="/noresults">
+            <NoResults />
+          </Route>
+          <Route path="/loader">
+            <Loader />
+          </Route>
           <Route path="/people/:id">{"People Details"}</Route>
           <Route path="/people/:id">{"Movie"}</Route>
-          <Route path="/people"><NoResults></NoResults></Route>
+          <Route path="/people">
+            <MovieDetails />
+          </Route>
           <Route path="/movie/:id">{"Movie Details"}</Route>
           <Route path="/">
             <MoviesList />
@@ -23,7 +35,7 @@ function App() {
             <Redirect to="/movies"></Redirect>
           </Route>
         </Switch>
-<Pagination />
+        <Pagination />
       </HashRouter>
     </>
   );

@@ -51,6 +51,17 @@ export const Container = styled.div`
         padding: 24px 16px;
       }
     `}
+
+    ${({ error }) =>
+    error &&
+    css`
+      padding: 0px 40px 50px;
+
+      @media (max-width: ${({ theme }) => theme.breakpoints.tablet}px) {
+        align-items: center;
+        padding: 24px 16px;
+      }
+    `}
 `;
 
 export const TilesContainer = styled.div`
@@ -59,7 +70,6 @@ export const TilesContainer = styled.div`
   grid-gap: 24px;
   justify-items: center;
   width: 1372px;
-  border: 1px solid orange;
 
   @media (max-width: ${({ theme }) => theme.breakpoints.smallScreen}px) {
     grid-template-columns: repeat(auto-fill, minmax(324px, 1fr));
@@ -126,4 +136,36 @@ export const Header = styled.h1`
         margin: 0vh 5vw 2vw 5vw;
       }
     `}
+
+  ${({ error }) =>
+    error &&
+    css`
+      font-weight: 600;
+      font-size: 36px;
+      line-height: 1.15;
+      margin: 1.9vw 0vw 1.2vw;
+
+      @media (max-width: ${({ theme }) => theme.breakpoints.smallScreen}px) {
+        margin: 1.9vw 0vw 1.2vw;
+      }
+
+      @media (max-width: ${({ theme }) => theme.breakpoints.tablet}px) {
+        font-weight: 600;
+        font-size: 4.4vw;
+        margin: 1.9vw 0vw 1.2vw;
+      }
+    `}
+`;
+
+export const Message = styled.p`
+  margin: 0px;
+  font-weight: 500;
+  font-size: 22px;
+  line-height: 1.2;
+  text-align: center;
+
+  @media (max-width: ${({ theme }) => theme.breakpoints.tablet}px) {
+    font-weight: 500;
+    font-size: 3.4vw;
+  }
 `;

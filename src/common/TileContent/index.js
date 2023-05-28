@@ -6,7 +6,6 @@ export const TileContent = styled.div`
   justify-self: start;
   margin: 16px 0px 5px -1px;
   width: 292px;
-  border: 1px solid green;
 
   ${({ moviesListFlag }) =>
     moviesListFlag &&
@@ -127,7 +126,6 @@ export const TileSubtitle = styled.div`
 `;
 
 export const InfoField = styled.div`
-  border: 1px solid red;
   margin-bottom: 8px;
 `;
 
@@ -173,7 +171,6 @@ export const TileGenres = styled.ul`
   margin: 8px 0px 0px;
   padding-left: 0;
   list-style: none;
-  border: 1px solid blue;
 
   @media (max-width: ${({ theme }) => theme.breakpoints.tablet}px) {
     flex-grow: 0;
@@ -235,7 +232,6 @@ export const TileGenre = styled.li`
 export const RateContainer = styled.div`
   display: flex;
   justify-self: flex-end;
-  border: 1px solid red;
 
   @media (max-width: ${({ theme }) => theme.breakpoints.tablet}px) {
     margin-top: -5px;
