@@ -2,8 +2,23 @@ import { Container, Header, TilesContainer } from "./styled";
 import { Tile } from "../Tile";
 import { IMAGE_PATH } from "../../features/api/apiData";
 import Pagination from "../Pagination";
+import { useDispatch, useSelector } from "react-redux";
+import {
+  fetchMovies,
+  selectMovies,
+  selectPage,
+} from "../../features/MoviesList/moviesListSlice";
+import { useEffect } from "react";
+import { useQueryParameter } from "../Search/queryParameters";
 
-export const MainContainer = ({ movies, genres, page, totalPages }) => {
+export const MainContainer = ({ genres }) => {
+  const movies = useSelector(selectMovies);
+  const dispatch = useDispatch();
+  const page = useQueryParameter("page");
+  const currentPage = useSelector(selectPage);
+  useEffect(() => {
+    dispatch(fetchMovies(page));
+  }, [page]);
   return (
     <Container>
       <Header>Popular movies</Header>
@@ -26,7 +41,7 @@ export const MainContainer = ({ movies, genres, page, totalPages }) => {
             ></Tile>
           ))}
       </TilesContainer>
-      <Pagination page={page} totalPages={totalPages} />
+      <Pagination page={currentPage} totalPages={"500"} />
     </Container>
   );
 };
