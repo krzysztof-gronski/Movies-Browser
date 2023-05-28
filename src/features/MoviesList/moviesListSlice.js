@@ -1,5 +1,5 @@
 import { createSlice } from "@reduxjs/toolkit";
-import { tmdbApi } from "../api/apiData"; 
+import { tmdbApi } from "../api/apiData";
 
 const moviesListSlice = createSlice({
   name: "moviesList",
@@ -13,50 +13,50 @@ const moviesListSlice = createSlice({
       state.loading = true;
       state.error = null;
     },
-    fetchMoviesSuccess: (state, action) => {
-      state.movies = action.payload;
+    fetchMoviesSuccess: (state, { payload: movies }) => {
+      state.movies = movies;
       state.loading = false;
       state.error = null;
     },
-    fetchMoviesFailure: (state, action) => {
+    fetchMoviesError: (state, { payload: movies }) => {
       state.loading = false;
-      state.error = action.payload;
+      state.error = movies;
     },
     clearSearchResults: (state) => {
-        state.movies = [];
-        state.loading = false;
-        state.error = null;
-      },
+      state.movies = [];
+      state.loading = false;
+      state.error = null;
+    },
   },
 });
 
 export const {
   fetchMovies,
   fetchMoviesSuccess,
-  fetchMoviesFailure,
+  fetchMoviesError,
   clearSearchResults,
 } = moviesListSlice.actions;
 
 export const getPopularMoviesData = () => async (dispatch) => {
-    try {
-      dispatch(fetchMovies());
-      const movies = await tmdbApi.getPopularMoviesData(); 
-      dispatch(fetchMoviesSuccess(movies));
-    } catch (error) {
-      dispatch(fetchMoviesFailure(error.message));
-    }
-  };
-  export const searchMoviesData = (query) => async (dispatch) => {
-    try {
-      dispatch(fetchMovies());
-      const movies = await tmdbApi.searchMoviesData(query);
-      dispatch(fetchMoviesSuccess(movies));
-    } catch (error) {
-      dispatch(fetchMoviesFailure(error.message));
-    }
-  };
-  export const selectMovies = (state) => state.moviesList.movies;
+  try {
+    dispatch(fetchMovies());
+    const movies = await tmdbApi.getPopularMoviesData();
+    dispatch(fetchMoviesSuccess(movies));
+  } catch (error) {
+    dispatch(fetchMoviesError(error.message));
+  }
+};
+export const searchMoviesData = (query) => async (dispatch) => {
+  try {
+    dispatch(fetchMovies());
+    const movies = await tmdbApi.searchMoviesData(query);
+    dispatch(fetchMoviesSuccess(movies));
+  } catch (error) {
+    dispatch(fetchMoviesError(error.message));
+  }
+};
+export const selectMovies = (state) => state.moviesList.movies;
 export const selectLoading = (state) => state.moviesList.loading;
 export const selectError = (state) => state.moviesList.error;
-  
-  export default moviesListSlice.reducer;
+
+export default moviesListSlice.reducer;
