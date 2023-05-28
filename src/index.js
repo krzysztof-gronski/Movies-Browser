@@ -5,14 +5,19 @@ import { theme } from "./core/theme";
 import { GlobalStyle } from "./core/GlobalStyle";
 import reportWebVitals from "./reportWebVitals";
 import App from "./core/App";
+import { Provider } from "react-redux";
+import store from "./core/store";
+import MoviesList from "./features/MoviesList";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
   <React.StrictMode>
-    <ThemeProvider theme={theme}>
+   <Provider store={store}>
+   <ThemeProvider theme={theme} >
       <GlobalStyle />
-      <App />
+      <MoviesList />
     </ThemeProvider>
+   </Provider>
  </React.StrictMode>
 );
 
