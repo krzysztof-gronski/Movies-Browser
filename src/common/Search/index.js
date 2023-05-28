@@ -7,14 +7,15 @@ import {
   useReplaceQueryParameter,
 } from "./queryParameters";
 import searchQueryParamName from "./searchQueryParamName";
-import { searchMoviesData, clearSearchResults } from "../../features/MoviesList/moviesListSlice";
+import { clearSearchResults, selectMovies } from "../../features/MoviesList/moviesListSlice";
+import { searchMoviesData } from "../../features/MoviesList/moviesListSaga";
 
 const Search = () => {
   const dispatch = useDispatch();
   const location = useLocation();
   const queryParam = useQueryParameter(searchQueryParamName);
   const replaceQueryParameter = useReplaceQueryParameter();
-  const searchResults = useSelector((state) => state.moviesList.movies);
+  const searchResults = useSelector(selectMovies);
 
   const onInputChange = ({target}) => {
     const inputValue = target.value.trim();
