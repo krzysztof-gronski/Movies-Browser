@@ -19,12 +19,13 @@ https://krzysztof-gronski.github.io/Movies-Browser/
 ## Features
 
 ## Technologies
-HTML
-CSS
-JS ES6+
-React (Hooks)
-Redux (Toolkit, Saga)
-Github API fetch
+* HTML
+* CSS
+* JS ES6+
+* React (Hooks)
+* Router
+* Redux (Toolkit, Saga)
+* TMDB API fetch
 
 ## Preview
 
