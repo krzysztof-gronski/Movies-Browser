@@ -40,6 +40,17 @@ export const Container = styled.div`
     css`
       padding: 0px 40px 50px;
     `}
+
+    ${({ noResults }) =>
+    noResults &&
+    css`
+      padding: 0px 40px 50px;
+
+      @media (max-width: ${({ theme }) => theme.breakpoints.tablet}px) {
+        align-items: center;
+        padding: 24px 16px;
+      }
+    `}
 `;
 
 export const TilesContainer = styled.div`
@@ -93,6 +104,26 @@ export const Header = styled.h1`
         font-weight: 500;
         font-size: 4.4vw;
         margin: 0vh 5vw 7.5vw 5vw;
+      }
+    `}
+
+  ${({ noResults }) =>
+    noResults &&
+    css`
+      align-self: flex-start;
+      font-weight: 600;
+      font-size: 36px; //1.9vw;
+      line-height: 1.15;
+      margin: 4vh 14.3vw 2vw 14.3vw;
+
+      @media (max-width: ${({ theme }) => theme.breakpoints.smallScreen}px) {
+        margin: 4vh 14.3vw 2vw 14.3vw;
+      }
+
+      @media (max-width: ${({ theme }) => theme.breakpoints.tablet}px) {
+        font-weight: 600;
+        font-size: 4.4vw;
+        margin: 0vh 5vw 2vw 5vw;
       }
     `}
 `;
