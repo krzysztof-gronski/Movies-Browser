@@ -7,7 +7,6 @@ import reportWebVitals from "./reportWebVitals";
 import App from "./core/App";
 import { Provider } from "react-redux";
 import store from "./core/store";
-import MoviesList from "./features/MoviesList";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
@@ -15,7 +14,7 @@ root.render(
    <Provider store={store}>
    <ThemeProvider theme={theme} >
       <GlobalStyle />
-      <MoviesList />
+      <App/>
     </ThemeProvider>
    </Provider>
  </React.StrictMode>
