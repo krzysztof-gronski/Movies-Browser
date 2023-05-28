@@ -12,7 +12,8 @@ function* fetchMoviesSaga() {
     const movies = yield call(tmdbApi.getPopularMoviesData);
     yield put(fetchMoviesSuccess(movies));
   } catch (error) {
-    yield put(fetchMoviesError(error));
+    yield put(fetchMoviesError())
+    yield console.log(error.message);
   }
 }
 
