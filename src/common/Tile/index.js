@@ -1,6 +1,6 @@
 import { nanoid } from "@reduxjs/toolkit";
 import starIcon from "../TileContent/star.svg";
-import { Poster, TileContainer } from "./styled";
+import { Poster, TileContainer, TileLink } from "./styled";
 
 import {
   TileTitle,
@@ -21,6 +21,7 @@ import {
 } from "../TileContent";
 
 export const Tile = ({
+  movie,
   poster,
   tileTitle,
   tileSubtitle,
@@ -34,25 +35,27 @@ export const Tile = ({
   movieDetailsFlag,
 }) => {
   return moviesListFlag ? (
-    <TileContainer moviesListFlag>
-      <Poster moviesListFlag src={poster} alt="poster" />
-      <TileContent moviesListFlag>
-        <TileTitle moviesListFlag>{tileTitle}</TileTitle>
-        <TileSubtitle moviesListFlag>{tileSubtitle}</TileSubtitle>
-        <TileGenres moviesListFlag>
-          {genres.map((genre) => (
-            <TileGenre moviesListFlag key={nanoid()}>
-              {genre}
-            </TileGenre>
-          ))}
-        </TileGenres>
-        <RateContainer moviesListFlag>
-          <StarIcon src={starIcon} />
-          <Rate moviesListFlag>{rate}</Rate>
-          <Votes moviesListFlag>{votesNr + " votes"}</Votes>
-        </RateContainer>
-      </TileContent>
-    </TileContainer>
+    <TileLink to={`/movie/${movie.id}`}>
+      <TileContainer moviesListFlag>
+        <Poster moviesListFlag src={poster} alt="poster" />
+        <TileContent moviesListFlag>
+          <TileTitle moviesListFlag>{tileTitle}</TileTitle>
+          <TileSubtitle moviesListFlag>{tileSubtitle}</TileSubtitle>
+          <TileGenres moviesListFlag>
+            {genres.map((genre) => (
+              <TileGenre moviesListFlag key={nanoid()}>
+                {genre}
+              </TileGenre>
+            ))}
+          </TileGenres>
+          <RateContainer moviesListFlag>
+            <StarIcon src={starIcon} />
+            <Rate moviesListFlag>{rate}</Rate>
+            <Votes moviesListFlag>{votesNr + " votes"}</Votes>
+          </RateContainer>
+        </TileContent>
+      </TileContainer>
+    </TileLink>
   ) : movieDetailsFlag ? (
     <TileContainer movieDetailsFlag>
       <Poster movieDetailsFlag src={poster} alt="poster" />
