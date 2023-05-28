@@ -1,4 +1,4 @@
-# 🧱 **MOVIES BROWSER - UNDER CONSTRUCTION** 🧱
+# 🧱 ** MOVIES BROWSER - UNDER CONSTRUCTION ** 🧱
 
   🚧  🚧  🚧  🚧  🚧  🚧  🚧  🚧  🚧  🚧  🚧  🚧  🚧  🚧  🛠️  🚧  🚧  🚧  🚧  🚧 🚧  🚧  🚧  🚧  🚧  🚧  🚧  🚧  🚧  
 ## Contents
