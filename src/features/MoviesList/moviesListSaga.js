@@ -1,18 +1,18 @@
 import { call, put, takeLatest } from "redux-saga/effects";
-import { getPopularMoviesData } from "../api/apiData";
+import { tmdbApi } from "../api/apiData";
 import {
   fetchMovies,
   fetchMoviesSuccess,
-  fetchMoviesFailure,
+  fetchMoviesError,
 } from "./moviesListSlice";
 
 function* fetchMoviesSaga() {
   try {
     yield put(fetchMovies());
-    const movies = yield call(getPopularMoviesData);
+    const movies = yield call(tmdbApi.getPopularMoviesData);
     yield put(fetchMoviesSuccess(movies));
   } catch (error) {
-    yield put(fetchMoviesFailure(error.message));
+    yield put(fetchMoviesError(error));
   }
 }
 

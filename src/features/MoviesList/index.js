@@ -14,6 +14,10 @@ export const MoviesList = () => {
   const [genres, setGenres] = useState([]);
 
   useEffect(() => {
+    dispatch(getPopularMoviesData());
+  }, [dispatch]);
+
+  useEffect(() => {
     const getGenres = async () => {
       try {
         const response = await tmdbApi.getGenresData();
@@ -25,10 +29,6 @@ export const MoviesList = () => {
 
     getGenres();
   }, []);
-
-  useEffect(() => {
-    dispatch(getPopularMoviesData());
-  }, [dispatch]);
 
   return (
     <MainContainer movies={movies} genres={genres} loading={loading} error={error} />
