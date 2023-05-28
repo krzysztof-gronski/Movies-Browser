@@ -1,6 +1,13 @@
 # 🧱 MOVIES BROWSER - UNDER CONSTRUCTION 🧱
 
   🚧  🚧  🚧  🚧  🚧  🚧  🚧  🚧  🚧  🚧  🚧  🚧  🚧  🚧  🛠️  🚧  🚧  🚧  🚧  🚧 🚧  🚧  🚧  🚧  🚧  🚧  🚧  🚧  🚧  
+## Contents
+* [Description](#Description)
+* [Developers](#Developers)
+
+## Description
+Movie browser
+
 ## Developers
 * [Krzysztof Groński](https://github.com/krzysztof-gronski)
 * [Ulyana Lakevich](https://github.com/ulyanalakevich)
