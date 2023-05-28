@@ -8,13 +8,20 @@
 ## Description
 Movie browser
 
+## Demo
+https://krzysztof-gronski.github.io/Movies-Browser/
+
 ## Developers
 * [Krzysztof Groński](https://github.com/krzysztof-gronski)
 * [Ulyana Lakevich](https://github.com/ulyanalakevich)
 * [Ula Malinowska](https://github.com/ursmal1948)
 
-## Demo
-https://krzysztof-gronski.github.io/Movies-Browser/
+## Features
+
+## Technologies
+
+## Preview
+
 ## Available Scripts
 
 In the project directory, you can run:
