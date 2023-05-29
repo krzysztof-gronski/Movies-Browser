@@ -1,6 +1,57 @@
-## MOVIES BROWSER - UNDER CONSTRUCTION
-### Demo
+# 🧱 **MOVIES BROWSER - UNDER CONSTRUCTION** 🧱
+
+  🚧  🚧  🚧  🚧  🚧  🚧  🚧  🚧  🚧  🚧  🚧  🚧  🚧  🚧  🛠️  🚧  🚧  🚧  🚧  🚧 🚧  🚧  🚧  🚧  🚧  🚧  🚧  🚧  🚧  
+## Contents
+- [Description](#Description)
+- [Demo](#Demo)
+- [Preview](#Preview)
+- [Instructions](#Instructions)
+- [Developers](#Developers)
+- [Features](#Features)
+- [Technologies](#Technologies)
+- [API Provider](#API-Provider)
+- [Available Scripts](#Available-Scripts)
+
+## Description
+Brilliant application that will take a user into cinematic world, which allows one to explore throughout plenty of glamorous movies extracted from tremendous database. Unquestionably any daredevil user is predestined to dive deeply within endless library of comprehensive dossier covering popular movies, its crew and charmfull actors. Furthermore all garnished with delightful  placards among curtains infused into intuitive interface, but let us make you aware.. the legend says it's addictive one.
+
+This project arose as a creation of passionate programming enthusiasts team during course of IT academy - [Youcode](https://youcode.pl). Enjoy!
+
+## Demo
 https://krzysztof-gronski.github.io/Movies-Browser/
+
+## Preview
+
+## Instructions
+- Movies/people search by popularity (default) or by name (using search bar)
+- Details view by click on corresponding item brick
+- Navigation through extensive search results by panel below items list
+
+## Developers
+- [Krzysztof Groński](https://github.com/krzysztof-gronski)
+- [Ulyana Lakevich](https://github.com/ulyanalakevich)
+- [Ula Malinowska](https://github.com/ursmal1948)
+
+## Features
+- Convenient navigation/pagination
+- Search bar
+- Visual styling
+- Responsive web design
+- Error handling
+
+## Technologies
+- HTML (semantics, accesibility)
+- CSS (Flexbox/Grid layouts)
+- JS ES6+
+- React (Hooks, Router)
+- Styled Components
+- Redux (Toolkit, Saga)
+- Axios
+- TMDB API fetch
+
+## API Provider
+The project is using data served by [The Movie Database](https://www.themoviedb.org/)
+
 ## Available Scripts
 
 In the project directory, you can run:
