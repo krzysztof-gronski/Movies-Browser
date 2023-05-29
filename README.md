@@ -30,10 +30,10 @@ https://krzysztof-gronski.github.io/Movies-Browser/
 - [Ula Malinowska](https://github.com/ursmal1948)
 
 ## Features
+- Search box
 - Visual styling
-- CSS Grid/Flexbox layouts
 - Responsive web design
-- Error Handling
+- Error handling
 
 ## Technologies
 - HTML (semantics, accesibility)
