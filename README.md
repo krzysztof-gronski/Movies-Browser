@@ -46,7 +46,7 @@ https://krzysztof-gronski.github.io/Movies-Browser/
 - TMDB API fetch
 
 ## API Provider
-The project is using [The Movie Database](https://www.themoviedb.org/)
+The project is using data served by [The Movie Database](https://www.themoviedb.org/)
 
 ## Available Scripts
 
