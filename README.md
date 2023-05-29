@@ -7,9 +7,9 @@
 - [Preview](#Preview)
 - [Instructions](#Instructions)
 - [Developers](#Developers)
-- [Features](#)
-- [Technologies](#)
-- [API Provider](#)
+- [Features](#Features)
+- [Technologies](#Technologies)
+- [API Provider](#API Provider)
 - [Available Scripts](#Available)
 
 ## Description
