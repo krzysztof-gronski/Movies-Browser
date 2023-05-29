@@ -25,7 +25,7 @@ https://krzysztof-gronski.github.io/Movies-Browser/
 ## Instructions
 - Movies/people search by popularity (default) or by name (using search bar)
 - Details view by click on corresponding item brick
-- Navigation through extensive search results by panel under items list
+- Navigation through extensive search results by panel below items list
 
 ## Developers
 - [Krzysztof Groński](https://github.com/krzysztof-gronski)
