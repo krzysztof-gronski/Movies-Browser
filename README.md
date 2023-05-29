@@ -37,7 +37,7 @@ https://krzysztof-gronski.github.io/Movies-Browser/
 
 ## Technologies
 - HTML (semantics, accesibility)
-- CSS (Layouts - flexbox, grid)
+- CSS (Flexbox/Grid layouts)
 - JS ES6+
 - React (Hooks, Router)
 - Styled Components
