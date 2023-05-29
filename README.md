@@ -6,7 +6,15 @@
 * [Developers](#Developers)
 
 ## Description
-Movie browser
+Brilliant application that will take you into cinematic world, which allows you to explore throughout plenty of glamorous movies extracted from tremendous database. Unquestionably any daredevil user is predestined But let me aware you.. the legend says it's addictive one.
+
+enjoy
+countless
+aware
+charming, glamorous, delightful, fascinating
+
+dive
+legenda głosi że jest uzależn
 
 ## Demo
 https://krzysztof-gronski.github.io/Movies-Browser/
