@@ -6,7 +6,7 @@
 * [Developers](#Developers)
 
 ## Description
-Brilliant application that will take a user into cinematic world, which allows one to explore throughout plenty of glamorous movies extracted from tremendous database. Unquestionably any daredevil user is predestined to dive deeply within endless library of comprehensive dossier covering popular movies, its crew and charmfull actors. Furthermore all garnished with delightful  placards among curtains infused into intuitive interface, but let us aware you.. the legend says it's addictive one.
+Brilliant application that will take a user into cinematic world, which allows one to explore throughout plenty of glamorous movies extracted from tremendous database. Unquestionably any daredevil user is predestined to dive deeply within endless library of comprehensive dossier covering popular movies, its crew and charmfull actors. Furthermore all garnished with delightful  placards among curtains infused into intuitive interface, but let us make you aware.. the legend says it's addictive one.
 
 placard
 zachwyt plakaty
