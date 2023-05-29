@@ -30,7 +30,7 @@ https://krzysztof-gronski.github.io/Movies-Browser/
 - [Ula Malinowska](https://github.com/ursmal1948)
 
 ## Features
-- Search box
+- Search bar
 - Visual styling
 - Responsive web design
 - Error handling
