@@ -1,7 +1,13 @@
-import { MainContainer } from "../MainContainer";
+import { Container, Header } from "../MainContainer/styled";
+import { Spinner } from "./styled";
 
-export const Loader = ({ search }) => {
+export const Loader = () => {
   const searchQuery = "sample Query";
 
-  return <MainContainer search={searchQuery} />;
+  return (
+    <Container search>
+      <Header search>{`Search results for "${searchQuery}"`}</Header>
+      <Spinner></Spinner>
+    </Container>
+  );
 };

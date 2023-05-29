@@ -1,7 +1,15 @@
-import { MainContainer } from "../MainContainer";
+import { Container, Header } from "../MainContainer/styled";
+import { NoResultsImage } from "./styled";
 
-export const NoResults = ({ search }) => {
+export const NoResults = () => {
   const searchQuery = "sample Query";
 
-  return <MainContainer noResults={searchQuery} />;
+  return (
+    <Container noResults>
+      <Header
+        noResults
+      >{`Sorry, there are no results for "${searchQuery}"`}</Header>
+      <NoResultsImage src={NoResultsImage} />
+    </Container>
+  );
 };
