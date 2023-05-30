@@ -17,12 +17,7 @@ export const getMovies = async (page) => {
 export const getGenres = async () => {
   try {
     const response = await tmdbApi.getGenresData();
-
-    if (!response.ok) {
-      throw new Error(response.statusText);
-    }
-
-    return response.data;
+    return response.data.genres;
   } catch (error) {
     console.error(error);
   }
@@ -32,8 +27,8 @@ export const searchMovies = async (query) => {
   try {
     const response = await tmdbApi.searchMoviesData(query);
 
-    if (!response.ok) {
-      throw new Error(response.statusText);
+    if (!response.data) {
+      throw new Error("Invalid response data");
     }
 
     return response.data;

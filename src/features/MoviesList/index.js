@@ -51,9 +51,7 @@ export const MoviesList = () => {
             tileSubtitle={
               movie.release_date ? movie.release_date.slice(0, 4) : ""
             }
-            genres={movie.genre_ids.map((genre_id) => {
-              return genres.find((genre) => genre.id === genre_id)?.name || "";
-            })}
+            genres={movie.genre_ids.map((genreId) => getGenreName(genreId))}
             rate={movie.vote_average}
             votesNr={movie.vote_count}
           ></Tile>
