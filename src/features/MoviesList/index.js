@@ -10,20 +10,29 @@ import { Tile } from "../../common/Tile";
 import Pagination from "../../common/Pagination";
 import { useQueryParameter } from "../../common/Search/queryParameters";
 import { useDispatch, useSelector } from "react-redux";
-import { fetchGenres, fetchMovies, selectGenres, selectMovies, selectTotalPages } from "./moviesListSlice";
+import { Loader } from "../../common/Loader";
+import {ErrorPage} from "../../common/ErrorPage"
+import {NoResults} from "../../common/NoResults"
+import { fetchGenres, fetchMovies, selectGenres, selectMovies, selectStatus, selectTotalPages, selectTotalResults, setQuery } from "./moviesListSlice";
 
 export const MoviesList = () => {
+  const dispatch = useDispatch();
+  const status = useSelector(selectStatus);
   const movies = useSelector(selectMovies);
   const totalPages = useSelector(selectTotalPages);
-  const dispatch = useDispatch();
   const page = useQueryParameter("page");
   const genres = useSelector(selectGenres);
+  const query = useQueryParameter("query");
+  const totalResults = useSelector(selectTotalResults);
 
   useEffect(() => {
     dispatch(fetchGenres());
   }, []);
 
   useEffect(() => {
+    dispatch(setQuery(query
+      ? { query: query }
+      : { query: "" }));
     dispatch(fetchMovies(page));
   }, [page]);
 
@@ -37,7 +46,12 @@ export const MoviesList = () => {
 
   return (
     <Container moviesListFlag>
-      <Header>Popular movies</Header>
+      <Header 
+      >{
+        query
+          ? `Search results for “${query}” (${totalResults})`
+          : `Popular Movies`
+}</Header>
       <TilesContainer>
         {movies.map((movie) => (
           <Tile
