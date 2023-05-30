@@ -1,15 +1,15 @@
-import { apiKey } from "./key";
+import { tmdbApi } from "../api/apiData";
+
 export const getMovies = async (page) => {
   try {
-    const response = await fetch(
-      `https://api.themoviedb.org/3/movie/popular?api_key=${apiKey}&language=en-US&page=${page}`
-    );
+    const response = await tmdbApi.getPopularMoviesData(page);
+    console.log(response.data);
 
-    if (!response.ok) {
-      throw new Error(response.statusText);
+    if (!response || !response.data) {
+      throw new Error("Invalid response data");
     }
 
-    return await response.json();
+    return response.data;
   } catch (error) {
     console.error(error);
   }
