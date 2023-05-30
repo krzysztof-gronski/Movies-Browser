@@ -18,7 +18,7 @@ import Pagination from "../../common/Pagination";
 import missingPersonPoster from "../../images/missingPersonPoster.svg";
 export const PeopleList = () => {
   const dispatch = useDispatch();
-  const myPeople = useSelector(selectPeople);
+  const people = useSelector(selectPeople);
   const totalPages = useSelector(selectTotalPages);
 
   const page = useQueryParameter("page");
@@ -28,23 +28,25 @@ export const PeopleList = () => {
   }, [dispatch, page]);
 
   return (
-    <Container peopleListFlag>
-      <Header>Popular people</Header>
-      <TilesContainer peopleListFlag>
-        {myPeople.map((person) => (
-          <Tile
-            peopleListFlag
-            key={person.id}
-            poster={
-              person.profile_path
-                ? `${IMAGE_PATH}${person.profile_path}`
-                : `${missingPersonPoster}`
-            }
-            tileTitle={person.name ? person.name : ""}
-          ></Tile>
-        ))}
-      </TilesContainer>
-      <Pagination page={page} totalPages={totalPages} />
-    </Container>
+    people.length > 0 && (
+      <Container peopleListFlag>
+        <Header>Popular people</Header>
+        <TilesContainer peopleListFlag>
+          {people.map((person) => (
+            <Tile
+              peopleListFlag
+              key={person.id}
+              poster={
+                person.profile_path
+                  ? `${IMAGE_PATH}${person.profile_path}`
+                  : `${missingPersonPoster}`
+              }
+              tileTitle={person.name ? person.name : ""}
+            ></Tile>
+          ))}
+        </TilesContainer>
+        <Pagination page={page} totalPages={totalPages} />
+      </Container>
+    )
   );
 };

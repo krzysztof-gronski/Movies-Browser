@@ -32,32 +32,34 @@ export const MoviesList = () => {
   }, []);
 
   return (
-    <Container moviesListFlag>
-      <Header>Popular movies</Header>
-      <TilesContainer>
-        {movies.map((movie) => (
-          <Tile
-            moviesListFlag
-            key={movie.id}
-            movie={movie}
-            poster={
-              movie.poster_path
-                ? `${IMAGE_PATH}${movie.poster_path}`
-                : `${missingMoviePoster}`
-            }
-            tileTitle={movie.original_title}
-            tileSubtitle={
-              movie.release_date ? movie.release_date.slice(0, 4) : ""
-            }
-            genres={movie.genre_ids.map((genre_id) => {
-              return genres.find((genre) => genre.id === genre_id).name;
-            })}
-            rate={movie.vote_average}
-            votesNr={movie.vote_count}
-          ></Tile>
-        ))}
-      </TilesContainer>
-      <Pagination page={page} totalPages={totalPages} />
-    </Container>
+    movies.length > 0 && (
+      <Container moviesListFlag>
+        <Header>Popular movies</Header>
+        <TilesContainer>
+          {movies.map((movie) => (
+            <Tile
+              moviesListFlag
+              key={movie.id}
+              movie={movie}
+              poster={
+                movie.poster_path
+                  ? `${IMAGE_PATH}${movie.poster_path}`
+                  : `${missingMoviePoster}`
+              }
+              tileTitle={movie.original_title}
+              tileSubtitle={
+                movie.release_date ? movie.release_date.slice(0, 4) : ""
+              }
+              genres={movie.genre_ids.map((genre_id) => {
+                return genres.find((genre) => genre.id === genre_id).name;
+              })}
+              rate={movie.vote_average}
+              votesNr={movie.vote_count}
+            ></Tile>
+          ))}
+        </TilesContainer>
+        <Pagination page={page} totalPages={totalPages} />
+      </Container>
+    )
   );
 };
