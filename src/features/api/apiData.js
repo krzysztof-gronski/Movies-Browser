@@ -21,22 +21,55 @@ export const getGenres = async () => {
   try {
     const url = "genre/movie/list?language=en";
     const response = await tmdb.get(url);
-
     return response.data.genres;
   } catch (error) {
     console.error(error);
   }
 };
 
-export const searchMovies = async (query) => {
+export const searchMovie = async (query) => {
+  const url = `search/movie?language=en-US&query=${query}&include_adult=false`;
+  const response = await tmdb.get(url);
+
+  if (!response.ok) {
+    new Error(response.statusText);
+  }
+
+  return await response.data;
+};
+
+export const getMovieDetails = async (movieId) => {
+  const url = `/movie/${movieId}?language=en-US`;
+  const response = await tmdb.get(url);
+  if (!response || !response.data) {
+    throw new Error("Invalid response data");
+  }
+  return await response.data;
+};
+
+export const getMovieCredits = async (movieId) => {
   try {
-    const url = `search/movie?language=en-US&query=${query}&page=1&include_adult=false`;
+    const url = `movie/${movieId}/credits?language=en-US`;
+  const response = await tmdb.get(url);
+
+  if (!response || !response.data) {
+    throw new Error("Invalid response data");
+  }
+  return response.data;
+} catch (error) {
+  console.error(error);
+}
+};
+
+export const getPeople = async (page) => {
+  try {
+    const url = `person/popular?language=en-US&page=${page}`;
     const response = await tmdb.get(url);
 
-    if (!response.data) {
-      throw new Error("Invalid searchMovies response data");
+    if (!response || !response.data) {
+      throw new Error("Invalid getPeople response data");
     }
-
+    
     return response.data;
   } catch (error) {
     console.error(error);
