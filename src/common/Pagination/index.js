@@ -11,11 +11,12 @@ import { BackwardVector, ForwardVector } from "./arrows";
 
 const Pagination = ({ page, totalPages }) => {
   const replaceQueryParameter = useReplaceQueryParameter();
+
   const [width, setWidth] = useState(window.innerWidth);
   window.onresize = () => setWidth(window.innerWidth);
+  const isSmallScreen = width < 767;
 
   const currentPage = parseInt(page);
-  const isSmallScreen = width < 767;
   const firstPage = 1;
   const previousPage = currentPage - 1;
   const nextPage = currentPage + 1;
