@@ -9,7 +9,7 @@ import {
   SearchWrapper,
   StyledNavLink,
 } from "./styled";
-import Search from "../Search/index"
+import Search from "../Search/index";
 
 const Navigation = () => (
   <Wrapper>
@@ -20,12 +20,10 @@ const Navigation = () => (
       </PageTitle>
       <List>
         <ListItem>
-          <StyledNavLink to="/movies">
-            Movies
-          </StyledNavLink>
+          <StyledNavLink to="/movies?page=1">Movies</StyledNavLink>
         </ListItem>
         <ListItem>
-          <StyledNavLink to="/people">People</StyledNavLink>
+          <StyledNavLink to="/people?page=1">People</StyledNavLink>
         </ListItem>
       </List>
     </NavBar>
