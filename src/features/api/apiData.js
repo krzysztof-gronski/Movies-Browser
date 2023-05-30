@@ -3,9 +3,9 @@ import tmdb from "./tmdb";
 export const IMAGE_PATH = "https://image.tmdb.org/t/p/w500";
 
 export const tmdbApi = {
-  getPopularMoviesData: () => {
+  getPopularMoviesData: (page) => {
     const url =
-      "discover/movie?include_adult=false&include_video=false&language=en-US&page=1&sort_by=popularity.desc";
+      `movie/popular?language=en-US&page=${page}`
     return tmdb.get(url);
   },
   getGenresData: () => {
