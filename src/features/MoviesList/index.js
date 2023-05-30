@@ -27,6 +27,14 @@ export const MoviesList = () => {
     dispatch(fetchMovies(page));
   }, [page]);
 
+  const getGenreName = (genreId) => {
+    if (genres && genres.length > 0) {
+      const genre = genres.find((genre) => genre.id === genreId);
+      return genre ? genre.name : "";
+    }
+    return "";
+  };
+
   return (
     <Container moviesListFlag>
       <Header>Popular movies</Header>
