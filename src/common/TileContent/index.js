@@ -46,6 +46,13 @@ export const TileContent = styled.div`
         margin-bottom: 3%;
       }
     `}
+    ${({ peopleListFlag }) =>
+    peopleListFlag &&
+    css`
+      width: auto;
+      justify-self: center;
+      margin-top: 10px;
+    `}
 `;
 
 export const TileTitle = styled.header`
@@ -93,6 +100,15 @@ export const TileTitle = styled.header`
         margin-bottom: 8px;
         font-size: 24px;
       }
+    `}
+
+    ${({ peopleListFlag }) =>
+    peopleListFlag &&
+    css`
+      font-weight: 500;
+      font-size: 22px;
+      line-height: 130%;
+      text-align: center;
     `}
 `;
 
