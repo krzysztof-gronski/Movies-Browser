@@ -13,7 +13,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { fetchMovies, selectMovies, selectTotalPages } from "./moviesListSlice";
 
 export const MoviesList = () => {
-  const [genres, setGenres] = useState({});
+  const [genres, setGenres] = useState([]);
   const movies = useSelector(selectMovies);
   const totalPages = useSelector(selectTotalPages);
   const dispatch = useDispatch();
@@ -32,7 +32,6 @@ export const MoviesList = () => {
   }, []);
 
   return (
-    
     <Container moviesListFlag>
       <Header>Popular movies</Header>
       <TilesContainer>
@@ -49,7 +48,7 @@ export const MoviesList = () => {
               movie.release_date ? movie.release_date.slice(0, 4) : ""
             }
             genres={movie.genre_ids.map((genre_id) => {
-              return genres.find((genre) => genre.id === genre_id).name;
+              return genres.find((genre) => genre.id === genre_id)?.name || "";
             })}
             rate={movie.vote_average}
             votesNr={movie.vote_count}
