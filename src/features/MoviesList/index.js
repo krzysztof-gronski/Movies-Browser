@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { IMAGE_PATH, tmdbApi } from "../api/apiData";
-import noPoster from "../../images/noPoster.jpg"
+import missingMoviePoster from "../../images/missingMoviePoster.svg";
 import {
   Container,
   Header,
@@ -20,7 +20,7 @@ export const MoviesList = () => {
   const page = useQueryParameter("page");
   useEffect(() => {
     dispatch(fetchMovies(page));
-  }, [page]);
+  }, [dispatch, page]);
 
   const getGenres = async () => {
     const { data } = await tmdbApi.getGenresData();
@@ -32,7 +32,6 @@ export const MoviesList = () => {
   }, []);
 
   return (
-    
     <Container moviesListFlag>
       <Header>Popular movies</Header>
       <TilesContainer>
@@ -42,7 +41,9 @@ export const MoviesList = () => {
             key={movie.id}
             movie={movie}
             poster={
-              movie.poster_path ? `${IMAGE_PATH}${movie.poster_path}` : `${noPoster}`
+              movie.poster_path
+                ? `${IMAGE_PATH}${movie.poster_path}`
+                : `${missingMoviePoster}`
             }
             tileTitle={movie.original_title}
             tileSubtitle={
