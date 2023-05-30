@@ -7,7 +7,7 @@ import {
   takeLatest,
 } from "redux-saga/effects";
 import { getMovies } from "./getMovies";
-import { fetchMovies, fetchMoviesSuccess } from "./moviesListSlice";
+import { fetchMovies, fetchMoviesSuccess, fetchGenres } from "./moviesListSlice";
 
 export function* fetchMoviesHandler({ payload: page }) {
   try {

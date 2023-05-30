@@ -21,9 +21,12 @@ const moviesListSlice = createSlice({
     fetchMoviesError: (state) => {
       state.status = "error";
     },
+    fetchGenres: (state, { payload: genres }) => {
+      state.genres = genres;
+    },
   },
 });
-export const { fetchMovies, fetchMoviesSuccess, fetchMoviesError } =
+export const { fetchMovies, fetchMoviesSuccess, fetchMoviesError, fetchGenres } =
   moviesListSlice.actions;
 
 export const selectMoviesState = (state) => state.movies;
