@@ -10,26 +10,22 @@ import { Tile } from "../../common/Tile";
 import Pagination from "../../common/Pagination";
 import { useQueryParameter } from "../../common/Search/queryParameters";
 import { useDispatch, useSelector } from "react-redux";
-import { fetchMovies, selectMovies, selectTotalPages } from "./moviesListSlice";
+import { fetchGenres, fetchMovies, selectGenres, selectMovies, selectTotalPages } from "./moviesListSlice";
 
 export const MoviesList = () => {
-  const [genres, setGenres] = useState([]);
   const movies = useSelector(selectMovies);
   const totalPages = useSelector(selectTotalPages);
   const dispatch = useDispatch();
   const page = useQueryParameter("page");
+  const genres = useSelector(selectGenres);
+
+  useEffect(() => {
+    dispatch(fetchGenres());
+  }, []);
+
   useEffect(() => {
     dispatch(fetchMovies(page));
   }, [page]);
-
-  const getGenres = async () => {
-    const { data } = await tmdbApi.getGenresData();
-    setGenres(data.genres);
-  };
-
-  useEffect(() => {
-    getGenres();
-  }, []);
 
   return (
     <Container moviesListFlag>

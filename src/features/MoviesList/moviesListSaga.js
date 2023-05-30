@@ -6,7 +6,7 @@ import {
   delay,
   takeLatest,
 } from "redux-saga/effects";
-import { getMovies } from "./getMovies";
+import { getGenres, getMovies } from "./getMovies";
 import { fetchMovies, fetchMoviesSuccess, fetchGenres } from "./moviesListSlice";
 
 export function* fetchMoviesHandler({ payload: page }) {
