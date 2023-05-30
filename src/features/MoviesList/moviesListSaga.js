@@ -1,11 +1,4 @@
-import {
-  call,
-  put,
-  select,
-  takeEvery,
-  delay,
-  takeLatest,
-} from "redux-saga/effects";
+import { call, put, takeLatest } from "redux-saga/effects";
 import { getMovies } from "./getMovies";
 import { fetchMovies, fetchMoviesSuccess } from "./moviesListSlice";
 
