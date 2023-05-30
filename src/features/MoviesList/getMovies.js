@@ -27,3 +27,17 @@ export const getGenres = async () => {
     console.error(error);
   }
 };
+
+export const searchMovies = async (query) => {
+  try {
+    const response = await tmdbApi.searchMoviesData(query);
+
+    if (!response.ok) {
+      throw new Error(response.statusText);
+    }
+
+    return response.data;
+  } catch (error) {
+    console.error(error);
+  }
+};
