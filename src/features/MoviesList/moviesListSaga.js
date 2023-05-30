@@ -18,6 +18,25 @@ export function* fetchMoviesHandler({ payload: page }) {
   }
 }
 
+function* searchMoviesHandler({payload: query}) {
+  try {
+    const movies = yield call(searchMovies, query);
+    yield put(fetchMoviesSuccess(movies));
+  } catch (error) {
+    yield call(alert, error);
+  }
+}
+
+function* fetchGenresHandler() {
+  try {
+    const genres = yield call(getGenres);
+   yield put(fetchGenres(genres));
+  } catch (error) {
+    yield call(alert, error);
+  }
+}
+
 export function* moviesListSaga() {
   yield takeLatest(fetchMovies.type, fetchMoviesHandler);
+  yield takeLatest(fetchGenres.type, fetchGenresHandler);
 }
