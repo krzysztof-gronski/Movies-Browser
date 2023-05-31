@@ -22,11 +22,6 @@ import {
 
 export function* fetchMoviesHandler({ payload: page }) {
   try {
-    yield delay(2000);
-    
-    const { data } = yield call(getGenres);
-    const genres = data.genres;
-    
     const query = yield select(selectQuery);
     let movies;
     if (query !== "") {
@@ -34,7 +29,7 @@ export function* fetchMoviesHandler({ payload: page }) {
     } else {
       movies = yield call(getMovies, page);
     }
-    yield put(fetchMoviesSuccess({ movies, genres }));
+    yield put(fetchMoviesSuccess(movies));
   } catch (error) {
     yield put(fetchMoviesError());
   }
