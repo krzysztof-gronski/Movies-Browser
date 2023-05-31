@@ -1,7 +1,7 @@
 import tmdb from "./tmdb";
 
 export const IMAGE_PATH = "https://image.tmdb.org/t/p/w500";
-const API_KEY = "f864c444928645f66814d9fbaba37ee6"
+const API_KEY = "f864c444928645f66814d9fbaba37ee6";
 
 export const getMovies = async (page) => {
   try {
@@ -55,15 +55,15 @@ export const getMovieCredits = async (movieId) => {
   try {
     // `movie/${movieId}/credits?api_key=${API_KEY}&language=en-US`
     const url = `movie/${movieId}/credits?language=en-US`;
-  const response = await tmdb.get(url);
+    const response = await tmdb.get(url);
 
-  if (!response || !response.data) {
-    throw new Error("Invalid response data");
+    if (!response || !response.data) {
+      throw new Error("Invalid response data");
+    }
+    return response.data;
+  } catch (error) {
+    console.error(error);
   }
-  return response.data;
-} catch (error) {
-  console.error(error);
-}
 };
 
 export const getPeople = async (page) => {
@@ -74,16 +74,16 @@ export const getPeople = async (page) => {
     if (!response || !response.data) {
       throw new Error("Invalid getPeople response data");
     }
-    
+
     return response.data;
   } catch (error) {
     console.error(error);
   }
 };
 
-export const getPersonDetails = async ( personId ) => {
+export const getPersonDetails = async (personId) => {
   try {
-  const url =  `person/${personId}?language=en-US`
+    const url = `person/${personId}?language=en-US`;
     const response = await tmdb.get(url);
 
     if (!response || !response.data) {
@@ -93,29 +93,29 @@ export const getPersonDetails = async ( personId ) => {
   } catch (error) {
     console.error(error);
   }
-  };
+};
 
-  export const getPersonCredits = async ( personId ) => {
-    try {
-      const url = `person/${personId}/combined_credits?language=en-US`
-      const response = await tmdb.get(url);
+export const getPersonCredits = async (personId) => {
+  try {
+    const url = `person/${personId}/combined_credits?language=en-US`;
+    const response = await tmdb.get(url);
 
-      if (!response || !response.data) {
-        throw new Error("Invalid response data");
-      }
-      return response.data;
-    } catch (error) {
-      console.error(error);
+    if (!response || !response.data) {
+      throw new Error("Invalid response data");
     }
-    };
+    return response.data;
+  } catch (error) {
+    console.error(error);
+  }
+};
 
-    export const searchPerson = async (query) => {
-      const url = `search/person?language=en-US&query=${query}&include_adult=false`
-        const response = await tmdb.get(url);
+export const searchPerson = async (query) => {
+  const url = `search/person?language=en-US&query=${query}&include_adult=false`;
+  const response = await tmdb.get(url);
 
-        if (!response.ok) {
-          new Error(response.statusText);
-        }
-      
-        return await response.data;
-      };
+  if (!response.ok) {
+    new Error(response.statusText);
+  }
+
+  return await response.data;
+};

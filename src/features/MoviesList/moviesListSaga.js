@@ -20,6 +20,7 @@ export function* fetchMoviesHandler({ payload: page }) {
   try {
     yield delay(1000);
     const query = yield select(selectQuery);
+    yield call(console.log,"q"+query);
     let movies;
     if (query !== "") {
       movies = yield call(searchMovie, query);

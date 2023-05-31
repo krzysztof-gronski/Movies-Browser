@@ -34,7 +34,7 @@ export const MoviesList = () => {
   const totalPages = useSelector(selectTotalPages);
   let page = useQueryParameter("page");
   const genres = useSelector(selectGenres);
-  const query = useQueryParameter("query");
+  const query = useQueryParameter("search");
   const totalResults = useSelector(selectTotalResults);
   const search = useQueryParameter("search");
 
@@ -44,6 +44,8 @@ export const MoviesList = () => {
     dispatch(setQuery(query ? { query: query } : { query: "" }));
     dispatch(fetchMovies(page));
   }, [page]);
+
+  //window.location="/costam";
 
   return status === "loading" ? (
     <Loader />
