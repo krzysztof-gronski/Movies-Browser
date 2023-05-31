@@ -75,3 +75,42 @@ export const getPeople = async (page) => {
     console.error(error);
   }
 };
+
+export const getPersonDetails = async ( personId ) => {
+  try {
+  const url =  `person/${personId}?language=en-US`
+    const response = await tmdb.get(url);
+
+    if (!response || !response.data) {
+      throw new Error("Invalid response data");
+    }
+    return response.data;
+  } catch (error) {
+    console.error(error);
+  }
+  };
+
+  export const getPersonCredits = async ( personId ) => {
+    try {
+      const url = `person/${personId}/combined_credits?language=en-US`
+      const response = await tmdb.get(url);
+
+      if (!response || !response.data) {
+        throw new Error("Invalid response data");
+      }
+      return response.data;
+    } catch (error) {
+      console.error(error);
+    }
+    };
+
+    export const searchPerson = async (query) => {
+      const url = `search/person?language=en-US&query=${query}&include_adult=false`
+        const response = await tmdb.get(url);
+
+        if (!response.ok) {
+          new Error(response.statusText);
+        }
+      
+        return await response.data;
+      };
