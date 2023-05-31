@@ -35,6 +35,18 @@ export const Container = styled.div`
       }
     `}
 
+    ${({ peopleListFlag }) =>
+    peopleListFlag &&
+    css`
+      padding: 56px 40px;
+
+      @media (max-width: ${({ theme }) => theme.breakpoints.smallScreen}px) {
+        align-items: flex-start;
+        padding: 56px 24px;
+      }
+    `}
+
+
     ${({ search }) =>
     search &&
     css`
