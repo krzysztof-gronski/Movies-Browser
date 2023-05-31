@@ -8,26 +8,42 @@ const moviesListSlice = createSlice({
     status: "loading",
     page: 1,
     totalPages: null,
+    query: "",
+    totalResults: 0,
   },
   reducers: {
     fetchMovies: (state, { payload: page }) => {
       state.page = page;
       state.status = "loading";
     },
-    fetchMoviesSuccess: (state, { payload }) => {
-      state.movies = payload.movies.results;
-      state.page = payload.movies.page;
-      state.totalPages = payload.movies.total_pages;
-      state.genres = payload.genres;
+    fetchMoviesSuccess: (state, { payload: movies }) => {
+      state.movies = movies.results;
+      state.page = movies.page;
+      state.totalPages = movies.total_pages;
+      state.totalResults = movies.total_results;
+      state.genres = movies.genres;
       state.status = "success";
     },
     fetchMoviesError: (state) => {
       state.status = "error";
     },
+    fetchGenres: (state, { payload: genres }) => {
+      state.genres = genres;
+    },
+    setQuery: (state, { payload }) => {
+      state.query = payload.query;
+      state.status = "loading";
+    },
   },
 });
-export const { fetchMovies, fetchMoviesSuccess, fetchMoviesError } =
-  moviesListSlice.actions;
+export const {
+  fetchMovies,
+  fetchMoviesSuccess,
+  fetchMoviesError,
+  fetchGenres,
+  fetchMovieDetails,
+  setQuery,
+} = moviesListSlice.actions;
 
 export const selectMoviesState = (state) => state.movies;
 export const selectMovies = (state) => selectMoviesState(state).movies;
@@ -35,4 +51,12 @@ export const selectPage = (state) => selectMoviesState(state).page;
 export const selectTotalPages = (state) => selectMoviesState(state).totalPages;
 export const selectStatus = (state) => selectMoviesState(state).status;
 export const selectGenres = (state) => selectMoviesState(state).genres;
+export const selectMovieById = (state, movieId) => {
+  const movies = selectMovies(state);
+  return movies.find((movie) => movie.id === movieId);
+};
+export const selectTotalResults = (state) =>
+  selectMoviesState(state).totalResults;
+export const selectQuery = (state) => selectMoviesState(state).query;
+
 export default moviesListSlice.reducer;
