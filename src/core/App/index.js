@@ -12,28 +12,16 @@ function App() {
       <HashRouter>
         <Navigation />
         <Switch>
-          <Route path="/error">
-            <ErrorPage />
-          </Route>
-          <Route path="/noresults">
-            <NoResults />
-          </Route>
-          <Route path="/loader">
-            <Loader />
-          </Route>
           <Route path="/people/:id">{"People Details"}</Route>
           <Route path="/people">{"People List Page"}</Route>
           <Route path="/movie/:id">
-            <MovieDetails />
-          </Route>
-          <Route path="/movie">
             <MovieDetails />
           </Route>
           <Route path="/movies">
             <MoviesList />
           </Route>
           <Route path="/">
-            <Redirect to="/movies?page=1"></Redirect>
+            <MoviesList />
           </Route>
         </Switch>
       </HashRouter>
