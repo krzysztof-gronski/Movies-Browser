@@ -10,31 +10,48 @@ import { Tile } from "../../common/Tile";
 import Pagination from "../../common/Pagination";
 import { useQueryParameter } from "../../common/Search/queryParameters";
 import { useDispatch, useSelector } from "react-redux";
-import { fetchMovies, selectMovies, selectTotalPages } from "./moviesListSlice";
+import { Loader } from "../../common/Loader";
+import {ErrorPage} from "../../common/ErrorPage"
+import {NoResults} from "../../common/NoResults"
+import { fetchGenres, fetchMovies, selectGenres, selectMovies, selectStatus, selectTotalPages, selectTotalResults, setQuery } from "./moviesListSlice";
 
 export const MoviesList = () => {
-  const [genres, setGenres] = useState({});
+  const dispatch = useDispatch();
+  const status = useSelector(selectStatus);
   const movies = useSelector(selectMovies);
   const totalPages = useSelector(selectTotalPages);
-  const dispatch = useDispatch();
   const page = useQueryParameter("page");
+  const genres = useSelector(selectGenres);
+  const query = useQueryParameter("query");
+  const totalResults = useSelector(selectTotalResults);
+
   useEffect(() => {
+    dispatch(fetchGenres());
+  }, []);
+
+  useEffect(() => {
+    dispatch(setQuery(query
+      ? { query: query }
+      : { query: "" }));
     dispatch(fetchMovies(page));
   }, [page]);
 
-  const getGenres = async () => {
-    const { data } = await tmdbApi.getGenresData();
-    setGenres(data.genres);
+  const getGenreName = (genreId) => {
+    if (genres && genres.length > 0) {
+      const genre = genres.find((genre) => genre.id === genreId);
+      return genre ? genre.name : "";
+    }
+    return "";
   };
 
-  useEffect(() => {
-    getGenres();
-  }, []);
-
   return (
-    
     <Container moviesListFlag>
-      <Header>Popular movies</Header>
+      <Header 
+      >{
+        query
+          ? `Search results for “${query}” (${totalResults})`
+          : `Popular Movies`
+}</Header>
       <TilesContainer>
         {movies.map((movie) => (
           <Tile
@@ -48,9 +65,7 @@ export const MoviesList = () => {
             tileSubtitle={
               movie.release_date ? movie.release_date.slice(0, 4) : ""
             }
-            genres={movie.genre_ids.map((genre_id) => {
-              return genres.find((genre) => genre.id === genre_id).name;
-            })}
+            genres={movie.genre_ids.map((genreId) => getGenreName(genreId))}
             rate={movie.vote_average}
             votesNr={movie.vote_count}
           ></Tile>
