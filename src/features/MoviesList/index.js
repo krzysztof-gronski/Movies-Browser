@@ -1,5 +1,5 @@
-import { useEffect, useState } from "react";
-import { IMAGE_PATH, tmdbApi } from "../api/apiData";
+import { useEffect } from "react";
+import { IMAGE_PATH } from "../api/apiData";
 import noPoster from "../../images/noPoster.jpg";
 import {
   Container,
@@ -49,14 +49,6 @@ export const MoviesList = () => {
     dispatch(fetchMovies(page));
   }, [page]);
 
-  const getGenreName = (genreId) => {
-    if (genres && genres.length > 0) {
-      const genre = genres.find((genre) => genre.id === genreId);
-      return genre ? genre.name : "";
-    }
-    return "";
-  };
-
   return status === "loading" ? (
     <Loader />
   ) : status === "error" ? (
@@ -81,7 +73,9 @@ export const MoviesList = () => {
             tileSubtitle={
               movie.release_date ? movie.release_date.slice(0, 4) : ""
             }
-            genres={movie.genre_ids.map((genreId) => getGenreName(genreId))}
+            genres={movie.genre_ids.map(
+              (genreId) => genres.find((genre) => genre.id === genreId).name
+            )}
             rate={movie.vote_average}
             votesNr={movie.vote_count}
           ></Tile>

@@ -7,3 +7,11 @@ export const formatDate = (dashSeparatorsReverseDate) => {
     dashSeparatorsReverseDate.slice(0, 4)
   );
 };
+
+export const getGenreName = (genreId, genres) => {
+  if (genres && genres.length > 0) {
+    const genre = genres.find((genre) => genre.id === genreId);
+    return genre ? genre.name : "";
+  }
+  return "";
+};
