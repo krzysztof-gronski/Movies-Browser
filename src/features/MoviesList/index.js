@@ -1,6 +1,6 @@
 import { useEffect } from "react";
 import { IMAGE_PATH } from "../api/apiData";
-import noPoster from "../../images/noPoster.jpg"
+import noPoster from "../../images/noPoster.jpg";
 import {
   Container,
   Header,
@@ -10,23 +10,39 @@ import { Tile } from "../../common/Tile";
 import Pagination from "../../common/Pagination";
 import { useQueryParameter } from "../../common/Search/queryParameters";
 import { useDispatch, useSelector } from "react-redux";
-import { fetchMovies, selectGenres, selectMovies, selectTotalPages } from "./moviesListSlice";
+import {
+  fetchMovies,
+  selectGenres,
+  selectMovies,
+  selectTotalPages,
+  selectStatus,
+} from "./moviesListSlice";
+import { ErrorPage } from "../../common/ErrorPage";
+import { NoResults } from "../../common/NoResults";
+import { Loader } from "../../common/Loader";
 
 export const MoviesList = () => {
   const movies = useSelector(selectMovies);
   const genres = useSelector(selectGenres);
   const totalPages = useSelector(selectTotalPages);
   const dispatch = useDispatch();
-  const page = useQueryParameter("page");
+  const page = useQueryParameter("page") || 1;
+  const search = useQueryParameter("search");
+  const status = useSelector(selectStatus);
 
   useEffect(() => {
     dispatch(fetchMovies(page));
   }, [page, dispatch]);
 
-  return (
-    
-    <Container moviesListFlag>
-      <Header>Popular movies</Header>
+  return ( status === "loading" ? (
+    <Loader />
+  ) : status === "error" ? (
+    <ErrorPage />
+  ) : search && movies.length <= 0 ? (
+    <NoResults />
+  ) : (
+    <Container moviesListFlag search>
+      <Header search>{search ? "Search" : "Popular movies"}</Header>
       <TilesContainer>
         {movies.map((movie) => (
           <Tile
@@ -34,7 +50,9 @@ export const MoviesList = () => {
             key={movie.id}
             movie={movie}
             poster={
-              movie.poster_path ? `${IMAGE_PATH}${movie.poster_path}` : `${noPoster}`
+              movie.poster_path
+                ? `${IMAGE_PATH}${movie.poster_path}`
+                : `${noPoster}`
             }
             tileTitle={movie.original_title}
             tileSubtitle={
@@ -50,5 +68,6 @@ export const MoviesList = () => {
       </TilesContainer>
       <Pagination page={page} totalPages={totalPages} />
     </Container>
-  );
+  )
+  )
 };
