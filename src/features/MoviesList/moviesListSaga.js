@@ -9,7 +9,6 @@ import {
 } from "redux-saga/effects";
 import {
   getGenres,
-  getMovieDetails,
   getMovies,
   searchMovie,
 } from "../api/apiData";
@@ -17,8 +16,6 @@ import {
   fetchMovies,
   fetchMoviesSuccess,
   fetchGenres,
-  fetchMovieDetails,
-  selectPage,
   fetchMoviesError,
   selectQuery,
 } from "./moviesListSlice";
