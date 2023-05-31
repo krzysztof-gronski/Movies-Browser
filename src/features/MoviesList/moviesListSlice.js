@@ -21,8 +21,6 @@ const moviesListSlice = createSlice({
       state.page = movies.page;
       state.totalPages = movies.total_pages;
       state.totalResults = movies.total_results;
-      state.genres = movies.genres;
-      state.status = "success";
     },
     fetchMoviesError: (state) => {
       state.status = "error";
@@ -58,5 +56,4 @@ export const selectMovieById = (state, movieId) => {
 export const selectTotalResults = (state) =>
   selectMoviesState(state).totalResults;
 export const selectQuery = (state) => selectMoviesState(state).query;
-
 export default moviesListSlice.reducer;

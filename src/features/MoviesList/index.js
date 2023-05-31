@@ -1,6 +1,6 @@
-import { useEffect } from "react";
-import { IMAGE_PATH } from "../api/apiData";
-import noPoster from "../../images/noPoster.jpg";
+import { useEffect, useState } from "react";
+import { IMAGE_PATH, tmdbApi } from "../api/apiData";
+import noPoster from "../../images/noPoster.jpg"
 import {
   Container,
   Header,
@@ -10,34 +10,24 @@ import { Tile } from "../../common/Tile";
 import Pagination from "../../common/Pagination";
 import { useQueryParameter } from "../../common/Search/queryParameters";
 import { useDispatch, useSelector } from "react-redux";
-import {
-  fetchMovies,
-  selectGenres,
-  selectMovies,
-  selectTotalPages,
-  selectStatus,
-  selectTotalResults,
-  setQuery,
-} from "./moviesListSlice";
-import { ErrorPage } from "../../common/ErrorPage";
-import { NoResults } from "../../common/NoResults";
 import { Loader } from "../../common/Loader";
+import {ErrorPage} from "../../common/ErrorPage"
+import {NoResults} from "../../common/NoResults"
+import { fetchGenres, fetchMovies, selectGenres, selectMovies, selectStatus, selectTotalPages, selectTotalResults, setQuery } from "./moviesListSlice";
 
 export const MoviesList = () => {
-
-  const movies = useSelector(selectMovies);
-  const genres = useSelector(selectGenres);
-  const totalPages = useSelector(selectTotalPages);
   const dispatch = useDispatch();
-  const page = useQueryParameter("page") || 1;
-  const search = useQueryParameter("search");
   const status = useSelector(selectStatus);
+  const movies = useSelector(selectMovies);
+  const totalPages = useSelector(selectTotalPages);
+  const page = useQueryParameter("page");
+  const genres = useSelector(selectGenres);
   const query = useQueryParameter("query");
   const totalResults = useSelector(selectTotalResults);
-  
-//   useEffect(() => {
-//     dispatch(fetchMovies(page));
-//   }, [page, dispatch]);
+
+  useEffect(() => {
+    dispatch(fetchGenres());
+  }, []);
 
   useEffect(() => {
     dispatch(setQuery(query
@@ -54,15 +44,14 @@ export const MoviesList = () => {
     return "";
   };
 
-  return ( status === "loading" ? (
-    <Loader />
-  ) : status === "error" ? (
-    <ErrorPage />
-  ) : search && movies.length <= 0 ? (
-    <NoResults />
-  ) : (
-    <Container moviesListFlag search>
-       <Header search>{search ? "Search" : "Popular movies"}</Header>
+  return (
+    <Container moviesListFlag>
+      <Header 
+      >{
+        query
+          ? `Search results for “${query}” (${totalResults})`
+          : `Popular Movies`
+}</Header>
       <TilesContainer>
         {movies.map((movie) => (
           <Tile
@@ -70,9 +59,7 @@ export const MoviesList = () => {
             key={movie.id}
             movie={movie}
             poster={
-              movie.poster_path
-                ? `${IMAGE_PATH}${movie.poster_path}`
-                : `${noPoster}`
+              movie.poster_path ? `${IMAGE_PATH}${movie.poster_path}` : `${noPoster}`
             }
             tileTitle={movie.original_title}
             tileSubtitle={
@@ -86,7 +73,5 @@ export const MoviesList = () => {
       </TilesContainer>
       <Pagination page={page} totalPages={totalPages} />
     </Container>
-  )
-  )
+  );
 };
-
