@@ -29,13 +29,14 @@ import {
 
 export const MoviesList = () => {
   const dispatch = useDispatch();
-  const status = useSelector(selectStatus);
+  let status = useSelector(selectStatus);
   const movies = useSelector(selectMovies);
   const totalPages = useSelector(selectTotalPages);
   let page = useQueryParameter("page");
   const genres = useSelector(selectGenres);
   const query = useQueryParameter("query");
   const totalResults = useSelector(selectTotalResults);
+  const search = useQueryParameter("search");
 
   if (!page) page = 1;
 
@@ -56,13 +57,15 @@ export const MoviesList = () => {
     return "";
   };
 
-  return (
-    <Container moviesListFlag>
-      <Header>
-        {query
-          ? `Search results for “${query}” (${totalResults})`
-          : `Popular Movies`}
-      </Header>
+  return status === "loading" ? (
+    <Loader />
+  ) : status === "error" ? (
+    <ErrorPage />
+  ) : search && movies.length <= 0 ? (
+    <NoResults />
+  ) : (
+    <Container moviesListFlag search>
+      <Header search>{search ? "Search" : "Popular movies"}</Header>
       <TilesContainer>
         {movies.map((movie) => (
           <Tile
