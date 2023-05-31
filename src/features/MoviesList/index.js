@@ -41,10 +41,6 @@ export const MoviesList = () => {
   if (!page) page = 1;
 
   useEffect(() => {
-    dispatch(fetchGenres());
-  }, []);
-
-  useEffect(() => {
     dispatch(setQuery(query ? { query: query } : { query: "" }));
     dispatch(fetchMovies(page));
   }, [page]);

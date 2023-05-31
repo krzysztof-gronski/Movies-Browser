@@ -16,18 +16,16 @@ const moviesListSlice = createSlice({
       state.page = page;
       state.status = "loading";
     },
-    fetchMoviesSuccess: (state, { payload: movies }) => {
-      state.movies = movies.results;
-      state.page = movies.page;
-      state.totalPages = movies.total_pages;
-      state.totalResults = movies.total_results;
+    fetchMoviesSuccess: (state, { payload: moviesData }) => {
+      state.movies = moviesData.movies.results;
+      state.page = moviesData.movies.page;
+      state.totalPages = moviesData.movies.total_pages;
+      state.totalResults = moviesData.movies.total_results;
       state.status = "success";
+      state.genres = moviesData.genres;
     },
     fetchMoviesError: (state) => {
       state.status = "error";
-    },
-    fetchGenres: (state, { payload: genres }) => {
-      state.genres = genres;
     },
     setQuery: (state, { payload }) => {
       state.query = payload.query;

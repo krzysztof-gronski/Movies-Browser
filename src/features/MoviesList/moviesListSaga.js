@@ -7,11 +7,7 @@ import {
   takeLatest,
   debounce,
 } from "redux-saga/effects";
-import {
-  getGenres,
-  getMovies,
-  searchMovie,
-} from "../api/apiData";
+import { getGenres, getMovies, searchMovie } from "../api/apiData";
 import {
   fetchMovies,
   fetchMoviesSuccess,
@@ -26,27 +22,17 @@ export function* fetchMoviesHandler({ payload: page }) {
     const query = yield select(selectQuery);
     let movies;
     if (query !== "") {
-      movies = yield call(searchMovie, query );
+      movies = yield call(searchMovie, query);
     } else {
       movies = yield call(getMovies, page);
     }
-    yield put(fetchMoviesSuccess(movies));
+    const genres = yield call(getGenres);
+    yield put(fetchMoviesSuccess({ movies, genres }));
   } catch (error) {
     yield put(fetchMoviesError());
   }
 }
 
-function* fetchGenresHandler() {
-  try {
-    const genres = yield call(getGenres);
-    yield put(fetchGenres(genres));
-  } catch (error) {
-    yield call(alert, error);
-  }
-}
-
 export function* moviesListSaga() {
   yield takeLatest(fetchMovies.type, fetchMoviesHandler);
-  yield takeLatest(fetchGenres.type, fetchGenresHandler);
-
 }
