@@ -5,6 +5,7 @@ import { MovieDetails } from "../../features/MovieDetails";
 import { Loader } from "../../common/Loader";
 import { NoResults } from "../../common/NoResults";
 import { ErrorPage } from "../../common/ErrorPage";
+import { PeopleList } from "../../features/PeopleList";
 
 function App() {
   return (
@@ -22,7 +23,9 @@ function App() {
             <Loader />
           </Route>
           <Route path="/people/:id">{"People Details"}</Route>
-          <Route path="/people">{"People List Page"}</Route>
+          <Route path="/people">
+            <PeopleList />
+          </Route>
           <Route path="/movie/:id">
             <MovieDetails />
           </Route>
