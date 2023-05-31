@@ -54,15 +54,25 @@ export const MovieDetails = () => {
               ? movieDetails.release_date.slice(0, 4)
               : ""
           }
-          production={movieDetails.production_countries
-            .map((productionObj) => productionObj.name)
-            .join(", ")}
+          production={
+            movieDetails.production_countries
+              ? movieDetails.production_countries.length > 0
+                ? movieDetails.production_countries
+                    .map((productionObj) => productionObj.name)
+                    .join(", ")
+                : ""
+              : ""
+          }
           releaseDate={
             movieDetails.release_date
               ? formatDate(movieDetails.release_date)
               : ""
           }
-          genres={movieDetails.genres.map((genre) => genre.name)}
+          genres={
+            movieDetails.genres
+              ? movieDetails.genres.map((genre) => genre.name)
+              : [""]
+          }
           rate={movieDetails.vote_average}
           votesNr={movieDetails.vote_count}
           description={movieDetails.overview}
