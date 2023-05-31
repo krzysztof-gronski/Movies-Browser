@@ -6,29 +6,59 @@ import { Container } from "../../common/MainContainer/styled";
 import { Tile } from "../../common/Tile";
 import { IMAGE_PATH } from "../api/apiData";
 import { formatDate } from "../../common/Utilities";
+import { useDispatch, useSelector } from "react-redux";
+import {
+  fetchMovieDetails,
+  selectCredits,
+  selectDetails,
+} from "./movieDetailsSlice";
+import { useParams } from "react-router-dom";
+import { useEffect } from "react";
 
 export const MovieDetails = () => {
+  const dispatch = useDispatch();
+  const movieDetails = useSelector(selectDetails);
+  const credits = useSelector(selectCredits);
+
+  const { id } = useParams();
+
+  useEffect(() => {
+    dispatch(fetchMovieDetails({ movieId: id }));
+  }, [id, dispatch]);
+
+  console.log(movieDetails);
+
   return (
     <>
-      <Backdrop backdropImage={backdropImage} movie={movie}></Backdrop>
+      <Backdrop
+        backdropImage={
+          movieDetails.backdrop_path
+            ? `${IMAGE_PATH}${movieDetails.backdrop_path}`
+            : null
+        }
+        movie={movieDetails}
+      ></Backdrop>
       <Container movieDetailsFlag>
         <Tile
           movieDetailsFlag
-          key={movie.id}
-          movie={movie}
+          key={movieDetails.id}
+          movie={movieDetails}
           poster={
-            movie.poster_path ? `${IMAGE_PATH}${movie.poster_path}` : null
+            movieDetails.poster_path
+              ? `${IMAGE_PATH}${movieDetails.poster_path}`
+              : null
           }
-          tileTitle={movie.original_title}
-          tileSubtitle={movie.release_date.slice(0, 4)}
-          production={movie.production}
-          releaseDate={formatDate(movie.release_date)}
-          genres={movie.genre_ids.map((genre_id) => {
-            return genres.find((genre) => genre.id === genre_id).name;
-          })}
-          rate={movie.vote_average}
-          votesNr={movie.vote_count}
-          description={movie.overview}
+          tileTitle={movieDetails.original_title}
+          tileSubtitle={formatDate(movieDetails.release_date).slice(6)}
+          production={movieDetails.production_countries[0].name}
+          releaseDate={formatDate(movieDetails.release_date)}
+          // genres={movie.genre_ids.map((genre_id) => {
+          //   return genres.find((genre) => genre.id === genre_id).name;
+          // })}
+          genres={movieDetails.genres.map((genre) => genre.name)}
+          rate={movieDetails.vote_average}
+          votesNr={movieDetails.vote_count}
+          description={movieDetails.overview}
         ></Tile>
       </Container>
     </>

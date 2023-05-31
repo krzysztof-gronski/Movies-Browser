@@ -42,7 +42,8 @@ export const searchMovie = async (query) => {
 export const getMovieDetails = async (movieId) => {
   // In case of problems with the data request, the code with api_key
   // `movie/${movieId}?api_key=${API_KEY}&language=en-US`
-  const url = `movie/${movieId}?language=en-US`;
+  //const url = `movie/${movieId}?language=en-US`;
+  const url = `movie/${movieId}?api_key=${API_KEY}&language=en-US`;
   const response = await tmdb.get(url);
   if (!response || !response.data) {
     throw new Error("Invalid response data");
