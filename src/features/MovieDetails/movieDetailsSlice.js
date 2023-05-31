@@ -9,12 +9,15 @@ const movieDetailsSlice = createSlice({
     status: "loading",
   },
   reducers: {
-    fetchMoviesDetails: (state, { payload: page }) => {
+    /*
+    fetchMovieDetails: (state, { payload: page }) => {
         state.page = page;
         state.status = "loading";
       },
-    fetchMovieDetailsSuccess: (state, { payload: details}) => {
-      state.details = details.results;
+      */
+    fetchMovieDetailsSuccess: (state, { payload: movie }) => {
+      state.details = movie.details;
+      state.credits = movie.credits;
     },
     fetchMovieDetailsError: (state) => {
       state.status = "error";
@@ -23,16 +26,19 @@ const movieDetailsSlice = createSlice({
       state.status = "loading";
       state.movieId = payload.movieId;
     },
-    fetchCredits: (state, { payload: credits }) => {
+    /*
+    fetchMovieCredits: (state, { payload: credits }) => {
         state.credits = credits;
       },
+      */
   },
 });
 export const {
+  fetchMovieDetails,
   fetchMovieDetailsSuccess,
   fetchMovieDetailsError,
   getMovieId,
-  fetchCredits,
+  fetchMovieCredits,
 } = movieDetailsSlice.actions;
 
 export const selectMovieState = (state) => state.movieDetails;
