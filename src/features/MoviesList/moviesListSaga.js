@@ -5,7 +5,7 @@ import { tmdbApi } from "../api/apiData";
 
 export function* fetchMoviesHandler({ payload: page }) {
   try {
-    delay(20000);
+    yield delay(2000);
     const movies = yield call(getMovies, page);
     const { data } = yield call(tmdbApi.getGenresData);
     const genres = data.genres;
