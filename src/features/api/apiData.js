@@ -39,7 +39,7 @@ export const searchMovie = async (query) => {
 };
 
 export const getMovieDetails = async (movieId) => {
-  const url = `/movie/${movieId}?language=en-US`;
+  const url = `movie/${movieId}?language=en-US`;
   const response = await tmdb.get(url);
   if (!response || !response.data) {
     throw new Error("Invalid response data");
