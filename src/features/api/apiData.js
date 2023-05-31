@@ -28,8 +28,8 @@ export const getGenres = async () => {
   }
 };
 
-export const searchMovie = async (query) => {
-  const url = `search/movie?language=en-US&query=${query}&include_adult=false`;
+export const searchMovie = async (query,page) => {
+  const url = `search/movie?language=en-US&query=${query}&include_adult=false&page=${page}`;
   const response = await tmdb.get(url);
 
   if (!response.ok) {

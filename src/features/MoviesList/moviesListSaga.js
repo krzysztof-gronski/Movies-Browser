@@ -23,7 +23,7 @@ export function* fetchMoviesHandler({ payload: page }) {
     yield call(console.log,"q"+query);
     let movies;
     if (query !== "") {
-      movies = yield call(searchMovie, query);
+      movies = yield call(searchMovie, query, page);
     } else {
       movies = yield call(getMovies, page);
     }

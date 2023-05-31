@@ -45,8 +45,6 @@ export const MoviesList = () => {
     dispatch(fetchMovies(page));
   }, [page]);
 
-  //window.location="/costam";
-
   return status === "loading" ? (
     <Loader />
   ) : status === "error" ? (
