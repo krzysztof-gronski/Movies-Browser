@@ -3,12 +3,15 @@ import { Container, Header, TilesContainer } from "../../common/MainContainer/st
 import { Tile } from "../../common/Tile";
 import missingPersonPoster from "../../images/missingPersonPoster.svg";
 import { IMAGE_PATH } from "../api/apiData";
-export const PeopleList = () => {
+import { samplePeople } from "./samplePeople";
+
+export const PeopleList = () => { 
+    
   return (
     <Container peopleListFlag>
       <Header>Popular people</Header>
       <TilesContainer peopleListFlag>
-        {myPeople.map((person) => (
+        {samplePeople.map((person) => (
           <Tile
             peopleListFlag
             key={person.id}
