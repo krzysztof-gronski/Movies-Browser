@@ -109,6 +109,8 @@ export const TileTitle = styled.header`
       font-size: 22px;
       line-height: 130%;
       text-align: center;
+      /* margin:0; */
+
     `}
 `;
 

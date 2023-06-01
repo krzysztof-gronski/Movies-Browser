@@ -15,9 +15,9 @@ export const TileContainer = styled.div`
     peopleListFlag &&
     css`
       justify-items: center;
-      width: 208px;
-      height: 339px;
-      padding-top: 12px;
+      max-width: 208px;
+      max-height: 360px;
+      padding: 12px;
     `}
 
   ${({ moviesListFlag }) =>
@@ -68,7 +68,6 @@ export const TileContainer = styled.div`
         grid-gap: 14px;
         padding: 14px 14px 0px 14px;
       }
-      ${({ peopleListFlag }) => peopleListFlag && css``}
     `}
 `;
 
@@ -109,9 +108,10 @@ export const Poster = styled.img`
     ${({ peopleListFlag }) =>
     peopleListFlag &&
     css`
-      width: 177px;
-      height: 258px;
+     max-width: 177px;
+      height: 250px;
       border-radius: 5px;
+      /* margin-bottom:-5px; */
     `}
 `;
 
