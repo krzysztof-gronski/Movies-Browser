@@ -17,9 +17,15 @@ export const PersonDetails = () => {
 
   console.log(personDetails);
 
+  let imgPath = "https://image.tmdb.org/t/p/w500"+personDetails.profile_path;
+
   return (
       <Container personDetailsFlag>
-        <Tile>{"person details"}</Tile>
+        <div>{`${personDetails.name}`}</div>
+        <div>{`${personDetails.birthday}`}</div>
+        <div>{`${personDetails.place_of_birth}`}</div>
+        <div>{`${personDetails.biography}`}</div>
+        <img src={imgPath}/>
       </Container>
   );
 };
