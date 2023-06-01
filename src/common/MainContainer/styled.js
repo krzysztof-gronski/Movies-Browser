@@ -39,11 +39,6 @@ export const Container = styled.div`
     peopleListFlag &&
     css`
       padding: 56px 40px;
-
-      @media (max-width: ${({ theme }) => theme.breakpoints.smallScreen}px) {
-        align-items: flex-start;
-        padding: 56px 24px;
-      }
     `}
 
 
@@ -83,12 +78,6 @@ export const TilesContainer = styled.div`
   justify-items: center;
   width: 1372px;
 
-  ${({ peopleListFlag }) =>
-    peopleListFlag &&
-    css`
-      grid-template-columns: repeat(6, 1fr);
-    `}
-
   @media (max-width: ${({ theme }) => theme.breakpoints.smallScreen}px) {
     grid-template-columns: repeat(auto-fill, minmax(324px, 1fr));
     width: 100%;
@@ -99,6 +88,15 @@ export const TilesContainer = styled.div`
     grid-gap: 16px;
     width: 100%;
   }
+
+  ${({ peopleListFlag }) =>
+    peopleListFlag &&
+    css`
+      grid-template-columns: repeat(6, 1fr);
+      @media (max-width: ${({ theme }) => theme.breakpoints.smallScreen}px) {
+        grid-template-columns: repeat(auto-fill, minmax(170px, 1fr));
+      }
+    `}
 `;
 
 export const Header = styled.h1`
