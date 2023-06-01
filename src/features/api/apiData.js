@@ -83,7 +83,7 @@ export const getPeople = async (page) => {
 
 export const getPersonDetails = async (personId) => {
   try {
-    const url = `person/${personId}?language=en-US`;
+    const url = `person/${personId}?language=en-US&api_key=${API_KEY}`;
     const response = await tmdb.get(url);
 
     if (!response || !response.data) {

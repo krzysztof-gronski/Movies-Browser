@@ -13,9 +13,9 @@ const personSlice = createSlice({
     reducers: {
         fetchPersonDetailsSuccess: (state, { payload: person }) => {
             state.details = person.details;
-            state.genres = person.genres;
-            state.cast = person.credits.cast;
-            state.crew = person.credits.crew;
+            //state.genres = person.genres;
+            //state.cast = person.credits.cast;
+            //state.crew = person.credits.crew;
         },
         fetchPersonDetailsError: (state) => {
             state.status = "error";

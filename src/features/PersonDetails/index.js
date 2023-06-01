@@ -12,7 +12,7 @@ export const PersonDetails = () => {
   const { id } = useParams();
 
   useEffect(() => {
-    dispatch(getDetailsForPerson({ movieId: id }));
+    dispatch(getDetailsForPerson({ personId: id }));
   }, [id, dispatch]);
 
   console.log(personDetails);
