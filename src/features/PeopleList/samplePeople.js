@@ -16,7 +16,7 @@ export const samplePeople = [
   },
   {
     id: 60,
-    name: "Tom Hardy",
+    name: "Jason Scott Lee Long name",
     profile_path: "/2v9FVVBUrrkW2m3QOcYkuhq9A6o.jpg",
   },
   {
