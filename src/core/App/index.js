@@ -5,6 +5,7 @@ import { MovieDetails } from "../../features/MovieDetails";
 import { Loader } from "../../common/Loader";
 import { NoResults } from "../../common/NoResults";
 import { ErrorPage } from "../../common/ErrorPage";
+import { PersonDetails } from "../../features/PersonDetails";
 
 function App() {
   return (
@@ -12,16 +13,9 @@ function App() {
       <HashRouter>
         <Navigation />
         <Switch>
-          <Route path="/error">
-            <ErrorPage />
+          <Route path="/person/:id">
+            <PersonDetails />
           </Route>
-          <Route path="/noresults">
-            <NoResults />
-          </Route>
-          <Route path="/loader">
-            <Loader />
-          </Route>
-          <Route path="/people/:id">{"People Details"}</Route>
           <Route path="/people">{"People List Page"}</Route>
           <Route path="/movie/:id">
             <MovieDetails />
