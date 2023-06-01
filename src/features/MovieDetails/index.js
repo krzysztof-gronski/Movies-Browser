@@ -26,8 +26,6 @@ export const MovieDetails = () => {
     dispatch(fetchMovieDetails({ movieId: id }));
   }, [id, dispatch]);
 
-  console.log(movieDetails);
-
   return (
     <>
       <Backdrop

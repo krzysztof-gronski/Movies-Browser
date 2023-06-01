@@ -5,11 +5,7 @@ import {
   fetchPersonDetailsError,
   getDetailsForPerson,
 } from "./personDetailsSlice";
-import {
-  getGenres,
-  getPersonDetails,
-  getPersonCredits,
-} from "../api/apiData";
+import { getGenres, getPersonDetails, getPersonCredits } from "../api/apiData";
 
 function* fetchPersonDetailsHandler() {
   try {
