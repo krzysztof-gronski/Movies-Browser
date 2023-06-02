@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import missingMoviePoster from "../../images/missingMoviePoster.svg";
+import { IMAGE_PATH } from "../api/apiData";
 import {
   Container,
   Header,
