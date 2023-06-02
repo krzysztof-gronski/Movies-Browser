@@ -25,6 +25,7 @@ import {
   selectTotalResults,
   setQuery,
 } from "./moviesListSlice";
+import { IMAGE_PATH } from "../api/apiData";
 
 export const MoviesList = () => {
   const dispatch = useDispatch();
@@ -36,7 +37,7 @@ export const MoviesList = () => {
   const query = useQueryParameter("search");
   const totalResults = useSelector(selectTotalResults);
   const search = useQueryParameter("search");
-
+  
   if (!page) page = 1;
 
   useEffect(() => {
