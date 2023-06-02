@@ -99,7 +99,7 @@ export const TilesContainer = styled.div`
       }
       @media (max-width: ${({ theme }) => theme.breakpoints.tablet}px) {
         grid-template-columns: repeat(auto-fill, minmax(170px, 1fr));
-        grid-gap:32px;
+        grid-gap: 32px;
       }
     `}
 `;
@@ -174,6 +174,14 @@ export const Header = styled.h1`
         font-weight: 600;
         font-size: 4.4vw;
         margin: 1.9vw 0vw 1.2vw;
+      }
+    `}
+
+    ${({ peopleListFlag }) =>
+    peopleListFlag &&
+    css`
+      @media (max-width: ${({ theme }) => theme.breakpoints.smallScreen}px) {
+        align-self: flex-start;
       }
     `}
 `;

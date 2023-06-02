@@ -110,15 +110,17 @@ export const TileTitle = styled.header`
     ${({ peopleListFlag }) =>
     peopleListFlag &&
     css`
-      width: auto;
-      /* margin:0 3px; */
-      padding: 0 5px;
+      width: 180px;
+      padding: 0 2px;
       font-weight: 500;
       font-size: 22px;
       line-height: 1.3;
       text-align: center;
       @media (max-width: ${({ theme }) => theme.breakpoints.tablet}px) {
         font-size: 18px;
+        
+
+
       }
     `}
 `;
