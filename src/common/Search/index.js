@@ -9,6 +9,7 @@ const Search = () => {
   const query = useQueryParameter(searchQueryParamName);
   const replaceQueryParameter = useReplaceQueryParameter();
   const inputRef = useRef(null);
+  const history = useHistory();
 
   const onInputChange = ({ target }) => {
     if (target.value === "") {
@@ -22,6 +23,10 @@ const Search = () => {
       value: target.value.trim() !== "" ? target.value : undefined,
     });
     //console.log(window.location);
+    // if (!location.pathname.includes("/movies")) {
+    //   location.pathname = "/movies";
+    // }
+    history.push(`/movies?search=${target.value}&page=1`);
     window.location.reload();
   };
 
