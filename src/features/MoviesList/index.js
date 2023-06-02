@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { IMAGE_PATH, tmdbApi } from "../api/apiData";
-import noPoster from "../../images/noPoster.jpg";
+import missingMoviePoster from "../../images/missingMoviePoster.svg";
 import {
   Container,
   Header,
@@ -72,7 +72,7 @@ export const MoviesList = () => {
             poster={
               movie.poster_path
                 ? `${IMAGE_PATH}${movie.poster_path}`
-                : `${noPoster}`
+                : `${missingMoviePoster}`
             }
             tileTitle={movie.original_title}
             tileSubtitle={

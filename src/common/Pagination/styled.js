@@ -9,7 +9,7 @@ export const Wrapper = styled.div`
   gap: 12px;
   @media (max-width: 767px) {
     gap: 8px;
-    margin-left:5px;
+    margin-left: 5px;
   }
 `;
 
@@ -30,6 +30,7 @@ export const Button = styled.button`
   gap: 10px;
   align-items: center;
   border: none;
+  cursor: pointer;
   &:disabled {
     background-color: ${({ theme }) => theme.colors.mystic};
   }

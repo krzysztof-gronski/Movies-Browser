@@ -45,7 +45,7 @@ const Pagination = ({ page, totalPages }) => {
         onClick={() => goToPage(previousPage)}
         disabled={currentPage === 1 ? true : false}
       >
-        <BackwardVector disabled={page === 1 ? true : false} />
+        <BackwardVector disabled={currentPage === 1 ? true : false} />
         <ButtonText>Previous</ButtonText>
       </Button>
       <PageIndicator>

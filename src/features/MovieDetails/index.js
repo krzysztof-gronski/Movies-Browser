@@ -29,35 +29,39 @@ export const MovieDetails = () => {
   console.log(movieDetails);
 
   return (
-    <>
-      <Backdrop
-        backdropImage={
-          movieDetails.backdrop_path
-            ? `${IMAGE_PATH}${movieDetails.backdrop_path}`
-            : null
-        }
-        movie={movieDetails}
-      ></Backdrop>
-      <Container movieDetailsFlag>
-      <Tile
-          movieDetailsFlag
-          key={movieDetails.id}
-          movie={movieDetails}
-          poster={
-            movieDetails.poster_path ? `${IMAGE_PATH}${movieDetails.poster_path}` : null
+    movieDetails && (
+      <>
+        <Backdrop
+          backdropImage={
+            movieDetails.backdrop_path
+              ? `${IMAGE_PATH}${movieDetails.backdrop_path}`
+              : null
           }
-          tileTitle={movieDetails.original_title}
-          tileSubtitle={movie.release_date.slice(0, 4)}
-          production={movie.production}
-          releaseDate={formatDate(movie.release_date)}
-          genres={movie.genre_ids.map((genre_id) => {
-            return genres.find((genre) => genre.id === genre_id).name;
-          })}
-          rate={movieDetails.vote_average}
-          votesNr={movieDetails.vote_count}
-          description={movieDetails.overview}
-        ></Tile>
-      </Container>
-    </>
+          movie={movieDetails}
+        ></Backdrop>
+        <Container movieDetailsFlag>
+          <Tile
+            movieDetailsFlag
+            key={movieDetails.id}
+            movie={movieDetails}
+            poster={
+              movieDetails.poster_path
+                ? `${IMAGE_PATH}${movieDetails.poster_path}`
+                : null
+            }
+            tileTitle={movieDetails.original_title}
+            tileSubtitle={movie.release_date.slice(0, 4)}
+            production={movie.production}
+            releaseDate={formatDate(movie.release_date)}
+            genres={movie.genre_ids.map((genre_id) => {
+              return genres.find((genre) => genre.id === genre_id).name;
+            })}
+            rate={movieDetails.vote_average}
+            votesNr={movieDetails.vote_count}
+            description={movieDetails.overview}
+          ></Tile>
+        </Container>
+      </>
+    )
   );
 };
