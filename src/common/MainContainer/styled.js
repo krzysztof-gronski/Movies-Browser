@@ -84,7 +84,7 @@ export const TilesContainer = styled.div`
   }
 
   @media (max-width: ${({ theme }) => theme.breakpoints.tablet}px) {
-    /* grid-template-columns: 1fr; */
+    grid-template-columns: 1fr;
     grid-gap: 16px;
     width: 100%;
   }

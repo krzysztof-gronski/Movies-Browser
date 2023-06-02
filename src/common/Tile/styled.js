@@ -63,7 +63,7 @@ export const TileContainer = styled.div`
     ${({ peopleListFlag }) =>
     peopleListFlag &&
     css`
-      max-width: 208px;
+      width: 208px;
       height: 350px;
       @media (max-width: ${({ theme }) => theme.breakpoints.tablet}px) {
         width: auto;
