@@ -84,7 +84,7 @@ export const TilesContainer = styled.div`
   }
 
   @media (max-width: ${({ theme }) => theme.breakpoints.tablet}px) {
-    grid-template-columns: 1fr;
+    /* grid-template-columns: 1fr; */
     grid-gap: 16px;
     width: 100%;
   }
@@ -92,9 +92,14 @@ export const TilesContainer = styled.div`
   ${({ peopleListFlag }) =>
     peopleListFlag &&
     css`
-      grid-template-columns: repeat(6, 1fr);
+      grid-template-columns: repeat(6, 208px);
+
       @media (max-width: ${({ theme }) => theme.breakpoints.smallScreen}px) {
+        grid-template-columns: repeat(auto-fill, minmax(190px, 1fr));
+      }
+      @media (max-width: ${({ theme }) => theme.breakpoints.tablet}px) {
         grid-template-columns: repeat(auto-fill, minmax(170px, 1fr));
+        grid-gap:32px;
       }
     `}
 `;

@@ -95,7 +95,7 @@ export const Tile = ({
         <TileContent peopleListFlag>
           <TileTitle peopleListFlag>{tileTitle}</TileTitle>
         </TileContent>
-        <MobileTileDescription>{description}</MobileTileDescription>
+        <MobileTileDescription peopleListFlag>{description}</MobileTileDescription>
       </TileContainer>
     </>
   ) : (

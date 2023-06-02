@@ -50,9 +50,14 @@ export const TileContent = styled.div`
     ${({ peopleListFlag }) =>
     peopleListFlag &&
     css`
+      margin: 0;
       width: auto;
       justify-self: center;
-      margin-top: 10px;
+
+      /* width:auto; */
+      /* width: auto;
+      justify-self: center;
+      margin-top: 10px; */
     `}
 `;
 
@@ -105,12 +110,16 @@ export const TileTitle = styled.header`
     ${({ peopleListFlag }) =>
     peopleListFlag &&
     css`
+      width: auto;
+      /* margin:0 3px; */
+      padding: 0 5px;
       font-weight: 500;
       font-size: 22px;
-      line-height: 130%;
+      line-height: 1.3;
       text-align: center;
-      /* margin:0; */
-
+      @media (max-width: ${({ theme }) => theme.breakpoints.tablet}px) {
+        font-size: 18px;
+      }
     `}
 `;
 
