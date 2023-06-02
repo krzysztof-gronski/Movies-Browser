@@ -117,14 +117,20 @@ export const TilesContainer = styled.div`
   ${({ peopleListFlag }) =>
     peopleListFlag &&
     css`
-      grid-template-columns: repeat(6, 208px);
+      grid-template-columns: repeat(6, 1fr);
+      width: 100%;
 
       @media (max-width: ${({ theme }) => theme.breakpoints.smallScreen}px) {
-        grid-template-columns: repeat(auto-fill, minmax(190px, 1fr));
+        grid-template-columns: repeat(5, 1fr);
       }
-      @media (max-width: ${({ theme }) => theme.breakpoints.tablet}px) {
-        grid-template-columns: repeat(auto-fill, minmax(170px, 1fr));
-        grid-gap: 32px;
+      @media (max-width: 1020px) {
+        grid-template-columns: repeat(4, 1fr);
+      }
+      @media (max-width: 767px) {
+        grid-template-columns: repeat(3, 1fr);
+      }
+      @media (max-width: 460px) {
+        grid-template-columns: repeat(2, 1fr);
       }
     `}
 `;
@@ -224,3 +230,15 @@ export const Message = styled.p`
     font-size: 3.4vw;
   }
 `;
+
+/* @media (max-width: ${({ theme }) => theme.breakpoints.tablet}px) {
+        grid-template-columns: repeat(auto-fill, minmax(130px, 1fr));
+        grid-gap: 32px;
+        width:100%;
+      } */
+
+/* @media (max-width: ${({ theme }) => theme.breakpoints.smallScreen}px) {
+        grid-template-columns: repeat(auto-fill, minmax(130px, 1fr));
+        width: 100%;
+      } */
+// it is for peopleListFlag
