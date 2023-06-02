@@ -8,7 +8,10 @@ import {
 } from "../../common/MainContainer/styled";
 import { Tile } from "../../common/Tile";
 import Pagination from "../../common/Pagination";
-import { useQueryParameter } from "../../common/Search/queryParameters";
+import {
+  useQueryParameter,
+  useReplaceQueryParameter,
+} from "../../common/Search/queryParameters";
 import { useDispatch, useSelector } from "react-redux";
 import { Loader } from "../../common/Loader";
 import { ErrorPage } from "../../common/ErrorPage";
@@ -29,10 +32,12 @@ export const MoviesList = () => {
   const status = useSelector(selectStatus);
   const movies = useSelector(selectMovies);
   const totalPages = useSelector(selectTotalPages);
-  const page = useQueryParameter("page");
+  let page = useQueryParameter("page");
   const genres = useSelector(selectGenres);
   const query = useQueryParameter("query");
   const totalResults = useSelector(selectTotalResults);
+
+  if (!page) page = 1;
 
   useEffect(() => {
     dispatch(fetchGenres());
