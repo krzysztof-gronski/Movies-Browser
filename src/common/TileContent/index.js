@@ -54,6 +54,9 @@ export const TileContent = styled.div`
       width: auto;
       justify-self: center;
 
+      @media (max-width: 460px) {
+      }
+
       /* width:auto; */
       /* width: auto;
       justify-self: center;
@@ -117,10 +120,12 @@ export const TileTitle = styled.header`
       line-height: 1.3;
       text-align: center;
       @media (max-width: ${({ theme }) => theme.breakpoints.tablet}px) {
-        font-size: 18px;
-        
+        font-size: 14px;
+      }
 
-
+      @media (max-width: 460px) {
+        align-self: center;
+        max-width: 120px;
       }
     `}
 `;

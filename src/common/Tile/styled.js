@@ -63,11 +63,29 @@ export const TileContainer = styled.div`
     ${({ peopleListFlag }) =>
     peopleListFlag &&
     css`
-      width: 208px;
-      height: 350px;
+      width: 100%;
+      min-width: 136px;
+      min-height: 245px;
+      max-width: 208px;
+      max-height: 350px;
+      height:350px;
       @media (max-width: ${({ theme }) => theme.breakpoints.tablet}px) {
         width: auto;
         display: block;
+        min-width: 136px;
+        min-height: 245px;
+        max-height:250px;
+      }
+
+       @media (max-width: 1020px) {
+        width: auto;
+      }
+      @media (max-width: 767px) {
+        width: auto;
+      }
+      @media (max-width: 460px) {
+        min-width:130px;
+        max-width:140px;
       }
     `}
 `;
@@ -110,15 +128,22 @@ export const Poster = styled.img`
     peopleListFlag &&
     css`
       display: block;
-      padding: 14px;
+      padding: 10px;
+      max-width: 190px;
       width: 190px;
-      /* width:100%; */
       max-height: 250px;
       border-radius: 20px;
+
       @media (max-width: ${({ theme }) => theme.breakpoints.tablet}px) {
-        /* width: 100%;
-        height: auto; */
-        /* min-height: 169px; */
+        min-width: 120px;
+        width: auto;
+        margin-left: 5px;
+      }
+
+      @media (max-width: 460px) {
+        min-width:120px;
+        max-width:135px;
+        width:auto;
       }
     `}
 `;
