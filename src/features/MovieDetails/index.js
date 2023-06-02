@@ -26,8 +26,6 @@ export const MovieDetails = () => {
     dispatch(fetchMovieDetails({ movieId: id }));
   }, [id, dispatch]);
 
-  console.log(movieDetails);
-
   return (
     movieDetails && (
       <>
@@ -41,25 +39,43 @@ export const MovieDetails = () => {
         ></Backdrop>
         <Container movieDetailsFlag>
           <Tile
-            movieDetailsFlag
-            key={movieDetails.id}
-            movie={movieDetails}
-            poster={
-              movieDetails.poster_path
-                ? `${IMAGE_PATH}${movieDetails.poster_path}`
-                : null
-            }
-            tileTitle={movieDetails.original_title}
-            tileSubtitle={movie.release_date.slice(0, 4)}
-            production={movie.production}
-            releaseDate={formatDate(movie.release_date)}
-            genres={movie.genre_ids.map((genre_id) => {
-              return genres.find((genre) => genre.id === genre_id).name;
-            })}
-            rate={movieDetails.vote_average}
-            votesNr={movieDetails.vote_count}
-            description={movieDetails.overview}
-          ></Tile>
+          movieDetailsFlag
+          key={movieDetails.id}
+          movie={movieDetails}
+          poster={
+            movieDetails.poster_path
+              ? `${IMAGE_PATH}${movieDetails.poster_path}`
+              : null
+          }
+          tileTitle={movieDetails.original_title}
+          tileSubtitle={
+            movieDetails.release_date
+              ? movieDetails.release_date.slice(0, 4)
+              : ""
+          }
+          production={
+            movieDetails.production_countries
+              ? movieDetails.production_countries.length > 0
+                ? movieDetails.production_countries
+                    .map((productionObj) => productionObj.name)
+                    .join(", ")
+                : ""
+              : ""
+          }
+          releaseDate={
+            movieDetails.release_date
+              ? formatDate(movieDetails.release_date)
+              : ""
+          }
+          genres={
+            movieDetails.genres
+              ? movieDetails.genres.map((genre) => genre.name)
+              : [""]
+          }
+          rate={movieDetails.vote_average}
+          votesNr={movieDetails.vote_count}
+          description={movieDetails.overview}
+        ></Tile>
         </Container>
       </>
     )

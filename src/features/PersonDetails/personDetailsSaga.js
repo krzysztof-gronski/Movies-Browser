@@ -5,19 +5,16 @@ import {
   fetchPersonDetailsError,
   getDetailsForPerson,
 } from "./personDetailsSlice";
-import {
-  getGenres,
-  getPersonDetails,
-  getPersonCredits,
-} from "../api/apiData";
+import { getGenres, getPersonDetails, getPersonCredits } from "../api/apiData";
 
 function* fetchPersonDetailsHandler() {
   try {
     const id = yield select(selectPersonId);
-    const genres = yield call(getGenres);
-    const details = yield call(getPersonDetails, { personId: id });
-    const credits = yield call(getPersonCredits, { personId: id });
-    yield put(fetchPersonDetailsSuccess({ details, credits, genres }));
+    //const genres = yield call(getGenres);
+    yield call (console.log,"ID-"+id);
+    const details = yield call(getPersonDetails, id);
+    //const credits = yield call(getPersonCredits, { personId: id });
+    yield put(fetchPersonDetailsSuccess({ details }));
   } catch (error) {
     yield put(fetchPersonDetailsError());
   }

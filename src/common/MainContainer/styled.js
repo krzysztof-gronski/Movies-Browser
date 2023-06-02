@@ -16,11 +16,16 @@ export const Container = styled.div`
   ${({ moviesListFlag }) =>
     moviesListFlag &&
     css`
-      padding: 56px 40px;
+      padding: 120px 40px;
 
       @media (max-width: ${({ theme }) => theme.breakpoints.smallScreen}px) {
         align-items: flex-start;
-        padding: 56px 24px;
+        padding: 100px 24px;
+      }
+
+      @media (max-width: ${({ theme }) => theme.breakpoints.tablet}px) {
+        align-items: flex-start;
+        padding: 50px 24px;
       }
     `}
 
@@ -77,6 +82,26 @@ export const TilesContainer = styled.div`
   grid-gap: 24px;
   justify-items: center;
   width: 1372px;
+  position: relative;
+
+  &::before {
+    position: absolute;
+    justify-self: left;
+    margin-left: 2px;
+    top: -67px;
+    font-weight: 600;
+    font-size: 36px;
+    line-height: 1.2;
+    content: "Search results for " "${({ query }) => query}" "(" ")";
+
+    @media (max-width: ${({ theme }) => theme.breakpoints.smallScreen}px) {
+      top: -60px;
+    }
+    @media (max-width: ${({ theme }) => theme.breakpoints.tablet}px) {
+      top: -32px;
+      font-size: 18px;
+    }
+  }
 
   @media (max-width: ${({ theme }) => theme.breakpoints.smallScreen}px) {
     grid-template-columns: repeat(auto-fill, minmax(324px, 1fr));
@@ -126,6 +151,7 @@ export const Header = styled.h1`
       font-size: 36px; //1.9vw;
       line-height: 1.15;
       margin: 4vh 14.3vw 6vw 14.3vw;
+      color: red;
 
       @media (max-width: ${({ theme }) => theme.breakpoints.smallScreen}px) {
         margin: 4vh 14.3vw 6vw 14.3vw;
