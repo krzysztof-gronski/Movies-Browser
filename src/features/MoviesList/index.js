@@ -52,9 +52,8 @@ export const MoviesList = () => {
   ) : search && movies.length <= 0 ? (
     <NoResults />
   ) : (
-    <Container moviesListFlag search>
-      <Header search>{search ? "Search" : "Popular movies"}</Header>
-      <TilesContainer>
+    <Container moviesListFlag>
+      <TilesContainer txt={"tvebe"}>
         {movies.map((movie) => (
           <Tile
             moviesListFlag
