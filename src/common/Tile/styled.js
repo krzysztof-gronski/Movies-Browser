@@ -60,6 +60,16 @@ export const TileContainer = styled.div`
         padding: 14px 14px 0px 14px;
       }
     `}
+    ${({ peopleListFlag }) =>
+    peopleListFlag &&
+    css`
+      width: 208px;
+      height: 350px;
+      @media (max-width: ${({ theme }) => theme.breakpoints.tablet}px) {
+        width: auto;
+        display: block;
+      }
+    `}
 `;
 
 export const Poster = styled.img`
@@ -96,8 +106,23 @@ export const Poster = styled.img`
         min-height: 169px;
       }
     `}
+    ${({ peopleListFlag }) =>
+    peopleListFlag &&
+    css`
+      display: block;
+      padding: 14px;
+      width: 190px;
+      /* width:100%; */
+      max-height: 250px;
+      border-radius: 20px;
+      @media (max-width: ${({ theme }) => theme.breakpoints.tablet}px) {
+        /* width: 100%;
+        height: auto; */
+        /* min-height: 169px; */
+      }
+    `}
 `;
 
 export const TileLink = styled(Link)`
-    text-decoration: none;
+  text-decoration: none;
 `;

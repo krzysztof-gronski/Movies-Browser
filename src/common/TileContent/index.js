@@ -46,6 +46,19 @@ export const TileContent = styled.div`
         margin-bottom: 3%;
       }
     `}
+
+    ${({ peopleListFlag }) =>
+    peopleListFlag &&
+    css`
+      margin: 0;
+      width: auto;
+      justify-self: center;
+
+      /* width:auto; */
+      /* width: auto;
+      justify-self: center;
+      margin-top: 10px; */
+    `}
 `;
 
 export const TileTitle = styled.header`
@@ -92,6 +105,22 @@ export const TileTitle = styled.header`
       @media (max-width: ${({ theme }) => theme.breakpoints.tablet}px) {
         margin-bottom: 8px;
         font-size: 24px;
+      }
+    `}
+    ${({ peopleListFlag }) =>
+    peopleListFlag &&
+    css`
+      width: 180px;
+      padding: 0 2px;
+      font-weight: 500;
+      font-size: 22px;
+      line-height: 1.3;
+      text-align: center;
+      @media (max-width: ${({ theme }) => theme.breakpoints.tablet}px) {
+        font-size: 18px;
+        
+
+
       }
     `}
 `;

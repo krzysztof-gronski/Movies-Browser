@@ -20,12 +20,12 @@ const Navigation = () => (
       </PageTitle>
       <List>
         <ListItem>
-          <StyledNavLink to="/movies">
+          <StyledNavLink to="/movies?page=1">
             Movies
           </StyledNavLink>
         </ListItem>
         <ListItem>
-          <StyledNavLink to="/people">People</StyledNavLink>
+          <StyledNavLink to="/people?page=1">People</StyledNavLink>
         </ListItem>
       </List>
     </NavBar>

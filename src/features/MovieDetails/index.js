@@ -27,17 +27,18 @@ export const MovieDetails = () => {
   }, [id, dispatch]);
 
   return (
-    <>
-      <Backdrop
-        backdropImage={
-          movieDetails.backdrop_path
-            ? `${IMAGE_PATH}${movieDetails.backdrop_path}`
-            : null
-        }
-        movie={movieDetails}
-      ></Backdrop>
-      <Container movieDetailsFlag>
-        <Tile
+    movieDetails && (
+      <>
+        <Backdrop
+          backdropImage={
+            movieDetails.backdrop_path
+              ? `${IMAGE_PATH}${movieDetails.backdrop_path}`
+              : null
+          }
+          movie={movieDetails}
+        ></Backdrop>
+        <Container movieDetailsFlag>
+          <Tile
           movieDetailsFlag
           key={movieDetails.id}
           movie={movieDetails}
@@ -75,7 +76,8 @@ export const MovieDetails = () => {
           votesNr={movieDetails.vote_count}
           description={movieDetails.overview}
         ></Tile>
-      </Container>
-    </>
+        </Container>
+      </>
+    )
   );
 };

@@ -40,6 +40,13 @@ export const Container = styled.div`
       }
     `}
 
+    ${({ peopleListFlag }) =>
+    peopleListFlag &&
+    css`
+      padding: 56px 40px;
+    `}
+
+
     ${({ search }) =>
     search &&
     css`
@@ -106,6 +113,20 @@ export const TilesContainer = styled.div`
     grid-gap: 16px;
     width: 100%;
   }
+
+  ${({ peopleListFlag }) =>
+    peopleListFlag &&
+    css`
+      grid-template-columns: repeat(6, 208px);
+
+      @media (max-width: ${({ theme }) => theme.breakpoints.smallScreen}px) {
+        grid-template-columns: repeat(auto-fill, minmax(190px, 1fr));
+      }
+      @media (max-width: ${({ theme }) => theme.breakpoints.tablet}px) {
+        grid-template-columns: repeat(auto-fill, minmax(170px, 1fr));
+        grid-gap: 32px;
+      }
+    `}
 `;
 
 export const Header = styled.h1`
@@ -179,6 +200,14 @@ export const Header = styled.h1`
         font-weight: 600;
         font-size: 4.4vw;
         margin: 1.9vw 0vw 1.2vw;
+      }
+    `}
+
+    ${({ peopleListFlag }) =>
+    peopleListFlag &&
+    css`
+      @media (max-width: ${({ theme }) => theme.breakpoints.smallScreen}px) {
+        align-self: flex-start;
       }
     `}
 `;

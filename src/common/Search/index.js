@@ -40,7 +40,7 @@ const Search = () => {
       onChange={onInputChange}
       value={query || ""}
       placeholder={`Search for ${
-        location.pathname.includes("/movies") ? "movies" : "people"
+        location.pathname.includes("/movie") ? "movies" : "people"
       }...`}
     />
   );
