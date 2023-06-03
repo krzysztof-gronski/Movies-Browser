@@ -16,7 +16,7 @@ export const Container = styled.div`
   ${({ moviesListFlag }) =>
     moviesListFlag &&
     css`
-      padding: 120px 40px;
+      padding: 0px 40px;
 
       @media (max-width: ${({ theme }) => theme.breakpoints.smallScreen}px) {
         align-items: flex-start;
@@ -76,6 +76,12 @@ export const Container = styled.div`
     `}
 `;
 
+export const ContentContainer = styled.div`
+  margin: 0px 0px;
+  padding: 60px 0px 0px;
+  border: 1px solid red;
+`;
+
 export const TilesContainer = styled.div`
   display: grid;
   grid-template-columns: repeat(4, 1fr);
@@ -83,25 +89,6 @@ export const TilesContainer = styled.div`
   justify-items: center;
   width: 1372px;
   position: relative;
-
-  &::before {
-    position: absolute;
-    justify-self: left;
-    margin-left: 2px;
-    top: -67px;
-    font-weight: 600;
-    font-size: 36px;
-    line-height: 1.2;
-    content: "Search results for " "${({ query }) => query}" "(" ")";
-
-    @media (max-width: ${({ theme }) => theme.breakpoints.smallScreen}px) {
-      top: -60px;
-    }
-    @media (max-width: ${({ theme }) => theme.breakpoints.tablet}px) {
-      top: -32px;
-      font-size: 18px;
-    }
-  }
 
   @media (max-width: ${({ theme }) => theme.breakpoints.smallScreen}px) {
     grid-template-columns: repeat(auto-fill, minmax(324px, 1fr));
@@ -133,7 +120,7 @@ export const Header = styled.h1`
   font-weight: 600;
   font-size: 36px;
   line-height: 1.2;
-  margin: 0px 0px 24px -1086px;
+  margin: 0px 0px 24px 0px;
 
   @media (max-width: ${({ theme }) => theme.breakpoints.smallScreen}px) {
     margin: 2px 0px 24px 0px;
