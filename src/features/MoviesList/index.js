@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import missingMoviePoster from "../../images/missingMoviePoster.svg";
 import {
   Container,
+  ContentContainer,
   Header,
   TilesContainer,
 } from "../../common/MainContainer/styled";
@@ -36,8 +37,7 @@ export const MoviesList = () => {
   const genres = useSelector(selectGenres);
   const query = useQueryParameter("search");
   const totalResults = useSelector(selectTotalResults);
-  const search = useQueryParameter("search");
-  
+
   if (!page) page = 1;
 
   useEffect(() => {
@@ -45,37 +45,43 @@ export const MoviesList = () => {
     dispatch(fetchMovies(page));
   }, [page]);
 
+  let f="dfd";
+
   return status === "loading" ? (
     <Loader />
   ) : status === "error" ? (
     <ErrorPage />
-  ) : search && movies.length <= 0 ? (
+  ) : query && movies.length <= 0 ? (
     <NoResults />
   ) : (
     <Container moviesListFlag>
-      <TilesContainer txt={"tvebe"}>
-        {movies.map((movie) => (
-          <Tile
-            moviesListFlag
-            key={movie.id}
-            movie={movie}
-            poster={
-              movie.poster_path
-                ? `${IMAGE_PATH}${movie.poster_path}`
-                : `${missingMoviePoster}`
-            }
-            tileTitle={movie.original_title}
-            tileSubtitle={
-              movie.release_date ? movie.release_date.slice(0, 4) : ""
-            }
-            genres={movie.genre_ids.map(
-              (genreId) => genres.find((genre) => genre.id === genreId).name
-            )}
-            rate={movie.vote_average}
-            votesNr={movie.vote_count}
-          ></Tile>
-        ))}
-      </TilesContainer>
+      <ContentContainer>
+        <Header>{f}</Header> 
+        {/* (query ? `Search results for "${query} "${totalResults})` : "Popular movies") */}
+        <TilesContainer txt={"tvebe"}>
+          {movies.map((movie) => (
+            <Tile
+              moviesListFlag
+              key={movie.id}
+              movie={movie}
+              poster={
+                movie.poster_path
+                  ? `${IMAGE_PATH}${movie.poster_path}`
+                  : `${missingMoviePoster}`
+              }
+              tileTitle={movie.original_title}
+              tileSubtitle={
+                movie.release_date ? movie.release_date.slice(0, 4) : ""
+              }
+              genres={movie.genre_ids.map(
+                (genreId) => genres.find((genre) => genre.id === genreId).name
+              )}
+              rate={movie.vote_average}
+              votesNr={movie.vote_count}
+            ></Tile>
+          ))}
+        </TilesContainer>
+      </ContentContainer>
       <Pagination page={page} totalPages={totalPages} />
     </Container>
   );
