@@ -7,7 +7,7 @@ export const Loader = () => {
 
   return (
     <Container search>
-      <Header search>{`Search results for "${query}"`}</Header>
+      <Header search>{`Search results for ${query ? '"'+query+'"' : "popular movies"}`}</Header>
       <Spinner></Spinner>
     </Container>
   );
