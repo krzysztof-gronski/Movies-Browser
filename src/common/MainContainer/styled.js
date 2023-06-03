@@ -40,6 +40,17 @@ export const Container = styled.div`
       }
     `}
 
+    ${({ personDetailsFlag }) =>
+    personDetailsFlag &&
+    css`
+      padding: 0px 40px 50px;
+
+      @media (max-width: ${({ theme }) => theme.breakpoints.smallScreen}px) {
+        align-items: flex-start;
+        padding: 56px 24px;
+      }
+    `}
+
    
 
     ${({ peopleListFlag }) =>
@@ -122,8 +133,7 @@ export const TilesContainer = styled.div`
     css`
       grid-template-columns: repeat(6, 1fr);
       width: 90%;
-      grid-column-gap:0;
-
+      grid-column-gap: 0;
 
       @media (max-width: ${({ theme }) => theme.breakpoints.smallScreen}px) {
         grid-template-columns: repeat(5, 1fr);
