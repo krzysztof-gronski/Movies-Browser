@@ -3,11 +3,13 @@ import { Container } from "../../common/MainContainer/styled";
 import { Tile } from "../../common/Tile";
 import { useDispatch, useSelector } from "react-redux";
 import { useEffect } from "react";
-import { getDetailsForPerson, selectDetails } from "./personDetailsSlice";
+import { getDetailsForPerson, selectCast, selectCrew, selectDetails } from "./personDetailsSlice";
 
 export const PersonDetails = () => {
   const dispatch = useDispatch();
   const personDetails = useSelector(selectDetails);
+  const crewData = useSelector(selectCrew);
+  const castData = useSelector(selectCast);
 
   const { id } = useParams();
 
