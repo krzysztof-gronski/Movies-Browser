@@ -14,6 +14,7 @@ import {
 } from "./movieDetailsSlice";
 import { useParams } from "react-router-dom";
 import { useEffect } from "react";
+import missingMoviePoster from "../../images/missingMoviePoster.svg";
 
 export const MovieDetails = () => {
   const dispatch = useDispatch();
@@ -49,7 +50,7 @@ export const MovieDetails = () => {
             poster={
               movieDetails.poster_path
                 ? `${IMAGE_PATH}${movieDetails.poster_path}`
-                : null
+                : missingMoviePoster
             }
             tileTitle={movieDetails.original_title}
             tileSubtitle={
