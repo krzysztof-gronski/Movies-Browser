@@ -78,7 +78,6 @@ export const Container = styled.div`
 
 export const ContentContainer = styled.div`
   padding: 50px 0px 0px;
-  border: 1px solid red;
 
   @media (max-width: ${({ theme }) => theme.breakpoints.smallScreen}px) {
     width: 100%;
@@ -147,7 +146,6 @@ export const Header = styled.h1`
       font-size: 36px; //1.9vw;
       line-height: 1.15;
       margin: 4vh 14.3vw 6vw 14.3vw;
-      color: red;
 
       @media (max-width: ${({ theme }) => theme.breakpoints.smallScreen}px) {
         margin: 4vh 14.3vw 6vw 14.3vw;
