@@ -31,6 +31,16 @@ export const TileContent = styled.div`
         min-width: 126px;
       }
     `}
+    ${({ personDetailsFlag }) =>
+    personDetailsFlag &&
+    css`
+      margin: 0px;
+      width: 100%;
+
+      @media (max-width: ${({ theme }) => theme.breakpoints.tablet}px) {
+        min-width: 126px;
+      }
+    `}
 
     ${({ backdropFlag }) =>
     backdropFlag &&
@@ -61,7 +71,7 @@ export const TileContent = styled.div`
         /* min-width: 130px;
         max-width: 145px;
         width: 100%; */
-        margin-left:-10px;
+        margin-left: -10px;
       }
       /* width:auto; */
       /* width: auto;
@@ -89,6 +99,21 @@ export const TileTitle = styled.header`
 
   ${({ movieDetailsFlag }) =>
     movieDetailsFlag &&
+    css`
+      margin: 8px 0px 24px;
+      font-weight: 600;
+      font-size: 36px;
+      line-height: 1.2;
+
+      @media (max-width: ${({ theme }) => theme.breakpoints.tablet}px) {
+        margin: 1px 0px 0px 0px;
+        font-weight: 500;
+        font-size: 16px;
+        line-height: 1.3;
+      }
+    `}
+    ${({ personDetailsFlag }) =>
+    personDetailsFlag &&
     css`
       margin: 8px 0px 24px;
       font-weight: 600;
