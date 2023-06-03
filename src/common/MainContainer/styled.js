@@ -40,6 +40,8 @@ export const Container = styled.div`
       }
     `}
 
+   
+
     ${({ peopleListFlag }) =>
     peopleListFlag &&
     css`
@@ -83,6 +85,7 @@ export const TilesContainer = styled.div`
   justify-items: center;
   width: 1372px;
   position: relative;
+  /* margin-right:40px; */
 
   &::before {
     position: absolute;
@@ -118,7 +121,9 @@ export const TilesContainer = styled.div`
     peopleListFlag &&
     css`
       grid-template-columns: repeat(6, 1fr);
-      width: 100%;
+      width: 90%;
+      grid-column-gap:0;
+
 
       @media (max-width: ${({ theme }) => theme.breakpoints.smallScreen}px) {
         grid-template-columns: repeat(5, 1fr);
