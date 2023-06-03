@@ -57,6 +57,12 @@ export const TileContent = styled.div`
       @media (max-width: 460px) {
       }
 
+      @media (max-width: 767px) {
+        /* min-width: 130px;
+        max-width: 145px;
+        width: 100%; */
+        margin-left:-10px;
+      }
       /* width:auto; */
       /* width: auto;
       justify-self: center;
