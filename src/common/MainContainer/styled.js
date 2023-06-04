@@ -20,12 +20,12 @@ export const Container = styled.div`
 
       @media (max-width: ${({ theme }) => theme.breakpoints.smallScreen}px) {
         align-items: flex-start;
-        padding: 100px 24px;
+        padding: 0px 1vw;
       }
 
       @media (max-width: ${({ theme }) => theme.breakpoints.tablet}px) {
         align-items: flex-start;
-        padding: 50px 24px;
+        padding: 0px 2vw;
       }
     `}
 
@@ -80,6 +80,16 @@ export const ContentContainer = styled.div`
   margin: 0px 0px;
   padding: 60px 0px 0px;
   border: 1px solid red;
+
+  @media (max-width: ${({ theme }) => theme.breakpoints.smallScreen}px) {
+    width: 100%;
+    padding: 40px 0px;
+  }
+
+  @media (max-width: ${({ theme }) => theme.breakpoints.tablet}px) {
+    width: 100%;
+    padding: 20px 0px;
+  }
 `;
 
 export const TilesContainer = styled.div`
@@ -123,11 +133,11 @@ export const Header = styled.h1`
   margin: 0px 0px 24px 0px;
 
   @media (max-width: ${({ theme }) => theme.breakpoints.smallScreen}px) {
-    margin: 2px 0px 24px 0px;
+    margin: 0px 0px 24px 0px;
   }
   @media (max-width: ${({ theme }) => theme.breakpoints.tablet}px) {
     font-size: 18px;
-    margin: 2px 0px 12px 0px;
+    margin: 0px 0px 12px 0px;
   }
 
   ${({ search }) =>
@@ -138,7 +148,6 @@ export const Header = styled.h1`
       font-size: 36px; //1.9vw;
       line-height: 1.15;
       margin: 4vh 14.3vw 6vw 14.3vw;
-      color: red;
 
       @media (max-width: ${({ theme }) => theme.breakpoints.smallScreen}px) {
         margin: 4vh 14.3vw 6vw 14.3vw;

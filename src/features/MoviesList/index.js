@@ -56,8 +56,7 @@ export const MoviesList = () => {
   ) : (
     <Container moviesListFlag>
       <ContentContainer>
-        <Header>{f}</Header> 
-        {/* (query ? `Search results for "${query} "${totalResults})` : "Popular movies") */}
+        <Header>{query ? `Search results for "${query}" (${totalResults})` : "Popular movies"}</Header>
         <TilesContainer txt={"tvebe"}>
           {movies.map((movie) => (
             <Tile
