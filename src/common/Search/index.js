@@ -22,12 +22,16 @@ const Search = () => {
       key: searchQueryParamName,
       value: target.value.trim() !== "" ? target.value : undefined,
     });
-    //console.log(window.location);
-    // if (!location.pathname.includes("/movies")) {
-    //   location.pathname = "/movies";
-    // }
-    history.push(`/movies?search=${target.value}&page=1`);
-    window.location.reload();
+    if (
+      location.pathname.includes("/movies") ||
+      location.pathname.includes("/movie")
+    ) {
+      history.push(`/movies?search=${target.value}&page=1`);
+      window.location.reload();
+    } else {
+      history.push(`/people?search=${target.value}&page=1`);
+      window.location.reload();
+    }
   };
 
   useEffect(() => {
