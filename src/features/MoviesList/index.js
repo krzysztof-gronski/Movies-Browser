@@ -45,8 +45,6 @@ export const MoviesList = () => {
     dispatch(fetchMovies(page));
   }, [page]);
 
-  let f="dfd";
-
   return status === "loading" ? (
     <Loader />
   ) : status === "error" ? (
@@ -56,7 +54,11 @@ export const MoviesList = () => {
   ) : (
     <Container moviesListFlag>
       <ContentContainer>
-        <Header>{query ? `Search results for "${query}" (${totalResults})` : "Popular movies"}</Header>
+        <Header>
+          {query
+            ? `Search results for "${query}" (${totalResults})`
+            : "Popular movies"}
+        </Header>
         <TilesContainer txt={"tvebe"}>
           {movies.map((movie) => (
             <Tile

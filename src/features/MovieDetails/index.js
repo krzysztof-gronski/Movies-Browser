@@ -1,25 +1,31 @@
 import { Backdrop } from "../../common/Backdrop";
-import { movie } from "./sampleMovieData";
-import { genres } from "./sampleMovieData";
-import backdropImage from "./backdrop.png";
-import { Container } from "../../common/MainContainer/styled";
+import {
+  Container,
+  ContentContainer,
+  Header,
+  TilesContainer,
+} from "../../common/MainContainer/styled";
 import { Tile } from "../../common/Tile";
+import { StyledLink } from "../MovieDetails/styled";
 import { IMAGE_PATH } from "../api/apiData";
 import { formatDate } from "../../common/Utilities";
 import { useDispatch, useSelector } from "react-redux";
 import {
   fetchMovieDetails,
-  selectCredits,
+  selectCast,
+  selectCrew,
   selectDetails,
 } from "./movieDetailsSlice";
 import { useParams } from "react-router-dom";
 import { useEffect } from "react";
 import missingMoviePoster from "../../images/missingMoviePoster.svg";
+import missingPersonPoster from "../../images/missingPersonPoster.svg";
 
 export const MovieDetails = () => {
   const dispatch = useDispatch();
   const movieDetails = useSelector(selectDetails);
-  const credits = useSelector(selectCredits);
+  const castPeople = useSelector(selectCast);
+  const crewPeople = useSelector(selectCrew);
 
   const { id } = useParams();
 
@@ -81,6 +87,48 @@ export const MovieDetails = () => {
             votesNr={movieDetails.vote_count}
             description={movieDetails.overview}
           ></Tile>
+          <ContentContainer>
+            <Header>Cast</Header>
+            <TilesContainer peopleListFlag>
+              {castPeople
+                ? castPeople.map((person) => (
+                    <StyledLink to={`/person/${person.id}`}>
+                      <Tile
+                        peopleListFlag
+                        key={person.id}
+                        poster={
+                          person.profile_path
+                            ? `${IMAGE_PATH}${person.profile_path}`
+                            : `${missingPersonPoster}`
+                        }
+                        tileTitle={person.name ? person.name : ""}
+                      ></Tile>
+                    </StyledLink>
+                  ))
+                : null}
+            </TilesContainer>
+          </ContentContainer>
+          <ContentContainer>
+            <Header>Crew</Header>
+            <TilesContainer peopleListFlag>
+              {crewPeople
+                ? crewPeople.map((person) => (
+                    <StyledLink to={`/person/${person.id}`}>
+                      <Tile
+                        peopleListFlag
+                        key={person.id}
+                        poster={
+                          person.profile_path
+                            ? `${IMAGE_PATH}${person.profile_path}`
+                            : `${missingPersonPoster}`
+                        }
+                        tileTitle={person.name ? person.name : ""}
+                      ></Tile>
+                    </StyledLink>
+                  ))
+                : null}
+            </TilesContainer>
+          </ContentContainer>
         </Container>
       </>
     )
