@@ -40,6 +40,17 @@ export const Container = styled.div`
       }
     `}
 
+    ${({ personDetailsFlag }) =>
+    personDetailsFlag &&
+    css`
+      padding: 0px 40px 50px;
+
+      @media (max-width: ${({ theme }) => theme.breakpoints.smallScreen}px) {
+        align-items: flex-start;
+        padding: 56px 24px;
+      }
+    `}
+
     ${({ peopleListFlag }) =>
     peopleListFlag &&
     css`
@@ -115,11 +126,12 @@ export const TilesContainer = styled.div`
       grid-template-columns: repeat(6, 208px);
 
       @media (max-width: ${({ theme }) => theme.breakpoints.smallScreen}px) {
-        grid-template-columns: repeat(auto-fill, minmax(190px, 1fr));
+        grid-template-columns: repeat(auto-fill, minmax(170px, 1fr));
+        width: 100%;
       }
       @media (max-width: ${({ theme }) => theme.breakpoints.tablet}px) {
-        grid-template-columns: repeat(auto-fill, minmax(170px, 1fr));
-        grid-gap: 32px;
+        grid-template-columns: repeat(auto-fill, minmax(130px, 1fr));
+        width: 100%;
       }
     `}
 `;

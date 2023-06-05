@@ -23,15 +23,18 @@ function App() {
           <Route path="/person/:id">
             <PersonDetails />
           </Route>
+          {/* <Route path="/person">
+            <PersonDetails />
+          </Route> */}
           <Route path="/people">
             <PeopleList />
           </Route>
           <Route path="/movie/:id">
             <MovieDetails />
           </Route>
-          <Route path="/movie">
+          {/* <Route path="/movie">
             <MovieDetails />
-          </Route>
+          </Route> */}
           <Route path="/movies">
             <MoviesList />
           </Route>

@@ -1,18 +1,19 @@
 import { createSlice } from "@reduxjs/toolkit";
 
 const personSlice = createSlice({
-    name: "personDetails",
-    initialState: {
-        personId: 0,
-        details: [],
-        genres: [], 
-        cast: [],
-        crew: [],
-        status: "loading"
-    },
+  name: "personDetails",
+  initialState: {
+    personId: 0,
+    details: [],
+    genres: [],
+    cast: [],
+    crew: [],
+    status: "loading",
+  },
     reducers: {
         fetchPersonDetailsSuccess: (state, { payload: person }) => {
             state.details = person.details;
+            state.status = "success";
             //state.genres = person.genres;
             state.cast = person.credits.cast;
             state.crew = person.credits.crew;
@@ -25,11 +26,16 @@ const personSlice = createSlice({
             state.personId = person.personId;
         },
     },
+    getDetailsForPerson: (state, { payload: person }) => {
+      state.status = "loading";
+      state.personId = person.personId;
+    },
+  },
 });
 export const {
-    fetchPersonDetailsSuccess,
-    getDetailsForPerson,
-    fetchPersonDetailsError,
+  fetchPersonDetailsSuccess,
+  getDetailsForPerson,
+  fetchPersonDetailsError,
 } = personSlice.actions;
 
 export const selectPersonState = (state) => state.personDetails;

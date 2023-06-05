@@ -32,6 +32,18 @@ export const TileContent = styled.div`
       }
     `}
 
+    ${({ personDetailsFlag }) =>
+    personDetailsFlag &&
+    css`
+      margin: 0px;
+      width: 100%;
+
+      @media (max-width: ${({ theme }) => theme.breakpoints.tablet}px) {
+        min-width: 126px;
+      }
+    `}
+
+
     ${({ backdropFlag }) =>
     backdropFlag &&
     css`
@@ -50,14 +62,9 @@ export const TileContent = styled.div`
     ${({ peopleListFlag }) =>
     peopleListFlag &&
     css`
-      margin: 0;
+      margin: 0 10px;
       width: auto;
       justify-self: center;
-
-      /* width:auto; */
-      /* width: auto;
-      justify-self: center;
-      margin-top: 10px; */
     `}
 `;
 
@@ -94,6 +101,21 @@ export const TileTitle = styled.header`
       }
     `}
 
+    ${({ personDetailsFlag }) =>
+    personDetailsFlag &&
+    css`
+      margin: 8px 0px 24px;
+      font-weight: 600;
+      font-size: 36px;
+      line-height: 1.2;
+
+      @media (max-width: ${({ theme }) => theme.breakpoints.tablet}px) {
+        margin: 1px 0px 0px 0px;
+        font-weight: 500;
+        font-size: 16px;
+        line-height: 1.3;
+      }
+    `}
     ${({ backdropFlag }) =>
     backdropFlag &&
     css`
@@ -117,10 +139,8 @@ export const TileTitle = styled.header`
       line-height: 1.3;
       text-align: center;
       @media (max-width: ${({ theme }) => theme.breakpoints.tablet}px) {
-        font-size: 18px;
-        
-
-
+        font-size: 14px;
+        width: auto;
       }
     `}
 `;

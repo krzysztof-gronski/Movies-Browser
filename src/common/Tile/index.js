@@ -34,6 +34,7 @@ export const Tile = ({
   moviesListFlag,
   movieDetailsFlag,
   peopleListFlag,
+  personDetailsFlag,
 }) => {
   return moviesListFlag ? (
     <TileLink to={`/movie/${movie.id}`}>
@@ -91,11 +92,34 @@ export const Tile = ({
   ) : peopleListFlag ? (
     <>
       <TileContainer peopleListFlag>
-        <Poster peopleListFlag src={poster} alt="poster" />
         <TileContent peopleListFlag>
+          <Poster peopleListFlag src={poster} alt="poster" />
           <TileTitle peopleListFlag>{tileTitle}</TileTitle>
         </TileContent>
-        <MobileTileDescription peopleListFlag>{description}</MobileTileDescription>
+        <MobileTileDescription peopleListFlag>
+          {description}
+        </MobileTileDescription>
+      </TileContainer>
+    </>
+  ) : personDetailsFlag ? (
+    <>
+      <TileContainer personDetailsFlag>
+        <Poster personDetailsFlag src={poster} alt="poster" />
+        <TileContent personDetailsFlag>
+          <TileTitle personDetailsFlag>{tileTitle}</TileTitle>
+          <InfoField>
+            <Label>{"Place of birth:"}</Label>
+            <TextValue personDetailsFlag>{production}</TextValue>
+          </InfoField>
+          <InfoField>
+            <Label>{"Date of birth:"}</Label>
+            <TextValue personDetailsFlag>{releaseDate}</TextValue>
+          </InfoField>
+          <TileDescription personDetailsFlag>{description}</TileDescription>
+        </TileContent>
+        <MobileTileDescription personDetailsFlag>
+          {description}
+        </MobileTileDescription>
       </TileContainer>
     </>
   ) : (
