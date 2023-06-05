@@ -25,6 +25,7 @@ import {
   selectTotalResults,
   setQuery,
 } from "./moviesListSlice";
+import { IMAGE_PATH } from "../api/apiData";
 
 export const MoviesList = () => {
   const dispatch = useDispatch();
