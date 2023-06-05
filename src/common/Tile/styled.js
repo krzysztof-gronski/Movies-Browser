@@ -123,6 +123,6 @@ export const Poster = styled.img`
     `}
 `;
 
-export const TileLink = styled(Link)`
+export const StyledLink = styled(Link)`
   text-decoration: none;
 `;

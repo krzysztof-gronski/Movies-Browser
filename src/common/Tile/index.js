@@ -1,6 +1,6 @@
 import { nanoid } from "@reduxjs/toolkit";
 import starIcon from "../TileContent/star.svg";
-import { Poster, TileContainer, TileLink } from "./styled";
+import { Poster, TileContainer, StyledLink } from "./styled";
 
 import {
   TileTitle,
@@ -36,7 +36,7 @@ export const Tile = ({
   peopleListFlag,
 }) => {
   return moviesListFlag ? (
-    <TileLink to={`/movie/${movie.id}`}>
+    <StyledLink to={`/movie/${movie.id}`}>
       <TileContainer moviesListFlag>
         <Poster moviesListFlag src={poster} alt="poster" />
         <TileContent moviesListFlag>
@@ -56,7 +56,7 @@ export const Tile = ({
           </RateContainer>
         </TileContent>
       </TileContainer>
-    </TileLink>
+    </StyledLink>
   ) : movieDetailsFlag ? (
     <TileContainer movieDetailsFlag>
       <Poster movieDetailsFlag src={poster} alt="poster" />
