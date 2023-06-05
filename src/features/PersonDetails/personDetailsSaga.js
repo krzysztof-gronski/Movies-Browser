@@ -13,8 +13,8 @@ function* fetchPersonDetailsHandler() {
     //const genres = yield call(getGenres);
     yield call (console.log,"ID-"+id);
     const details = yield call(getPersonDetails, id);
-    //const credits = yield call(getPersonCredits, { personId: id });
-    yield put(fetchPersonDetailsSuccess({ details }));
+    const credits = yield call(getPersonCredits, { personId: id });
+    yield put(fetchPersonDetailsSuccess({ details, credits }));
   } catch (error) {
     yield put(fetchPersonDetailsError());
   }

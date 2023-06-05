@@ -1,12 +1,13 @@
 import { Container, Header } from "../MainContainer/styled";
+import { useQueryParameter } from "../Search/queryParameters";
 import { Spinner } from "./styled";
 
 export const Loader = () => {
-  const searchQuery = "sample Query";
+  const query = useQueryParameter("search");
 
   return (
     <Container search>
-      <Header search>{`Search results for "${searchQuery}"`}</Header>
+      <Header search>{`Search results for ${query ? '"'+query+'"' : "popular movies"}`}</Header>
       <Spinner></Spinner>
     </Container>
   );

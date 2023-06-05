@@ -19,7 +19,7 @@ const Pagination = ({ page, totalPages }) => {
   const firstPage = 1;
   const previousPage = currentPage - 1;
   const nextPage = currentPage + 1;
-  const lastPage = 500;
+  const lastPage = totalPages;
   const pages = totalPages > 500 ? 500 : totalPages;
 
   const goToPage = (targetPage) => {
@@ -55,9 +55,9 @@ const Pagination = ({ page, totalPages }) => {
       <Button
         onClick={() => goToPage(nextPage)}
         disabled={
-          currentPage === 500
+          currentPage === totalPages
             ? true
-            : false || currentPage === 500
+            : false || currentPage === totalPages
             ? true
             : false
         }
@@ -65,9 +65,9 @@ const Pagination = ({ page, totalPages }) => {
         <ButtonText>Next</ButtonText>
         <ForwardVector
           disabled={
-            currentPage === 500
+            currentPage === totalPages
               ? true
-              : false || currentPage === 500
+              : false || currentPage === totalPages
               ? true
               : false
           }
@@ -76,15 +76,15 @@ const Pagination = ({ page, totalPages }) => {
       <Button
         onClick={() => goToPage(lastPage)}
         disabled={
-          currentPage === 500 ? true : false || page === 500 ? true : false
+          currentPage === totalPages ? true : false || page === totalPages ? true : false
         }
       >
         <ButtonText>Last</ButtonText>
         <ForwardVector
           disabled={
-            currentPage === 500
+            currentPage === totalPages
               ? true
-              : false || currentPage === 500
+              : false || currentPage === totalPages
               ? true
               : false
           }
@@ -92,9 +92,9 @@ const Pagination = ({ page, totalPages }) => {
         {isSmallScreen && (
           <ForwardVector
             disabled={
-              currentPage === 500
+              currentPage === totalPages
                 ? true
-                : false || currentPage === 500
+                : false || currentPage === totalPages
                 ? true
                 : false
             }

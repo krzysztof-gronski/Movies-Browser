@@ -33,6 +33,7 @@ export const Button = styled.button`
   cursor: pointer;
   &:disabled {
     background-color: ${({ theme }) => theme.colors.mystic};
+    cursor: default;
   }
   @media (max-width: 767px) {
     height: 24px;

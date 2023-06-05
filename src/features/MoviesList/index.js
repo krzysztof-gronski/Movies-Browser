@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import missingMoviePoster from "../../images/missingMoviePoster.svg";
 import {
   Container,
+  ContentContainer,
   Header,
   TilesContainer,
 } from "../../common/MainContainer/styled";
@@ -53,29 +54,32 @@ export const MoviesList = () => {
     <NoResults />
   ) : (
     <Container moviesListFlag>
-      <TilesContainer txt={"tvebe"}>
-        {movies.map((movie) => (
-          <Tile
-            moviesListFlag
-            key={movie.id}
-            movie={movie}
-            poster={
-              movie.poster_path
-                ? `${IMAGE_PATH}${movie.poster_path}`
-                : `${missingMoviePoster}`
-            }
-            tileTitle={movie.original_title}
-            tileSubtitle={
-              movie.release_date ? movie.release_date.slice(0, 4) : ""
-            }
-            genres={movie.genre_ids.map(
-              (genreId) => genres.find((genre) => genre.id === genreId).name
-            )}
-            rate={movie.vote_average}
-            votesNr={movie.vote_count}
-          ></Tile>
-        ))}
-      </TilesContainer>
+      <ContentContainer>
+        <Header>{query ? `Search results for "${query}" (${totalResults})` : "Popular movies"}</Header>
+        <TilesContainer txt={"tvebe"}>
+          {movies.map((movie) => (
+            <Tile
+              moviesListFlag
+              key={movie.id}
+              movie={movie}
+              poster={
+                movie.poster_path
+                  ? `${IMAGE_PATH}${movie.poster_path}`
+                  : `${missingMoviePoster}`
+              }
+              tileTitle={movie.original_title}
+              tileSubtitle={
+                movie.release_date ? movie.release_date.slice(0, 4) : ""
+              }
+              genres={movie.genre_ids.map(
+                (genreId) => genres.find((genre) => genre.id === genreId).name
+              )}
+              rate={movie.vote_average}
+              votesNr={movie.vote_count}
+            ></Tile>
+          ))}
+        </TilesContainer>
+      </ContentContainer>
       <Pagination page={page} totalPages={totalPages} />
     </Container>
   );
