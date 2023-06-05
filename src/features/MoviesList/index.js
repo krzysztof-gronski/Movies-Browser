@@ -37,7 +37,6 @@ export const MoviesList = () => {
   const genres = useSelector(selectGenres);
   const query = useQueryParameter("search");
   const totalResults = useSelector(selectTotalResults);
-  const search = useQueryParameter("search");
 
   if (!page) page = 1;
 
@@ -50,12 +49,16 @@ export const MoviesList = () => {
     <Loader />
   ) : status === "error" ? (
     <ErrorPage />
-  ) : search && movies.length <= 0 ? (
+  ) : query && movies.length <= 0 ? (
     <NoResults />
   ) : (
     <Container moviesListFlag>
       <ContentContainer>
-        <Header>{query ? `Search results for "${query}" (${totalResults})` : "Popular movies"}</Header>
+        <Header>
+          {query
+            ? `Search results for "${query}" (${totalResults})`
+            : "Popular movies"}
+        </Header>
         <TilesContainer txt={"tvebe"}>
           {movies.map((movie) => (
             <Tile

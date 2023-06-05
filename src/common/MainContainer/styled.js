@@ -88,7 +88,8 @@ export const Container = styled.div`
 `;
 
 export const ContentContainer = styled.div`
-  padding: 50px 0px 0px;
+  margin: 0px 0px;
+  padding: 60px 0px 0px;
 
   @media (max-width: ${({ theme }) => theme.breakpoints.smallScreen}px) {
     width: 100%;

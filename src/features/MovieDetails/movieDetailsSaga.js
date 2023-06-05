@@ -13,7 +13,6 @@ import { getMovieCredits, getMovieDetails } from "../api/apiData";
 export function* fetchMovieDetailsHandler() {
   try {
     const id = yield select(selectMovieId);
-    yield call(console.log, id);
     const details = yield call(getMovieDetails, id);
     const credits = yield call(getMovieCredits, id);
     yield put(fetchMovieDetailsSuccess({ details, credits }));
