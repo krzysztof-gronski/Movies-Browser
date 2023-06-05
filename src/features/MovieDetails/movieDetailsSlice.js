@@ -21,6 +21,7 @@ const movieDetailsSlice = createSlice({
       state.credits = movie.credits;
       state.cast = movie.credits.cast;
       state.crew = movie.credits.crew;
+      state.status = "success";
     },
     fetchMovieDetailsError: (state) => {
       state.status = "error";

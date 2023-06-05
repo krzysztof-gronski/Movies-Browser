@@ -15,17 +15,24 @@ import {
   selectCast,
   selectCrew,
   selectDetails,
+  selectStatus,
 } from "./movieDetailsSlice";
 import { useParams } from "react-router-dom";
 import { useEffect } from "react";
 import missingMoviePoster from "../../images/missingMoviePoster.svg";
 import missingPersonPoster from "../../images/missingPersonPoster.svg";
+import { useState } from "react";
+import { useRef } from "react";
+import { Loader } from "../../common/Loader";
+import { ErrorPage } from "../../common/ErrorPage";
 
 export const MovieDetails = () => {
   const dispatch = useDispatch();
   const movieDetails = useSelector(selectDetails);
   const castPeople = useSelector(selectCast);
   const crewPeople = useSelector(selectCrew);
+  let status = useSelector(selectStatus);
+  //const someRef = useRef(null);
 
   const { id } = useParams();
 
@@ -33,9 +40,19 @@ export const MovieDetails = () => {
     dispatch(fetchMovieDetails({ movieId: id }));
   }, [id, dispatch]);
 
-  console.log(movieDetails);
+  //let str = "dsfdf";
 
-  return (
+  // window.addEventListener("resize", () => {
+  //   if (window.innerWidth <= 772) {
+  //     someRef.current.production = "fdfjjj";
+  //   }
+  // });
+
+  return status === "loading" ? (
+    <Loader />
+  ) : status === "error" ? (
+    <ErrorPage />
+  ) : (
     movieDetails && (
       <>
         {movieDetails.backdrop_path ? (
@@ -50,6 +67,8 @@ export const MovieDetails = () => {
         ) : null}
         <Container movieDetailsFlag>
           <Tile
+            //ref={someRef}
+            id={"5"}
             movieDetailsFlag
             key={movieDetails.id}
             movie={movieDetails}

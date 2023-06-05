@@ -15,3 +15,13 @@ export const getGenreName = (genreId, genres) => {
   }
   return "";
 };
+
+export const replaceLongCountryNames = (countryNames) => {
+  const countriesMap = new Map([
+    ["United States of America", "USA"],
+    ["United Kingdom", "UK"],
+  ]);
+  countriesMap.forEach((longName, shortName) => {
+    countryNames.replace(/longName/ig, shortName);
+  });
+};
