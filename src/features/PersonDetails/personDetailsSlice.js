@@ -10,21 +10,13 @@ const personSlice = createSlice({
     crew: [],
     status: "loading",
   },
-    reducers: {
-        fetchPersonDetailsSuccess: (state, { payload: person }) => {
-            state.details = person.details;
-            state.status = "success";
-            //state.genres = person.genres;
-            state.cast = person.credits.cast;
-            state.crew = person.credits.crew;
-        },
-        fetchPersonDetailsError: (state) => {
-            state.status = "error";
-        },
-        getDetailsForPerson: (state, { payload: person }) => {
-            state.status="loading";
-            state.personId = person.personId;
-        },
+  reducers: {
+    fetchPersonDetailsSuccess: (state, { payload: person }) => {
+      state.details = person.details;
+      state.status = "success";
+    },
+    fetchPersonDetailsError: (state) => {
+      state.status = "error";
     },
     getDetailsForPerson: (state, { payload: person }) => {
       state.status = "loading";
