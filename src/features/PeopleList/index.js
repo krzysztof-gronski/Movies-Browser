@@ -35,7 +35,7 @@ export const PeopleList = () => {
   useEffect(() => {
     dispatch(setQuery(query ? { query: query } : { query: "" }));
     dispatch(fetchPeople(page));
-  }, [page]);
+  }, [page, dispatch, query]);
 
   return status === "loading" ? (
     <Loader />

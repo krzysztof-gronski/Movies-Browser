@@ -43,7 +43,7 @@ export const MoviesList = () => {
   useEffect(() => {
     dispatch(setQuery(query ? { query: query } : { query: "" }));
     dispatch(fetchMovies(page));
-  }, [page]);
+  }, [page, dispatch, query]);
 
   return status === "loading" ? (
     <Loader />
