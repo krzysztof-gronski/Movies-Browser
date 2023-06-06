@@ -45,6 +45,8 @@ export const MoviesList = () => {
     dispatch(fetchMovies(page));
   }, [page, dispatch, query]);
 
+  console.log(status);
+
   return status === "loading" ? (
     <Loader />
   ) : status === "error" ? (

@@ -5,7 +5,7 @@ const moviesListSlice = createSlice({
   initialState: {
     movies: [],
     genres: [],
-    status: "loading",
+    status: "",
     page: 1,
     totalPages: null,
     query: "",
@@ -14,7 +14,6 @@ const moviesListSlice = createSlice({
   reducers: {
     fetchMovies: (state, { payload: page }) => {
       state.page = page;
-      state.status = "loading";
     },
     fetchMoviesSuccess: (state, { payload: moviesData }) => {
       state.movies = moviesData.movies.results;
@@ -29,7 +28,10 @@ const moviesListSlice = createSlice({
     },
     setQuery: (state, { payload }) => {
       state.query = payload.query;
-      state.status = "loading";
+      //state.status = "loading";
+    },
+    setStatus: (state, { payload }) => {
+      state.status = payload.status;
     },
   },
 });
@@ -40,6 +42,7 @@ export const {
   fetchGenres,
   fetchMovieDetails,
   setQuery,
+  setStatus,
 } = moviesListSlice.actions;
 
 export const selectMoviesState = (state) => state.movies;

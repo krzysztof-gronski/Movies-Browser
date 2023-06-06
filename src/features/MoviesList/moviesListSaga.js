@@ -4,6 +4,7 @@ import {
   select,
   delay,
   takeLatest,
+  debounce,
 } from "redux-saga/effects";
 import { getGenres, getMovies, searchMovie } from "../api/apiData";
 import {
@@ -11,11 +12,13 @@ import {
   fetchMoviesSuccess,
   fetchMoviesError,
   selectQuery,
+  setStatus,
 } from "./moviesListSlice";
 
 export function* fetchMoviesHandler({ payload: page }) {
   try {
-    yield delay(1000);
+    const status = "loading";
+    yield put(setStatus({ status }));
     const query = yield select(selectQuery);
     let movies;
     if (query !== "") {
@@ -31,5 +34,5 @@ export function* fetchMoviesHandler({ payload: page }) {
 }
 
 export function* moviesListSaga() {
-  yield takeLatest(fetchMovies.type, fetchMoviesHandler);
+  yield debounce(2000, fetchMovies.type, fetchMoviesHandler);
 }
