@@ -1,6 +1,7 @@
 import { useDispatch, useSelector } from "react-redux";
 import {
   Container,
+  ContentContainer,
   Header,
   TilesContainer,
 } from "../../common/MainContainer/styled";
@@ -45,23 +46,25 @@ export const PeopleList = () => {
     <NoResults />
   ) : (
     <Container peopleListFlag>
-      <Header>Popular people</Header>
-      <TilesContainer peopleListFlag>
-        {people.map((person) => (
-          <StyledLink to={`/person/${person.id}`}>
-            <Tile
-              peopleListFlag
-              key={person.id}
-              poster={
-                person.profile_path
-                  ? `${IMAGE_PATH}${person.profile_path}`
-                  : `${missingPersonPoster}`
-              }
-              tileTitle={person.name ? person.name : ""}
-            ></Tile>
-          </StyledLink>
-        ))}
-      </TilesContainer>
+      <ContentContainer>
+        <Header>Popular people</Header>
+        <TilesContainer peopleListFlag>
+          {people.map((person) => (
+            <StyledLink to={`/person/${person.id}`}>
+              <Tile
+                peopleListFlag
+                key={person.id}
+                poster={
+                  person.profile_path
+                    ? `${IMAGE_PATH}${person.profile_path}`
+                    : `${missingPersonPoster}`
+                }
+                tileTitle={person.name ? person.name : ""}
+              ></Tile>
+            </StyledLink>
+          ))}
+        </TilesContainer>
+      </ContentContainer>
       <Pagination page={page} totalPages={totalPages} />
     </Container>
   );
