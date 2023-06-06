@@ -19,6 +19,8 @@ import { NoResults } from "../../common/NoResults";
 import {
   fetchGenres,
   fetchMovies,
+  moviesListReloadDebounce,
+  reloadDebounce,
   selectGenres,
   selectMovies,
   selectStatus,
@@ -43,7 +45,11 @@ export const MoviesList = () => {
   useEffect(() => {
     dispatch(setQuery(query ? { query: query } : { query: "" }));
     dispatch(fetchMovies(page));
-  }, [page, dispatch, query]);
+  }, [page]);
+
+  // useEffect(() => {
+  //   dispatch(moviesListReloadDebounce({ query }));
+  // }, [query]);
 
   return status === "loading" ? (
     <Loader />

@@ -1,17 +1,14 @@
-import {
-  call,
-  put,
-  select,
-  delay,
-  takeLatest,
-} from "redux-saga/effects";
+import { call, put, select, delay, takeLatest, debounce } from "redux-saga/effects";
 import { getGenres, getMovies, searchMovie } from "../api/apiData";
 import {
   fetchMovies,
   fetchMoviesSuccess,
   fetchMoviesError,
   selectQuery,
+  moviesListReloadDebounce,
+  setQuery,
 } from "./moviesListSlice";
+import { useQueryParameter } from "../../common/Search/queryParameters";
 
 export function* fetchMoviesHandler({ payload: page }) {
   try {
@@ -30,6 +27,15 @@ export function* fetchMoviesHandler({ payload: page }) {
   }
 }
 
+export function* moviesListReloadDebounceHandler() {
+  try {
+    //const query = useQueryParameter("search");
+    //yield put(setQuery(query ? { query: query } : { query: "" }));
+    window.location.reload();
+  } catch (error) {}
+}
+
 export function* moviesListSaga() {
   yield takeLatest(fetchMovies.type, fetchMoviesHandler);
+  yield debounce(2000,moviesListReloadDebounce.type, moviesListReloadDebounceHandler);
 }

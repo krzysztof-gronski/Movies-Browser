@@ -28,10 +28,16 @@ const peopleListSlice = createSlice({
       state.query = payload.query;
       state.status = "loading";
     },
+    peopleListReloadDebounce: (state, { payload }) => {},
   },
 });
-export const { fetchPeople, fetchPeopleSuccess, fetchPeopleError, setQuery } =
-  peopleListSlice.actions;
+export const {
+  fetchPeople,
+  fetchPeopleSuccess,
+  fetchPeopleError,
+  setQuery,
+  peopleListReloadDebounce,
+} = peopleListSlice.actions;
 
 export const selectPeopleListState = (state) => state.peopleList;
 export const selectPage = (state) => selectPeopleListState(state).page;

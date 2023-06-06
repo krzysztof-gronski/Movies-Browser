@@ -3,13 +3,17 @@ import { Input } from "./styled";
 import { useQueryParameter, useReplaceQueryParameter } from "./queryParameters";
 import searchQueryParamName from "./searchQueryParamName";
 import { useEffect, useRef } from "react";
+import { moviesListReloadDebounce } from "../../features/MoviesList/moviesListSlice";
+import { useDispatch } from "react-redux";
+import { peopleListReloadDebounce } from "../../features/PeopleList/peopleListSlice";
 
 const Search = () => {
   const location = useLocation();
-  const query = useQueryParameter(searchQueryParamName);
+  let query = useQueryParameter(searchQueryParamName);
   const replaceQueryParameter = useReplaceQueryParameter();
   const inputRef = useRef(null);
   const history = useHistory();
+  const dispatch = useDispatch();
 
   const onInputChange = ({ target }) => {
     if (target.value === "") {
@@ -27,10 +31,13 @@ const Search = () => {
       location.pathname.includes("/movie")
     ) {
       history.push(`/movies?search=${target.value}&page=1`);
-      window.location.reload();
+      query = target.value;
+      dispatch(moviesListReloadDebounce({query}));
+      //window.location.reload();
     } else {
       history.push(`/people?search=${target.value}&page=1`);
-      window.location.reload();
+      dispatch(peopleListReloadDebounce());
+      //window.location.reload();
     }
   };
 

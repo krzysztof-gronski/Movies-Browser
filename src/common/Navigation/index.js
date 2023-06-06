@@ -11,19 +11,39 @@ import {
 } from "./styled";
 import Search from "../Search/index";
 import { StyledLink } from "../Tile/styled";
-import { useLocation } from "react-router-dom";
+import { useHistory, useLocation } from "react-router-dom";
+import searchQueryParamName from "../Search/searchQueryParamName";
+import { useReplaceQueryParameter } from "../Search/queryParameters";
 
 const Navigation = () => {
+  const replaceQueryParameter = useReplaceQueryParameter();
+
   const location = useLocation();
+  const history = useHistory();
+
+  const loadPopularMovies = () => {
+    // const searchParams = new URLSearchParams(location.search);
+    // searchParams.set("search", "");
+    // history.push(`${location.pathname}?${searchParams.toString()}`);
+    replaceQueryParameter({ key: searchQueryParamName, value: undefined });
+    //window.location.reload();
+  };
 
   return (
     <Wrapper>
       <NavBar>
         <PageTitle>
-          <StyledLink to={`/movies?page=1`}>
-            <StyledIcon></StyledIcon>
+          <StyledLink
+            className={location.pathname.includes("movie") ? "active" : ""}
+             to=""
+            
+          >
+            <StyledIcon onClick={loadPopularMovies}></StyledIcon>
           </StyledLink>
-          <StyledLink to={`/movies?page=1`}>
+          <StyledLink
+            className={location.pathname.includes("movie") ? "active" : ""}
+            to="/movies?page=1"
+          >
             <Header>Movies Browser</Header>
           </StyledLink>
         </PageTitle>

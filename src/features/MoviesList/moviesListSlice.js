@@ -31,6 +31,9 @@ const moviesListSlice = createSlice({
       state.query = payload.query;
       state.status = "loading";
     },
+    moviesListReloadDebounce: (state, { payload }) => {
+      state.query = payload.query;
+    },
   },
 });
 export const {
@@ -40,6 +43,7 @@ export const {
   fetchGenres,
   fetchMovieDetails,
   setQuery,
+  moviesListReloadDebounce,
 } = moviesListSlice.actions;
 
 export const selectMoviesState = (state) => state.movies;
