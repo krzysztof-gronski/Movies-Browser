@@ -36,6 +36,8 @@ export const PersonDetails = () => {
     dispatch(getDetailsForPerson({ personId: id }));
   }, [id, dispatch]);
 
+  console.log(status);
+
   return (
     status === "loading" ? (
       <Loader />
