@@ -2,16 +2,22 @@ import { useHistory, useLocation } from "react-router-dom";
 import { Input } from "./styled";
 import { useQueryParameter, useReplaceQueryParameter } from "./queryParameters";
 import searchQueryParamName from "./searchQueryParamName";
-import { useEffect, useRef } from "react";
+import { useEffect, useRef, useState } from "react";
+import { useDispatch } from "react-redux";
+import { reloadPage } from "../Navigation/navigationSlice";
+import { setQuery } from "../../features/MoviesList/moviesListSlice";
 
 const Search = () => {
+  const [x,setX]=useState("");
   const location = useLocation();
-  const query = useQueryParameter(searchQueryParamName);
+  //const query = useQueryParameter(searchQueryParamName);
   const replaceQueryParameter = useReplaceQueryParameter();
   const inputRef = useRef(null);
   const history = useHistory();
+  const dispatch = useDispatch();
 
   const onInputChange = ({ target }) => {
+    setX(target.value);
     if (target.value === "") {
       replaceQueryParameter({
         key: searchQueryParamName,
@@ -27,22 +33,25 @@ const Search = () => {
       location.pathname.includes("/movie")
     ) {
       history.push(`/movies?search=${target.value}&page=1`);
-      window.location.reload();
+      const query = target.value;
+      //dispatch(setQuery({query}));
+      dispatch(reloadPage({query}));
+      //window.location.reload();
     } else {
       history.push(`/people?search=${target.value}&page=1`);
-      window.location.reload();
+      //window.location.reload();
     }
   };
 
-  useEffect(() => {
-    inputRef.current.focus();
-  }, [query]);
+  // useEffect(() => {
+  //   inputRef.current.focus();
+  // }, [query]);
 
   return (
     <Input
       ref={inputRef}
       onChange={onInputChange}
-      value={query || ""}
+      value={x}
       placeholder={`Search for ${
         location.pathname.includes("/movie") ? "movies" : "people"
       }...`}

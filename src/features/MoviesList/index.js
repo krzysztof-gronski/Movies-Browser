@@ -27,6 +27,7 @@ import {
   setQuery,
 } from "./moviesListSlice";
 import { IMAGE_PATH } from "../api/apiData";
+import { selectQuery } from "../../common/Navigation/navigationSlice";
 
 export const MoviesList = () => {
   const dispatch = useDispatch();
@@ -35,15 +36,15 @@ export const MoviesList = () => {
   const totalPages = useSelector(selectTotalPages);
   let page = useQueryParameter("page");
   const genres = useSelector(selectGenres);
-  const query = useQueryParameter("search");
+  const query = useSelector(selectQuery);
   const totalResults = useSelector(selectTotalResults);
 
   if (!page) page = 1;
 
   useEffect(() => {
-    dispatch(setQuery(query ? { query: query } : { query: "" }));
+    //dispatch(setQuery(query ? { query: query } : { query: "" }));
     dispatch(fetchMovies(page));
-  }, [page, dispatch, query]);
+  }, [page, dispatch,query]);
 
   return status === "loading" ? (
     <Loader />

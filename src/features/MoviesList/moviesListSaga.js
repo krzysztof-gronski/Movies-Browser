@@ -10,8 +10,8 @@ import {
   fetchMovies,
   fetchMoviesSuccess,
   fetchMoviesError,
-  selectQuery,
 } from "./moviesListSlice";
+import { selectQuery } from "../../common/Navigation/navigationSlice";
 
 export function* fetchMoviesHandler({ payload: page }) {
   try {
