@@ -50,7 +50,7 @@ export const PeopleList = () => {
         <Header>Popular people</Header>
         <TilesContainer peopleListFlag>
           {people.map((person) => (
-            <StyledLink to={`/person/${person.id}`}>
+            <StyledLink key={person.id} to={`/person/${person.id}`}>
               <Tile
                 peopleListFlag
                 key={person.id}

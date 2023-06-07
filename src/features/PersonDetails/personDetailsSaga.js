@@ -10,10 +10,11 @@ import { getGenres, getPersonDetails, getPersonCredits } from "../api/apiData";
 function* fetchPersonDetailsHandler() {
   try {
     const id = yield select(selectPersonId);
-    yield call (console.log,"ID-"+id);
+    const genres = yield call(getGenres);
     const details = yield call(getPersonDetails, id);
-    const credits = yield call(getPersonCredits, { personId: id });
-    yield put(fetchPersonDetailsSuccess({ details, credits }));
+    const credits = null;//yield call(getPersonCredits, { personId: id });
+    //console.log(credits);
+    yield put(fetchPersonDetailsSuccess({ details, credits, genres }));
   } catch (error) {
     yield put(fetchPersonDetailsError());
   }

@@ -23,7 +23,6 @@ const Pagination = ({ page, totalPages }) => {
   const lastPage = pages;
 
   const goToPage = (targetPage) => {
-    console.log(targetPage);
     replaceQueryParameter({
       key: "page",
       value: targetPage,
