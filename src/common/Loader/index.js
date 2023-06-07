@@ -11,8 +11,8 @@ export const Loader = () => {
     message = `Search results for "${query}"`;
   } else if (location.pathname.includes("movies")) {
     message = "Search results for popular movies...";
-  } else {
-    message = "Loading...";
+  } else if (location.pathname.includes("people")) {
+    message = "Search results for popular people...";
   }
 
   return (
