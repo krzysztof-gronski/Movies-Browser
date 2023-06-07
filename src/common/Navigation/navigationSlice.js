@@ -2,7 +2,7 @@ import { createSlice } from "@reduxjs/toolkit";
 
 const navigationSlice = createSlice({
   name: "navigation",
-  query: "t",
+  query: "",
   initialState: {},
   reducers: {
     reloadPage: (state, { payload }) => {

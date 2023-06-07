@@ -7,6 +7,7 @@ function* reloadPageHandler({payload}) {
     // yield call(window.location.reload,false);
     //yield window.location="https://wp.pl";
     const query = payload.query;//yield select(selectQuery);
+    console.log(query);
     //yield call(console.log, query);
     yield put(setQuery({ query }));
     //window.location.reload();
