@@ -28,7 +28,7 @@ function* fetchCreditsHandler() {
     const credits = yield call(getMovieCredits, { movieId: id });
     yield put(fetchMovieCredits(credits));
   } catch (error) {
-    yield call(alert, error);
+    yield put(fetchMovieDetailsError());
   }
 }
 

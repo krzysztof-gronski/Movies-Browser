@@ -22,8 +22,8 @@ const personSlice = createSlice({
       state.status = "error";
     },
     getDetailsForPerson: (state, { payload: person }) => {
-      state.status = "loading";
       state.personId = person.personId;
+      state.status = "loading";
     },
   },
 });
