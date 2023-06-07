@@ -13,6 +13,7 @@ import {
   selectPeople,
   selectStatus,
   selectTotalPages,
+  selectTotalResults,
   setQuery,
 } from "./peopleListSlice";
 import { useEffect } from "react";
@@ -28,6 +29,7 @@ export const PeopleList = () => {
   let status = useSelector(selectStatus);
   const people = useSelector(selectPeople);
   const totalPages = useSelector(selectTotalPages);
+  const totalResults = useSelector(selectTotalResults);
   let page = useQueryParameter("page");
   const query = useQueryParameter("search");
 
@@ -47,7 +49,11 @@ export const PeopleList = () => {
   ) : (
     <Container peopleListFlag>
       <ContentContainer>
-        <Header>Popular people</Header>
+        <Header>
+          {query
+            ? `Search results for "${query}" (${totalResults})`
+            : "Popular movies"}
+        </Header>
         <TilesContainer peopleListFlag>
           {people.map((person) => (
             <StyledLink key={person.id} to={`/person/${person.id}`}>
