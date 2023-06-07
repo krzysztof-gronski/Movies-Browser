@@ -16,7 +16,7 @@ export const Loader = () => {
   } else if (location.pathname.includes("movie")) {
     message = "Loading movie details...";
   } else {
-    message = "Loading person details...";
+    message = "Loading personal details...";
   }
 
   return (
