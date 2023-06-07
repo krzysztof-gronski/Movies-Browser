@@ -17,13 +17,17 @@ import {
   selectCrew,
   selectDetails,
   selectPersonGenres,
+  selectStatus,
 } from "./personDetailsSlice";
+import { Loader } from "../../common/Loader";
+import { ErrorPage } from "../../common/ErrorPage";
 
 export const PersonDetails = () => {
   const dispatch = useDispatch();
   const personDetails = useSelector(selectDetails);
   const crewData = useSelector(selectCrew);
   const castData = useSelector(selectCast);
+  const status = useSelector(selectStatus);
   const genres = useSelector(selectPersonGenres);
 
   const { id } = useParams();
@@ -33,6 +37,11 @@ export const PersonDetails = () => {
   }, [id, dispatch]);
 
   return (
+    status === "loading" ? (
+      <Loader />
+    ) : status === "error" ? (
+      <ErrorPage />
+    ) : (
     personDetails && (
       <Container personDetailsFlag>
         <Tile
@@ -108,5 +117,6 @@ export const PersonDetails = () => {
         </ContentContainer>
       </Container>
     )
+  )
   );
 };
