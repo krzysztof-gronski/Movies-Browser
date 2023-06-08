@@ -29,9 +29,11 @@ export const TileContainer = styled.div`
       }
 
       @media (max-width: ${({ theme }) => theme.breakpoints.tablet}px) {
-        grid-template-columns: auto 1fr;
-        aspect-ratio: 1.432;
-        min-width: 318px;
+        width: 90vw;
+        height: 100%;
+        grid-template-columns: 1fr 1fr;
+        //aspect-ratio: 1.432;
+        min-width: 280px;
         min-height: 211px;
         grid-gap: 14px;
         padding: 14px 14px 0px 14px;
