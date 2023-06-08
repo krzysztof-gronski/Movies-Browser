@@ -97,7 +97,7 @@ export const getPersonDetails = async (personId) => {
 
 export const getPersonCredits = async (personId) => {
   try {
-    const url = `person/${personId}/combined_credits?language=en-US?api_key=${API_KEY}`;
+    const url = `person/${personId}/movie_credits?language=en-US&api_key=${API_KEY}`;
     const response = await tmdb.get(url);
 
     if (!response || !response.data) {
