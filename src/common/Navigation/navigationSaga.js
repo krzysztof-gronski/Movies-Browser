@@ -14,6 +14,14 @@ function* reloadPageHandler({payload}) {
   } catch (error) {}
 }
 
+// function* setQueryHandler() {
+//   try {
+   
+//     window.location.reload();
+//   } catch (error) {}
+// }
+
 export function* navigationSaga() {
   yield debounce(1000, reloadPage.type, reloadPageHandler);
+  //yield takeLatest(setQuery.type, setQueryHandler);
 }
