@@ -108,12 +108,12 @@ export const Tile = ({
         <TileContent personDetailsFlag>
           <TileTitle personDetailsFlag>{tileTitle}</TileTitle>
           <InfoField>
+            <InfoField>
+              <Label>{"Date of birth:"}</Label>
+              <TextValue personDetailsFlag>{releaseDate}</TextValue>
+            </InfoField>
             <Label>{"Place of birth:"}</Label>
             <TextValue personDetailsFlag>{production}</TextValue>
-          </InfoField>
-          <InfoField>
-            <Label>{"Date of birth:"}</Label>
-            <TextValue personDetailsFlag>{releaseDate}</TextValue>
           </InfoField>
           <TileDescription personDetailsFlag>{description}</TileDescription>
         </TileContent>
