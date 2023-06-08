@@ -4,6 +4,7 @@ import {
   select,
   delay,
   takeLatest,
+  debounce,
 } from "redux-saga/effects";
 import { getGenres, getMovies, searchMovie } from "../api/apiData";
 import {
@@ -31,5 +32,5 @@ export function* fetchMoviesHandler({ payload: page }) {
 }
 
 export function* moviesListSaga() {
-  yield takeLatest(fetchMovies.type, fetchMoviesHandler);
+  yield debounce(1000, fetchMovies.type, fetchMoviesHandler);
 }
