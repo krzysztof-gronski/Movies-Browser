@@ -4,6 +4,7 @@ import {
   select,
   delay,
   takeLatest,
+  debounce,
 } from "redux-saga/effects";
 import { getGenres, getMovies, searchMovie } from "../api/apiData";
 import {
