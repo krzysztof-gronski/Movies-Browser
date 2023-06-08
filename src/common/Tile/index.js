@@ -1,4 +1,5 @@
 import { nanoid } from "@reduxjs/toolkit";
+import { useState } from "react";
 import starIcon from "../TileContent/star.svg";
 import { Poster, TileContainer, StyledLink } from "./styled";
 
@@ -36,6 +37,10 @@ export const Tile = ({
   peopleListFlag,
   personDetailsFlag,
 }) => {
+  const [width, setWidth] = useState(window.innerWidth);
+  window.onresize = () => setWidth(window.innerWidth);
+  const isSmallScreen = width < 767;
+
   return moviesListFlag ? (
     <StyledLink to={`/movie/${movie.id}`}>
       <TileContainer moviesListFlag>
@@ -65,11 +70,11 @@ export const Tile = ({
         <TileTitle movieDetailsFlag>{tileTitle}</TileTitle>
         <TileSubtitle movieDetailsFlag>{tileSubtitle}</TileSubtitle>
         <InfoField>
-          <Label>{"Production:"}</Label>
+          <Label movieDetailsFlag>{"Production:"}</Label>
           <TextValue movieDetailsFlag>{production}</TextValue>
         </InfoField>
         <InfoField>
-          <Label>{"Release date:"}</Label>
+          <Label movieDetailsFlag>{"Release date:"}</Label>
           <TextValue movieDetailsFlag>{releaseDate}</TextValue>
         </InfoField>
         <TileGenres movieDetailsFlag>
@@ -107,12 +112,14 @@ export const Tile = ({
         <Poster personDetailsFlag src={poster} alt="poster" />
         <TileContent personDetailsFlag>
           <TileTitle personDetailsFlag>{tileTitle}</TileTitle>
-          <InfoField>
-            <InfoField>
-              <Label>{"Date of birth:"}</Label>
-              <TextValue personDetailsFlag>{releaseDate}</TextValue>
-            </InfoField>
-            <Label>{"Place of birth:"}</Label>
+          <InfoField personDetailsFlag>
+            <Label personDetailsFlag>
+              {!isSmallScreen ? "Date of birth:" : "Birth:"}
+            </Label>
+            <TextValue personDetailsFlag>{releaseDate}</TextValue>
+          </InfoField>
+          <InfoField personDetailsFlag>
+            <Label personDetailsFlag>{"Place of birth:"}</Label>
             <TextValue personDetailsFlag>{production}</TextValue>
           </InfoField>
           <TileDescription personDetailsFlag>{description}</TileDescription>
