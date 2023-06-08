@@ -42,9 +42,9 @@ export const MoviesList = () => {
   if (!page) page = 1;
 
   useEffect(() => {
-    dispatch(setQuery(urlQuery ? { query: urlQuery } : { query: "" }));
+    //dispatch(setQuery(urlQuery ? { query: urlQuery } : { query: "" }));
     dispatch(fetchMovies(page));
-  }, [page, dispatch,query]);
+  }, [page, dispatch]);
 
   console.log(query);
 

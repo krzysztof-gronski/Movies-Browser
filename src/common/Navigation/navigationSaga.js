@@ -10,7 +10,7 @@ function* reloadPageHandler({payload}) {
     console.log(query);
     //yield call(console.log, query);
     yield put(setQuery({ query }));
-    //window.location.reload();
+    window.location.reload();
   } catch (error) {}
 }
 
