@@ -22,6 +22,7 @@ export const useReplaceQueryParameter = () => {
     //console.log("valueInput-" + value);
     //history.push(`/movies?search=${value}&page=1`);
     return history.push(`${location.pathname}?${newSearch}`);
+    //window.location.reload();
   };
   return replaceQueryParameter;
 };

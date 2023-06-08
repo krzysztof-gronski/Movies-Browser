@@ -69,14 +69,18 @@ export const Tile = ({
       <TileContent movieDetailsFlag>
         <TileTitle movieDetailsFlag>{tileTitle}</TileTitle>
         <TileSubtitle movieDetailsFlag>{tileSubtitle}</TileSubtitle>
-        <InfoField>
-          <Label movieDetailsFlag>{"Production:"}</Label>
-          <TextValue movieDetailsFlag>{production}</TextValue>
-        </InfoField>
-        <InfoField>
-          <Label movieDetailsFlag>{"Release date:"}</Label>
-          <TextValue movieDetailsFlag>{releaseDate}</TextValue>
-        </InfoField>
+        {production ? (
+          <InfoField>
+            <Label movieDetailsFlag>{"Production:"}</Label>
+            <TextValue movieDetailsFlag>{production}</TextValue>
+          </InfoField>
+        ) : null}
+       {releaseDate ? (
+          <InfoField>
+            <Label movieDetailsFlag>{"Release date:"}</Label>
+            <TextValue movieDetailsFlag>{releaseDate}</TextValue>
+          </InfoField>
+        ) : null}
         <TileGenres movieDetailsFlag>
           {genres.map((genre) => (
             <TileGenre movieDetailsFlag key={nanoid()}>

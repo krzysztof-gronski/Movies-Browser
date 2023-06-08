@@ -1,4 +1,4 @@
-import { call, put, takeLatest, select } from "redux-saga/effects";
+import { call, put, takeLatest, select, delay } from "redux-saga/effects";
 import {
   fetchPersonDetailsSuccess,
   selectPersonId,
@@ -9,12 +9,18 @@ import { getGenres, getPersonDetails, getPersonCredits } from "../api/apiData";
 
 function* fetchPersonDetailsHandler() {
   try {
+    yield delay(1000);
     const id = yield select(selectPersonId);
-    yield call (console.log,"ID-"+id);
+    const genres = yield call(getGenres);
     const details = yield call(getPersonDetails, id);
     const credits = yield call(getPersonCredits, { personId: id });
-    yield put(fetchPersonDetailsSuccess({ details, credits }));
+    console.log(credits);
+    if (genres.length < 1 || details.length < 1) {
+      throw new Error();
+    }
+    yield put(fetchPersonDetailsSuccess({ details, credits, genres }));
   } catch (error) {
+    yield call(console.log, "putError");
     yield put(fetchPersonDetailsError());
   }
 }

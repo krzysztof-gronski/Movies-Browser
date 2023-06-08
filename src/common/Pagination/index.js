@@ -19,8 +19,8 @@ const Pagination = ({ page, totalPages }) => {
   const firstPage = 1;
   const previousPage = currentPage - 1;
   const nextPage = currentPage + 1;
-  const lastPage = totalPages;
   const pages = totalPages > 500 ? 500 : totalPages;
+  const lastPage = pages;
 
   const goToPage = (targetPage) => {
     replaceQueryParameter({
@@ -55,9 +55,9 @@ const Pagination = ({ page, totalPages }) => {
       <Button
         onClick={() => goToPage(nextPage)}
         disabled={
-          currentPage === totalPages
+          currentPage === pages
             ? true
-            : false || currentPage === totalPages
+            : false || currentPage === pages
             ? true
             : false
         }
@@ -65,9 +65,9 @@ const Pagination = ({ page, totalPages }) => {
         <ButtonText>Next</ButtonText>
         <ForwardVector
           disabled={
-            currentPage === totalPages
+            currentPage === pages
               ? true
-              : false || currentPage === totalPages
+              : false || currentPage === pages
               ? true
               : false
           }
@@ -76,15 +76,15 @@ const Pagination = ({ page, totalPages }) => {
       <Button
         onClick={() => goToPage(lastPage)}
         disabled={
-          currentPage === totalPages ? true : false || page === totalPages ? true : false
+          currentPage === pages ? true : false || page === pages ? true : false
         }
       >
         <ButtonText>Last</ButtonText>
         <ForwardVector
           disabled={
-            currentPage === totalPages
+            currentPage === pages
               ? true
-              : false || currentPage === totalPages
+              : false || currentPage === pages
               ? true
               : false
           }
@@ -92,9 +92,9 @@ const Pagination = ({ page, totalPages }) => {
         {isSmallScreen && (
           <ForwardVector
             disabled={
-              currentPage === totalPages
+              currentPage === pages
                 ? true
-                : false || currentPage === totalPages
+                : false || currentPage === pages
                 ? true
                 : false
             }

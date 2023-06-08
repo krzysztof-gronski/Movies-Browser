@@ -1,6 +1,7 @@
 import { useDispatch, useSelector } from "react-redux";
 import {
   Container,
+  ContentContainer,
   Header,
   TilesContainer,
 } from "../../common/MainContainer/styled";
@@ -12,6 +13,7 @@ import {
   selectPeople,
   selectStatus,
   selectTotalPages,
+  selectTotalResults,
   setQuery,
 } from "./peopleListSlice";
 import { useEffect } from "react";
@@ -27,6 +29,7 @@ export const PeopleList = () => {
   let status = useSelector(selectStatus);
   const people = useSelector(selectPeople);
   const totalPages = useSelector(selectTotalPages);
+  const totalResults = useSelector(selectTotalResults);
   let page = useQueryParameter("page");
   const query = useQueryParameter("search");
 
@@ -35,7 +38,7 @@ export const PeopleList = () => {
   useEffect(() => {
     dispatch(setQuery(query ? { query: query } : { query: "" }));
     dispatch(fetchPeople(page));
-  }, [page]);
+  }, [page, dispatch, query]);
 
   return status === "loading" ? (
     <Loader />
@@ -45,10 +48,15 @@ export const PeopleList = () => {
     <NoResults />
   ) : (
     <Container peopleListFlag>
-      <Header peopleListFlag>Popular people</Header>
-      <TilesContainer peopleListFlag>
+          <ContentContainer>
+          <Header peopleListFlag>
+          {query
+            ? `Search results for "${query}" (${totalResults})`
+            : "Popular movies"}
+        </Header>      
+    <TilesContainer peopleListFlag>
         {people.map((person) => (
-          <StyledLink to={`/person/${person.id}`}>
+          <StyledLink key={person.id} to={`/person/${person.id}`}>
             <Tile
               peopleListFlag
               key={person.id}
@@ -62,6 +70,7 @@ export const PeopleList = () => {
           </StyledLink>
         ))}
       </TilesContainer>
+       </ContentContainer>
       <Pagination page={page} totalPages={totalPages} />
     </Container>
   );

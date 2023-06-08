@@ -48,6 +48,8 @@ export const MovieDetails = () => {
   //   }
   // });
 
+  console.log(castPeople);
+
   return status === "loading" ? (
     <Loader />
   ) : status === "error" ? (
@@ -106,48 +108,50 @@ export const MovieDetails = () => {
             votesNr={movieDetails.vote_count}
             description={movieDetails.overview}
           ></Tile>
-          <ContentContainer>
-            <Header>Cast</Header>
-            <TilesContainer peopleListFlag>
-              {castPeople
-                ? castPeople.map((person) => (
-                    <StyledLink to={`/person/${person.id}`}>
-                      <Tile
-                        peopleListFlag
-                        key={person.id}
-                        poster={
-                          person.profile_path
-                            ? `${IMAGE_PATH}${person.profile_path}`
-                            : `${missingPersonPoster}`
-                        }
-                        tileTitle={person.name ? person.name : ""}
-                      ></Tile>
-                    </StyledLink>
-                  ))
-                : null}
-            </TilesContainer>
-          </ContentContainer>
-          <ContentContainer>
-            <Header>Crew</Header>
-            <TilesContainer peopleListFlag>
-              {crewPeople
-                ? crewPeople.map((person) => (
-                    <StyledLink to={`/person/${person.id}`}>
-                      <Tile
-                        peopleListFlag
-                        key={person.id}
-                        poster={
-                          person.profile_path
-                            ? `${IMAGE_PATH}${person.profile_path}`
-                            : `${missingPersonPoster}`
-                        }
-                        tileTitle={person.name ? person.name : ""}
-                      ></Tile>
-                    </StyledLink>
-                  ))
-                : null}
-            </TilesContainer>
-          </ContentContainer>
+          {castPeople.length > 0 ? (
+            <ContentContainer>
+              <Header>Cast</Header>
+              <TilesContainer peopleListFlag>
+                {castPeople.map((person) => (
+                  <StyledLink to={`/person/${person.id}`}>
+                    <Tile
+                      peopleListFlag
+                      key={person.id}
+                      poster={
+                        person.profile_path
+                          ? `${IMAGE_PATH}${person.profile_path}`
+                          : `${missingPersonPoster}`
+                      }
+                      tileTitle={person.name ? person.name : ""}
+                    ></Tile>
+                  </StyledLink>
+                ))}
+              </TilesContainer>
+            </ContentContainer>
+          ) : null}
+          {crewPeople.length > 0 ? (
+            <ContentContainer>
+              <Header>Crew</Header>
+              <TilesContainer peopleListFlag>
+                {crewPeople
+                  ? crewPeople.map((person) => (
+                      <StyledLink to={`/person/${person.id}`}>
+                        <Tile
+                          peopleListFlag
+                          key={person.id}
+                          poster={
+                            person.profile_path
+                              ? `${IMAGE_PATH}${person.profile_path}`
+                              : `${missingPersonPoster}`
+                          }
+                          tileTitle={person.name ? person.name : ""}
+                        ></Tile>
+                      </StyledLink>
+                    ))
+                  : null}
+              </TilesContainer>
+            </ContentContainer>
+          ) : null}
         </Container>
       </>
     )
