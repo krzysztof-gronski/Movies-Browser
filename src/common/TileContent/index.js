@@ -31,6 +31,11 @@ export const TileContent = styled.div`
         min-width: 126px;
       }
     `}
+    ${({ peopleListFlag }) =>
+    peopleListFlag &&
+    css`
+      gap: 10px;
+    `}
 
     ${({ personDetailsFlag }) =>
     personDetailsFlag &&
@@ -138,6 +143,7 @@ export const TileTitle = styled.header`
       font-size: 22px;
       line-height: 1.3;
       text-align: center;
+      align-self: center;
       @media (max-width: ${({ theme }) => theme.breakpoints.tablet}px) {
         font-size: 14px;
         width: auto;
@@ -186,10 +192,23 @@ export const Label = styled.span`
   font-size: 18px;
   line-height: 1.2;
 
-  @media (max-width: ${({ theme }) => theme.breakpoints.tablet}px) {
-    display: none;
-    font-size: 13px;
-  }
+  ${({ movieDetailsFlag }) =>
+    movieDetailsFlag &&
+    css`
+      @media (max-width: ${({ theme }) => theme.breakpoints.tablet}px) {
+        display: none;
+        font-size: 13px;
+      }
+    `}
+
+  ${({ personDetailsFlag }) =>
+    personDetailsFlag &&
+    css`
+      @media (max-width: ${({ theme }) => theme.breakpoints.tablet}px) {
+        font-size: 13px;
+        margin-right: 5px;
+      }
+    `}
 `;
 
 export const TextValue = styled.span`
@@ -205,6 +224,15 @@ export const TextValue = styled.span`
 
   ${({ movieDetailsFlag }) =>
     movieDetailsFlag &&
+    css`
+      @media (max-width: ${({ theme }) => theme.breakpoints.tablet}px) {
+        font-weight: 400;
+        font-size: 12px;
+        line-height: 1.3;
+      }
+    `}
+  ${({ personDetailsFlag }) =>
+    personDetailsFlag &&
     css`
       @media (max-width: ${({ theme }) => theme.breakpoints.tablet}px) {
         font-weight: 400;

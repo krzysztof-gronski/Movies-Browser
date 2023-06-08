@@ -16,6 +16,8 @@ import {
   selectCast,
   selectCrew,
   selectDetails,
+} from "./personDetailsSlice";
+import { formatDate } from "../../common/Utilities";
   selectPersonGenres,
   selectStatus,
 } from "./personDetailsSlice";
@@ -56,8 +58,8 @@ export const PersonDetails = () => {
               : `${missingPersonPoster}`
           }
           tileTitle={personDetails.name}
-          tileSubtitle={
-            personDetails.birthday ? personDetails.birthday.slice(0, 4) : ""
+          releaseDate={
+            personDetails.birthday ? formatDate(personDetails.birthday) : ""
           }
           production={
             personDetails.place_of_birth ? personDetails.place_of_birth : ""

@@ -48,29 +48,29 @@ export const PeopleList = () => {
     <NoResults />
   ) : (
     <Container peopleListFlag>
-      <ContentContainer>
-        <Header>
+          <ContentContainer>
+          <Header peopleListFlag>
           {query
             ? `Search results for "${query}" (${totalResults})`
             : "Popular movies"}
-        </Header>
-        <TilesContainer peopleListFlag>
-          {people.map((person) => (
-            <StyledLink key={person.id} to={`/person/${person.id}`}>
-              <Tile
-                peopleListFlag
-                key={person.id}
-                poster={
-                  person.profile_path
-                    ? `${IMAGE_PATH}${person.profile_path}`
-                    : `${missingPersonPoster}`
-                }
-                tileTitle={person.name ? person.name : ""}
-              ></Tile>
-            </StyledLink>
-          ))}
-        </TilesContainer>
-      </ContentContainer>
+        </Header>      
+    <TilesContainer peopleListFlag>
+        {people.map((person) => (
+          <StyledLink key={person.id} to={`/person/${person.id}`}>
+            <Tile
+              peopleListFlag
+              key={person.id}
+              poster={
+                person.profile_path
+                  ? `${IMAGE_PATH}${person.profile_path}`
+                  : `${missingPersonPoster}`
+              }
+              tileTitle={person.name ? person.name : ""}
+            ></Tile>
+          </StyledLink>
+        ))}
+      </TilesContainer>
+       </ContentContainer>
       <Pagination page={page} totalPages={totalPages} />
     </Container>
   );

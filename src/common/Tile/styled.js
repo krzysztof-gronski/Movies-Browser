@@ -77,8 +77,8 @@ export const TileContainer = styled.div`
       @media (max-width: ${({ theme }) => theme.breakpoints.tablet}px) {
         grid-template-columns: 1fr 1.2fr;
         margin-top: -12px;
-        min-width: 318px;
-        min-height: 211px;
+        min-width: 290px;
+        min-height: 365px;
         grid-gap: 14px;
         padding: 14px 14px 0px 14px;
       }
@@ -89,12 +89,30 @@ export const TileContainer = styled.div`
     css`
       width: 208px;
       height: 350px;
+      transition: transform 0.3s linear;
+
+      &:hover {
+        cursor: pointer;
+        transform: scale(1.02);
+      }
       @media (max-width: ${({ theme }) => theme.breakpoints.smallScreen}px) {
         width: 100%;
-        max-width: 208px;
         height: 100%;
+        min-width: 190px;
+        min-height: 345px;
+        max-height: 440px;
+      }
+      @media (max-width: 1200px) {
+        width: 100%;
+        height: 100%;
+        max-height: 480px;
       }
       @media (max-width: ${({ theme }) => theme.breakpoints.tablet}px) {
+        min-width: 125px;
+        min-height: 245px;
+        height: 100%;
+      }
+      @media (max-width: 440px) {
         min-width: 136px;
         min-height: 245px;
         height: 100%;
@@ -141,10 +159,14 @@ export const Poster = styled.img`
     personDetailsFlag &&
     css`
       max-height: 564px;
-      /* height:auto; */
       min-height: 163px;
       max-width: 399px;
       min-width: 116px;
+      border-radius: 5px;
+      @media (max-width: ${({ theme }) => theme.breakpoints.tablet}px) {
+        width: 100%;
+        height: auto;
+      }
     `}
 
     ${({ peopleListFlag }) =>
@@ -152,9 +174,13 @@ export const Poster = styled.img`
     css`
       width: 177px;
       height: 260px;
-      margin-top: 10px;
+      margin-top: 12px;
       border-radius: 5px;
       @media (max-width: ${({ theme }) => theme.breakpoints.smallScreen}px) {
+        height: auto;
+        width: 100%;
+      }
+      @media (max-width: 1200px) {
         height: auto;
         width: 100%;
       }
