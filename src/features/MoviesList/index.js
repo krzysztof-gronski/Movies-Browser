@@ -43,7 +43,7 @@ export const MoviesList = () => {
   useEffect(() => {
     dispatch(setQuery(query ? { query: query } : { query: "" }));
     dispatch(fetchMovies(page));
-  }, [page]);
+  }, [page, dispatch, query]);
 
   return status === "loading" ? (
     <Loader />
@@ -59,7 +59,7 @@ export const MoviesList = () => {
             ? `Search results for "${query}" (${totalResults})`
             : "Popular movies"}
         </Header>
-        <TilesContainer txt={"tvebe"}>
+        <TilesContainer>
           {movies.map((movie) => (
             <Tile
               moviesListFlag
