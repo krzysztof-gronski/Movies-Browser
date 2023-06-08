@@ -18,7 +18,7 @@ import {
   selectDetails,
 } from "./personDetailsSlice";
 import { formatDate } from "../../common/Utilities";
-  selectPersonGenres,
+import {  selectPersonGenres,
   selectStatus,
 } from "./personDetailsSlice";
 import { Loader } from "../../common/Loader";
