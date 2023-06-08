@@ -22,6 +22,6 @@ function* reloadPageHandler({payload}) {
 // }
 
 export function* navigationSaga() {
-  yield debounce(1000, reloadPage.type, reloadPageHandler);
+  yield debounce(2000, reloadPage.type, reloadPageHandler);
   //yield takeLatest(setQuery.type, setQueryHandler);
 }
