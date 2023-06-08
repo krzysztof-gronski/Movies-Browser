@@ -127,11 +127,19 @@ export const TilesContainer = styled.div`
       grid-template-columns: repeat(6, 208px);
 
       @media (max-width: ${({ theme }) => theme.breakpoints.smallScreen}px) {
-        grid-template-columns: repeat(auto-fill, minmax(170px, 1fr));
+        grid-template-columns: repeat(5, 1fr);
         width: 100%;
       }
-      @media (max-width: ${({ theme }) => theme.breakpoints.tablet}px) {
-        grid-template-columns: repeat(auto-fill, minmax(130px, 1fr));
+      @media (max-width: 1200px) {
+        grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+        width: 100%;
+      }
+      @media (max-width: 880px) {
+        grid-template-columns: repeat(3, 1fr);
+        width: 100%;
+      }
+      @media (max-width: 440px) {
+        grid-template-columns: repeat(2, 1fr);
         width: 100%;
       }
     `}
@@ -213,7 +221,11 @@ export const Header = styled.h1`
     ${({ peopleListFlag }) =>
     peopleListFlag &&
     css`
-      @media (max-width: ${({ theme }) => theme.breakpoints.smallScreen}px) {
+      // niepotrzebne chyba to centeer
+      align-self: center;
+      width: 1372px;
+      @media (max-width: 1465px) {
+        width: auto;
         align-self: flex-start;
       }
     `}
