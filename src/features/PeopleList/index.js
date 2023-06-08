@@ -45,7 +45,7 @@ export const PeopleList = () => {
     <NoResults />
   ) : (
     <Container peopleListFlag>
-      <Header>Popular people</Header>
+      <Header peopleListFlag>Popular people</Header>
       <TilesContainer peopleListFlag>
         {people.map((person) => (
           <StyledLink to={`/person/${person.id}`}>
