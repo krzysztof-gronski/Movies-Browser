@@ -5,7 +5,13 @@ import { useDispatch, useSelector } from "react-redux";
 import { useEffect } from "react";
 import { IMAGE_PATH } from "../api/apiData";
 import missingPersonPoster from "../../images/missingPersonPoster.svg";
-import { getDetailsForPerson, selectCast, selectCrew, selectDetails } from "./personDetailsSlice";
+import {
+  getDetailsForPerson,
+  selectCast,
+  selectCrew,
+  selectDetails,
+} from "./personDetailsSlice";
+import { formatDate } from "../../common/Utilities";
 
 export const PersonDetails = () => {
   const dispatch = useDispatch();
@@ -34,8 +40,8 @@ export const PersonDetails = () => {
               : `${missingPersonPoster}`
           }
           tileTitle={personDetails.name}
-          tileSubtitle={
-            personDetails.birthday ? personDetails.birthday.slice(0, 4) : ""
+          releaseDate={
+            personDetails.birthday ? formatDate(personDetails.birthday) : ""
           }
           production={
             personDetails.place_of_birth ? personDetails.place_of_birth : ""
