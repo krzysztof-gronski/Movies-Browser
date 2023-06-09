@@ -3,7 +3,6 @@ import {
   put,
   select,
   delay,
-  takeLatest,
   debounce,
 } from "redux-saga/effects";
 import { getGenres, getMovies, searchMovie } from "../api/apiData";
@@ -25,6 +24,9 @@ export function* fetchMoviesHandler({ payload: page }) {
       movies = yield call(getMovies, page);
     }
     const genres = yield call(getGenres);
+    if (movies.length < 1 || genres.length < 1) {
+      throw new Error();
+    }
     yield put(fetchMoviesSuccess({ movies, genres }));
   } catch (error) {
     yield put(fetchMoviesError());

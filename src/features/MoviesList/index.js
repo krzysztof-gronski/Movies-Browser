@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useEffect } from "react";
 import missingMoviePoster from "../../images/missingMoviePoster.svg";
 import {
   Container,
@@ -10,14 +10,12 @@ import { Tile } from "../../common/Tile";
 import Pagination from "../../common/Pagination";
 import {
   useQueryParameter,
-  useReplaceQueryParameter,
 } from "../../common/Search/queryParameters";
 import { useDispatch, useSelector } from "react-redux";
 import { Loader } from "../../common/Loader";
 import { ErrorPage } from "../../common/ErrorPage";
 import { NoResults } from "../../common/NoResults";
 import {
-  fetchGenres,
   fetchMovies,
   selectGenres,
   selectMovies,
@@ -30,7 +28,7 @@ import { IMAGE_PATH } from "../api/apiData";
 
 export const MoviesList = () => {
   const dispatch = useDispatch();
-  let status = useSelector(selectStatus);
+  const status = useSelector(selectStatus);
   const movies = useSelector(selectMovies);
   const totalPages = useSelector(selectTotalPages);
   let page = useQueryParameter("page");
