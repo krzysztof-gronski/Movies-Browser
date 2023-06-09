@@ -38,7 +38,8 @@ const Search = () => {
       dispatch(reloadPage({query}));
       //window.location.reload();
     } else {
-      history.push(`/people?search=${target.value}&page=1`);
+      window.location="/people";
+      //history.push(`/people?search=${target.value}&page=1`);
       //window.location.reload();
     }
   };
