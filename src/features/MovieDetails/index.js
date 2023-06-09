@@ -7,7 +7,7 @@ import {
 } from "../../common/MainContainer/styled";
 import { Tile } from "../../common/Tile";
 import { StyledLink } from "../MovieDetails/styled";
-import { IMAGE_PATH } from "../api/apiData";
+import { IMAGE_PATH, BACK_IMAGE_PATH } from "../api/apiData";
 import { formatDate } from "../../common/Utilities";
 import { useDispatch, useSelector } from "react-redux";
 import {
@@ -61,7 +61,7 @@ export const MovieDetails = () => {
           <Backdrop
             backdropImage={
               movieDetails.backdrop_path
-                ? `${IMAGE_PATH}${movieDetails.backdrop_path}`
+                ? `${BACK_IMAGE_PATH}${movieDetails.backdrop_path}`
                 : null
             }
             movie={movieDetails}
