@@ -70,7 +70,6 @@ export const MovieDetails = () => {
         <Container movieDetailsFlag>
           <Tile
             //ref={someRef}
-            id={"5"}
             movieDetailsFlag
             key={movieDetails.id}
             movie={movieDetails}
@@ -123,6 +122,7 @@ export const MovieDetails = () => {
                           : `${missingPersonPoster}`
                       }
                       tileTitle={person.name ? person.name : ""}
+                      tileSubtitle={person.character ? person.character : ""}
                     ></Tile>
                   </StyledLink>
                 ))}
@@ -145,6 +145,7 @@ export const MovieDetails = () => {
                               : `${missingPersonPoster}`
                           }
                           tileTitle={person.name ? person.name : ""}
+                          tileSubtitle={person.job ? person.job : ""}
                         ></Tile>
                       </StyledLink>
                     ))
