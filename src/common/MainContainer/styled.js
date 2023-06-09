@@ -112,6 +112,7 @@ export const TilesContainer = styled.div`
 
   @media (max-width: ${({ theme }) => theme.breakpoints.smallScreen}px) {
     grid-template-columns: repeat(auto-fill, minmax(324px, 1fr));
+    justify-items: stretch;
     width: 100%;
   }
 
