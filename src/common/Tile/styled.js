@@ -29,10 +29,12 @@ export const TileContainer = styled.div`
       }
 
       @media (max-width: ${({ theme }) => theme.breakpoints.tablet}px) {
-        grid-template-columns: auto 1fr;
-        aspect-ratio: 1.432;
-        min-width: 288px;
-        min-height: 201px;
+        width: 90vw;
+        height: auto;
+        grid-template-columns: 1fr 1fr;
+        //aspect-ratio: 1.432;
+        min-width: 280px;
+        min-height: 211px;
         grid-gap: 14px;
         padding: 14px 14px 0px 14px;
       }
@@ -54,8 +56,8 @@ export const TileContainer = styled.div`
       @media (max-width: ${({ theme }) => theme.breakpoints.tablet}px) {
         grid-template-columns: 1fr 1.2fr;
         margin-top: -12px;
-        min-width: 288px;
-        min-height: 400px;
+        min-width: 280px;
+        min-height: 211px;
         grid-gap: 14px;
         padding: 14px 14px 0px 14px;
       }

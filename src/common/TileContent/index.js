@@ -329,6 +329,7 @@ export const TileGenre = styled.li`
 export const RateContainer = styled.div`
   display: flex;
   justify-self: flex-end;
+  flex-wrap: wrap;
 
   @media (max-width: ${({ theme }) => theme.breakpoints.tablet}px) {
     margin-top: -5px;

@@ -25,6 +25,9 @@ function* fetchPeopleHandler() {
     } else {
       people = yield call(getPeople, page);
     }
+    if (people.length < 1 ) {
+      throw new Error();
+    }
     yield put(fetchPeopleSuccess(people));
   } catch (error) {
     yield put(fetchPeopleError());
