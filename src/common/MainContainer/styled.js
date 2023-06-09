@@ -36,7 +36,7 @@ export const Container = styled.div`
 
       @media (max-width: ${({ theme }) => theme.breakpoints.smallScreen}px) {
         align-items: flex-start;
-        padding: 56px 24px;
+        padding: 56px 2vw;
       }
     `}
 
