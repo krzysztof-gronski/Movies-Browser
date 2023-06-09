@@ -31,8 +31,8 @@ export const TileContainer = styled.div`
       @media (max-width: ${({ theme }) => theme.breakpoints.tablet}px) {
         grid-template-columns: auto 1fr;
         aspect-ratio: 1.432;
-        min-width: 318px;
-        min-height: 211px;
+        min-width: 288px;
+        min-height: 201px;
         grid-gap: 14px;
         padding: 14px 14px 0px 14px;
       }
@@ -54,8 +54,8 @@ export const TileContainer = styled.div`
       @media (max-width: ${({ theme }) => theme.breakpoints.tablet}px) {
         grid-template-columns: 1fr 1.2fr;
         margin-top: -12px;
-        min-width: 318px;
-        min-height: 211px;
+        min-width: 288px;
+        min-height: 400px;
         grid-gap: 14px;
         padding: 14px 14px 0px 14px;
       }
@@ -68,7 +68,7 @@ export const TileContainer = styled.div`
       margin-top: 64px;
       width: 100%;
       max-width: 1368px;
-      max-height: 1200px;
+      /* max-height: 1200px; */
       min-width: 318px;
       min-height: 211px;
       grid-gap: 40px;
@@ -88,7 +88,8 @@ export const TileContainer = styled.div`
     peopleListFlag &&
     css`
       width: 208px;
-      height: 350px;
+      min-height: 350px;
+      max-height:450px;
       transition: transform 0.3s linear;
 
       &:hover {
@@ -100,12 +101,12 @@ export const TileContainer = styled.div`
         height: 100%;
         min-width: 190px;
         min-height: 345px;
-        max-height: 440px;
+        max-height: 475px;
       }
       @media (max-width: 1200px) {
         width: 100%;
         height: 100%;
-        max-height: 480px;
+        max-height: 500px;
       }
       @media (max-width: ${({ theme }) => theme.breakpoints.tablet}px) {
         min-width: 125px;
@@ -138,6 +139,7 @@ export const Poster = styled.img`
         width: 100%;
         height: 100%;
         min-height: 169px;
+        min-width: 114px;
       }
     `}
   ${({ movieDetailsFlag }) =>
