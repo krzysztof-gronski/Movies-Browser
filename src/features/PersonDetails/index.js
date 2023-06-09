@@ -38,7 +38,7 @@ export const PersonDetails = () => {
     dispatch(getDetailsForPerson({ personId: id }));
   }, [id, dispatch]);
 
-  console.log(crewData);
+  console.log(castData);
 
   return (
     status === "loading" ? (

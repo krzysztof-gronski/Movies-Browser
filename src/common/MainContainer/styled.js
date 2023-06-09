@@ -37,6 +37,7 @@ export const Container = styled.div`
       @media (max-width: ${({ theme }) => theme.breakpoints.smallScreen}px) {
         align-items: flex-start;
         padding: 56px 2vw;
+
       }
     `}
 
@@ -47,7 +48,7 @@ export const Container = styled.div`
 
       @media (max-width: ${({ theme }) => theme.breakpoints.smallScreen}px) {
         align-items: flex-start;
-        padding: 56px 24px;
+        padding: 56px 12px;
       }
     `}
 
@@ -222,7 +223,6 @@ export const Header = styled.h1`
     ${({ peopleListFlag }) =>
     peopleListFlag &&
     css`
-      // niepotrzebne chyba to centeer
       align-self: center;
       width: 1372px;
       @media (max-width: 1465px) {
