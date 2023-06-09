@@ -17,7 +17,6 @@ import { getPeople, searchPerson } from "../api/apiData";
 
 function* fetchPeopleHandler() {
   try {
-    yield delay(1000);
     const page = yield select(selectPage);
     const query = yield select(selectQuery);
     let people;
@@ -33,5 +32,5 @@ function* fetchPeopleHandler() {
 }
 
 export function* peopleListSaga() {
-  yield takeLatest(fetchPeople.type, fetchPeopleHandler);
+  yield debounce(1000, fetchPeople.type, fetchPeopleHandler);
 }
