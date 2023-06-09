@@ -1,6 +1,7 @@
 import tmdb from "./tmdb";
 
 export const IMAGE_PATH = "https://image.tmdb.org/t/p/w500";
+export const BACK_IMAGE_PATH = "https://image.tmdb.org/t/p/original";
 const API_KEY = "f864c444928645f66814d9fbaba37ee6";
 
 export const getMovies = async (page) => {
