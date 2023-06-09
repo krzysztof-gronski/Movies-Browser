@@ -75,7 +75,7 @@ export const Tile = ({
             <TextValue movieDetailsFlag>{production}</TextValue>
           </InfoField>
         ) : null}
-       {releaseDate ? (
+        {releaseDate ? (
           <InfoField>
             <Label movieDetailsFlag>{"Release date:"}</Label>
             <TextValue movieDetailsFlag>{releaseDate}</TextValue>
@@ -104,6 +104,7 @@ export const Tile = ({
         <TileContent peopleListFlag>
           <Poster peopleListFlag src={poster} alt="poster" />
           <TileTitle peopleListFlag>{tileTitle}</TileTitle>
+          <TileSubtitle peopleListFlag>{tileSubtitle}</TileSubtitle>
         </TileContent>
         <MobileTileDescription peopleListFlag>
           {description}
