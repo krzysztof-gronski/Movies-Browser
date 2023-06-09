@@ -35,6 +35,7 @@ export const TileContent = styled.div`
     peopleListFlag &&
     css`
       gap: 10px;
+      margin: 0 15px;
     `}
 
     ${({ personDetailsFlag }) =>
@@ -117,7 +118,7 @@ export const TileTitle = styled.header`
       @media (max-width: ${({ theme }) => theme.breakpoints.tablet}px) {
         margin: 1px 0px 0px 0px;
         font-weight: 500;
-        font-size: 16px;
+        font-size: 14px;
         line-height: 1.3;
       }
     `}
@@ -180,6 +181,22 @@ export const TileSubtitle = styled.div`
         color: ${({ theme }) => theme.colors.waterloo};
       }
     `}
+
+    ${({ peopleListFlag }) =>
+    peopleListFlag &&
+    css`
+      font-size: 18px;
+      line-height: 27px;
+      font-weight: 400;
+      text-align: center;
+      align-self: center;
+      margin-bottom:10px;
+      color:${({theme}) => theme.colors.waterloo};
+      @media (max-width: ${({ theme }) => theme.breakpoints.tablet}px) {
+        font-size: 13px;
+        line-height: 16.9px;
+      }
+    `}
 `;
 
 export const InfoField = styled.div`
@@ -205,8 +222,8 @@ export const Label = styled.span`
     personDetailsFlag &&
     css`
       @media (max-width: ${({ theme }) => theme.breakpoints.tablet}px) {
-        font-size: 13px;
-        margin-right: 5px;
+        font-size: 12px;
+        margin-right: 4px;
       }
     `}
 `;
