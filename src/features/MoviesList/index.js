@@ -8,21 +8,23 @@ import {
 } from "../../common/MainContainer/styled";
 import { Tile } from "../../common/Tile";
 import Pagination from "../../common/Pagination";
-import {
-  useQueryParameter,
-} from "../../common/Search/queryParameters";
+import { useQueryParameter } from "../../common/Search/queryParameters";
 import { useDispatch, useSelector } from "react-redux";
 import { Loader } from "../../common/Loader";
 import { ErrorPage } from "../../common/ErrorPage";
 import { NoResults } from "../../common/NoResults";
 import {
   fetchMovies,
+  fetchSearchMovies,
   selectGenres,
   selectMovies,
+  selectQuery,
   selectStatus,
   selectTotalPages,
   selectTotalResults,
+  selectURLQuery,
   setQuery,
+  setURLQuery,
 } from "./moviesListSlice";
 import { IMAGE_PATH } from "../api/apiData";
 
@@ -33,17 +35,22 @@ export const MoviesList = () => {
   const totalPages = useSelector(selectTotalPages);
   let page = useQueryParameter("page");
   const genres = useSelector(selectGenres);
-  const query = useQueryParameter("search");
+  const urlQuery = useQueryParameter("search");
+  const query = useSelector(selectQuery);
   const totalResults = useSelector(selectTotalResults);
 
   if (!page) page = 1;
 
   useEffect(() => {
-    dispatch(setQuery(query ? { query: query } : { query: "" }));
-    dispatch(fetchMovies(page));
-  }, [page, dispatch, query ]);
+    dispatch(setURLQuery(urlQuery ? { urlQuery: urlQuery } : { urlQuery: "" }));
+    if (urlQuery) {
+      dispatch(fetchSearchMovies(page));
+    } else {
+      dispatch(fetchMovies(page));
+    };
+  }, [page, dispatch, urlQuery]);
 
-  console.log("S"+status);
+  console.log("S" + status);
 
   return status === "loading" ? (
     <Loader />

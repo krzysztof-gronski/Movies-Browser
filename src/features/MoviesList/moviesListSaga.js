@@ -1,4 +1,11 @@
-import { call, put, select, delay, debounce } from "redux-saga/effects";
+import {
+  call,
+  put,
+  select,
+  delay,
+  debounce,
+  takeLatest,
+} from "redux-saga/effects";
 import { getGenres, getMovies, searchMovie } from "../api/apiData";
 import {
   fetchMovies,
@@ -6,17 +13,19 @@ import {
   fetchMoviesError,
   selectQuery,
   setStatus,
+  fetchSearchMovies,
+  selectURLQuery,
 } from "./moviesListSlice";
 
-export function* fetchMoviesHandler({ payload: page }) {
+function* fetchMoviesHandler({ payload: page }) {
   try {
     const status = "loading";
-    yield put(setStatus({status}));
+    yield put(setStatus({ status }));
     yield delay(2000);
-    const query = yield select(selectQuery);
+    const urlQuery = yield select(selectURLQuery);
     let movies;
-    if (query !== "") {
-      movies = yield call(searchMovie, query, page);
+    if (urlQuery !== "") {
+      movies = yield call(searchMovie, urlQuery, page);
     } else {
       movies = yield call(getMovies, page);
     }
@@ -24,12 +33,14 @@ export function* fetchMoviesHandler({ payload: page }) {
     if (movies.length < 1 || genres.length < 1) {
       throw new Error();
     }
-    yield put(fetchMoviesSuccess({ movies, genres }));
+    const query = urlQuery;
+    yield put(fetchMoviesSuccess({ movies, genres, query }));
   } catch (error) {
     yield put(fetchMoviesError());
   }
 }
 
 export function* moviesListSaga() {
-  yield debounce(2000, fetchMovies.type, fetchMoviesHandler);
+  yield takeLatest(fetchMovies.type, fetchMoviesHandler);
+  yield debounce(1000, fetchSearchMovies.type, fetchMoviesHandler);
 }

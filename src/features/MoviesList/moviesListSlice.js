@@ -9,10 +9,15 @@ const moviesListSlice = createSlice({
     page: 1,
     totalPages: null,
     query: "",
+    urlQuery: "",
     totalResults: 0,
   },
   reducers: {
     fetchMovies: (state, { payload: page }) => {
+      state.page = page;
+      //state.status = "loading";
+    },
+    fetchSearchMovies: (state, { payload: page }) => {
       state.page = page;
       //state.status = "loading";
     },
@@ -23,12 +28,17 @@ const moviesListSlice = createSlice({
       state.totalResults = moviesData.movies.total_results;
       state.status = "success";
       state.genres = moviesData.genres;
+      state.query = moviesData.query;
     },
     fetchMoviesError: (state) => {
       state.status = "error";
     },
     setQuery: (state, { payload }) => {
       state.query = payload.query;
+      //state.status = "loading";
+    },
+    setURLQuery: (state, { payload }) => {
+      state.urlQuery = payload.urlQuery;
       //state.status = "loading";
     },
     setStatus: (state, { payload }) => {
@@ -38,11 +48,13 @@ const moviesListSlice = createSlice({
 });
 export const {
   fetchMovies,
+  fetchSearchMovies,
   fetchMoviesSuccess,
   fetchMoviesError,
   fetchGenres,
   fetchMovieDetails,
   setQuery,
+  setURLQuery,
   setStatus,
 } = moviesListSlice.actions;
 
@@ -59,4 +71,5 @@ export const selectMovieById = (state, movieId) => {
 export const selectTotalResults = (state) =>
   selectMoviesState(state).totalResults;
 export const selectQuery = (state) => selectMoviesState(state).query;
+export const selectURLQuery = (state) => selectMoviesState(state).urlQuery;
 export default moviesListSlice.reducer;
