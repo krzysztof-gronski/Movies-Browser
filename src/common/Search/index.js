@@ -5,6 +5,8 @@ import searchQueryParamName from "./searchQueryParamName";
 import { useEffect, useRef, useState } from "react";
 import { useDispatch } from "react-redux";
 import { inputDelay } from "../../features/MovieDetails/movieDetailsSlice";
+import { setInputQuery } from "../../features/MoviesList/moviesListSlice";
+import { setInputRef } from "../Navigation/navigationSlice";
 
 const Search = () => {
   const location = useLocation();
@@ -14,6 +16,11 @@ const Search = () => {
   const inputRef = useRef(null);
   const history = useHistory();
   const dispatch = useDispatch();
+
+  //console.log(inputRef);
+  if (inputRef) {
+    dispatch(setInputRef(inputRef ));
+  }
 
   const onInputChange = ({ target }) => {
     setQuery(target.value);
@@ -28,6 +35,9 @@ const Search = () => {
       value: target.value.trim() !== "" ? target.value : undefined,
     });
     if (location.pathname.includes("/movies")) {
+      const inputQuery = target.value;
+
+      dispatch(setInputQuery({ inputQuery, inputRef }));
       history.push(`/movies?search=${target.value}&page=1`);
     } else if (location.pathname.includes("/movie/")) {
       dispatch(inputDelay({ inputRef }));

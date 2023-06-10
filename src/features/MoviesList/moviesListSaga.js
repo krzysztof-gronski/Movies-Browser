@@ -15,7 +15,10 @@ import {
   setStatus,
   fetchSearchMovies,
   selectURLQuery,
+  selectInputQuery,
+  setInputQuery,
 } from "./moviesListSlice";
+import { selectInputRef } from "../../common/Navigation/navigationSlice";
 
 function* fetchMoviesHandler({ payload: page }) {
   try {
@@ -23,6 +26,8 @@ function* fetchMoviesHandler({ payload: page }) {
     yield put(setStatus({ status }));
     //yield delay(2000);
     const urlQuery = yield select(selectURLQuery);
+    const inputQuery = yield select(selectInputQuery);
+    const inputRef = yield select(selectInputRef);
     let movies;
     if (urlQuery !== "") {
       movies = yield call(searchMovie, urlQuery, page);
@@ -33,14 +38,20 @@ function* fetchMoviesHandler({ payload: page }) {
     if (movies.length < 1 || genres.length < 1) {
       throw new Error();
     }
-    const query = urlQuery;
-    yield put(fetchMoviesSuccess({ movies, genres, query }));
+    yield put(fetchMoviesSuccess({ movies, genres, urlQuery }));
+    if (inputQuery) {
+      const query = "";
+      yield put(setInputQuery({ query }));
+    } else {
+      //inputRef.current.value = "";
+    }
   } catch (error) {
     yield put(fetchMoviesError());
+    console.log(error);
   }
 }
 
 export function* moviesListSaga() {
   yield takeLatest(fetchMovies.type, fetchMoviesHandler);
-  yield debounce(1000, fetchSearchMovies.type, fetchMoviesHandler);
+  yield debounce(2000, fetchSearchMovies.type, fetchMoviesHandler);
 }

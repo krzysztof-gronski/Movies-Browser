@@ -8,8 +8,10 @@ const moviesListSlice = createSlice({
     status: "loading",
     page: 1,
     totalPages: null,
-    query: "",
+    inputQuery: "",
     urlQuery: "",
+    queryLabel: "",
+    inputRef: null,
     totalResults: 0,
   },
   reducers: {
@@ -27,18 +29,24 @@ const moviesListSlice = createSlice({
       state.totalPages = moviesData.movies.total_pages;
       state.totalResults = moviesData.movies.total_results;
       state.genres = moviesData.genres;
-      state.query = moviesData.query;
+      state.queryLabel = moviesData.urlQuery;
+      state.inputQuery = "";
       state.status = "success";
     },
     fetchMoviesError: (state) => {
       state.status = "error";
     },
-    setQuery: (state, { payload }) => {
-      state.query = payload.query;
+    setInputQuery: (state, { payload }) => {
+      state.inputQuery = payload.inputQuery;
+      state.inputRef = payload.inputRef;
       //state.status = "loading";
     },
     setURLQuery: (state, { payload }) => {
       state.urlQuery = payload.urlQuery;
+      //state.status = "loading";
+    },
+    setQueryLabel: (state, { payload }) => {
+      state.queryLabel = payload.queryLabel;
       //state.status = "loading";
     },
     setStatus: (state, { payload }) => {
@@ -53,9 +61,10 @@ export const {
   fetchMoviesError,
   fetchGenres,
   fetchMovieDetails,
-  setQuery,
+  setInputQuery,
   setURLQuery,
   setStatus,
+  setQueryLabel,
 } = moviesListSlice.actions;
 
 export const selectMoviesState = (state) => state.movies;
@@ -70,6 +79,8 @@ export const selectMovieById = (state, movieId) => {
 };
 export const selectTotalResults = (state) =>
   selectMoviesState(state).totalResults;
-export const selectQuery = (state) => selectMoviesState(state).query;
+export const selectInputQuery = (state) => selectMoviesState(state).inputQuery;
 export const selectURLQuery = (state) => selectMoviesState(state).urlQuery;
+export const selectQueryLabel = (state) => selectMoviesState(state).queryLabel;
+export const selectInputRef = (state) => selectMoviesState(state).inputRef;
 export default moviesListSlice.reducer;

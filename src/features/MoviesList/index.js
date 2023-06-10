@@ -17,12 +17,15 @@ import {
   fetchMovies,
   fetchSearchMovies,
   selectGenres,
+  selectInputQuery,
   selectMovies,
   selectQuery,
+  selectQueryLabel,
   selectStatus,
   selectTotalPages,
   selectTotalResults,
   selectURLQuery,
+  setInputQuery,
   setQuery,
   setURLQuery,
 } from "./moviesListSlice";
@@ -36,32 +39,35 @@ export const MoviesList = () => {
   let page = useQueryParameter("page");
   const genres = useSelector(selectGenres);
   const urlQuery = useQueryParameter("search");
-  const query = useSelector(selectQuery);
+  const queryLabel = useSelector(selectQueryLabel);
+  let inputQuery = useSelector(selectInputQuery);
   const totalResults = useSelector(selectTotalResults);
 
   if (!page) page = 1;
 
   useEffect(() => {
     dispatch(setURLQuery(urlQuery ? { urlQuery: urlQuery } : { urlQuery: "" }));
-    if (urlQuery) {
-      dispatch(fetchMovies(page));
-    } else {
+    if (inputQuery) {
       dispatch(fetchSearchMovies(page));
-    };
+      // inputQuery="";
+      // dispatch(setInputQuery({inputQuery}));
+    } else {
+      dispatch(fetchMovies(page));
+    }
   }, [page, dispatch, urlQuery]);
 
   return status === "loading" ? (
     <Loader />
   ) : status === "error" ? (
     <ErrorPage />
-  ) : query && movies.length <= 0 ? (
+  ) : ((urlQuery || inputQuery) && movies.length <= 0) ? (
     <NoResults />
   ) : (
     <Container moviesListFlag>
       <ContentContainer>
         <Header>
-          {query
-            ? `Search results for "${query}" (${totalResults})`
+          {queryLabel
+            ? `Search results for "${queryLabel}" (${totalResults})`
             : "Popular movies"}
         </Header>
         <TilesContainer>
