@@ -23,7 +23,7 @@ import missingMoviePoster from "../../images/missingMoviePoster.svg";
 import missingPersonPoster from "../../images/missingPersonPoster.svg";
 import { Loader } from "../../common/Loader";
 import { ErrorPage } from "../../common/ErrorPage";
-import { selectInputQuery, setURLQuery } from "../../common/Navigation/navigationSlice";
+import { selectInputQuery, setInputQuery, setURLQuery } from "../../common/Navigation/navigationSlice";
 
 export const MovieDetails = () => {
   const dispatch = useDispatch();
@@ -36,8 +36,11 @@ export const MovieDetails = () => {
   //const someRef = useRef(null);
 
   if (inputQuery) {
-    dispatch(setURLQuery({ inputQuery }));
-    history.push(`/movies?search=${inputQuery}&page=1`);
+    const urlQuery = inputQuery;
+    dispatch(setURLQuery({ urlQuery }));
+    const query = "";
+    dispatch(setInputQuery({ inputQuery: query }));
+    history.push(`/movies?search=${urlQuery}&page=1`);
   }
 
   const { id } = useParams();

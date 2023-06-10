@@ -8,8 +8,6 @@ const movieDetailsSlice = createSlice({
     credits: [],
     cast: [],
     crew: [],
-    inputQueryActivated: false,
-    inputQuery: "",
     status: "loading",
   },
   reducers: {
@@ -34,13 +32,6 @@ const movieDetailsSlice = createSlice({
     },
     fetchMovieCredits: (state, { payload: credits }) => {},
     inputDelay: (state, { payload }) => {},
-    activateInputQuery: (state, { payload }) => {
-      state.inputQueryActivated = true;
-    },
-    setInputQuery: (state, { payload: search }) => {
-      state.inputQuery = search.inputQuery;
-      console.log(state.inputQuery);
-    },
   },
 });
 export const {
@@ -50,8 +41,6 @@ export const {
   getMovieId,
   fetchMovieCredits,
   inputDelay,
-  activateInputQuery,
-  setInputQuery,
 } = movieDetailsSlice.actions;
 
 export const selectMovieState = (state) => state.movieDetails;
@@ -61,7 +50,5 @@ export const selectCredits = (state) => selectMovieState(state).credits;
 export const selectCast = (state) => selectCredits(state).cast;
 export const selectCrew = (state) => selectCredits(state).crew;
 export const selectStatus = (state) => selectMovieState(state).status;
-export const selectInputQueryActivated = (state) => selectMovieState(state).inputQueryActivated;
-export const selectInputQuery = (state) => selectMovieState(state).inputQuery;
 
 export default movieDetailsSlice.reducer;
