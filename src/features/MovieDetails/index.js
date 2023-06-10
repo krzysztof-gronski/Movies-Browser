@@ -15,9 +15,11 @@ import {
   selectCast,
   selectCrew,
   selectDetails,
+  selectInputQuery,
+  selectInputQueryActivated,
   selectStatus,
 } from "./movieDetailsSlice";
-import { useParams } from "react-router-dom";
+import { useHistory, useParams } from "react-router-dom";
 import { useEffect } from "react";
 import missingMoviePoster from "../../images/missingMoviePoster.svg";
 import missingPersonPoster from "../../images/missingPersonPoster.svg";
@@ -25,14 +27,23 @@ import { useState } from "react";
 import { useRef } from "react";
 import { Loader } from "../../common/Loader";
 import { ErrorPage } from "../../common/ErrorPage";
+import { setQuery, setURLQuery } from "../MoviesList/moviesListSlice";
+import { useQueryParameter } from "../../common/Search/queryParameters";
 
 export const MovieDetails = () => {
   const dispatch = useDispatch();
   const movieDetails = useSelector(selectDetails);
   const castPeople = useSelector(selectCast);
   const crewPeople = useSelector(selectCrew);
+  const inputQuery = useSelector(selectInputQuery);
+  const history = useHistory();
   let status = useSelector(selectStatus);
   //const someRef = useRef(null);
+
+  if (inputQuery) {
+    dispatch(setURLQuery({ inputQuery }));
+    history.push(`/movies?search=${inputQuery}&page=1`);
+  }
 
   const { id } = useParams();
 
@@ -47,8 +58,6 @@ export const MovieDetails = () => {
   //     someRef.current.production = "fdfjjj";
   //   }
   // });
-
-  console.log(castPeople);
 
   return status === "loading" ? (
     <Loader />

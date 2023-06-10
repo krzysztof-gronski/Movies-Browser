@@ -44,13 +44,11 @@ export const MoviesList = () => {
   useEffect(() => {
     dispatch(setURLQuery(urlQuery ? { urlQuery: urlQuery } : { urlQuery: "" }));
     if (urlQuery) {
-      dispatch(fetchSearchMovies(page));
-    } else {
       dispatch(fetchMovies(page));
+    } else {
+      dispatch(fetchSearchMovies(page));
     };
   }, [page, dispatch, urlQuery]);
-
-  console.log("S" + status);
 
   return status === "loading" ? (
     <Loader />

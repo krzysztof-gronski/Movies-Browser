@@ -1,4 +1,4 @@
-import { call, put, takeLatest, select } from "redux-saga/effects";
+import { call, put, takeLatest, select, debounce } from "redux-saga/effects";
 import {
   fetchMovieDetailsSuccess,
   fetchMovieDetailsError,
@@ -7,10 +7,13 @@ import {
   fetchCredits,
   fetchMovieCredits,
   fetchMovieDetails,
+  inputDelay,
+  activateInputQuery,
+  setInputQuery,
 } from "./movieDetailsSlice";
 import { getMovieCredits, getMovieDetails } from "../api/apiData";
 
-export function* fetchMovieDetailsHandler() {
+function* fetchMovieDetailsHandler() {
   try {
     const id = yield select(selectMovieId);
     const details = yield call(getMovieDetails, id);
@@ -24,12 +27,11 @@ export function* fetchMovieDetailsHandler() {
   }
 }
 
-
 function* fetchCreditsHandler() {
   try {
     const id = yield select(selectMovieId);
     const credits = yield call(getMovieCredits, { movieId: id });
-    if (credits.length < 1 ) {
+    if (credits.length < 1) {
       throw new Error();
     }
     yield put(fetchMovieCredits(credits));
@@ -38,9 +40,18 @@ function* fetchCreditsHandler() {
   }
 }
 
+function* inputDelayHandler({ payload }) {
+  try {
+    const inputQuery = payload.inputRef.current.value;
+    yield put(setInputQuery({inputQuery}));
+  } catch (error) {
+    yield call(console.log, error);
+  }
+}
 
 export function* movieDetailsSaga() {
   yield takeLatest(getMovieId.type, fetchMovieDetailsHandler);
   yield takeLatest(fetchMovieCredits.type, fetchCreditsHandler);
   yield takeLatest(fetchMovieDetails.type, fetchMovieDetailsHandler);
+  yield debounce(2000, inputDelay.type, inputDelayHandler);
 }

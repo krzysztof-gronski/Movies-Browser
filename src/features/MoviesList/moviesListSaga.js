@@ -21,7 +21,7 @@ function* fetchMoviesHandler({ payload: page }) {
   try {
     const status = "loading";
     yield put(setStatus({ status }));
-    yield delay(2000);
+    //yield delay(2000);
     const urlQuery = yield select(selectURLQuery);
     let movies;
     if (urlQuery !== "") {

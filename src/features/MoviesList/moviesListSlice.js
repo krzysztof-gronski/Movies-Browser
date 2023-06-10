@@ -26,9 +26,9 @@ const moviesListSlice = createSlice({
       state.page = moviesData.movies.page;
       state.totalPages = moviesData.movies.total_pages;
       state.totalResults = moviesData.movies.total_results;
-      state.status = "success";
       state.genres = moviesData.genres;
       state.query = moviesData.query;
+      state.status = "success";
     },
     fetchMoviesError: (state) => {
       state.status = "error";

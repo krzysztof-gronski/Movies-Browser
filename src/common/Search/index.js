@@ -2,16 +2,21 @@ import { useHistory, useLocation } from "react-router-dom";
 import { Input } from "./styled";
 import { useQueryParameter, useReplaceQueryParameter } from "./queryParameters";
 import searchQueryParamName from "./searchQueryParamName";
-import { useEffect, useRef } from "react";
+import { useEffect, useRef, useState } from "react";
+import { useDispatch } from "react-redux";
+import { inputDelay } from "../../features/MovieDetails/movieDetailsSlice";
 
 const Search = () => {
   const location = useLocation();
-  const query = useQueryParameter(searchQueryParamName);
+  //const query = useQueryParameter(searchQueryParamName);
+  const [query, setQuery] = useState("");
   const replaceQueryParameter = useReplaceQueryParameter();
   const inputRef = useRef(null);
   const history = useHistory();
+  const dispatch = useDispatch();
 
   const onInputChange = ({ target }) => {
+    setQuery(target.value);
     if (target.value === "") {
       replaceQueryParameter({
         key: searchQueryParamName,
@@ -22,15 +27,12 @@ const Search = () => {
       key: searchQueryParamName,
       value: target.value.trim() !== "" ? target.value : undefined,
     });
-    if (
-      location.pathname.includes("/movies") ||
-      location.pathname.includes("/movie")
-    ) {
+    if (location.pathname.includes("/movies")) {
       history.push(`/movies?search=${target.value}&page=1`);
-      //window.location.reload();
+    } else if (location.pathname.includes("/movie/")) {
+      dispatch(inputDelay({ inputRef }));
     } else {
       history.push(`/people?search=${target.value}&page=1`);
-      //window.location.reload();
     }
   };
 
