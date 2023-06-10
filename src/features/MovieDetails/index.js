@@ -48,8 +48,6 @@ export const MovieDetails = () => {
   //   }
   // });
 
-  console.log(castPeople);
-
   return status === "loading" ? (
     <Loader />
   ) : status === "error" ? (

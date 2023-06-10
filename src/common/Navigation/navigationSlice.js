@@ -2,13 +2,14 @@ import { createSlice } from "@reduxjs/toolkit";
 
 const navigationSlice = createSlice({
   name: "navigation",
-  query: "",
+  query: "",//localStorage.getItem("query"),
   initialState: {},
   reducers: {
     reloadPage: (state, { payload }) => {
     },
     setQuery: (state, { payload }) => {
       state.query = payload.query;
+      //console.log("Q"+state.query);
     },
   },
   },

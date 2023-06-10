@@ -29,7 +29,7 @@ const moviesListSlice = createSlice({
     },
     setQuery: (state, { payload }) => {
       state.query = payload.query;
-      console.log(payload.query);
+      //console.log(payload.query);
       //state.status = "loading";
     },
   },

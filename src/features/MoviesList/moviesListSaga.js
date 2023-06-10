@@ -15,7 +15,6 @@ import { selectQuery } from "../../common/Navigation/navigationSlice";
 
 export function* fetchMoviesHandler({ payload: page }) {
   try {
-    yield delay(1000);
     const query = yield select(selectQuery);
     let movies;
     if (query !== "") {

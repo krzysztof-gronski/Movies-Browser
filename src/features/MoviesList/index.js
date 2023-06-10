@@ -27,6 +27,7 @@ import {
 } from "./moviesListSlice";
 import { IMAGE_PATH } from "../api/apiData";
 import { selectQuery, setQuery } from "../../common/Navigation/navigationSlice";
+import { useHistory, useLocation } from "react-router-dom";
 
 export const MoviesList = () => {
   const dispatch = useDispatch();
@@ -38,15 +39,17 @@ export const MoviesList = () => {
   const query = useSelector(selectQuery);
   const totalResults = useSelector(selectTotalResults);
   const urlQuery = useQueryParameter("search");
+  const location = useLocation();
+  const history  = useHistory();
 
   if (!page) page = 1;
 
   useEffect(() => {
     dispatch(setQuery(urlQuery ? { query: urlQuery } : { query: "" }));
     dispatch(fetchMovies(page));
-  }, [page, dispatch,query]);
+  }, [page, dispatch, location, history]);
 
-  console.log(query);
+  //console.log(query);
 
   return status === "loading" ? (
     <Loader />

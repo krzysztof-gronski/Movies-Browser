@@ -6,14 +6,18 @@ function* reloadPageHandler({payload}) {
     
     // yield call(window.location.reload,false);
     //yield window.location="https://wp.pl";
-    const query = payload.query;//yield select(selectQuery);
-    console.log(query);
+    //const query = yield select(selectQuery);
+    //yield call(localStorage.setItem,{key:"query",value:query});
+    const newURL = payload.newURL;//yield select(selectQuery);
+    //yield call(console.log,query);
+    window.history.pushState({}, null, newURL);
+    window.location.reload();
     //yield call(console.log, query);
-    yield put(setQuery({ query }));
+    //yield put(setQuery({ query }));
     //window.location.reload();
   } catch (error) {}
 }
 
 export function* navigationSaga() {
-  yield debounce(1000, reloadPage.type, reloadPageHandler);
+  yield debounce(2000, reloadPage.type, reloadPageHandler);
 }
