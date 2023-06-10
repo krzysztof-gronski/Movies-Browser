@@ -40,7 +40,7 @@ export const PersonDetails = () => {
     dispatch(setURLQuery({ urlQuery }));
     const query = "";
     dispatch(setInputQuery({ inputQuery: query }));
-    history.push(`/movies?search=${urlQuery}&page=1`);
+    history.push(`/people?search=${urlQuery}&page=1`);
   }
 
   const { id } = useParams();
