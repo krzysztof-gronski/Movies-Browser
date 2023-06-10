@@ -6,6 +6,7 @@ import { useEffect, useRef, useState } from "react";
 import { useDispatch } from "react-redux";
 import { inputDelay } from "../../features/MovieDetails/movieDetailsSlice";
 import { setInputQuery, setInputRef } from "../Navigation/navigationSlice";
+import { personInputDelay } from "../../features/PersonDetails/personDetailsSlice";
 
 const Search = () => {
   const location = useLocation();
@@ -40,8 +41,12 @@ const Search = () => {
       history.push(`/movies?search=${target.value}&page=1`);
     } else if (location.pathname.includes("/movie/")) {
       dispatch(inputDelay({ inputRef }));
-    } else {
+    } else if (location.pathname.includes("/people")) {
+      const inputQuery = target.value;
+      dispatch(setInputQuery({ inputQuery }));
       history.push(`/people?search=${target.value}&page=1`);
+    } else if (location.pathname.includes("/person/")) {
+      dispatch(personInputDelay({ inputRef }));
     }
   };
 
