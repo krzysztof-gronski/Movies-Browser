@@ -15,20 +15,15 @@ import {
   selectCast,
   selectCrew,
   selectDetails,
-  selectInputQuery,
-  selectInputQueryActivated,
   selectStatus,
 } from "./movieDetailsSlice";
 import { useHistory, useParams } from "react-router-dom";
 import { useEffect } from "react";
 import missingMoviePoster from "../../images/missingMoviePoster.svg";
 import missingPersonPoster from "../../images/missingPersonPoster.svg";
-import { useState } from "react";
-import { useRef } from "react";
 import { Loader } from "../../common/Loader";
 import { ErrorPage } from "../../common/ErrorPage";
-import { setQuery, setURLQuery } from "../MoviesList/moviesListSlice";
-import { useQueryParameter } from "../../common/Search/queryParameters";
+import { selectInputQuery, setURLQuery } from "../../common/Navigation/navigationSlice";
 
 export const MovieDetails = () => {
   const dispatch = useDispatch();

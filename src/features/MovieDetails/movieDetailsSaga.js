@@ -4,14 +4,12 @@ import {
   fetchMovieDetailsError,
   getMovieId,
   selectMovieId,
-  fetchCredits,
   fetchMovieCredits,
   fetchMovieDetails,
   inputDelay,
-  activateInputQuery,
-  setInputQuery,
 } from "./movieDetailsSlice";
 import { getMovieCredits, getMovieDetails } from "../api/apiData";
+import { setInputQuery } from "../../common/Navigation/navigationSlice";
 
 function* fetchMovieDetailsHandler() {
   try {
@@ -43,7 +41,9 @@ function* fetchCreditsHandler() {
 function* inputDelayHandler({ payload }) {
   try {
     const inputQuery = payload.inputRef.current.value;
+    //payload.inputRef.current.value="";
     yield put(setInputQuery({inputQuery}));
+    
   } catch (error) {
     yield call(console.log, error);
   }

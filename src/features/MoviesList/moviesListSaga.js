@@ -11,14 +11,16 @@ import {
   fetchMovies,
   fetchMoviesSuccess,
   fetchMoviesError,
-  selectQuery,
   setStatus,
   fetchSearchMovies,
-  selectURLQuery,
-  selectInputQuery,
-  setInputQuery,
 } from "./moviesListSlice";
-import { selectInputRef } from "../../common/Navigation/navigationSlice";
+import {
+  selectInputQuery,
+  selectInputRef,
+  selectURLQuery,
+  setInputQuery,
+  setQueryLabel,
+} from "../../common/Navigation/navigationSlice";
 
 function* fetchMoviesHandler({ payload: page }) {
   try {
@@ -38,7 +40,9 @@ function* fetchMoviesHandler({ payload: page }) {
     if (movies.length < 1 || genres.length < 1) {
       throw new Error();
     }
-    yield put(fetchMoviesSuccess({ movies, genres, urlQuery }));
+    //yield call(console.log,urlQuery);
+    yield put(setQueryLabel({ queryLabel: urlQuery }));
+    yield put(fetchMoviesSuccess({ movies, genres }));
     if (inputQuery) {
       const query = "";
       yield put(setInputQuery({ query }));
@@ -47,7 +51,7 @@ function* fetchMoviesHandler({ payload: page }) {
     }
   } catch (error) {
     yield put(fetchMoviesError());
-    console.log(error);
+    //console.log(error);
   }
 }
 

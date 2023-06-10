@@ -17,19 +17,13 @@ import {
   fetchMovies,
   fetchSearchMovies,
   selectGenres,
-  selectInputQuery,
   selectMovies,
-  selectQuery,
-  selectQueryLabel,
   selectStatus,
   selectTotalPages,
   selectTotalResults,
-  selectURLQuery,
-  setInputQuery,
-  setQuery,
-  setURLQuery,
 } from "./moviesListSlice";
 import { IMAGE_PATH } from "../api/apiData";
+import { selectInputQuery, selectQueryLabel, setURLQuery } from "../../common/Navigation/navigationSlice";
 
 export const MoviesList = () => {
   const dispatch = useDispatch();
