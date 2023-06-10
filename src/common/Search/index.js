@@ -54,6 +54,10 @@ const Search = () => {
     inputRef.current.focus();
   }, [query]);
 
+  useEffect(() => {
+    inputRef.current.value = "";
+  }, [location]);
+
   return (
     <Input
       ref={inputRef}
