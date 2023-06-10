@@ -27,10 +27,10 @@ const Search = () => {
       location.pathname.includes("/movie")
     ) {
       history.push(`/movies?search=${target.value}&page=1`);
-      window.location.reload();
+      //window.location.reload();
     } else {
       history.push(`/people?search=${target.value}&page=1`);
-      window.location.reload();
+      //window.location.reload();
     }
   };
 
