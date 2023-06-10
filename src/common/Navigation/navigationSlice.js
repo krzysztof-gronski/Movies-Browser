@@ -11,7 +11,6 @@ const navigationSlice = createSlice({
   reducers: {
     setInputQuery: (state, { payload }) => {
       state.inputQuery = payload.inputQuery;
-      state.inputRef = payload.inputRef;
       //state.status = "loading";
     },
     setURLQuery: (state, { payload }) => {
@@ -24,7 +23,7 @@ const navigationSlice = createSlice({
     },
     setInputRef: (state, { payload: search }) => {
       //console.log(search.inputRef);
-      //state.inputRef = search.inputRef;
+      state.inputRef = search.inputRef;
     },
   },
 });

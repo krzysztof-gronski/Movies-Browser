@@ -22,6 +22,7 @@ const Search = () => {
   // }
 
   const onInputChange = ({ target }) => {
+    dispatch(setInputRef({ inputRef }));
     setQuery(target.value);
     if (target.value === "") {
       replaceQueryParameter({
@@ -35,8 +36,7 @@ const Search = () => {
     });
     if (location.pathname.includes("/movies")) {
       const inputQuery = target.value;
-      dispatch(setInputQuery({ inputQuery, inputRef }));
-      //dispatch(setInputQuery({ inputQuery, inputRef }));
+      dispatch(setInputQuery({ inputQuery }));
       history.push(`/movies?search=${target.value}&page=1`);
     } else if (location.pathname.includes("/movie/")) {
       dispatch(inputDelay({ inputRef }));
