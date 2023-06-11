@@ -2,6 +2,11 @@
 
 ![video](public/gif.gif)
 
+## Demo
+https://krzysztof-gronski.github.io/Movies-Browser/
+
+This project arose as a creation of passionate programming enthusiasts team during course of IT academy - [Youcode](https://youcode.pl). Enjoy!
+
 ## General Information
 
 Movies Browser is an application that allows you to search for movies as well as people from the movie industry. 
