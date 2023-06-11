@@ -44,7 +44,6 @@ function* fetchCreditsHandler() {
 function* inputDelayHandler({ payload }) {
   try {
     const inputQuery = payload.inputRef.current.value;
-    //payload.inputRef.current.value="";
     yield put(setInputQuery({inputQuery}));
     
   } catch (error) {
@@ -56,5 +55,5 @@ export function* movieDetailsSaga() {
   yield takeLatest(getMovieId.type, fetchMovieDetailsHandler);
   yield takeLatest(fetchMovieCredits.type, fetchCreditsHandler);
   yield takeLatest(fetchMovieDetails.type, fetchMovieDetailsHandler);
-  yield debounce(2000, inputDelay.type, inputDelayHandler);
+  yield debounce(1000, inputDelay.type, inputDelayHandler);
 }

@@ -1,4 +1,4 @@
-import { call, put, takeLatest, select, delay, debounce } from "redux-saga/effects";
+import { call, put, takeLatest, select, debounce } from "redux-saga/effects";
 import {
   fetchPersonDetailsSuccess,
   selectPersonId,
@@ -40,5 +40,5 @@ function* inputDelayHandler({ payload }) {
 
 export function* personDetailsSaga() {
   yield takeLatest(getDetailsForPerson.type, fetchPersonDetailsHandler);
-  yield debounce(2000, personInputDelay.type, inputDelayHandler);
+  yield debounce(1000, personInputDelay.type, inputDelayHandler);
 }

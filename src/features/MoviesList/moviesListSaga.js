@@ -48,7 +48,6 @@ function* fetchMoviesHandler({ payload: page }) {
       const query = "";
       yield put(setInputQuery({ query }));
     } else {
-      //inputRef.current.value = "";
     }
     const pageName="movies";
     yield put(setPreviousPage({previousPage: pageName}));
@@ -60,5 +59,5 @@ function* fetchMoviesHandler({ payload: page }) {
 
 export function* moviesListSaga() {
   yield takeLatest(fetchMovies.type, fetchMoviesHandler);
-  yield debounce(2000, fetchSearchMovies.type, fetchMoviesHandler);
+  yield debounce(1000, fetchSearchMovies.type, fetchMoviesHandler);
 }

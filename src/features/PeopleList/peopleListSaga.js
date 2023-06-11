@@ -52,5 +52,5 @@ function* fetchPeopleHandler({ payload: page }) {
 
 export function* peopleListSaga() {
   yield takeLatest(fetchPeople.type, fetchPeopleHandler);
-  yield debounce(2000, fetchSearchPeople.type, fetchPeopleHandler);
+  yield debounce(1000, fetchSearchPeople.type, fetchPeopleHandler);
 }
