@@ -3,8 +3,6 @@ import {
   put,
   debounce,
   select,
-  takeLatest,
-  delay,
 } from "redux-saga/effects";
 import {
   selectPage,

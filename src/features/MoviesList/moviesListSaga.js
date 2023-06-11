@@ -2,7 +2,6 @@ import {
   call,
   put,
   select,
-  delay,
   debounce,
 } from "redux-saga/effects";
 import { getGenres, getMovies, searchMovie } from "../api/apiData";

@@ -21,8 +21,6 @@ import { useParams } from "react-router-dom";
 import { useEffect } from "react";
 import missingMoviePoster from "../../images/missingMoviePoster.svg";
 import missingPersonPoster from "../../images/missingPersonPoster.svg";
-import { useState } from "react";
-import { useRef } from "react";
 import { Loader } from "../../common/Loader";
 import { ErrorPage } from "../../common/ErrorPage";
 import { nanoid } from "@reduxjs/toolkit";

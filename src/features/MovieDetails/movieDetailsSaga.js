@@ -4,7 +4,6 @@ import {
   fetchMovieDetailsError,
   getMovieId,
   selectMovieId,
-  fetchCredits,
   fetchMovieCredits,
   fetchMovieDetails,
 } from "./movieDetailsSlice";
@@ -23,7 +22,6 @@ export function* fetchMovieDetailsHandler() {
     yield put(fetchMovieDetailsError());
   }
 }
-
 
 function* fetchCreditsHandler() {
   try {
