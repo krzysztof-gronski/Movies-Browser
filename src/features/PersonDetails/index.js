@@ -48,7 +48,7 @@ export const PersonDetails = () => {
     dispatch(getDetailsForPerson({ personId: id }));
   }, [id, dispatch]);
 
-  return 
+  return (
     status === "loading" ? (
       <Loader />
     ) : status === "error" ? (
@@ -129,5 +129,5 @@ export const PersonDetails = () => {
         </ContentContainer>
       </Container>
     )
-  );
+  ));
 };
