@@ -17,21 +17,32 @@ import {
   selectDetails,
   selectStatus,
 } from "./movieDetailsSlice";
-import { useParams } from "react-router-dom";
+import { useHistory, useParams } from "react-router-dom";
 import { useEffect } from "react";
 import missingMoviePoster from "../../images/missingMoviePoster.svg";
 import missingPersonPoster from "../../images/missingPersonPoster.svg";
 import { Loader } from "../../common/Loader";
 import { ErrorPage } from "../../common/ErrorPage";
 import { nanoid } from "@reduxjs/toolkit";
+import { selectInputQuery, setInputQuery, setURLQuery } from "../../common/Navigation/navigationSlice";
 
 export const MovieDetails = () => {
   const dispatch = useDispatch();
   const movieDetails = useSelector(selectDetails);
   const castPeople = useSelector(selectCast);
   const crewPeople = useSelector(selectCrew);
+  const inputQuery = useSelector(selectInputQuery);
+  const history = useHistory();
   let status = useSelector(selectStatus);
   //const someRef = useRef(null);
+
+  if (inputQuery) {
+    const urlQuery = inputQuery;
+    dispatch(setURLQuery({ urlQuery }));
+    const query = "";
+    dispatch(setInputQuery({ inputQuery: query }));
+    history.push(`/movies?search=${urlQuery}&page=1`);
+  }
 
   const { id } = useParams();
 
@@ -46,8 +57,6 @@ export const MovieDetails = () => {
   //     someRef.current.production = "fdfjjj";
   //   }
   // });
-
-
 
   return status === "loading" ? (
     <Loader />

@@ -1,4 +1,4 @@
-import { useParams } from "react-router-dom";
+import { useHistory, useParams } from "react-router-dom";
 import {
   Container,
   ContentContainer,
@@ -22,6 +22,7 @@ import { selectPersonGenres, selectStatus } from "./personDetailsSlice";
 import { Loader } from "../../common/Loader";
 import { ErrorPage } from "../../common/ErrorPage";
 import { nanoid } from "@reduxjs/toolkit";
+import { selectInputQuery, setInputQuery, setURLQuery } from "../../common/Navigation/navigationSlice";
 
 export const PersonDetails = () => {
   const dispatch = useDispatch();
@@ -30,6 +31,16 @@ export const PersonDetails = () => {
   const castData = useSelector(selectCast);
   const status = useSelector(selectStatus);
   const genres = useSelector(selectPersonGenres);
+  const inputQuery = useSelector(selectInputQuery);
+  const history = useHistory();
+
+  if (inputQuery) {
+    const urlQuery = inputQuery;
+    dispatch(setURLQuery({ urlQuery }));
+    const query = "";
+    dispatch(setInputQuery({ inputQuery: query }));
+    history.push(`/people?search=${urlQuery}&page=1`);
+  }
 
   const { id } = useParams();
 
@@ -37,11 +48,12 @@ export const PersonDetails = () => {
     dispatch(getDetailsForPerson({ personId: id }));
   }, [id, dispatch]);
 
-  return status === "loading" ? (
-    <Loader />
-  ) : status === "error" ? (
-    <ErrorPage />
-  ) : (
+  return (
+    status === "loading" ? (
+      <Loader />
+    ) : status === "error" ? (
+      <ErrorPage />
+    ) : (
     personDetails && (
       <Container personDetailsFlag>
         <Tile

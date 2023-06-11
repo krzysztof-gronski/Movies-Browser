@@ -8,23 +8,22 @@ import {
 } from "../../common/MainContainer/styled";
 import { Tile } from "../../common/Tile";
 import Pagination from "../../common/Pagination";
-import {
-  useQueryParameter,
-} from "../../common/Search/queryParameters";
+import { useQueryParameter } from "../../common/Search/queryParameters";
 import { useDispatch, useSelector } from "react-redux";
 import { Loader } from "../../common/Loader";
 import { ErrorPage } from "../../common/ErrorPage";
 import { NoResults } from "../../common/NoResults";
 import {
   fetchMovies,
+  fetchSearchMovies,
   selectGenres,
   selectMovies,
   selectStatus,
   selectTotalPages,
   selectTotalResults,
-  setQuery,
 } from "./moviesListSlice";
 import { IMAGE_PATH } from "../api/apiData";
+import { selectInputQuery, selectQueryLabel, setURLQuery } from "../../common/Navigation/navigationSlice";
 
 export const MoviesList = () => {
   const dispatch = useDispatch();
@@ -33,28 +32,36 @@ export const MoviesList = () => {
   const totalPages = useSelector(selectTotalPages);
   let page = useQueryParameter("page");
   const genres = useSelector(selectGenres);
-  const query = useQueryParameter("search");
+  const urlQuery = useQueryParameter("search");
+  const queryLabel = useSelector(selectQueryLabel);
+  let inputQuery = useSelector(selectInputQuery);
   const totalResults = useSelector(selectTotalResults);
 
   if (!page) page = 1;
 
   useEffect(() => {
-    dispatch(setQuery(query ? { query: query } : { query: "" }));
-    dispatch(fetchMovies(page));
-  }, [page, dispatch, query]);
+    dispatch(setURLQuery(urlQuery ? { urlQuery: urlQuery } : { urlQuery: "" }));
+    if (inputQuery) {
+      dispatch(fetchSearchMovies(page));
+      // inputQuery="";
+      // dispatch(setInputQuery({inputQuery}));
+    } else {
+      dispatch(fetchMovies(page));
+    }
+  }, [page, dispatch, urlQuery]);
 
   return status === "loading" ? (
     <Loader />
   ) : status === "error" ? (
     <ErrorPage />
-  ) : query && movies.length <= 0 ? (
+  ) : ((urlQuery || inputQuery) && movies.length <= 0) ? (
     <NoResults />
   ) : (
     <Container moviesListFlag>
       <ContentContainer>
         <Header>
-          {query
-            ? `Search results for "${query}" (${totalResults})`
+          {queryLabel
+            ? `Search results for "${queryLabel}" (${totalResults})`
             : "Popular movies"}
         </Header>
         <TilesContainer>

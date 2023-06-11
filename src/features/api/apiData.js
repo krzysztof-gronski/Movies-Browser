@@ -110,8 +110,8 @@ export const getPersonCredits = async (personId) => {
   }
 };
 
-export const searchPerson = async (query) => {
-  const url = `search/person?language=en-US&query=${query}&include_adult=false`;
+export const searchPerson = async (query,page) => {
+  const url = `search/person?language=en-US&query=${query}&include_adult=false&page=${page}`;
   const response = await tmdb.get(url);
 
   if (!response.ok) {

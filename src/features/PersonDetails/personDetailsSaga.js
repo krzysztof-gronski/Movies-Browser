@@ -1,15 +1,16 @@
-import { call, put, takeLatest, select, delay } from "redux-saga/effects";
+import { call, put, takeLatest, select, debounce } from "redux-saga/effects";
 import {
   fetchPersonDetailsSuccess,
   selectPersonId,
   fetchPersonDetailsError,
   getDetailsForPerson,
+  personInputDelay,
 } from "./personDetailsSlice";
 import { getGenres, getPersonDetails, getPersonCredits } from "../api/apiData";
+import { setInputQuery, setPreviousPage } from "../../common/Navigation/navigationSlice";
 
 function* fetchPersonDetailsHandler() {
   try {
-    yield delay(1000);
     const id = yield select(selectPersonId);
     const genres = yield call(getGenres);
     const details = yield call(getPersonDetails, id);
@@ -19,12 +20,25 @@ function* fetchPersonDetailsHandler() {
       throw new Error();
     }
     yield put(fetchPersonDetailsSuccess({ details, credits, genres }));
+
+    const pageName="person";
+    yield put(setPreviousPage({previousPage: pageName}));
   } catch (error) {
-    yield call(console.log, "putError");
     yield put(fetchPersonDetailsError());
+  }
+}
+
+function* inputDelayHandler({ payload }) {
+  try {
+    const inputQuery = payload.inputRef.current.value;
+    yield put(setInputQuery({inputQuery}));
+    
+  } catch (error) {
+    yield call(console.log, error);
   }
 }
 
 export function* personDetailsSaga() {
   yield takeLatest(getDetailsForPerson.type, fetchPersonDetailsHandler);
+  yield debounce(1000, personInputDelay.type, inputDelayHandler);
 }

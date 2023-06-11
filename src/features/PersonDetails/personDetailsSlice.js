@@ -25,12 +25,14 @@ const personSlice = createSlice({
       state.personId = person.personId;
       state.status = "loading";
     },
+    personInputDelay: (state, { payload }) => {},
   },
 });
 export const {
   fetchPersonDetailsSuccess,
   getDetailsForPerson,
   fetchPersonDetailsError,
+  personInputDelay,
 } = personSlice.actions;
 
 export const selectPersonState = (state) => state.personDetails;
