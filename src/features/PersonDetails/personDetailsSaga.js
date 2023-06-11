@@ -31,7 +31,6 @@ function* fetchPersonDetailsHandler() {
 function* inputDelayHandler({ payload }) {
   try {
     const inputQuery = payload.inputRef.current.value;
-    //payload.inputRef.current.value="";
     yield put(setInputQuery({inputQuery}));
     
   } catch (error) {
