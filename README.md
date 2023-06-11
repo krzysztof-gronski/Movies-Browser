@@ -14,7 +14,7 @@ It was based on a graphic design in Figma. Data about videos and people are fetc
 The Movie Browser application is the final project of the **Frontend Developer course in YouCode.**
 
 ## Description
-Brilliant application that will take a user into cinematic world, which allows one to explore throughout plenty of glamorous movies extracted from tremendous database. Unquestionably any daredevil user is predestined to dive deeply within endless library of comprehensive dossier covering popular movies, its crew and charmfull actors. Furthermore all garnished with delightful  placards among curtains infused into intuitive interface, but let us make you aware.. the legend says it's addictive one.
+This brilliant application will take a user into cinematic world, which allows one to explore throughout plenty of glamorous movies extracted from tremendous database. Unquestionably any daredevil user is predestined to dive deeply within endless library of comprehensive dossier covering popular movies, its crew and charmfull actors. Furthermore all garnished with delightful  placards among curtains infused into intuitive interface, but let us make you aware.. the legend says it's addictive one.
 
 ## Instructions
 - Movies/people search by popularity (default) or by name (using search bar)
