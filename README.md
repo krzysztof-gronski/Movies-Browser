@@ -1,26 +1,20 @@
-# 🧱 **MOVIES BROWSER - UNDER CONSTRUCTION** 🧱
+## Movies Browser - Group project  🎬 
 
-  🚧  🚧  🚧  🚧  🚧  🚧  🚧  🚧  🚧  🚧  🚧  🚧  🚧  🚧  🛠️  🚧  🚧  🚧  🚧  🚧 🚧  🚧  🚧  🚧  🚧  🚧  🚧  🚧  🚧  
-## Contents
-- [Description](#Description)
-- [Demo](#Demo)
-- [Preview](#Preview)
-- [Instructions](#Instructions)
-- [Developers](#Developers)
-- [Features](#Features)
-- [Technologies](#Technologies)
-- [API Provider](#API-Provider)
-- [Available Scripts](#Available-Scripts)
-
-## Description
-Brilliant application that will take a user into cinematic world, which allows one to explore throughout plenty of glamorous movies extracted from tremendous database. Unquestionably any daredevil user is predestined to dive deeply within endless library of comprehensive dossier covering popular movies, its crew and charmfull actors. Furthermore all garnished with delightful  placards among curtains infused into intuitive interface, but let us make you aware.. the legend says it's addictive one.
-
-This project arose as a creation of passionate programming enthusiasts team during course of IT academy - [Youcode](https://youcode.pl). Enjoy!
+![video](public/gif.gif)
 
 ## Demo
 https://krzysztof-gronski.github.io/Movies-Browser/
 
-## Preview
+This project arose as a creation of passionate programming enthusiasts team during course of IT academy - [Youcode](https://youcode.pl). Enjoy!
+
+## General Information
+
+Movies Browser is an application that allows you to search for movies as well as people from the movie industry. 
+It was based on a graphic design in Figma. Data about videos and people are fetched from an external API [**The Movie Database**](https://www.themoviedb.org/).
+The Movie Browser application is the final project of the **Frontend Developer course in YouCode.**
+
+## Description
+Brilliant application that will take a user into cinematic world, which allows one to explore throughout plenty of glamorous movies extracted from tremendous database. Unquestionably any daredevil user is predestined to dive deeply within endless library of comprehensive dossier covering popular movies, its crew and charmfull actors. Furthermore all garnished with delightful  placards among curtains infused into intuitive interface, but let us make you aware.. the legend says it's addictive one.
 
 ## Instructions
 - Movies/people search by popularity (default) or by name (using search bar)
@@ -48,7 +42,13 @@ https://krzysztof-gronski.github.io/Movies-Browser/
 - Redux (Toolkit, Saga)
 - Axios
 - TMDB API fetch
-
+- BEM convention
+- Normalize 
+- GIT
+- Babel
+- Webpack
+- Media queries
+- Immutability
 ## API Provider
 The project is using data served by [The Movie Database](https://www.themoviedb.org/)
 
