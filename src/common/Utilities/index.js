@@ -18,7 +18,7 @@ export const getGenreName = (genreId, genres) => {
 
 export const replaceLongCountryNames = (countryNames) => {
   const countriesMap = new Map([
-    ["united States of America", "USA"],
+    ["United States of America", "USA"],
     ["United Kingdom", "UK"],
     ["Poland", "PL"],
   ]);
