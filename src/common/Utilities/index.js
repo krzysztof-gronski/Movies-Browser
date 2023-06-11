@@ -18,13 +18,13 @@ export const getGenreName = (genreId, genres) => {
 
 export const replaceLongCountryNames = (countryNames) => {
   const countriesMap = new Map([
-    ["United States of America", "USA"],
+    ["united States of America", "USA"],
     ["United Kingdom", "UK"],
     ["Poland", "PL"],
   ]);
   countriesMap.forEach((shortName, longName) => {
-    console.log(longName, shortName);
-    countryNames = countryNames.replace(longName, shortName);
+    const regexp=new RegExp(longName,"ig");
+    countryNames = countryNames.replace(regexp, shortName);
   });
   return countryNames;
 };
