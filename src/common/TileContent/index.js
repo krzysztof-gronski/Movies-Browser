@@ -126,7 +126,7 @@ export const TileTitle = styled.header`
     backdropFlag &&
     css`
       font-weight: 600;
-      font-size: 64px;
+      font-size: 4vw;
       line-height: 1.2;
       color: ${({ theme }) => theme.colors.white};
 
