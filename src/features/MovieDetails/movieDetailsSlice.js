@@ -30,8 +30,8 @@ const movieDetailsSlice = createSlice({
       state.status = "loading";
       state.movieId = payload.movieId;
     },
-
     fetchMovieCredits: (state, { payload: credits }) => {},
+    inputDelay: (state, { payload }) => {},
   },
 });
 export const {
@@ -40,6 +40,7 @@ export const {
   fetchMovieDetailsError,
   getMovieId,
   fetchMovieCredits,
+  inputDelay,
 } = movieDetailsSlice.actions;
 
 export const selectMovieState = (state) => state.movieDetails;

@@ -4,21 +4,35 @@ import {
   select,
   delay,
   debounce,
+  takeLatest,
 } from "redux-saga/effects";
 import { getGenres, getMovies, searchMovie } from "../api/apiData";
 import {
   fetchMovies,
   fetchMoviesSuccess,
   fetchMoviesError,
-  selectQuery,
+  setStatus,
+  fetchSearchMovies,
 } from "./moviesListSlice";
+import {
+  selectInputQuery,
+  selectInputRef,
+  selectURLQuery,
+  setInputQuery,
+  setPreviousPage,
+  setQueryLabel,
+} from "../../common/Navigation/navigationSlice";
 
-export function* fetchMoviesHandler({ payload: page }) {
+function* fetchMoviesHandler({ payload: page }) {
   try {
-    const query = yield select(selectQuery);
+    const status = "loading";
+    yield put(setStatus({ status }));
+    const urlQuery = yield select(selectURLQuery);
+    const inputQuery = yield select(selectInputQuery);
+    const inputRef = yield select(selectInputRef);
     let movies;
-    if (query !== "") {
-      movies = yield call(searchMovie, query, page);
+    if (urlQuery !== "") {
+      movies = yield call(searchMovie, urlQuery, page);
     } else {
       movies = yield call(getMovies, page);
     }
@@ -26,12 +40,24 @@ export function* fetchMoviesHandler({ payload: page }) {
     if (movies.length < 1 || genres.length < 1) {
       throw new Error();
     }
+    //yield call(console.log,urlQuery);
+    yield put(setQueryLabel({ queryLabel: urlQuery }));
     yield put(fetchMoviesSuccess({ movies, genres }));
+    //inputRef.current.value = "";
+    if (inputQuery) {
+      const query = "";
+      yield put(setInputQuery({ query }));
+    } else {
+    }
+    const pageName="movies";
+    yield put(setPreviousPage({previousPage: pageName}));
   } catch (error) {
     yield put(fetchMoviesError());
+    console.log(error);
   }
 }
 
 export function* moviesListSaga() {
-  yield debounce(1000, fetchMovies.type, fetchMoviesHandler);
+  yield takeLatest(fetchMovies.type, fetchMoviesHandler);
+  yield debounce(1000, fetchSearchMovies.type, fetchMoviesHandler);
 }
