@@ -7,6 +7,7 @@ const navigationSlice = createSlice({
     urlQuery: "",
     queryLabel: "",
     inputRef: null,
+    previousPage: "",
   },
   reducers: {
     setInputQuery: (state, { payload }) => {
@@ -25,6 +26,10 @@ const navigationSlice = createSlice({
       //console.log(search.inputRef);
       state.inputRef = search.inputRef;
     },
+    setPreviousPage: (state, { payload }) => {
+      //console.log(search.inputRef);
+      state.previousPage = payload.previousPage;
+    },
   },
 });
 export const {
@@ -32,6 +37,7 @@ export const {
   setURLQuery,
   setQueryLabel,
   setInputRef,
+  setPreviousPage,
 } = navigationSlice.actions;
 
 export const selectNavigationState = (state) => state.navigation;
@@ -41,5 +47,7 @@ export const selectInputQuery = (state) =>
 export const selectURLQuery = (state) => selectNavigationState(state).urlQuery;
 export const selectQueryLabel = (state) =>
   selectNavigationState(state).queryLabel;
+  export const selectPreviousPage = (state) =>
+  selectNavigationState(state).previousPage;
 
 export default navigationSlice.reducer;

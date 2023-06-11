@@ -9,7 +9,7 @@ import {
   inputDelay,
 } from "./movieDetailsSlice";
 import { getMovieCredits, getMovieDetails } from "../api/apiData";
-import { setInputQuery } from "../../common/Navigation/navigationSlice";
+import { setInputQuery, setPreviousPage } from "../../common/Navigation/navigationSlice";
 
 function* fetchMovieDetailsHandler() {
   try {
@@ -20,6 +20,8 @@ function* fetchMovieDetailsHandler() {
       throw new Error();
     }
     yield put(fetchMovieDetailsSuccess({ details, credits }));
+    const pageName="movie";
+    yield put(setPreviousPage({previousPage: pageName}));
   } catch (error) {
     yield put(fetchMovieDetailsError());
   }
@@ -33,6 +35,7 @@ function* fetchCreditsHandler() {
       throw new Error();
     }
     yield put(fetchMovieCredits(credits));
+    
   } catch (error) {
     yield put(fetchMovieDetailsError());
   }

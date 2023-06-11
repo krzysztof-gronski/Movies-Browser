@@ -12,6 +12,7 @@ import {
   selectInputRef,
   selectURLQuery,
   setInputQuery,
+  setPreviousPage,
   setQueryLabel,
 } from "../../common/Navigation/navigationSlice";
 
@@ -39,6 +40,9 @@ function* fetchPeopleHandler({ payload: page }) {
       yield put(setInputQuery({ query }));
     } else {
     }
+
+    const pageName="people";
+    yield put(setPreviousPage({previousPage: pageName}));
 
     
   } catch (error) {

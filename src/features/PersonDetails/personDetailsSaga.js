@@ -7,11 +7,10 @@ import {
   personInputDelay,
 } from "./personDetailsSlice";
 import { getGenres, getPersonDetails, getPersonCredits } from "../api/apiData";
-import { setInputQuery } from "../../common/Navigation/navigationSlice";
+import { setInputQuery, setPreviousPage } from "../../common/Navigation/navigationSlice";
 
 function* fetchPersonDetailsHandler() {
   try {
-    yield delay(1000);
     const id = yield select(selectPersonId);
     const genres = yield call(getGenres);
     const details = yield call(getPersonDetails, id);
@@ -21,8 +20,10 @@ function* fetchPersonDetailsHandler() {
       throw new Error();
     }
     yield put(fetchPersonDetailsSuccess({ details, credits, genres }));
+
+    const pageName="person";
+    yield put(setPreviousPage({previousPage: pageName}));
   } catch (error) {
-    yield call(console.log, "putError");
     yield put(fetchPersonDetailsError());
   }
 }

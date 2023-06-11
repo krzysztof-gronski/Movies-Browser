@@ -19,6 +19,7 @@ import {
   selectInputRef,
   selectURLQuery,
   setInputQuery,
+  setPreviousPage,
   setQueryLabel,
 } from "../../common/Navigation/navigationSlice";
 
@@ -49,6 +50,8 @@ function* fetchMoviesHandler({ payload: page }) {
     } else {
       //inputRef.current.value = "";
     }
+    const pageName="movies";
+    yield put(setPreviousPage({previousPage: pageName}));
   } catch (error) {
     yield put(fetchMoviesError());
     console.log(error);

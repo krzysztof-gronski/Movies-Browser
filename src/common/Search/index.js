@@ -3,9 +3,14 @@ import { Input } from "./styled";
 import { useQueryParameter, useReplaceQueryParameter } from "./queryParameters";
 import searchQueryParamName from "./searchQueryParamName";
 import { useEffect, useRef, useState } from "react";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { inputDelay } from "../../features/MovieDetails/movieDetailsSlice";
-import { setInputQuery, setInputRef } from "../Navigation/navigationSlice";
+import {
+  selectPreviousPage,
+  setInputQuery,
+  setInputRef,
+  setPreviousPage,
+} from "../Navigation/navigationSlice";
 import { personInputDelay } from "../../features/PersonDetails/personDetailsSlice";
 
 const Search = () => {
@@ -16,6 +21,7 @@ const Search = () => {
   const inputRef = useRef(null);
   const history = useHistory();
   const dispatch = useDispatch();
+  let previousPage = useSelector(selectPreviousPage);
 
   //console.log(inputRef);
   // if (inputRef) {
@@ -23,18 +29,18 @@ const Search = () => {
   // }
 
   const onInputChange = ({ target }) => {
-    dispatch(setInputRef({ inputRef }));
+    //dispatch(setInputRef({ inputRef }));
     setQuery(target.value);
-    if (target.value === "") {
-      replaceQueryParameter({
-        key: searchQueryParamName,
-        value: "",
-      });
-    }
-    replaceQueryParameter({
-      key: searchQueryParamName,
-      value: target.value.trim() !== "" ? target.value : undefined,
-    });
+    // if (target.value === "") {
+    //   replaceQueryParameter({
+    //     key: searchQueryParamName,
+    //     value: "",
+    //   });
+    // }
+    // replaceQueryParameter({
+    //   key: searchQueryParamName,
+    //   value: target.value.trim() !== "" ? target.value : undefined,
+    // });
     if (location.pathname.includes("/movies")) {
       const inputQuery = target.value;
       dispatch(setInputQuery({ inputQuery }));
@@ -55,8 +61,10 @@ const Search = () => {
   }, [query]);
 
   useEffect(() => {
-    inputRef.current.value = "";
-  }, [location]);
+      inputRef.current.value = "";
+      setQuery("");
+      console.log(previousPage);
+  }, [previousPage]);
 
   return (
     <Input
