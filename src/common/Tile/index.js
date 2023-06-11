@@ -1,5 +1,5 @@
 import { nanoid } from "@reduxjs/toolkit";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import starIcon from "../TileContent/star.svg";
 import { Poster, TileContainer, StyledLink } from "./styled";
 
@@ -40,9 +40,19 @@ export const Tile = ({
   peopleListFlag,
   personDetailsFlag,
 }) => {
-  const [width2, setWidth] = useState(window.innerWidth);
+  const [width, setWidth] = useState(window.innerWidth);
   window.onresize = () => setWidth(window.innerWidth);
-  const isSmallScreen2 = width2 < 767;
+  const isSmallScreen = width < 767;
+
+  useEffect(() => {
+    const handleResize = () => {
+      setWidth(window.innerWidth);
+    };
+    window.addEventListener("resize", handleResize);
+    return () => {
+      window.removeEventListener("resize", handleResize);
+    };
+  }, []);
 
   return moviesListFlag ? (
     <StyledLink to={`/movie/${movie.id}`}>
@@ -79,7 +89,9 @@ export const Tile = ({
               <TextValue movieDetailsFlag>{production}</TextValue>
             </ProductionInfo>
             <ProductionShortInfo>
-              <TextValue movieDetailsFlag>{replaceLongCountryNames(production)}</TextValue>
+              <TextValue movieDetailsFlag>
+                {replaceLongCountryNames(production)}
+              </TextValue>
             </ProductionShortInfo>
           </>
         ) : null}
@@ -127,7 +139,7 @@ export const Tile = ({
           <TileTitle personDetailsFlag>{tileTitle}</TileTitle>
           <InfoField personDetailsFlag>
             <Label personDetailsFlag>
-              {!isSmallScreen2 ? "Date of birth:" : "Birth:"}
+              {!isSmallScreen ? "Date of birth:" : "Birth:"}
             </Label>
             <TextValue personDetailsFlag>{releaseDate}</TextValue>
           </InfoField>
