@@ -136,16 +136,20 @@ export const Tile = ({
         <Poster personDetailsFlag src={poster} alt="poster" />
         <TileContent personDetailsFlag>
           <TileTitle personDetailsFlag>{tileTitle}</TileTitle>
-          <InfoField personDetailsFlag>
-            <Label personDetailsFlag>
-              {!isSmallScreen ? "Date of birth:" : "Birth:"}
-            </Label>
-            <TextValue personDetailsFlag>{releaseDate}</TextValue>
-          </InfoField>
-          <InfoField personDetailsFlag>
-            <Label personDetailsFlag>{"Place of birth:"}</Label>
-            <TextValue personDetailsFlag>{production}</TextValue>
-          </InfoField>
+          {releaseDate ? (
+            <InfoField personDetailsFlag>
+              <Label personDetailsFlag>
+                {!isSmallScreen ? "Date of birth:" : "Birth:"}
+              </Label>
+              <TextValue personDetailsFlag>{releaseDate}</TextValue>
+            </InfoField>
+          ) : null}
+          {production ? (
+            <InfoField personDetailsFlag>
+              <Label personDetailsFlag>{"Place of birth:"}</Label>
+              <TextValue personDetailsFlag>{production}</TextValue>
+            </InfoField>
+          ) : null}
           <TileDescription personDetailsFlag>{description}</TileDescription>
         </TileContent>
         <MobileTileDescription personDetailsFlag>
