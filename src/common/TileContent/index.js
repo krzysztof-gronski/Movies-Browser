@@ -190,8 +190,8 @@ export const TileSubtitle = styled.div`
       font-weight: 400;
       text-align: center;
       align-self: center;
-      margin-bottom:10px;
-      color:${({theme}) => theme.colors.waterloo};
+      margin-bottom: 10px;
+      color: ${({ theme }) => theme.colors.waterloo};
       @media (max-width: ${({ theme }) => theme.breakpoints.tablet}px) {
         font-size: 13px;
         line-height: 16.9px;
@@ -201,6 +201,23 @@ export const TileSubtitle = styled.div`
 
 export const InfoField = styled.div`
   margin-bottom: 8px;
+`;
+
+export const ProductionInfo = styled.div`
+  margin-bottom: 8px;
+
+  @media (max-width: ${({ theme }) => theme.breakpoints.tablet}px) {
+    display: none;
+  }
+`;
+
+export const ProductionShortInfo = styled.div`
+  display: none;
+
+  @media (max-width: ${({ theme }) => theme.breakpoints.tablet}px) {
+    display: block;
+    margin-bottom: 0px;
+  }
 `;
 
 export const Label = styled.span`

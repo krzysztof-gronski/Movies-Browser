@@ -19,7 +19,10 @@ import {
   Votes,
   MaxRate,
   MobileTileDescription,
+  ProductionInfo,
+  ProductionShortInfo,
 } from "../TileContent";
+import { replaceLongCountryNames } from "../Utilities";
 
 export const Tile = ({
   movie,
@@ -70,10 +73,15 @@ export const Tile = ({
         <TileTitle movieDetailsFlag>{tileTitle}</TileTitle>
         <TileSubtitle movieDetailsFlag>{tileSubtitle}</TileSubtitle>
         {production ? (
-          <InfoField>
-            <Label movieDetailsFlag>{"Production:"}</Label>
-            <TextValue movieDetailsFlag>{isSmallScreen2 ? "ggg" : production}</TextValue>
-          </InfoField>
+          <>
+            <ProductionInfo>
+              <Label movieDetailsFlag>{"Production:"}</Label>
+              <TextValue movieDetailsFlag>{production}</TextValue>
+            </ProductionInfo>
+            <ProductionShortInfo>
+              <TextValue movieDetailsFlag>{replaceLongCountryNames(production)}</TextValue>
+            </ProductionShortInfo>
+          </>
         ) : null}
         {releaseDate ? (
           <InfoField>

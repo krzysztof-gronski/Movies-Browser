@@ -20,8 +20,11 @@ export const replaceLongCountryNames = (countryNames) => {
   const countriesMap = new Map([
     ["United States of America", "USA"],
     ["United Kingdom", "UK"],
+    ["Poland", "PL"],
   ]);
-  countriesMap.forEach((longName, shortName) => {
-    countryNames.replace(/longName/ig, shortName);
+  countriesMap.forEach((shortName, longName) => {
+    console.log(longName, shortName);
+    countryNames = countryNames.replace(longName, shortName);
   });
+  return countryNames;
 };
