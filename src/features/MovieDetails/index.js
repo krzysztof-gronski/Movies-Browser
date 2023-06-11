@@ -68,7 +68,6 @@ export const MovieDetails = () => {
         ) : null}
         <Container movieDetailsFlag>
           <Tile
-            //ref={someRef}
             movieDetailsFlag
             key={movieDetails.id}
             movie={movieDetails}

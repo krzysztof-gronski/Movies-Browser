@@ -37,9 +37,9 @@ export const Tile = ({
   peopleListFlag,
   personDetailsFlag,
 }) => {
-  const [width, setWidth] = useState(window.innerWidth);
+  const [width2, setWidth] = useState(window.innerWidth);
   window.onresize = () => setWidth(window.innerWidth);
-  const isSmallScreen = width < 767;
+  const isSmallScreen2 = width2 < 767;
 
   return moviesListFlag ? (
     <StyledLink to={`/movie/${movie.id}`}>
@@ -72,7 +72,7 @@ export const Tile = ({
         {production ? (
           <InfoField>
             <Label movieDetailsFlag>{"Production:"}</Label>
-            <TextValue movieDetailsFlag>{production}</TextValue>
+            <TextValue movieDetailsFlag>{isSmallScreen2 ? "ggg" : production}</TextValue>
           </InfoField>
         ) : null}
         {releaseDate ? (
@@ -119,7 +119,7 @@ export const Tile = ({
           <TileTitle personDetailsFlag>{tileTitle}</TileTitle>
           <InfoField personDetailsFlag>
             <Label personDetailsFlag>
-              {!isSmallScreen ? "Date of birth:" : "Birth:"}
+              {!isSmallScreen2 ? "Date of birth:" : "Birth:"}
             </Label>
             <TextValue personDetailsFlag>{releaseDate}</TextValue>
           </InfoField>
