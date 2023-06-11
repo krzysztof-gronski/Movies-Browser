@@ -41,7 +41,6 @@ export const Tile = ({
   personDetailsFlag,
 }) => {
   const [width, setWidth] = useState(window.innerWidth);
-  window.onresize = () => setWidth(window.innerWidth);
   const isSmallScreen = width < 767;
 
   useEffect(() => {

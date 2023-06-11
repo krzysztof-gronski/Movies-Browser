@@ -24,7 +24,11 @@ import missingPersonPoster from "../../images/missingPersonPoster.svg";
 import { Loader } from "../../common/Loader";
 import { ErrorPage } from "../../common/ErrorPage";
 import { nanoid } from "@reduxjs/toolkit";
-import { selectInputQuery, setInputQuery, setURLQuery } from "../../common/Navigation/navigationSlice";
+import {
+  selectInputQuery,
+  setInputQuery,
+  setURLQuery,
+} from "../../common/Navigation/navigationSlice";
 
 export const MovieDetails = () => {
   const dispatch = useDispatch();
@@ -114,7 +118,7 @@ export const MovieDetails = () => {
             votesNr={movieDetails.vote_count}
             description={movieDetails.overview}
           ></Tile>
-          {castPeople.length > 0 ? (
+          { !!castPeople[0] ? (
             <ContentContainer>
               <Header>Cast</Header>
               <TilesContainer peopleListFlag>
@@ -136,7 +140,7 @@ export const MovieDetails = () => {
               </TilesContainer>
             </ContentContainer>
           ) : null}
-          {crewPeople.length > 0 ? (
+          { !!crewPeople[0] ? (
             <ContentContainer>
               <Header>Crew</Header>
               <TilesContainer peopleListFlag>
