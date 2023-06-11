@@ -25,6 +25,7 @@ import { useState } from "react";
 import { useRef } from "react";
 import { Loader } from "../../common/Loader";
 import { ErrorPage } from "../../common/ErrorPage";
+import { nanoid } from "@reduxjs/toolkit";
 
 export const MovieDetails = () => {
   const dispatch = useDispatch();
@@ -48,7 +49,7 @@ export const MovieDetails = () => {
   //   }
   // });
 
-  console.log(castPeople);
+
 
   return status === "loading" ? (
     <Loader />
@@ -115,7 +116,7 @@ export const MovieDetails = () => {
                   <StyledLink to={`/person/${person.id}`}>
                     <Tile
                       peopleListFlag
-                      key={person.id}
+                      key={nanoid()}
                       poster={
                         person.profile_path
                           ? `${IMAGE_PATH}${person.profile_path}`
@@ -138,7 +139,7 @@ export const MovieDetails = () => {
                       <StyledLink to={`/person/${person.id}`}>
                         <Tile
                           peopleListFlag
-                          key={person.id}
+                          key={nanoid()}
                           poster={
                             person.profile_path
                               ? `${IMAGE_PATH}${person.profile_path}`

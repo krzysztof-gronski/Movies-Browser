@@ -18,11 +18,10 @@ import {
   selectDetails,
 } from "./personDetailsSlice";
 import { formatDate } from "../../common/Utilities";
-import {  selectPersonGenres,
-  selectStatus,
-} from "./personDetailsSlice";
+import { selectPersonGenres, selectStatus } from "./personDetailsSlice";
 import { Loader } from "../../common/Loader";
 import { ErrorPage } from "../../common/ErrorPage";
+import { nanoid } from "@reduxjs/toolkit";
 
 export const PersonDetails = () => {
   const dispatch = useDispatch();
@@ -38,14 +37,11 @@ export const PersonDetails = () => {
     dispatch(getDetailsForPerson({ personId: id }));
   }, [id, dispatch]);
 
-  console.log(castData);
-
-  return (
-    status === "loading" ? (
-      <Loader />
-    ) : status === "error" ? (
-      <ErrorPage />
-    ) : (
+  return status === "loading" ? (
+    <Loader />
+  ) : status === "error" ? (
+    <ErrorPage />
+  ) : (
     personDetails && (
       <Container personDetailsFlag>
         <Tile
@@ -73,7 +69,7 @@ export const PersonDetails = () => {
             {castData.map((movie) => (
               <Tile
                 moviesListFlag
-                key={movie.id}
+                key={nanoid()}
                 movie={movie}
                 poster={
                   movie.poster_path
@@ -99,7 +95,7 @@ export const PersonDetails = () => {
             {crewData.map((movie) => (
               <Tile
                 moviesListFlag
-                key={movie.id}
+                key={nanoid()}
                 movie={movie}
                 poster={
                   movie.poster_path
@@ -121,6 +117,5 @@ export const PersonDetails = () => {
         </ContentContainer>
       </Container>
     )
-  )
   );
 };
