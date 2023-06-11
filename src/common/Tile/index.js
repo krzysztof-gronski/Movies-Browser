@@ -19,7 +19,10 @@ import {
   Votes,
   MaxRate,
   MobileTileDescription,
+  ProductionInfo,
+  ProductionShortInfo,
 } from "../TileContent";
+import { replaceLongCountryNames } from "../Utilities";
 
 export const Tile = ({
   movie,
@@ -37,9 +40,9 @@ export const Tile = ({
   peopleListFlag,
   personDetailsFlag,
 }) => {
-  const [width, setWidth] = useState(window.innerWidth);
+  const [width2, setWidth] = useState(window.innerWidth);
   window.onresize = () => setWidth(window.innerWidth);
-  const isSmallScreen = width < 767;
+  const isSmallScreen2 = width2 < 767;
 
   return moviesListFlag ? (
     <StyledLink to={`/movie/${movie.id}`}>
@@ -70,10 +73,15 @@ export const Tile = ({
         <TileTitle movieDetailsFlag>{tileTitle}</TileTitle>
         <TileSubtitle movieDetailsFlag>{tileSubtitle}</TileSubtitle>
         {production ? (
-          <InfoField>
-            <Label movieDetailsFlag>{"Production:"}</Label>
-            <TextValue movieDetailsFlag>{production}</TextValue>
-          </InfoField>
+          <>
+            <ProductionInfo>
+              <Label movieDetailsFlag>{"Production:"}</Label>
+              <TextValue movieDetailsFlag>{production}</TextValue>
+            </ProductionInfo>
+            <ProductionShortInfo>
+              <TextValue movieDetailsFlag>{replaceLongCountryNames(production)}</TextValue>
+            </ProductionShortInfo>
+          </>
         ) : null}
         {releaseDate ? (
           <InfoField>
@@ -119,7 +127,7 @@ export const Tile = ({
           <TileTitle personDetailsFlag>{tileTitle}</TileTitle>
           <InfoField personDetailsFlag>
             <Label personDetailsFlag>
-              {!isSmallScreen ? "Date of birth:" : "Birth:"}
+              {!isSmallScreen2 ? "Date of birth:" : "Birth:"}
             </Label>
             <TextValue personDetailsFlag>{releaseDate}</TextValue>
           </InfoField>

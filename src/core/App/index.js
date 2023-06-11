@@ -2,9 +2,6 @@ import { HashRouter, Switch, Route, Redirect } from "react-router-dom";
 import Navigation from "../../common/Navigation";
 import { MoviesList } from "../../features/MoviesList";
 import { MovieDetails } from "../../features/MovieDetails";
-import { Loader } from "../../common/Loader";
-import { NoResults } from "../../common/NoResults";
-import { ErrorPage } from "../../common/ErrorPage";
 import { PersonDetails } from "../../features/PersonDetails";
 import { PeopleList } from "../../features/PeopleList";
 
@@ -14,27 +11,15 @@ function App() {
       <HashRouter>
         <Navigation />
         <Switch>
-          <Route path="/noresults">
-            <NoResults />
-          </Route>
-          <Route path="/loader">
-            <Loader />
-          </Route>
           <Route path="/person/:id">
             <PersonDetails />
           </Route>
-          {/* <Route path="/person">
-            <PersonDetails />
-          </Route> */}
           <Route path="/people">
             <PeopleList />
           </Route>
           <Route path="/movie/:id">
             <MovieDetails />
           </Route>
-          {/* <Route path="/movie">
-            <MovieDetails />
-          </Route> */}
           <Route path="/movies">
             <MoviesList />
           </Route>

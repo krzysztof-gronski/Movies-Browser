@@ -18,11 +18,10 @@ import {
   selectDetails,
 } from "./personDetailsSlice";
 import { formatDate } from "../../common/Utilities";
-import {  selectPersonGenres,
-  selectStatus,
-} from "./personDetailsSlice";
+import { selectPersonGenres, selectStatus } from "./personDetailsSlice";
 import { Loader } from "../../common/Loader";
 import { ErrorPage } from "../../common/ErrorPage";
+import { nanoid } from "@reduxjs/toolkit";
 import { selectInputQuery, setInputQuery, setURLQuery } from "../../common/Navigation/navigationSlice";
 
 export const PersonDetails = () => {
@@ -82,7 +81,7 @@ export const PersonDetails = () => {
             {castData.map((movie) => (
               <Tile
                 moviesListFlag
-                key={movie.id}
+                key={nanoid()}
                 movie={movie}
                 poster={
                   movie.poster_path
@@ -108,7 +107,7 @@ export const PersonDetails = () => {
             {crewData.map((movie) => (
               <Tile
                 moviesListFlag
-                key={movie.id}
+                key={nanoid()}
                 movie={movie}
                 poster={
                   movie.poster_path
@@ -130,6 +129,5 @@ export const PersonDetails = () => {
         </ContentContainer>
       </Container>
     )
-  )
   );
 };

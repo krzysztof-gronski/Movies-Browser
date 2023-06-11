@@ -13,7 +13,7 @@ import {
 } from "../../features/MoviesList/moviesListSlice";
 import { useEffect } from "react";
 import { useQueryParameter } from "../Search/queryParameters";
-import { formatDate } from "../Utilities";
+import { formatDate, getGenreName } from "../Utilities";
 import { Spinner } from "../Loader/styled";
 import { NoResultsImage } from "../NoResults/styled";
 import noReultsImage from "../NoResults/noresults.svg";
@@ -36,17 +36,8 @@ export const MainContainer = ({ genre, movie, search, noResults, error }) => {
     dispatch(fetchMovies(page));
   }, [dispatch, page]);
 
-  const getGenreName = (genreId) => {
-    if (genres && genres.length > 0) {
-      const genre = genres.find((genre) => genre.id === genreId);
-      return genre ? genre.name : "";
-    }
-    return "";
-  };
-
-  return movies.length>0 ? (
+  return movies.length > 0 ? (
     <Container moviesListFlag>
-
       <Header>Popular movies</Header>
       <TilesContainer>
         {movies &&
@@ -60,7 +51,9 @@ export const MainContainer = ({ genre, movie, search, noResults, error }) => {
               }
               tileTitle={movie.original_title}
               tileSubtitle={movie.release_date.slice(0, 4)}
-              genres={movie.genre_ids.map((genreId) => getGenreName(genreId))}
+              genres={movie.genre_ids.map((genreId) =>
+                getGenreName(genreId, genres)
+              )}
               rate={movie.vote_average}
               votesNr={movie.vote_count}
             ></Tile>
@@ -82,7 +75,9 @@ export const MainContainer = ({ genre, movie, search, noResults, error }) => {
           tileSubtitle={movie.release_date.slice(0, 4)}
           production={movie.production}
           releaseDate={formatDate(movie.release_date)}
-          genres={movie.genre_ids.map((genreId) => getGenreName(genreId))}
+          genres={movie.genre_ids.map((genreId) =>
+            getGenreName(genreId, genres)
+          )}
           rate={movie.vote_average}
           votesNr={movie.vote_count}
           description={movie.overview}
@@ -111,6 +106,3 @@ export const MainContainer = ({ genre, movie, search, noResults, error }) => {
     </Container>
   );
 };
-
-
-

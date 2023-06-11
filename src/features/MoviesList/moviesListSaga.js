@@ -2,7 +2,6 @@ import {
   call,
   put,
   select,
-  delay,
   debounce,
   takeLatest,
 } from "redux-saga/effects";

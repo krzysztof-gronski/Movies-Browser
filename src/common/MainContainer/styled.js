@@ -55,9 +55,8 @@ export const Container = styled.div`
     ${({ peopleListFlag }) =>
     peopleListFlag &&
     css`
-      padding: 56px 40px;
+      padding: 0px 40px;
     `}
-
 
     ${({ search }) =>
     search &&

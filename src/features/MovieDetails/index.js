@@ -23,6 +23,7 @@ import missingMoviePoster from "../../images/missingMoviePoster.svg";
 import missingPersonPoster from "../../images/missingPersonPoster.svg";
 import { Loader } from "../../common/Loader";
 import { ErrorPage } from "../../common/ErrorPage";
+import { nanoid } from "@reduxjs/toolkit";
 import { selectInputQuery, setInputQuery, setURLQuery } from "../../common/Navigation/navigationSlice";
 
 export const MovieDetails = () => {
@@ -76,7 +77,6 @@ export const MovieDetails = () => {
         ) : null}
         <Container movieDetailsFlag>
           <Tile
-            //ref={someRef}
             movieDetailsFlag
             key={movieDetails.id}
             movie={movieDetails}
@@ -122,7 +122,7 @@ export const MovieDetails = () => {
                   <StyledLink to={`/person/${person.id}`}>
                     <Tile
                       peopleListFlag
-                      key={person.id}
+                      key={nanoid()}
                       poster={
                         person.profile_path
                           ? `${IMAGE_PATH}${person.profile_path}`
@@ -145,7 +145,7 @@ export const MovieDetails = () => {
                       <StyledLink to={`/person/${person.id}`}>
                         <Tile
                           peopleListFlag
-                          key={person.id}
+                          key={nanoid()}
                           poster={
                             person.profile_path
                               ? `${IMAGE_PATH}${person.profile_path}`

@@ -1,5 +1,13 @@
 import { call, put, debounce, select, takeLatest } from "redux-saga/effects";
 import {
+  call,
+  put,
+  debounce,
+  select,
+} from "redux-saga/effects";
+import {
+  selectPage,
+  selectQuery,
   fetchPeople,
   fetchPeopleError,
   fetchPeopleSuccess,
