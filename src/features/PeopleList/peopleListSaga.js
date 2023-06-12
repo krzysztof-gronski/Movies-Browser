@@ -23,26 +23,31 @@ function* fetchPeopleHandler({ payload: page }) {
     const urlQuery = yield select(selectURLQuery);
     const inputQuery = yield select(selectInputQuery);
     let pageName = yield select(selectPreviousPage);
-    if(!inputQuery){pageName="people"+(new Date().toString())};
+
+    if (!inputQuery) {
+      pageName = "people" + new Date().toString();
+    }
+
     let people;
     if (urlQuery !== "") {
       people = yield call(searchPerson, urlQuery, page);
     } else {
       people = yield call(getPeople, page);
     }
+
     if (people.length < 1) {
       throw new Error();
     }
 
     yield put(setQueryLabel({ queryLabel: urlQuery }));
     yield put(fetchPeopleSuccess(people));
+
     if (inputQuery) {
       const query = "";
       yield put(setInputQuery({ query }));
     } else {
     }
-    yield put(setPreviousPage({previousPage: pageName}));
-
+    yield put(setPreviousPage({ previousPage: pageName }));
     
   } catch (error) {
     yield put(fetchPeopleError());

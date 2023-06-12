@@ -1,15 +1,14 @@
+import { TileContent, TileTitle } from "../TileContent";
 import {
   MaxRate,
   MobileVotes,
   Rate,
   RateContainer,
   StarIcon,
-  TileContent,
-  TileTitle,
   Votes,
-} from "../TileContent";
+} from "../RateContainer";
 import { BackdropContainer, BackdropImage, ContentContainer } from "./styled";
-import starIcon from "../TileContent/star.svg";
+import starIcon from "../RateContainer/star.svg";
 
 export const Backdrop = ({ backdropImage, movie }) => {
   return (
@@ -22,7 +21,9 @@ export const Backdrop = ({ backdropImage, movie }) => {
             <StarIcon src={starIcon} backdropFlag />
             <Rate backdropFlag>{movie.vote_average}</Rate>
             <MaxRate backdropFlag>{"/ 10"}</MaxRate>
-            <MobileVotes backdropFlag>{movie.vote_count + "       votes"}</MobileVotes>
+            <MobileVotes backdropFlag>
+              {movie.vote_count + "       votes"}
+            </MobileVotes>
           </RateContainer>
           <Votes backdropFlag>{movie.vote_count + "       votes"}</Votes>
         </TileContent>

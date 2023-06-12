@@ -4,7 +4,7 @@ import {
   ContentContainer,
   Header,
   TilesContainer,
-} from "../../common/MainContainer/styled";
+} from "../../common/Container";
 import { Tile } from "../../common/Tile";
 import { StyledLink } from "../MovieDetails/styled";
 import { IMAGE_PATH, BACK_IMAGE_PATH } from "../api/apiData";

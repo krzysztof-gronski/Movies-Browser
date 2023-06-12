@@ -4,7 +4,7 @@ import {
   ContentContainer,
   Header,
   TilesContainer,
-} from "../../common/MainContainer/styled";
+} from "../../common/Container";
 import { Tile } from "../../common/Tile";
 import missingPersonPoster from "../../images/missingPersonPoster.svg";
 import { IMAGE_PATH } from "../api/apiData";

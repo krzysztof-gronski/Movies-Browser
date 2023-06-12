@@ -1,15 +1,11 @@
 import { useHistory, useLocation } from "react-router-dom";
 import { Input } from "./styled";
-import { useQueryParameter, useReplaceQueryParameter } from "./queryParameters";
-import searchQueryParamName from "./searchQueryParamName";
 import { useEffect, useRef, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { inputDelay } from "../../features/MovieDetails/movieDetailsSlice";
 import {
   selectPreviousPage,
   setInputQuery,
-  setInputRef,
-  setPreviousPage,
 } from "../Navigation/navigationSlice";
 import { personInputDelay } from "../../features/PersonDetails/personDetailsSlice";
 
@@ -23,7 +19,7 @@ const Search = () => {
 
   const onInputChange = ({ target }) => {
     setQuery(target.value);
-  
+
     if (location.pathname.includes("/movies")) {
       const inputQuery = target.value;
       dispatch(setInputQuery({ inputQuery }));
@@ -44,8 +40,8 @@ const Search = () => {
   }, [query]);
 
   useEffect(() => {
-      inputRef.current.value = "";
-      setQuery("");
+    inputRef.current.value = "";
+    setQuery("");
   }, [previousPage]);
 
   return (
