@@ -15,7 +15,6 @@ import {
 } from "./moviesListSlice";
 import {
   selectInputQuery,
-  selectInputRef,
   selectURLQuery,
   setInputQuery,
   setPreviousPage,
@@ -28,7 +27,11 @@ function* fetchMoviesHandler({ payload: page }) {
     yield put(setStatus({ status }));
     const urlQuery = yield select(selectURLQuery);
     const inputQuery = yield select(selectInputQuery);
-    const inputRef = yield select(selectInputRef);
+    // console.log("IN"+inputQuery);
+    // console.log("URL"+urlQuery);
+    // let pageName="movies";
+    // if(inputQuery){pageName="movies";}else{pageName="movies"+(new Date().toString())};
+    // console.log(pageName);
     let movies;
     if (urlQuery !== "") {
       movies = yield call(searchMovie, urlQuery, page);
