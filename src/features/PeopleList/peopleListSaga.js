@@ -1,7 +1,5 @@
 import { call, put, debounce, select, takeLatest } from "redux-saga/effects";
 import {
-  selectPage,
-  selectQuery,
   fetchPeople,
   fetchPeopleError,
   fetchPeopleSuccess,
@@ -11,7 +9,7 @@ import {
 import { getPeople, searchPerson } from "../api/apiData";
 import {
   selectInputQuery,
-  selectInputRef,
+  selectPreviousPage,
   selectURLQuery,
   setInputQuery,
   setPreviousPage,
@@ -24,7 +22,8 @@ function* fetchPeopleHandler({ payload: page }) {
     yield put(setStatus({ status }));
     const urlQuery = yield select(selectURLQuery);
     const inputQuery = yield select(selectInputQuery);
-    const inputRef = yield select(selectInputRef);
+    let pageName = yield select(selectPreviousPage);
+    if(!inputQuery){pageName="people"+(new Date().toString())};
     let people;
     if (urlQuery !== "") {
       people = yield call(searchPerson, urlQuery, page);
@@ -42,8 +41,6 @@ function* fetchPeopleHandler({ payload: page }) {
       yield put(setInputQuery({ query }));
     } else {
     }
-
-    const pageName="people";
     yield put(setPreviousPage({previousPage: pageName}));
 
     
