@@ -15,32 +15,15 @@ import { personInputDelay } from "../../features/PersonDetails/personDetailsSlic
 
 const Search = () => {
   const location = useLocation();
-  //const query = useQueryParameter(searchQueryParamName);
   const [query, setQuery] = useState("");
-  const replaceQueryParameter = useReplaceQueryParameter();
   const inputRef = useRef(null);
   const history = useHistory();
   const dispatch = useDispatch();
   let previousPage = useSelector(selectPreviousPage);
 
-  //console.log(inputRef);
-  // if (inputRef) {
-  //   dispatch(setInputRef(inputRef ));
-  // }
-
   const onInputChange = ({ target }) => {
-    //dispatch(setInputRef({ inputRef }));
     setQuery(target.value);
-    // if (target.value === "") {
-    //   replaceQueryParameter({
-    //     key: searchQueryParamName,
-    //     value: "",
-    //   });
-    // }
-    // replaceQueryParameter({
-    //   key: searchQueryParamName,
-    //   value: target.value.trim() !== "" ? target.value : undefined,
-    // });
+  
     if (location.pathname.includes("/movies")) {
       const inputQuery = target.value;
       dispatch(setInputQuery({ inputQuery }));
@@ -63,7 +46,6 @@ const Search = () => {
   useEffect(() => {
       inputRef.current.value = "";
       setQuery("");
-      console.log(previousPage);
   }, [previousPage]);
 
   return (

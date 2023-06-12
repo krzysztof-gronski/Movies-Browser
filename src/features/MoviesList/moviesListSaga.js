@@ -39,10 +39,8 @@ function* fetchMoviesHandler({ payload: page }) {
     if (movies.length < 1 || genres.length < 1) {
       throw new Error();
     }
-    //yield call(console.log,urlQuery);
     yield put(setQueryLabel({ queryLabel: urlQuery }));
     yield put(fetchMoviesSuccess({ movies, genres }));
-    //inputRef.current.value = "";
     if (inputQuery) {
       const query = "";
       yield put(setInputQuery({ query }));
@@ -52,7 +50,6 @@ function* fetchMoviesHandler({ payload: page }) {
     yield put(setPreviousPage({previousPage: pageName}));
   } catch (error) {
     yield put(fetchMoviesError());
-    console.log(error);
   }
 }
 

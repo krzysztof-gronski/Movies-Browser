@@ -12,22 +12,17 @@ const navigationSlice = createSlice({
   reducers: {
     setInputQuery: (state, { payload }) => {
       state.inputQuery = payload.inputQuery;
-      //state.status = "loading";
     },
     setURLQuery: (state, { payload }) => {
       state.urlQuery = payload.urlQuery;
-      //state.status = "loading";
     },
     setQueryLabel: (state, { payload }) => {
       state.queryLabel = payload.queryLabel;
-      //state.status = "loading";
     },
     setInputRef: (state, { payload: search }) => {
-      //console.log(search.inputRef);
       state.inputRef = search.inputRef;
     },
     setPreviousPage: (state, { payload }) => {
-      //console.log(search.inputRef);
       state.previousPage = payload.previousPage;
     },
   },

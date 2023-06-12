@@ -43,8 +43,6 @@ export const MoviesList = () => {
     dispatch(setURLQuery(urlQuery ? { urlQuery: urlQuery } : { urlQuery: "" }));
     if (inputQuery) {
       dispatch(fetchSearchMovies(page));
-      // inputQuery="";
-      // dispatch(setInputQuery({inputQuery}));
     } else {
       dispatch(fetchMovies(page));
     }

@@ -38,7 +38,6 @@ export const MovieDetails = () => {
   const inputQuery = useSelector(selectInputQuery);
   const history = useHistory();
   let status = useSelector(selectStatus);
-  //const someRef = useRef(null);
 
   if (inputQuery) {
     const urlQuery = inputQuery;
@@ -53,14 +52,6 @@ export const MovieDetails = () => {
   useEffect(() => {
     dispatch(fetchMovieDetails({ movieId: id }));
   }, [id, dispatch]);
-
-  //let str = "dsfdf";
-
-  // window.addEventListener("resize", () => {
-  //   if (window.innerWidth <= 772) {
-  //     someRef.current.production = "fdfjjj";
-  //   }
-  // });
 
   return status === "loading" ? (
     <Loader />
