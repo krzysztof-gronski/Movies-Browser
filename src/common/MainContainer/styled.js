@@ -37,7 +37,6 @@ export const Container = styled.div`
       @media (max-width: ${({ theme }) => theme.breakpoints.smallScreen}px) {
         align-items: flex-start;
         padding: 56px 2vw;
-
       }
     `}
 
@@ -128,19 +127,15 @@ export const TilesContainer = styled.div`
       grid-template-columns: repeat(6, 208px);
 
       @media (max-width: ${({ theme }) => theme.breakpoints.smallScreen}px) {
-        grid-template-columns: repeat(5, 1fr);
+        grid-template-columns: repeat(auto-fill, minmax(236px, 1fr));
         width: 100%;
       }
-      @media (max-width: 1200px) {
-        grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
-        width: 100%;
-      }
-      @media (max-width: 880px) {
-        grid-template-columns: repeat(3, 1fr);
-        width: 100%;
-      }
-      @media (max-width: 440px) {
-        grid-template-columns: repeat(2, 1fr);
+
+      @media (max-width: ${({ theme }) => theme.breakpoints.tablet}px) {
+        grid-template-columns: 1fr 1fr;
+        justify-content: center;
+        padding: 0px 16px;
+        grid-gap: 16px;
         width: 100%;
       }
     `}

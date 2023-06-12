@@ -35,7 +35,17 @@ export const TileContent = styled.div`
     peopleListFlag &&
     css`
       gap: 10px;
-      margin: 0 15px;
+      margin: 0px 0px;
+
+      @media (max-width: ${({ theme }) => theme.breakpoints.smallScreen}px) {
+        width: 100%;
+        height: auto;
+        margin: 16px 0px 0px;
+      }
+      @media (max-width: ${({ theme }) => theme.breakpoints.tablet}px) {
+        margin: 2px 0px -38px;
+        width: 100%;
+      }
     `}
 
     ${({ personDetailsFlag }) =>
