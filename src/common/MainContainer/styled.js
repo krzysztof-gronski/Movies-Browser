@@ -89,6 +89,7 @@ export const Container = styled.div`
 export const ContentContainer = styled.div`
   margin: 0px 0px;
   padding: 60px 0px 0px;
+  //border: 1px solid red;
 
   @media (max-width: ${({ theme }) => theme.breakpoints.smallScreen}px) {
     width: 100%;
@@ -134,7 +135,7 @@ export const TilesContainer = styled.div`
       @media (max-width: ${({ theme }) => theme.breakpoints.tablet}px) {
         grid-template-columns: 1fr 1fr;
         justify-content: center;
-        padding: 0px 16px;
+        padding: 0px 0px;
         grid-gap: 16px;
         width: 100%;
       }
@@ -217,11 +218,12 @@ export const Header = styled.h1`
     ${({ peopleListFlag }) =>
     peopleListFlag &&
     css`
-      align-self: center;
-      width: 1372px;
-      @media (max-width: 1465px) {
-        width: auto;
-        align-self: flex-start;
+      @media (max-width: ${({ theme }) => theme.breakpoints.smallScreen}px) {
+        margin: 0px 0px 24px 0px;
+      }
+      @media (max-width: ${({ theme }) => theme.breakpoints.tablet}px) {
+        font-size: 18px;
+        margin: 0px 0px 12px 0px;
       }
     `}
 `;

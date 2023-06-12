@@ -64,7 +64,7 @@ export const PeopleList = () => {
         <Header peopleListFlag>
           {queryLabel
             ? `Search results for "${queryLabel}" (${totalResults})`
-            : "Popular movies"}
+            : "Popular people"}
         </Header>
         <TilesContainer peopleListFlag>
           {people.map((person) => (
