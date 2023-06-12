@@ -10,7 +10,7 @@ export const NoResults = () => {
     <Container noResults>
       <Header
         noResults
-      >{`Sorry, there are no results for "${query}"`}</Header>
+      >{`Sorry, there are no results for “${query}”`}</Header>
       <NoResultsImage src={noResultsImage} />
     </Container>
   );

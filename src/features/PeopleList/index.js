@@ -15,7 +15,6 @@ import {
   selectStatus,
   selectTotalPages,
   selectTotalResults,
-  setQuery,
 } from "./peopleListSlice";
 import { useEffect } from "react";
 import { useQueryParameter } from "../../common/Search/queryParameters";
@@ -63,7 +62,7 @@ export const PeopleList = () => {
       <ContentContainer>
         <Header peopleListFlag>
           {queryLabel
-            ? `Search results for "${queryLabel}" (${totalResults})`
+            ? `Search results for “${queryLabel}” (${totalResults})`
             : "Popular people"}
         </Header>
         <TilesContainer peopleListFlag>

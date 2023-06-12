@@ -59,7 +59,7 @@ export const MoviesList = () => {
       <ContentContainer>
         <Header>
           {queryLabel
-            ? `Search results for "${queryLabel}" (${totalResults})`
+            ? `Search results for “${queryLabel}” (${totalResults})`
             : "Popular movies"}
         </Header>
         <TilesContainer>

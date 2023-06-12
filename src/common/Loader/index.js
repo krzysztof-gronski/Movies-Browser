@@ -8,7 +8,7 @@ export const Loader = () => {
   const location = useLocation();
   let message;
   if (query) {
-    message = `Search results for "${query}"`;
+    message = `Search results for “${query}”`;
   } else if (location.pathname.includes("movies")) {
     message = "Search results for popular movies...";
   } else if (location.pathname.includes("people")) {
