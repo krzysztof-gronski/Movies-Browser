@@ -6,7 +6,7 @@ export const TileContainer = styled.div`
   grid-template-rows: auto 1fr;
   justify-items: center;
   width: 324px;
-  height: 100%; //650px;
+  height: 100%;
   background-color: ${({ theme }) => theme.colors.white};
   box-shadow: 0px 4px 12px rgba(186, 199, 213, 0.5);
   border-radius: 5px;
@@ -32,7 +32,6 @@ export const TileContainer = styled.div`
         width: 90vw;
         height: auto;
         grid-template-columns: 1fr 1fr;
-        //aspect-ratio: 1.432;
         min-width: 280px;
         min-height: 211px;
         grid-gap: 14px;

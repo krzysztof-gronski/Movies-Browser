@@ -22,7 +22,11 @@ import { selectPersonGenres, selectStatus } from "./personDetailsSlice";
 import { Loader } from "../../common/Loader";
 import { ErrorPage } from "../../common/ErrorPage";
 import { nanoid } from "@reduxjs/toolkit";
-import { selectInputQuery, setInputQuery, setURLQuery } from "../../common/Navigation/navigationSlice";
+import {
+  selectInputQuery,
+  setInputQuery,
+  setURLQuery,
+} from "../../common/Navigation/navigationSlice";
 
 export const PersonDetails = () => {
   const dispatch = useDispatch();
@@ -48,12 +52,11 @@ export const PersonDetails = () => {
     dispatch(getDetailsForPerson({ personId: id }));
   }, [id, dispatch]);
 
-  return (
-    status === "loading" ? (
-      <Loader />
-    ) : status === "error" ? (
-      <ErrorPage />
-    ) : (
+  return status === "loading" ? (
+    <Loader />
+  ) : status === "error" ? (
+    <ErrorPage />
+  ) : (
     personDetails && (
       <Container personDetailsFlag>
         <Tile
@@ -74,60 +77,65 @@ export const PersonDetails = () => {
           }
           description={personDetails.biography}
         ></Tile>
-
-        <ContentContainer>
-          <Header>{`Movies - cast (${castData.length})`}</Header>
-          <TilesContainer>
-            {castData.map((movie) => (
-              <Tile
-                moviesListFlag
-                key={nanoid()}
-                movie={movie}
-                poster={
-                  movie.poster_path
-                    ? `${IMAGE_PATH}${movie.poster_path}`
-                    : `${missingMoviePoster}`
-                }
-                tileTitle={movie.original_title}
-                tileSubtitle={
-                  movie.release_date ? movie.release_date.slice(0, 4) : ""
-                }
-                genres={movie.genre_ids.map(
-                  (genreId) => genres.find((genre) => genre.id === genreId).name
-                )}
-                rate={movie.vote_average}
-                votesNr={movie.vote_count}
-              ></Tile>
-            ))}
-          </TilesContainer>
-        </ContentContainer>
-        <ContentContainer>
-          <Header>{`Movies - crew (${crewData.length})`}</Header>
-          <TilesContainer>
-            {crewData.map((movie) => (
-              <Tile
-                moviesListFlag
-                key={nanoid()}
-                movie={movie}
-                poster={
-                  movie.poster_path
-                    ? `${IMAGE_PATH}${movie.poster_path}`
-                    : `${missingMoviePoster}`
-                }
-                tileTitle={movie.original_title}
-                tileSubtitle={
-                  movie.release_date ? movie.release_date.slice(0, 4) : ""
-                }
-                genres={movie.genre_ids.map(
-                  (genreId) => genres.find((genre) => genre.id === genreId).name
-                )}
-                rate={movie.vote_average}
-                votesNr={movie.vote_count}
-              ></Tile>
-            ))}
-          </TilesContainer>
-        </ContentContainer>
+        {!!castData[0] ? (
+          <ContentContainer>
+            <Header>{`Movies - cast (${castData.length})`}</Header>
+            <TilesContainer>
+              {castData.map((movie) => (
+                <Tile
+                  moviesListFlag
+                  key={nanoid()}
+                  movie={movie}
+                  poster={
+                    movie.poster_path
+                      ? `${IMAGE_PATH}${movie.poster_path}`
+                      : `${missingMoviePoster}`
+                  }
+                  tileTitle={movie.original_title}
+                  tileSubtitle={
+                    movie.release_date ? movie.release_date.slice(0, 4) : ""
+                  }
+                  genres={movie.genre_ids.map(
+                    (genreId) =>
+                      genres.find((genre) => genre.id === genreId).name
+                  )}
+                  rate={movie.vote_average}
+                  votesNr={movie.vote_count}
+                ></Tile>
+              ))}
+            </TilesContainer>
+          </ContentContainer>
+        ) : null}
+        {!!crewData[0] ? (
+          <ContentContainer>
+            <Header>{`Movies - crew (${crewData.length})`}</Header>
+            <TilesContainer>
+              {crewData.map((movie) => (
+                <Tile
+                  moviesListFlag
+                  key={nanoid()}
+                  movie={movie}
+                  poster={
+                    movie.poster_path
+                      ? `${IMAGE_PATH}${movie.poster_path}`
+                      : `${missingMoviePoster}`
+                  }
+                  tileTitle={movie.original_title}
+                  tileSubtitle={
+                    movie.release_date ? movie.release_date.slice(0, 4) : ""
+                  }
+                  genres={movie.genre_ids.map(
+                    (genreId) =>
+                      genres.find((genre) => genre.id === genreId).name
+                  )}
+                  rate={movie.vote_average}
+                  votesNr={movie.vote_count}
+                ></Tile>
+              ))}
+            </TilesContainer>
+          </ContentContainer>
+        ) : null}
       </Container>
     )
-  ));
+  );
 };

@@ -165,7 +165,7 @@ export const Header = styled.h1`
     css`
       align-self: flex-start;
       font-weight: 600;
-      font-size: 36px; //1.9vw;
+      font-size: 36px;
       line-height: 1.15;
       margin: 4vh 14.3vw 6vw 14.3vw;
 
@@ -185,7 +185,7 @@ export const Header = styled.h1`
     css`
       align-self: flex-start;
       font-weight: 600;
-      font-size: 36px; //1.9vw;
+      font-size: 36px;
       line-height: 1.15;
       margin: 4vh 14.3vw 2vw 14.3vw;
 

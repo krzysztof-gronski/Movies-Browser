@@ -24,7 +24,11 @@ import missingPersonPoster from "../../images/missingPersonPoster.svg";
 import { Loader } from "../../common/Loader";
 import { ErrorPage } from "../../common/ErrorPage";
 import { nanoid } from "@reduxjs/toolkit";
-import { selectInputQuery, setInputQuery, setURLQuery } from "../../common/Navigation/navigationSlice";
+import {
+  selectInputQuery,
+  setInputQuery,
+  setURLQuery,
+} from "../../common/Navigation/navigationSlice";
 
 export const MovieDetails = () => {
   const dispatch = useDispatch();
@@ -34,7 +38,6 @@ export const MovieDetails = () => {
   const inputQuery = useSelector(selectInputQuery);
   const history = useHistory();
   let status = useSelector(selectStatus);
-  //const someRef = useRef(null);
 
   if (inputQuery) {
     const urlQuery = inputQuery;
@@ -49,14 +52,6 @@ export const MovieDetails = () => {
   useEffect(() => {
     dispatch(fetchMovieDetails({ movieId: id }));
   }, [id, dispatch]);
-
-  //let str = "dsfdf";
-
-  // window.addEventListener("resize", () => {
-  //   if (window.innerWidth <= 772) {
-  //     someRef.current.production = "fdfjjj";
-  //   }
-  // });
 
   return status === "loading" ? (
     <Loader />
@@ -114,7 +109,7 @@ export const MovieDetails = () => {
             votesNr={movieDetails.vote_count}
             description={movieDetails.overview}
           ></Tile>
-          {castPeople.length > 0 ? (
+          { !!castPeople[0] ? (
             <ContentContainer>
               <Header>Cast</Header>
               <TilesContainer peopleListFlag>
@@ -136,7 +131,7 @@ export const MovieDetails = () => {
               </TilesContainer>
             </ContentContainer>
           ) : null}
-          {crewPeople.length > 0 ? (
+          { !!crewPeople[0] ? (
             <ContentContainer>
               <Header>Crew</Header>
               <TilesContainer peopleListFlag>

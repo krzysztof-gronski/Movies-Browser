@@ -14,11 +14,9 @@ const moviesListSlice = createSlice({
   reducers: {
     fetchMovies: (state, { payload: page }) => {
       state.page = page;
-      //state.status = "loading";
     },
     fetchSearchMovies: (state, { payload: page }) => {
       state.page = page;
-      //state.status = "loading";
     },
     fetchMoviesSuccess: (state, { payload: moviesData }) => {
       state.movies = moviesData.movies.results;

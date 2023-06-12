@@ -15,7 +15,6 @@ function* fetchPersonDetailsHandler() {
     const genres = yield call(getGenres);
     const details = yield call(getPersonDetails, id);
     const credits = yield call(getPersonCredits, id);
-    console.log(credits);
     if (genres.length < 1 || details.length < 1 || !credits) {
       throw new Error();
     }
@@ -34,7 +33,6 @@ function* inputDelayHandler({ payload }) {
     yield put(setInputQuery({inputQuery}));
     
   } catch (error) {
-    yield call(console.log, error);
   }
 }
 

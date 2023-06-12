@@ -1,7 +1,7 @@
 import styled from "styled-components";
 
 export const Spinner = styled.div`
-  width: 91px; //4.8vw;
+  width: 91px;
   height: 91px;
   border: 11.5px solid ${({ theme }) => theme.colors.snuff};
   border-top-color: ${({ theme }) => theme.colors.black};

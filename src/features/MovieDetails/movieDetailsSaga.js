@@ -47,7 +47,6 @@ function* inputDelayHandler({ payload }) {
     yield put(setInputQuery({inputQuery}));
     
   } catch (error) {
-    yield call(console.log, error);
   }
 }
 

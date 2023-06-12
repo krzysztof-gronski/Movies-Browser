@@ -116,12 +116,13 @@ export const TileTitle = styled.header`
       line-height: 1.2;
 
       @media (max-width: ${({ theme }) => theme.breakpoints.tablet}px) {
-        margin: 1px 0px 0px 0px;
+        margin: 1px 0px 8px 0px;
         font-weight: 500;
         font-size: 14px;
         line-height: 1.3;
       }
     `}
+
     ${({ backdropFlag }) =>
     backdropFlag &&
     css`
@@ -135,6 +136,7 @@ export const TileTitle = styled.header`
         font-size: 24px;
       }
     `}
+
     ${({ peopleListFlag }) =>
     peopleListFlag &&
     css`
@@ -201,6 +203,15 @@ export const TileSubtitle = styled.div`
 
 export const InfoField = styled.div`
   margin-bottom: 8px;
+
+  ${({ personDetailsFlag }) =>
+    personDetailsFlag &&
+    css`
+      @media (max-width: ${({ theme }) => theme.breakpoints.tablet}px) {
+        margin-bottom: 0px;
+        margin-top: 2px;
+      }
+    `}
 `;
 
 export const ProductionInfo = styled.div`
