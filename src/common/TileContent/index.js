@@ -35,7 +35,8 @@ export const TileContent = styled.div`
     peopleListFlag &&
     css`
       gap: 10px;
-      margin: 0 15px;
+      margin: 0px 0px 0px 0px;
+      padding: 0px 0px;
     `}
 
     ${({ personDetailsFlag }) =>
@@ -147,6 +148,7 @@ export const TileTitle = styled.header`
       line-height: 1.3;
       text-align: center;
       align-self: center;
+      margin-top: 5px;
       @media (max-width: ${({ theme }) => theme.breakpoints.tablet}px) {
         font-size: 14px;
         width: auto;

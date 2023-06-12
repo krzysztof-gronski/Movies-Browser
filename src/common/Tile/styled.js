@@ -93,8 +93,7 @@ export const TileContainer = styled.div`
       min-height: 350px;
       max-height: 450px;
       transition: transform 0.3s linear;
-      padding-left: 5px;
-      padding-top: 2px;
+      padding: 2px 0px 10px 5px;
 
       &:hover {
         cursor: pointer;
@@ -106,8 +105,7 @@ export const TileContainer = styled.div`
         min-width: 190px;
         min-height: 345px;
         max-height: 475px;
-        padding-left: 0px;
-        padding-top: 0px;
+        padding: 16px 8px 8px;
       }
       @media (max-width: 1200px) {
         width: 100%;
@@ -191,17 +189,18 @@ export const Poster = styled.img`
       margin-top: 12px;
       border-radius: 5px;
       @media (max-width: ${({ theme }) => theme.breakpoints.smallScreen}px) {
-        height: auto;
         width: 100%;
+        height: auto;
+        margin: 0px 0px;
       }
       @media (max-width: 1200px) {
-        height: auto;
         width: 100%;
+        height: auto;
       }
 
       @media (max-width: ${({ theme }) => theme.breakpoints.tablet}px) {
-        height: auto;
         width: 100%;
+        height: auto;
       }
     `}
 `;
