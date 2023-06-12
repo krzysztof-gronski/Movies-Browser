@@ -1,6 +1,6 @@
 {
   "files": {
-    "main.js": "/Movies-Browser/static/js/main.70da94c8.js",
+    "main.js": "/Movies-Browser/static/js/main.980eb9da.js",
     "static/js/787.94542015.chunk.js": "/Movies-Browser/static/js/787.94542015.chunk.js",
     "static/media/noresults.svg": "/Movies-Browser/static/media/noresults.d286a671797f1244d0ba26eeaa04cf6f.svg",
     "static/media/missingPersonPoster.svg": "/Movies-Browser/static/media/missingPersonPoster.043562f19f2dcc4b30faa6f2a9fdeadd.svg",
@@ -11,10 +11,10 @@
     "static/media/camera.svg": "/Movies-Browser/static/media/camera.64519bacc48e8f0f2a39675e55643d9b.svg",
     "static/media/smallSearch.svg": "/Movies-Browser/static/media/smallSearch.5d817a78f9c7561a8c5e8ff9642c3d6c.svg",
     "static/media/search.svg": "/Movies-Browser/static/media/search.5aa061ea8ce958db2e2c813d81e21cf7.svg",
-    "main.70da94c8.js.map": "/Movies-Browser/static/js/main.70da94c8.js.map",
+    "main.980eb9da.js.map": "/Movies-Browser/static/js/main.980eb9da.js.map",
     "787.94542015.chunk.js.map": "/Movies-Browser/static/js/787.94542015.chunk.js.map"
   },
   "entrypoints": [
-    "static/js/main.70da94c8.js"
+    "static/js/main.980eb9da.js"
   ]
 }
