@@ -135,9 +135,8 @@ export const TilesContainer = styled.div`
 
       @media (max-width: ${({ theme }) => theme.breakpoints.tablet}px) {
         grid-template-columns: 1fr 1fr;
-        //justify-content: center;
         padding: 0px 0px;
-        grid-gap: 16px;
+        grid-gap: 4vw;
         width: 100%;
       }
     `}
