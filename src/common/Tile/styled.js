@@ -90,8 +90,8 @@ export const TileContainer = styled.div`
     css`
       width: 208px;
       transition: transform 0.3s linear;
-      padding-left: 5px;
-      padding-top: 2px;
+      padding-left: 0px;
+      padding-top: 4px;
       padding-bottom: 16px;
       grid-gap: 16px;
 
