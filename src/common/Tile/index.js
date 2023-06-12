@@ -120,8 +120,8 @@ export const Tile = ({
   ) : peopleListFlag ? (
     <>
       <TileContainer peopleListFlag>
+        <Poster peopleListFlag src={poster} alt="poster" />
         <TileContent peopleListFlag>
-          <Poster peopleListFlag src={poster} alt="poster" />
           <TileTitle peopleListFlag>{tileTitle}</TileTitle>
           <TileSubtitle peopleListFlag>{tileSubtitle}</TileSubtitle>
         </TileContent>

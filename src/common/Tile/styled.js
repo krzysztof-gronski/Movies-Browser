@@ -89,45 +89,33 @@ export const TileContainer = styled.div`
     peopleListFlag &&
     css`
       width: 208px;
-      min-height: 350px;
-      max-height: 450px;
       transition: transform 0.3s linear;
       padding-left: 5px;
       padding-top: 2px;
+      padding-bottom: 16px;
+      grid-gap: 16px;
 
       &:hover {
         cursor: pointer;
         transform: scale(1.02);
       }
       @media (max-width: ${({ theme }) => theme.breakpoints.smallScreen}px) {
+        grid-gap: 0px;
         width: 100%;
+        min-width: 236px;
         height: 100%;
-        min-width: 190px;
-        min-height: 345px;
-        max-height: 475px;
-        padding-left: 0px;
-        padding-top: 0px;
-      }
-      @media (max-width: 1200px) {
-        width: 100%;
-        height: 100%;
-        max-height: 500px;
-        padding-left: 0px;
-        padding-top: 0px;
+        padding: 16px 16px;
+        margin: 0px 0px;
       }
       @media (max-width: ${({ theme }) => theme.breakpoints.tablet}px) {
-        min-width: 125px;
-        min-height: 245px;
+        display: flex;
+        flex-direction: column;
+        width: 42vw;
+        min-width: 120px;
         height: 100%;
-        padding-left: 0px;
-        padding-top: 0px;
-      }
-      @media (max-width: 440px) {
-        min-width: 136px;
-        min-height: 245px;
-        height: 100%;
-        padding-left: 0px;
-        padding-top: 0px;
+        padding: 8px 8px;
+        margin: 0px 0px;
+        gap: 8px;
       }
     `}
 `;
@@ -190,17 +178,14 @@ export const Poster = styled.img`
       margin-top: 12px;
       border-radius: 5px;
       @media (max-width: ${({ theme }) => theme.breakpoints.smallScreen}px) {
-        height: auto;
         width: 100%;
-      }
-      @media (max-width: 1200px) {
         height: auto;
-        width: 100%;
+        margin: 0px 0px;
+        padding: 0px 0px;
       }
-
       @media (max-width: ${({ theme }) => theme.breakpoints.tablet}px) {
-        height: auto;
         width: 100%;
+        height: auto;
       }
     `}
 `;

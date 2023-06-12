@@ -37,7 +37,6 @@ export const Container = styled.div`
       @media (max-width: ${({ theme }) => theme.breakpoints.smallScreen}px) {
         align-items: flex-start;
         padding: 56px 2vw;
-
       }
     `}
 
@@ -90,6 +89,7 @@ export const Container = styled.div`
 export const ContentContainer = styled.div`
   margin: 0px 0px;
   padding: 60px 0px 0px;
+  //border: 1px solid red;
 
   @media (max-width: ${({ theme }) => theme.breakpoints.smallScreen}px) {
     width: 100%;
@@ -97,7 +97,8 @@ export const ContentContainer = styled.div`
   }
 
   @media (max-width: ${({ theme }) => theme.breakpoints.tablet}px) {
-    width: 100%;
+    width: auto;
+    margin: 0 auto;
     padding: 20px 0px;
   }
 `;
@@ -128,19 +129,15 @@ export const TilesContainer = styled.div`
       grid-template-columns: repeat(6, 208px);
 
       @media (max-width: ${({ theme }) => theme.breakpoints.smallScreen}px) {
-        grid-template-columns: repeat(5, 1fr);
+        grid-template-columns: repeat(auto-fill, minmax(236px, 1fr));
         width: 100%;
       }
-      @media (max-width: 1200px) {
-        grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
-        width: 100%;
-      }
-      @media (max-width: 880px) {
-        grid-template-columns: repeat(3, 1fr);
-        width: 100%;
-      }
-      @media (max-width: 440px) {
-        grid-template-columns: repeat(2, 1fr);
+
+      @media (max-width: ${({ theme }) => theme.breakpoints.tablet}px) {
+        grid-template-columns: 1fr 1fr;
+        //justify-content: center;
+        padding: 0px 0px;
+        grid-gap: 16px;
         width: 100%;
       }
     `}
@@ -222,11 +219,12 @@ export const Header = styled.h1`
     ${({ peopleListFlag }) =>
     peopleListFlag &&
     css`
-      align-self: center;
-      width: 1372px;
-      @media (max-width: 1465px) {
-        width: auto;
-        align-self: flex-start;
+      @media (max-width: ${({ theme }) => theme.breakpoints.smallScreen}px) {
+        margin: 0px 0px 24px 0px;
+      }
+      @media (max-width: ${({ theme }) => theme.breakpoints.tablet}px) {
+        font-size: 18px;
+        margin: 0px 0px 12px 0px;
       }
     `}
 `;
