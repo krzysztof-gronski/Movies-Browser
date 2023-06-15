@@ -4,7 +4,7 @@ import {
   ContentContainer,
   Header,
   TilesContainer,
-} from "../../common/MainContainer/styled";
+} from "../../common/Container";
 import { Tile } from "../../common/Tile";
 import { useDispatch, useSelector } from "react-redux";
 import { useEffect } from "react";

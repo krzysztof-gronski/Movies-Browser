@@ -1,4 +1,4 @@
-import { Container, Header } from "../MainContainer/styled";
+import { Container, Header } from "../Container";
 import { NoResultsImage } from "./styled";
 import noResultsImage from "./noresults.svg";
 import { useQueryParameter } from "../Search/queryParameters";

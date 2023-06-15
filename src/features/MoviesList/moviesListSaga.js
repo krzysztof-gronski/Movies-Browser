@@ -1,10 +1,4 @@
-import {
-  call,
-  put,
-  select,
-  debounce,
-  takeLatest,
-} from "redux-saga/effects";
+import { call, put, select, debounce, takeLatest } from "redux-saga/effects";
 import { getGenres, getMovies, searchMovie } from "../api/apiData";
 import {
   fetchMovies,
@@ -29,18 +23,23 @@ function* fetchMoviesHandler({ payload: page }) {
     const urlQuery = yield select(selectURLQuery);
     const inputQuery = yield select(selectInputQuery);
     let pageName = yield select(selectPreviousPage);
-    if(!inputQuery){pageName="movies"+(new Date().toString())};
-    console.log(pageName);
+
+    if (!inputQuery) {
+      pageName = "movies" + new Date().toString();
+    }
+
     let movies;
     if (urlQuery !== "") {
       movies = yield call(searchMovie, urlQuery, page);
     } else {
       movies = yield call(getMovies, page);
     }
+
     const genres = yield call(getGenres);
     if (movies.length < 1 || genres.length < 1) {
       throw new Error();
     }
+
     yield put(setQueryLabel({ queryLabel: urlQuery }));
     yield put(fetchMoviesSuccess({ movies, genres }));
     if (inputQuery) {
@@ -48,7 +47,8 @@ function* fetchMoviesHandler({ payload: page }) {
       yield put(setInputQuery({ query }));
     } else {
     }
-    yield put(setPreviousPage({previousPage: pageName}));
+    yield put(setPreviousPage({ previousPage: pageName }));
+    
   } catch (error) {
     yield put(fetchMoviesError());
   }

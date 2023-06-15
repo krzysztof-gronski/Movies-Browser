@@ -1,6 +1,6 @@
 import { nanoid } from "@reduxjs/toolkit";
 import { useEffect, useState } from "react";
-import starIcon from "../TileContent/star.svg";
+import starIcon from "../RateContainer/star.svg";
 import { Poster, TileContainer, StyledLink } from "./styled";
 
 import {
@@ -9,19 +9,15 @@ import {
   TileSubtitle,
   TileGenres,
   TileGenre,
-  StarIcon,
-  RateContainer,
-  Rate,
   InfoField,
   Label,
   TextValue,
   TileDescription,
-  Votes,
-  MaxRate,
   MobileTileDescription,
   ProductionInfo,
   ProductionShortInfo,
 } from "../TileContent";
+import { StarIcon, Rate, Votes, MaxRate, RateContainer } from "../RateContainer";
 import { replaceLongCountryNames } from "../Utilities";
 
 export const Tile = ({

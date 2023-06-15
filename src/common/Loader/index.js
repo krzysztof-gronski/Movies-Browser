@@ -1,5 +1,5 @@
 import { useLocation } from "react-router-dom";
-import { Container, Header } from "../MainContainer/styled";
+import { Container, Header } from "../Container";
 import { useQueryParameter } from "../Search/queryParameters";
 import { Spinner } from "./styled";
 

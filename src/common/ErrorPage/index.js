@@ -1,4 +1,4 @@
-import { Container, Header, Message } from "../MainContainer/styled";
+import { Container, Header, Message } from "../Container";
 import { ErrorImage, LinkButton } from "./styled";
 import errorImage from "./error.svg";
 

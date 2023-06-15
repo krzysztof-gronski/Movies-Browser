@@ -5,7 +5,7 @@ import {
   ContentContainer,
   Header,
   TilesContainer,
-} from "../../common/MainContainer/styled";
+} from "../../common/Container";
 import { Tile } from "../../common/Tile";
 import Pagination from "../../common/Pagination";
 import { useQueryParameter } from "../../common/Search/queryParameters";
@@ -23,7 +23,11 @@ import {
   selectTotalResults,
 } from "./moviesListSlice";
 import { IMAGE_PATH } from "../api/apiData";
-import { selectInputQuery, selectQueryLabel, setURLQuery } from "../../common/Navigation/navigationSlice";
+import {
+  selectInputQuery,
+  selectQueryLabel,
+  setURLQuery,
+} from "../../common/Navigation/navigationSlice";
 
 export const MoviesList = () => {
   const dispatch = useDispatch();
@@ -52,7 +56,7 @@ export const MoviesList = () => {
     <Loader />
   ) : status === "error" ? (
     <ErrorPage />
-  ) : ((urlQuery || inputQuery) && movies.length <= 0) ? (
+  ) : (urlQuery || inputQuery) && movies.length <= 0 ? (
     <NoResults />
   ) : (
     <Container moviesListFlag>
